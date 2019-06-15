@@ -5,11 +5,12 @@
 
 ## LaunchImage — iOS app启动图一键生成
 ```
+目前支持到iOS12 iPhone XS Max
 1. 将自己的图片替换命名为Default 然后替换 Default.png；
 2. 终端此文件下执行：sh AppLaunch.sh；
 3. 然后将生成的LaunchImage.launchimage文件夹，拖入项目中即可；
 ```
---
+
 ## Fastlane_lazy — iOS app自动化集成/打包
 ```
 lazy模式：因为同时负责多个项目，本着fastlane文件写一个就能所有项目拖过去直接用的目的而创建。（涉及到项目的地方已做除密处理）
