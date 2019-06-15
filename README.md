@@ -1,7 +1,7 @@
 <img src="https://raw.githubusercontent.com/ReactiveX/RxSwift/master/assets/Rx_Logo_M.png" alt="" width="36" height="36"> EfficientWork
 ====================================== 
 
-![](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/Beach.png?raw=true)
+![帮助大家省出时间去享受生活](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/Beach.png?raw=true)
 
 ## LaunchImage — iOS app启动图一键生成
 ```
