@@ -1,6 +1,8 @@
 <img src="https://raw.githubusercontent.com/ReactiveX/RxSwift/master/assets/Rx_Logo_M.png" alt="" width="36" height="36"> EfficientWork
 ====================================== 
 
+![](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/Beach.png?raw=true)
+
 ## LaunchImage — iOS app启动图一键生成
 ```
 1. 将自己的图片替换命名为Default 然后替换 Default.png；
