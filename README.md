@@ -1,6 +1,5 @@
-# EfficientWork
-
-让繁琐工作自动化
+<img src="https://raw.githubusercontent.com/ReactiveX/RxSwift/master/assets/Rx_Logo_M.png" alt="" width="36" height="36"> EfficientWork
+====================================== 
 
 ## LaunchImage — iOS app启动图一键生成
 ```
@@ -8,7 +7,7 @@
 2. 终端此文件下执行：sh AppLaunch.sh；
 3. 然后将生成的LaunchImage.launchimage文件夹，拖入项目中即可；
 ```
-
+--
 ## Fastlane_lazy — iOS app自动化集成/打包
 ```
 lazy模式：因为同时负责多个项目，本着fastlane文件写一个就能所有项目拖过去直接用的目的而创建。（涉及到项目的地方已做除密处理）
