@@ -3,12 +3,12 @@
 
 ![帮助大家省出时间去享受生活](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/Beach.png?raw=true)
 
-## LaunchImage — iOS app启动图一键生成
+## IconAndLaunch — iOS app图标和启动图一键生成
 ```
 目前支持到iOS12 iPhone XS Max
-1. 将自己的图片替换命名为Default 然后替换 Default.png；
-2. 终端此文件下执行：sh AppLaunch.sh；
-3. 然后将生成的LaunchImage.launchimage文件夹，拖入项目中即可；
+1. 将自己的图片替换命名为AppIcon.png/AppLaunch.png 替换原文件；
+2. 终端此文件下执行：sh AppIcon.sh/AppLaunch.sh，对应生成AppIcon.appiconset/LaunchImage.launchimage文件夹
+3. 将生成的文件夹根据需要拖入项目中即可；
 ```
 
 ## Fastlane_lazy — iOS app自动化集成/打包
