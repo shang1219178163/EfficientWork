@@ -10,7 +10,7 @@
 2. 终端此文件下执行：sh AppIcon.sh/AppLaunch.sh，对应生成AppIcon.appiconset/LaunchImage.launchimage文件夹
 3. 将生成的文件夹根据需要拖入项目中即可；
 
-AppLaunch.sh目前支持iPhone、iPad、iMac三种类型图标；启动图仅支持iPhone。
+app图标生成支持iPhone、iPad、iMac三种类型图标；启动图仅支持iPhone。
 备注： 执行操作之前最好在 https://tinypng.com/ 进行压缩，达到最优体积。
 ```
 
