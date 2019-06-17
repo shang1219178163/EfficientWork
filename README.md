@@ -5,10 +5,12 @@
 
 ## IconAndLaunch — iOS app图标和启动图一键生成
 ```
-目前支持到iOS12 iPhone XS Max
+(目前支持到iOS12 iPhone XS Max)
 1. 将自己的图片替换命名为AppIcon.png/AppLaunch.png 替换原文件；
 2. 终端此文件下执行：sh AppIcon.sh/AppLaunch.sh，对应生成AppIcon.appiconset/LaunchImage.launchimage文件夹
 3. 将生成的文件夹根据需要拖入项目中即可；
+
+备注： 执行操作之前最好在 https://tinypng.com/ 进行压缩，达到最优体积。
 ```
 
 ## Fastlane_lazy — iOS app自动化集成/打包
