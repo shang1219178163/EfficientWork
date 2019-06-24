@@ -31,4 +31,11 @@ lazy模式：因为同时负责多个项目，本着fastlane文件写一个就�
   scheme的配置和项目实际情况一一对应（特别是多targt模式）；
 ```
 
+## JonToModel — json字符串一键生成模型文件（ObjC && Swift）
+
+自己开发的字符串生成模型文件，目前支持MJExtension、YYModel、HandyJson
+
+[JsonToModel.dmg](https://github.com/shang1219178163/MacTemplet/releases/tag/release1.1.0)
+
+
 
