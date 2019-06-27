@@ -37,7 +37,8 @@ lazy模式：因为同时负责多个项目，本着fastlane文件写一个就�
 
 [JsonToModel.dmg](https://github.com/shang1219178163/MacTemplet/releases/tag/release1.1.0)
 
-![效果图](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/JsonToModel.png?raw=true)
+![效果图](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/screenshot.png?raw=true)
+![效果图](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/screenshot1.png?raw=true)
 
 
 
