@@ -3,7 +3,7 @@
 
 ![帮助大家省出时间去享受生活](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/Beach.png?raw=true)
 
-## IconAndLaunch — iOS app图标和启动图一键生成
+##第一篇章： IconAndLaunch — iOS app图标和启动图一键生成
 ```
 (目前支持到iOS12 iPhone XS Max)
 1. 将自己的图片替换命名为AppIcon.png/AppLaunch.png 替换原文件；
