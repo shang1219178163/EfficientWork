@@ -3,7 +3,7 @@
 
 ![帮助大家省出时间去享受生活](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/Beach.png?raw=true)
 
-##第一篇章： IconAndLaunch — iOS app图标和启动图一键生成
+## 第一篇章： IconAndLaunch — iOS app图标和启动图一键生成
 ```
 (目前支持到iOS12 iPhone XS Max)
 1. 将自己的图片替换命名为AppIcon.png/AppLaunch.png 替换原文件；
@@ -14,7 +14,7 @@ app图标生成支持iPhone、iPad、iMac三种类型图标；启动图仅支持
 备注： 执行操作之前最好在 https://tinypng.com/ 进行压缩，达到最优体积。
 ```
 
-## Fastlane_lazy — iOS app自动化集成/打包
+## 第二篇章： Fastlane_lazy — iOS app自动化集成/打包
 ```
 lazy模式：因为同时负责多个项目，本着fastlane文件写一个就能所有项目拖过去直接用的目的而创建。（涉及到项目的地方已做除密处理）
 
@@ -31,7 +31,7 @@ lazy模式：因为同时负责多个项目，本着fastlane文件写一个就�
   scheme的配置和项目实际情况一一对应（特别是多targt模式）；
 ```
 
-## CodeHelper — App代码助手（ObjC && Swift）
+## 第三篇章： CodeHelper — App代码助手（ObjC && Swift）
 
 功能：
 
