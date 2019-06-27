@@ -34,8 +34,10 @@ lazy模式：因为同时负责多个项目，本着fastlane文件写一个就�
 ## CodeHelper — App代码助手（ObjC && Swift）
 
 功能：
-1.自己开发的字符串生成模型文件，目前支持MJExtension、YYModel、HandyJson
-2.根据属性一键生成lazy方法
+
+1.字符串生成模型文件，目前支持MJExtension、YYModel、HandyJson；
+
+2.根据属性一键生成lazy方法；
 
 [CodeHelper.dmg](https://github.com/shang1219178163/MacTemplet/releases/tag/release1.1.0)
 
