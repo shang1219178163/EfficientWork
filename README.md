@@ -47,6 +47,9 @@ lazy模式：因为同时负责多个项目，本着fastlane文件写一个就�
 
 ## 第四篇章： Pod组件库更新动作自动化 — 基于shell
 
+
+使用方法：修改pod库之后，将Pod库文件夹拖入终端，输入命令 sh build.sh 运行即可
+
 思路：
 
 1. 找到pod库*.podspec文件
@@ -145,7 +148,9 @@ lazy模式：因为同时负责多个项目，本着fastlane文件写一个就�
 
    ​    echo_yellow "--- Step: finished ！---"
 
-   
 
+   ![文件位置](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/pod_automtic_update.png?raw=true)
+   
    附：颜色echo输出文件一个echo_color.sh
+   ![效果图](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/echo_color.png?raw=true)
 
