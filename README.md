@@ -10,7 +10,7 @@
 2. 终端此文件下执行：sh AppIcon.sh/AppLaunch.sh，对应生成AppIcon.appiconset/LaunchImage.launchimage文件夹（或者AppIcon.sh/AppLaunch.sh 下拉菜单打开方式选终端）
 3. 将生成的文件夹根据需要拖入项目中即可；
 
-app图标生成支持iPhone、iPad、iMac三种类型图标；启动图仅支持iPhone。
+app图标生成支持iPhone、iPad、iMac、iWatch四种类型图标；启动图仅支持iPhone。
 备注： 执行操作之前最好在 https://tinypng.com/ 进行压缩，达到最优体积。
 ```
 
@@ -150,7 +150,7 @@ lazy模式：因为同时负责多个项目，本着fastlane文件写一个就�
 
 
    ![文件位置](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/pod_automtic_update.png?raw=true)
-   
+
    附：颜色echo输出文件一个echo_color.sh
    ![效果图](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/echo_color.png?raw=true)
 
