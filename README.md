@@ -45,5 +45,107 @@ lazy模式：因为同时负责多个项目，本着fastlane文件写一个就�
 ![效果图](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/screenshot1.png?raw=true)
 
 
+## 第四篇章： Pod组件库更新动作自动化 — 基于shell
 
+思路：
+
+1. 找到pod库*.podspec文件
+
+   
+
+   filepath=$(cd "$(dirname "$0")"; pwd)
+
+   echo ${filepath}
+
+   fileName=${filepath##*/}
+
+   echo "fileName_${fileName}"
+
+   
+
+   fileNameAll="${fileName}.podspec"
+
+   echo "fileNameAll_${fileNameAll}"
+
+   
+
+   result=$(echo ${fileNameAll} | grep ".podspec")
+
+   if [[ "$result" != "" ]]
+
+   then
+
+   ​    *# echo_green "--- 存在：${fileNameAll} ---"*
+
+   ​    gitFuntion ${fileNameAll};
+
+   
+
+   else
+
+   ​    echo_bred "--- 不存在：${fileNameAll} ---"
+
+   fi 
+
+   
+
+2. 获取文件中的version值
+
+   
+
+     version=$(grep -E 's\.version.+=' $1 | grep -E '[0-9][0-9.]+' -o)
+
+   
+
+3. 执行git动作
+
+   
+
+   echo_green "--- Step: pull from remote ---"
+
+   ​    git pull || exit 1
+
+   
+
+   ​    echo_green "--- Step: add changes to local reposit ---"
+
+   ​    git add . || exit 1
+
+   
+
+   ​    echo_green "--- Step: commit changes to local reposit ---"
+
+   ​    git commit -m "update" || exit 1
+
+   
+
+   ​    echo_green "--- Step: push changes to remote reposit ---"
+
+   ​    git push -u origin master || exit 1
+
+   
+
+   ​    echo_green "--- Step: add tag to local reposit ---"
+
+   ​    git tag -a ${version} -m "update" || exit 1
+
+   
+
+   ​    echo_green "--- Step: push tag to remote reposit ---"
+
+   ​    git push --tags || exit 1
+
+   
+
+   ​    echo_green "--- Step: pod trunk push to remote reposit ---"
+
+   ​    pod trunk push $1 --allow-warnings --use-libraries || exit 1
+
+   
+
+   ​    echo_yellow "--- Step: finished ！---"
+
+   
+
+   附：颜色echo输出文件一个echo_color.sh
 
