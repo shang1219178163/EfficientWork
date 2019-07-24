@@ -86,7 +86,7 @@ if [[ "$result" != "" ]]
 then
     # echo_green "--- 存在：${fileNameAll} ---"
     echo_green "--- date: $(datetime) ---"
-    testLogColor;
+#    testLogColor;
 
     gitUpdatePod ${fileNameAll};
 
