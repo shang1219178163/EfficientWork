@@ -120,3 +120,46 @@ function echo_whitebg(){
     # echo "\033[47;37m$1\033[0m"
     echo "\033[47;30m$1\033[0m"
 }
+
+#设置日志级别
+loglevel=0 #debug:0; info:1; warn:2; error:3
+logfile=$0".log"
+# i日志 []<-(logtype:String msg:String )  <-------带入参的函数注释
+function log(){
+
+    local logtype=$1    
+    local msg=$2        
+    datetime=`date +'%F %H:%M:%S'`
+    #使用内置变量$LINENO不行，不能显示调用那一行行号
+    #local format="[${logtype}]\t${datetime}\tfuncname:${FUNCNAME[@]} [line:$LINENO]\t${msg}"
+    #local format="[${logtype}]\t${datetime}\tfuncname: ${FUNCNAME[@]/log/}\t[line:`caller 0 | awk '{print$1}'`]\t${msg}"
+    #local format="[${logtype}]\t${datetime}\t${FUNCNAME[@]/log/}\t[line:`caller 0 | awk '{print$1}'`]\t${msg}"
+    #local format="[${logtype}]\t${datetime}\t${FUNCNAME[@]/log/}\t[line:`caller 0 | awk '{print$1}'`]\t${msg}"
+    #local format="${datetime} ${FUNCNAME[@]/$FUNCNAME/}\t[line `caller 0 | awk '{print$1}'`]: ${msg}"
+    local format="${datetime}${FUNCNAME[@]/$FUNCNAME/} [line `caller 0 | awk '{print$1}'`]: ${msg}"
+
+    #funname格式为log error main,如何取中间的error字段，去掉log好办，再去掉main,用echo awk? ${FUNCNAME[0]}不能满足多层函数嵌套
+    {   
+    case $logtype in  
+            debug)
+                    # [[ $loglevel -le 0 ]] && echo -e "\033[37m${logformat}\033[0m" ;;
+                    [[ $loglevel -le 0 ]] && echo_white "${format}" ;;
+            info)
+                    # [[ $loglevel -le 1 ]] && echo -e "\033[32m${logformat}\033[0m" ;;
+                    [[ $loglevel -le 1 ]] && echo_green "${format}" ;;
+            warn)
+                    # [[ $loglevel -le 2 ]] && echo -e "\033[33m${logformat}\033[0m" ;;
+                    [[ $loglevel -le 2 ]] && echo_yellow "${format}" ;;
+            error)
+                    # [[ $loglevel -le 3 ]] && echo -e "\033[31m${logformat}\033[0m" ;;
+                    [[ $loglevel -le 3 ]] && echo_red "${format}" ;;
+            *)
+                    {
+                    format="${datetime}${FUNCNAME[@]/$FUNCNAME/} [line `caller 0 | awk '{print$1}'`]: $1"
+                    echo_blue "${format}"
+                    };;
+                    
+    esac
+    } | tee -a $logfile
+
+}

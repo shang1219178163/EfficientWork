@@ -1,76 +1,49 @@
 #!/bin/bash
 
+source Shells/common.sh
 source Shells/echo_color.sh
+source Shells/git_action.sh
 
 export LANG="zh_CN.GB2312"
 
-function currentDate(){
-    # echo `date +%Y:%m:%d %H:%M`
+testLogColor(){
+    send=$(datetime)
+    echo $send
+    echo_red "red $send"
+    echo_green "green $send"
+    echo_yellow "yellow $send"
+    echo_blue "blue $send"
+    echo_purple "purple $send"
+    echo_cyan "cyan $send"
+    echo_white "white $send"
 
-    send=`date '+%Y-%m-%d %H:%M:%S'`
-#     echo $send
-#     echo_red "red $send"
-#     echo_green "green $send"
-#     echo_yellow "yellow $send"
-#     echo_blue "blue $send"
-#     echo_purple "purple $send"
-#     echo_cyan "cyan $send"
-#     echo_white "white $send"
+    # echo_redbg "red $send"
+    # echo_greenbg "green $send"
+    # echo_yellowbg "yellow $send"
+    # echo_bluebg "blue $send"
+    # echo_purplebg "purple $send"
+    # echo_cyanbg "cyan $send"
+    # echo_whitebg "white $send"
 
-#     echo_redbg "red $send"
-#     echo_greenbg "green $send"
-#     echo_yellowbg "yellow $send"
-#     echo_bluebg "blue $send"
-#     echo_purplebg "purple $send"
-#     echo_cyanbg "cyan $send"
-#     echo_whitebg "white $send"
-# exit 1;
+    log "${send}"
 
-    echo_green "--- date: $send ---"
+    log debug "${send}"
+    log info "${send}"
+    log warn "${send}"
+    log error "${send}"
 
-}
+    # echo "___$?___"
+    # echo_purple `$now()`
 
-#第一个参数为文件名称*.podspec
-gitFuntion(){
-    version=$(grep -E 's\.version.+=' $1 | grep -E '[0-9][0-9.]+' -o)
-    # echo_green "--- version: ${version} ---"
-    echo_green "--- $1: ${version} ---"    
-    #动作时间
-    currentDate;
+    tmp=$(datetime)
+    tmpNew=`datetime`
+    echo "___$(datetime)___"
+    echo "___${tmp}___"
+    echo "___${tmpNew}___"
+    echo "___$(datetimeStamp)___"
 
-    echo_green "--- Step: pull from remote ---"
-    git pull || exit 1
+    exit 1;
 
-    echo_green "--- Step: add changes to local reposit ---"
-    git add . || exit 1
-
-    echo_green "--- Step: commit changes to local reposit ---"
-    git commit -m "update" || exit 1
-
-    echo_green "--- Step: push changes to remote reposit ---"
-    git push -u origin master || exit 1
-
-    echo_green "--- Step: add tag to local reposit ---"
-    git tag -a ${version} -m "update" || exit 1
-
-    echo_green "--- Step: push tag to remote reposit ---"
-    git push --tags || exit 1
-
-    echo_green "--- Step: pod trunk push to remote reposit ---"
-    pod trunk push $1 --allow-warnings --use-libraries || exit 1
-
-    echo_yellow "--- Step: finished ！---"
-    # if !command; then echo "command failed"; exit 1; fi
-
-    # if ! (pod trunk push $1 --allow-warnings --use-libraries) 
-    # then
-    #     echo "《---failure---》"
-    #     exit 1
-    # # Put Failure actions here...
-    # else
-    #     echo "《---Success---》"
-    #     # Put Success actions here...
-    # fi
 }
 
 #------------------------------------------------------------------------
@@ -112,11 +85,15 @@ result=$(echo ${fileNameAll} | grep ".podspec")
 if [[ "$result" != "" ]]
 then
     # echo_green "--- 存在：${fileNameAll} ---"
-    gitFuntion ${fileNameAll};
+    echo_green "--- date: $(datetime) ---"
+    testLogColor;
+
+    gitUpdatePod ${fileNameAll};
 
 else
     echo_bred "--- 不存在：${fileNameAll} ---"
 fi 
 
+ 
 
 
