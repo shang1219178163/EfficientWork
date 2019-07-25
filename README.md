@@ -114,13 +114,31 @@ lazy模式：因为同时负责多个项目，本着fastlane文件写一个就�
    ![文件位置](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/pod_automtic_update.png?raw=true)
 
    附：颜色echo输出文件一个echo_color.sh
+    send=`date '+%Y-%m-%d %H:%M:%S'`
+
+    echo_red "red $send"
+    echo_green "green $send"
+    echo_yellow "yellow $send"
+    echo_blue "blue $send"
+    echo_purple "purple $send"
+    echo_cyan "cyan $send"
+    echo_white "white $send"
+
+    # echo_redbg "red $send"
+    # echo_greenbg "green $send"
+    # echo_yellowbg "yellow $send"
+    # echo_bluebg "blue $send"
+    # echo_purplebg "purple $send"
+    # echo_cyanbg "cyan $send"
+    # echo_whitebg "white $send"
    ![效果图](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/echo_color.png?raw=true)
 
-    send=`date '+%Y-%m-%d %H:%M:%S'`
+    log "${send}"
     log debug "${send}"
     log info "${send}"
     log warn "${send}"
     log error "${send}"
-    
+   ![效果图](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/logInfo.png?raw=true)
+
     
 ```
