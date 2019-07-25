@@ -116,5 +116,11 @@ lazy模式：因为同时负责多个项目，本着fastlane文件写一个就�
    附：颜色echo输出文件一个echo_color.sh
    ![效果图](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/echo_color.png?raw=true)
 
-
+    send=`date '+%Y-%m-%d %H:%M:%S'`
+    log debug "${send}"
+    log info "${send}"
+    log warn "${send}"
+    log error "${send}"
+    
+    
 ```
