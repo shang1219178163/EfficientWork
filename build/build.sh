@@ -74,15 +74,17 @@ testLogColor(){
 # done
 
 filepath=$(cd "$(dirname "$0")"; pwd)
-echo ${filepath}
+echo_blue "文件目录: ${filepath}"
+
 fileName=${filepath##*/}
-echo "fileName_${fileName}"
+#echo "fileName_${fileName}"
 
 fileNameAll="${fileName}.podspec"
-echo "fileNameAll_${fileNameAll}"
+echo_blue "查找文件: ${fileNameAll}"
 
-result=$(echo ${fileNameAll} | grep ".podspec")
-if [[ "$result" != "" ]]
+#result=$(echo ${fileNameAll} | grep ".podspec")
+#if [[ "$result" != "" ]]
+if [ -f "$fileNameAll" ]
 then
     # echo_green "--- 存在：${fileNameAll} ---"
     echo_green "--- date: $(datetime) ---"
@@ -91,9 +93,13 @@ then
     gitUpdatePod ${fileNameAll};
 
 else
-    echo_bred "--- 不存在：${fileNameAll} ---"
-fi 
+    echo_red "文件不存在：$fileNameAll"
+fi
 
- 
-
+# if [ -f "$fileNameAll" ]
+# then
+#     echo "$fileNameAll found."
+# else
+#     echo "$fileNameAll not found."
+# fi
 
