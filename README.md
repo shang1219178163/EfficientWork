@@ -112,6 +112,7 @@ lazy模式：因为同时负责多个项目，本着fastlane文件写一个就�
 ```
 
 // 文件位置
+
 ![文件位置](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/pod_automtic_update.png?raw=true)
    
 // 运行效果图
