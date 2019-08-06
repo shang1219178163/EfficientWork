@@ -110,10 +110,12 @@ lazy模式：因为同时负责多个项目，本着fastlane文件写一个就�
 
    echo_yellow "--- Step: finished ！---"
 ```
-    //文件位置
-   ![文件位置](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/pod_automtic_update.png?raw=true)
-    //运行效果图
-  ![运行效果图](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/build%E8%BF%90%E8%A1%8C%E6%95%88%E6%9E%9C%E5%9B%BE.png?raw=true)
+
+// 文件位置
+![文件位置](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/pod_automtic_update.png?raw=true)
+   
+// 运行效果图
+![运行效果图](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/build%E8%BF%90%E8%A1%8C%E6%95%88%E6%9E%9C%E5%9B%BE.png?raw=true)
 
  附：颜色echo输出文件一个echo_color.sh
 
@@ -142,8 +144,5 @@ lazy模式：因为同时负责多个项目，本着fastlane文件写一个就�
     log warn "${send}"
     log error "${send}"
    ![效果图](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/logInfo.png?raw=true)
-
-
-```
 
 ```
