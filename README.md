@@ -39,7 +39,7 @@ lazy模式：因为同时负责多个项目，本着fastlane文件写一个就�
 
 2.根据属性一键生成lazy方法；
 
-[CodeHelper.dmg](https://github.com/shang1219178163/MacTemplet/releases/download/release_v1.3.0/CodeHelper.dmg)
+[CodeHelper.dmg](https://github.com/shang1219178163/MacTemplet/releases/download/release_v1.3.1/CodeHelper.dmg)
 
 ![效果图](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/screenshot.png?raw=true)
 ![效果图](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/screenshot1.png?raw=true)
