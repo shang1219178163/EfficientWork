@@ -24,6 +24,7 @@ platform :ios do
 
   desc "发布到AppStore"
   lane :release do
+    clear_cache_files
     cocoapods
     updateBuildVersion(false)
     gym(
