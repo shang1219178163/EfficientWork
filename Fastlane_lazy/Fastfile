@@ -24,7 +24,7 @@ platform :ios do
 
   desc "发布到AppStore"
   lane :release do
-    clear_cache_files
+    clear_cache_files()
     cocoapods
     updateBuildVersion(false)
     gym(
@@ -62,9 +62,10 @@ platform :ios do
 
 
   desc "测试通道"
-  lane :te do |lane|
+  lane :test do |lane|
     puts "---#{project_name}--"
     puts "-11--#{lane_context[SharedValues::LANE_NAME]}--"
+    # puts "user name is: #{`whoami`}"  
 
     # puts "---#{git_last_log_dic}--"
     # update_build({plist: plistPath()})

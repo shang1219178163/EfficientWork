@@ -10,11 +10,16 @@ module Fastlane
         # UI.message "Parameter API Token: #{params[:api_token]}"
 
         # sh "shellcommand ./path"
-        tokenfiles = "/Users/shang/Library/Caches/com.apple.amp.itmstransporter/UploadTokens/*.token"
+        # tokenfiles = "/Users/shang/Library/Caches/com.apple.amp.itmstransporter/UploadTokens/*.token"
+        account = "#{`whoami`}".delete "\n"
+        tokenfiles = "/Users/#{account}/Library/Caches/com.apple.amp.itmstransporter/UploadTokens/*.token"
         if FileTest.exist?(tokenfiles) {
           output = sh ("rm #{tokenfiles}")
           UI.message "UploadTokens clear: #{output}"
         }
+
+        UI.message "Token: #{tokenfiles}"
+
         end
 
         # Actions.lane_context[SharedValues::CLEAR_CACHE_FILES_CUSTOM_VALUE] = "my_val"
