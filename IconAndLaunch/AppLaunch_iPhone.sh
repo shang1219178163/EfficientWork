@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source Shells/imageFunc.sh
+source Shells/appIcon_launch_func.sh
 
 #文件名称
 fileNameAll="AppLaunch.png"
