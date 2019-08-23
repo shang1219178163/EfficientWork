@@ -7,7 +7,7 @@
 ```
 (目前支持到iOS12 iPhone XS Max)
 1. 将自己的图片替换命名为AppIcon.png/AppLaunch.png 替换原文件；
-2. 终端此文件下执行：sh AppIcon.sh/AppLaunch.sh，对应生成AppIcon.appiconset/LaunchImage.launchimage文件夹（或者AppIcon.sh/AppLaunch.sh 下拉菜单打开方式选终端）
+2. 终端此文件下执行：sh AppIcon.sh/AppLaunch_iPhone.sh，对应生成AppIcon.appiconset/LaunchImage.launchimage文件夹（或者AppIcon.sh/AppLaunch_iPhone.sh 下拉菜单打开方式选终端）
 3. 将生成的文件夹根据需要拖入项目中即可；
 
 app图标生成支持iPhone、iPad、iMac、iWatch四种类型图标；启动图仅支持iPhone。
