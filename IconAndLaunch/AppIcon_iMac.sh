@@ -7,7 +7,7 @@ fileNameAll="AppIcon.png"
 #检测文件是否存在
 isExistFile $fileNameAll
 #转化成可操作的格式
-switchToSRGB
+convertToSRGB
 #目标文件夹名称
 targetFileDir=./iMac/AppIcon.appiconset
 #创建目标文件夹

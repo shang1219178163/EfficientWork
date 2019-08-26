@@ -16,7 +16,7 @@ isExistFile(){
 }
 
 #图片转化成可操作的格式
-switchToSRGB(){
+convertToSRGB(){
     # find . -type f -name '*.png' -print0 | while IFS= read -r -d '' file;
     find . -type f -name '*.png' | while IFS= read -r -d '' file;
     do
