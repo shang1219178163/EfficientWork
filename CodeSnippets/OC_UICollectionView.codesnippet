@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>UICollectionView</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>UICollectionView *collectionView = ({
+        UICollectionViewFlowLayout *layout = ({
+            UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+            layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+            layout.itemSize = CGSizeMake(70, 90);
+            layout.minimumLineSpacing = 5;
+            layout.minimumInteritemSpacing = 5;
+            layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+            
+            layout;
+        });
+        
+        UICollectionView *ctView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
+        ctView.backgroundColor = [UIColor whiteColor];
+        ctView.showsVerticalScrollIndicator = false;
+        ctView.showsHorizontalScrollIndicator = false;
+        ctView.scrollsToTop = false;
+        ctView.pagingEnabled = true;
+        ctView.bounces = false;
+        ctView.dataSource = self;
+        ctView.delegate = self;
+        [ctView registerClass:UICollectionViewCell.class forCellWithReuseIdentifier:@"UICollectionViewCell"];
+        
+        ctView;
+    });</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>7EEAD245-E973-4EA7-B89B-EF39F8BCE66A</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>UICollectionView *collectionView = ...
+</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

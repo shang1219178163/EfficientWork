@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>notification_remove_block_observer</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string> [NSNotificationCenter.defaultCenter removeObserver:self.&lt;#observer property#&gt;
+                                               name:&lt;#notification name#&gt;
+  object:nil];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>121D9BAB-12C3-4AC6-BEFF-5A753532251A</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Removes a block observer</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Notification: Remove Block Observer</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>uuid_create</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    CFUUIDRef uuid = CFUUIDCreate(NULL);
+    CFStringRef uuidStr = CFUUIDCreateString(NULL, uuid);
+    NSString *uniqueIdentifier = [NSString stringWithFormat:@"%@", uuidStr];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>54F818EF-98D5-4C17-8779-AEAE16B1FFF8</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Created a unique identifier</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>UDID Generator</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

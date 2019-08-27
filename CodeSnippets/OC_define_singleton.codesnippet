@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>define_singleton</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>static &lt;#classname#&gt; *_instance = nil;
++ (&lt;#classname#&gt; *)sharedInstance{
+    static dispatch_once_t onceToken;
+    dispatch_once(&amp;onceToken, ^{
+        _instance = [[&lt;#classname#&gt; alloc] init];
+    });
+    return _instance;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>9FE36174-6814-40C5-BD6C-8A3FF4100517</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>define_singleton</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
