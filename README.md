@@ -116,7 +116,7 @@ lazy模式：因为同时负责多个项目，本着fastlane文件写一个就�
 ![文件位置](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/pod_automtic_update.png?raw=true)
    
 // 运行效果图
-![运行效果图](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/build%E8%BF%90%E8%A1%8C%E6%95%88%E6%9E%9C%E5%9B%BE.png?raw=true)
+![运行效果图](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/build%E8%BF%90%E8%A1%8C%E6%95%88%E6%9E%9C%E5%9B%BE.png?raw=true)
 
  附：颜色echo输出文件一个echo_color.sh
 
@@ -144,23 +144,18 @@ lazy模式：因为同时负责多个项目，本着fastlane文件写一个就�
     log info "${send}"
     log warn "${send}"
     log error "${send}"
-   ![效果图](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/logInfo.png?raw=true)
-
-
-
-## 第五篇章 Xcode - CodeSnippets
+   ![效果图](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/logInfo.png?raw=true)
 
 ```
-  CodeSnippets - 代码片段集，可以极快的录入预设代码。
-  操作方法：
-  1.将本项目CodeSnippets内所有文件拖入下边文件夹：
-  /Users/用户名/Library/Developer/Xcode/UserData/CodeSnippets
 
-  2.重启Xcode的软件。
+### 第五篇章 Xcode - CodeSnippets
 
-  3.点击Xcode右上角 {} 按钮，出现列表；右键单击任一即可出现使用菜单。
-  
-```
-  ![效果图](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/CodeSnippets.png?raw=true)
-  ![效果图](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/CodeSnippets1.png?raw=true)
+CodeSnippets - 代码片段集，可以极快的录入预设代码。
+操作方法：
+1.将本项目CodeSnippets内所有文件拖入下边文件夹：
+/Users/用户名/Library/Developer/Xcode/UserData/CodeSnippets
 
+2.重启Xcode的软件。
+
+3.点击Xcode右上角 {} 按钮，出现列表；右键单击任一即可出现使用菜单。
+![](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/CodeSnippets.png)
