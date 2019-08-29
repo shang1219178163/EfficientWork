@@ -146,11 +146,9 @@ lazy模式：因为同时负责多个项目，本着fastlane文件写一个就�
     log error "${send}"
    ![效果图](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/logInfo.png?raw=true)
 
-```
-
 ### 第五篇章 Xcode - CodeSnippets
 
-CodeSnippets - 代码片段集，可以极快的录入预设代码。
+CodeSnippets - 代码片段集，可以极快的录入预设代码,让工作效率翻倍的技巧。
 操作方法：
 1.将本项目CodeSnippets内所有文件拖入下边文件夹：
 /Users/用户名/Library/Developer/Xcode/UserData/CodeSnippets
@@ -158,4 +156,7 @@ CodeSnippets - 代码片段集，可以极快的录入预设代码。
 2.重启Xcode的软件。
 
 3.点击Xcode右上角 {} 按钮，出现列表；右键单击任一即可出现使用菜单。
-![](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/CodeSnippets.png)
+![效果图](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/CodeSnippets1.png?raw=true)
+
+效果图：
+![](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/CodeSnippets2.gif?raw=true)
