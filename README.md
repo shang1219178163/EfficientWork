@@ -149,7 +149,9 @@ lazy模式：因为同时负责多个项目，本着fastlane文件写一个就�
 ## 第五篇章 Xcode - CodeSnippets
 
 CodeSnippets - 代码片段集，可以极快的录入预设代码,让工作效率翻倍的技巧。
+
 操作方法：
+
 1.将本项目CodeSnippets内所有文件拖入下边文件夹：
 /Users/用户名/Library/Developer/Xcode/UserData/CodeSnippets
 
