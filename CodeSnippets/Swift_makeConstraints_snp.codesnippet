@@ -3,21 +3,26 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>dd_object</string>
+	<string>makeConstraints</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>DDLog(@"&lt;#name#&gt;: %@", &lt;#name#&gt;);</string>
+	<string>&lt;#view#&gt;.snp.makeConstraints { (make) in
+    make.top.equalTo(self.contentView).offset(0);
+    make.left.equalToSuperview().offset(0);
+    make.right.equalToSuperview().offset(0);
+    make.bottom.equalTo(self.contentView).offset(0);
+    make.width.equalTo(100);
+    make.height.equalTo(25);
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>91F856F9-591E-400A-9715-82B56B975104</string>
+	<string>91E7B0E3-0D4A-4A93-B6E5-72352A5B0CFD</string>
 	<key>IDECodeSnippetLanguage</key>
-	<string>Xcode.SourceCodeLanguage.Objective-C</string>
-	<key>IDECodeSnippetSummary</key>
-	<string>DDLog an Object</string>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>DDLog an Object</string>
+	<string>makeConstraints - snp</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
