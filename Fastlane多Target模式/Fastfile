@@ -1,0 +1,155 @@
+
+fastlane_version "2.112.0"
+
+default_platform :ios
+
+platform :ios do
+  # ipa包文件路径
+  # ipaDirFir = File.dirname(Dir.pwd) + "/ipa_firim"
+  # ipaDirAppStore = File.dirname(Dir.pwd) + "/ipa_appStore"
+
+  # ipaDirFirOne = File.dirname(Dir.pwd) + "/ipa_firim/one"
+  # ipaDirAppStoreOne = File.dirname(Dir.pwd) + "/ipa_appStore/one"
+
+  #firim token
+  FirToken = "*"
+
+  ## Common
+
+  desc "发布新版本到AppStore"
+  lane :release do
+    #默认env文件
+    actionRelease(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_AppStore"])
+  end
+
+  desc "发布One到AppStore"
+  lane :releaseOne do
+    # actionRelease(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_AppStore"])
+    sh "fastlane release --env targetOne"
+  end
+
+  desc "发布到Fir"
+  lane :fir do
+    #默认env文件
+    actionFir(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Fir"]) 
+  end
+
+  desc "one发布到Fir"
+  lane :firOne do
+    # actionFir(name: ENV["Scheme_name"], ipaDir: ENV["IpaDir_Fir"]) 
+    sh "fastlane fir --env targetOne"
+  end
+
+  desc "[通用]发布新版本到 AppStore"
+  def actionRelease(name: "", ipaDir: "")
+    clear_cache_files()
+    cocoapods()
+    updateBuildVersion(name: name, showHash: false)
+    gym(
+      output_directory: ipaDir,
+      scheme: name,
+      export_options: {
+        method: 'app-store',
+      }
+    )
+    deliver(force: true)
+    handleDingTalkParams(name: name, ipaDir: ipaDir)
+
+  end
+
+  desc "[通用]发布新版本到 fir"
+  def actionFir(name: "", ipaDir: "", firToken: FirToken)
+    cocoapods()
+    updateBuildVersion(name: name, showHash: true)
+    gym(
+      clean: true,
+      output_directory: ipaDir,
+      scheme: name,
+      configuration: 'Debug',
+      include_symbols: true,
+      export_options: {
+        method: 'development'
+      }
+    )
+    # 上传ipa到fir.im服务器，在fir.im获取firim_api_token
+    firim(firim_api_token: firToken)
+    handleDingTalkParams(name: name, ipaDir: ipaDir)
+
+  end
+
+  desc "更新BuildVersion"
+  def updateBuildVersion(name: "", showHash: true)
+    plistDir = File.dirname(Dir.pwd)
+    puts "plist所在目录：_#{plistDir}_"
+
+    case name
+    when "IntelligentOfParkingOne"
+      plistFile = glob_file_from_path(path: "#{plistDir}/#{name}/#{name}-Info.plist")
+
+    else
+      plistFile = glob_file_from_path(path: "#{plistDir}/#{name}/*Info.plist")
+
+    end
+
+    puts "plistFile：_#{plistFile}_"
+    update_build({plist: plistFile, showHash: showHash})
+
+  end
+
+  #通用参数设置
+  def handleDingTalkParams(name: "", ipaDir: "")
+    # puts "name：_#{name}_"
+    # puts "ipaDir：_#{ipaDir}_"
+
+    appUrl  = "*"
+    appIcon = "*.png"
+
+    case name
+    when "*One"
+      appUrl  = "*"
+      appIcon = "*"
+      
+    end
+
+    appPath = ipaDir + "/#{name}.ipa"
+    dingUrl = "*"
+
+    params = {
+                appPath: appPath,
+                appUrl: appUrl,
+                appIcon: appIcon,
+                dingUrl: dingUrl
+              }
+    # puts "---#{params}--"
+    dingdingtalk_robot(params)
+
+  end
+
+  desc "测试"
+  lane :test do
+    # clear_cache_files()
+    # puts "user name is: #{`whoami`}"  
+
+    # account = "#{`whoami`}".delete "\n"
+    # tokenfiles = "/Users/#{account}/Library/Caches/com.apple.amp.itmstransporter/UploadTokens/*.token"
+    # UI.message "Token: #{tokenfiles}"
+
+  end
+
+  # You can define as many lanes as you want
+
+  after_all do |lane|
+
+  end
+
+  error do |lane, exception|
+
+  end
+end
+
+
+# More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md
+# All available actions: https://docs.fastlane.tools/actions
+
+# fastlane reports which actions are used. No personal data is recorded.
+# Learn more at https://github.com/fastlane/fastlane#metrics
