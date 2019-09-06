@@ -31,8 +31,7 @@ lazy模式：因为同时负责多个项目，本着fastlane文件写一个就�
   scheme的配置和项目实际情况一一对应（特别是多targt模式）；
 ```
 
-####（更上一层）： Fastlane 多Target模式
-
+#### （更上一层）： Fastlane 多Target模式
 ```
   因项目需要开发定制版，所以项目开始多Target模式。
   
