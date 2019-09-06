@@ -18,10 +18,8 @@
 	<string>37E53BB3-2CE0-4F0F-93D7-8CE9D5B062E5</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
-	<key>IDECodeSnippetSummary</key>
-	<string>Animation block with all parameters</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Animation Block with Options</string>
+	<string>[UIView animateWithDuration: delay: options: animations:^{</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

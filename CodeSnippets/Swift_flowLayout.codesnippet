@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>flowLayout</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string> lazy var flowLayout: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout();
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 70, height: 90)
+        layout.minimumLineSpacing = 0;
+        layout.minimumInteritemSpacing = 0;
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        // 设置分区头视图和尾视图宽高
+//        layout.headerReferenceSize = CGSize(width: kScreenWidth, height: 60)
+//        layout.footerReferenceSize = CGSize(width: kScreenWidth, height: 60)
+        
+        return layout;
+    }()</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>61D02FEB-41CA-4B79-98CD-E18F549CBBFD</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>UICollectionViewFlowLayout</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>flowLayout</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

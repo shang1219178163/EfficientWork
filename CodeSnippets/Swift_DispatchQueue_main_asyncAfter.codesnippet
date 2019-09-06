@@ -3,24 +3,24 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>dd_object</string>
+	<string>DispatchQueue_main_asyncAfter</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>DDLog(@"&lt;#name#&gt;: %@", &lt;#name#&gt;);</string>
+	<string>DispatchQueue.main.asyncAfter(deadline: .now() + &lt;#3#&gt;) {
+            
+        }</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>91F856F9-591E-400A-9715-82B56B975104</string>
+	<string>AFBB7F79-3AD9-41E0-A2F0-3379DF7D1529</string>
 	<key>IDECodeSnippetLanguage</key>
-	<string>Xcode.SourceCodeLanguage.Objective-C</string>
-	<key>IDECodeSnippetSummary</key>
-	<string>DDLog an Object</string>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>DDLog an Object</string>
+	<string>Code Snippet</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>

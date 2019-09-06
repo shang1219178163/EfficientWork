@@ -3,21 +3,26 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>dd_object</string>
+	<string>btn_create</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>DDLog(@"&lt;#name#&gt;: %@", &lt;#name#&gt;);</string>
+	<string>UIButton *btn = ({
+        UIButton *view = [UIButton buttonWithType:UIButtonTypeCustom];
+        [view setTitle:@"" forState:UIControlStateNormal];
+        view.titleLabel.font = [UIFont systemFontOfSize:15];
+        [view setBackgroundColor:UIColor.whiteColor];
+        view addTarget:self action:@selector(&lt;#selector#&gt;) forControlEvents:&lt;#(UIControlEvents)#&gt;
+        view;
+    });</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>91F856F9-591E-400A-9715-82B56B975104</string>
+	<string>BD822D3F-0793-46F6-A9BC-A0175740701D</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
-	<key>IDECodeSnippetSummary</key>
-	<string>DDLog an Object</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>DDLog an Object</string>
+	<string>btn按钮创建</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
