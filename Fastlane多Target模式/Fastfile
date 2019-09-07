@@ -84,10 +84,10 @@ platform :ios do
 
     case name
     when "IntelligentOfParkingOne"
-      plistFile = glob_file_from_path(path: "#{plistDir}/#{name}/#{name}-Info.plist")
+      plistFile = plist_from_path(path: "#{plistDir}/#{name}/#{name}-Info.plist")
 
     else
-      plistFile = glob_file_from_path(path: "#{plistDir}/#{name}/*Info.plist")
+      plistFile = plist_from_path(path: "#{plistDir}/#{name}/*Info.plist")
 
     end
 

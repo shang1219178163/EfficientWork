@@ -1,27 +1,25 @@
 module Fastlane
   module Actions
     module SharedValues
-      PLIST_PATH_CUSTOM_VALUE = :PLIST_PATH_CUSTOM_VALUE
+      PLIST_FROM_PATH_CUSTOM_VALUE = :PLIST_FROM_PATH_CUSTOM_VALUE
     end
 
-    class PlistPathAction < Action
+    class PlistFromPathAction < Action
       def self.run(params)
         # fastlane will take care of reading in the parameter and fetching the environment variable:
-        # UI.message "Parameter API Token: #{params[:api_token]}"
-        # sh "shellcommand ./path"
-        # Actions.lane_context[SharedValues::PLIST_PATH_CUSTOM_VALUE] = "my_val"
-        # plistDir = "#{File.dirname(Dir.pwd)}/#{other_action.projectname}"
-        plistDir = "#{Dir.pwd}/#{params[:projectname]}"
+        UI.message "Parameter path: #{params[:path]}"
 
-        puts "plist所在目录：_#{plistDir}_"
-
-        pistPath = Dir.glob("#{plistDir}/*.plist")
-        if pistPath.empty? == true
-          UI.message "--#{plistDir}不包含.plist文件！！！！--".red
-          return ""
+        plistFiles = Dir.glob(params[:path])
+        if plistFiles.empty? == true
+          UI.message "---#{plistDir}不包含文件！！！---".red
+          return "";
         end
-        return pistPath.first
+        UI.message "---plist文件 #{plistFiles}---".blue
+        return plistFiles.first;
 
+        # sh "shellcommand ./path"
+
+        # Actions.lane_context[SharedValues::GLOB_FILE_FROM_PATH_CUSTOM_VALUE] = "my_val"
       end
 
       #####################################################
@@ -29,36 +27,32 @@ module Fastlane
       #####################################################
 
       def self.description
-        "根据工程名称获取其目录下的默认plist文件路径"
+        "A short description with <= 80 characters of what this action does"
       end
 
       def self.details
         # Optional:
         # this is your chance to provide a more detailed description of this action
-        "You can use this action to do cool things..."
+        "You can use this action to get the plist"
       end
 
       def self.available_options
-        # Define all options your action supports.
-
-        # Below a few examples
         [
-          FastlaneCore::ConfigItem.new(key: :projectname,
-                                       env_name: "PROJECT_NAME", # The name of the environment variable
-                                       description: "projectName", # a short description of this parameter
+          FastlaneCore::ConfigItem.new(key: :path,
+                                       env_name: "PATH", # The name of the environment variable
+                                       description: "file path", # a short description of this parameter
                                        verify_block: proc do |value|
-                                          UI.user_error!("No projectName given, pass using `projectname: 'projectname'`") unless (value and not value.empty?)
+                                          UI.user_error!("No path given, pass using `path: `") unless (value and not value.empty?)
                                           # UI.user_error!("Couldn't find file at path '#{value}'") unless File.exist?(value)
                                        end),
-
-        ]
+          ]
       end
 
       def self.output
         # Define the shared values you are going to provide
         # Example
         [
-          ['PROJECT_NAME', '工程名']
+          ['PLIST_FROM_PATH_CUSTOM_VALUE',  'file path']
         ]
       end
 
@@ -73,13 +67,13 @@ module Fastlane
 
       def self.is_supported?(platform)
         # you can do things like
-        #
+        # 
         #  true
-        #
+        # 
         #  platform == :ios
-        #
+        # 
         #  [:ios, :mac].include?(platform)
-        #
+        # 
 
         platform == :ios
       end
