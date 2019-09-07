@@ -53,6 +53,10 @@ lazy模式：因为同时负责多个项目，本着fastlane文件写一个就�
   targetThree
   同理
 ```
+![钉钉打包通知](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/dingding%E7%9A%84Screenshot.png?raw=true)
+
+![slack打包通知](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/slack%E7%9A%84Screenshot.png?raw=true)
+
 ## 第三篇章： CodeHelper — App代码助手（ObjC && Swift）
 
 功能：
