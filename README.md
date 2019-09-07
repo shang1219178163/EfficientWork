@@ -172,7 +172,7 @@ lazy模式：因为同时负责多个项目，本着fastlane文件写一个就�
     log error "${send}"
    ![效果图](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/logInfo.png?raw=true)
 
-## 第五篇章 Xcode - CodeSnippets
+## 第五篇章： Xcode - CodeSnippets
 
 CodeSnippets - 代码片段集，可以极快的录入预设代码,让工作效率翻倍的技巧。
 
