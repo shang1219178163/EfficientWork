@@ -15,11 +15,10 @@ platform :ios do
   FirToken = "*"
 
   ## Common
-
   desc "发布新版本到AppStore"
   lane :release do
     #默认env文件
-    actionRelease(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_AppStore"])
+    actionRelease()
   end
 
   desc "发布One到AppStore"
@@ -31,7 +30,7 @@ platform :ios do
   desc "发布到Fir"
   lane :fir do
     #默认env文件
-    actionFir(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Fir"]) 
+    actionFir() 
   end
 
   desc "one发布到Fir"
@@ -41,10 +40,10 @@ platform :ios do
   end
 
   desc "[通用]发布新版本到 AppStore"
-  def actionRelease(name: "", ipaDir: "")
+  def actionRelease(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_AppStore"])
     clear_cache_files()
     cocoapods()
-    updateBuildVersion(name: name, showHash: false)
+    updateBuildVersion(showHash: false)
     gym(
       output_directory: ipaDir,
       scheme: name,
@@ -53,14 +52,13 @@ platform :ios do
       }
     )
     deliver(force: true)
-    handleDingTalkParams(name: name, ipaDir: ipaDir)
-
+    handleDingTalkParams(name: name, ipaDir: ipaDir, isRelease: true)
   end
 
   desc "[通用]发布新版本到 fir"
-  def actionFir(name: "", ipaDir: "", firToken: FirToken)
+  def actionFir(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Fir"], firToken: FirToken)
     cocoapods()
-    updateBuildVersion(name: name, showHash: true)
+    updateBuildVersion(showHash: true)
     gym(
       clean: true,
       output_directory: ipaDir,
@@ -72,13 +70,12 @@ platform :ios do
       }
     )
     # 上传ipa到fir.im服务器，在fir.im获取firim_api_token
-    firim(firim_api_token: firToken)
+    firim(firim_api_token: firToken, icon: ENV["App_Icon_Local"])
     handleDingTalkParams(name: name, ipaDir: ipaDir)
-
   end
 
   desc "更新BuildVersion"
-  def updateBuildVersion(name: "", showHash: true)
+  def updateBuildVersion(name: ENV["Scheme_Name"], showHash: true)
     plistDir = File.dirname(Dir.pwd)
     puts "plist所在目录：_#{plistDir}_"
 
@@ -96,33 +93,19 @@ platform :ios do
 
   end
 
-  #通用参数设置
-  def handleDingTalkParams(name: "", ipaDir: "")
-    # puts "name：_#{name}_"
-    # puts "ipaDir：_#{ipaDir}_"
-
-    appUrl  = "*"
-    appIcon = "*.png"
-
-    case name
-    when "*One"
-      appUrl  = "*"
-      appIcon = "*"
-      
-    end
-
-    appPath = ipaDir + "/#{name}.ipa"
-    dingUrl = "*"
+  #通用参数设置(有区别的参数才传入)
+  def handleDingTalkParams(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Fir"], isRelease: false)
+    appPath = ipaDir + "/#{name}.ipa" 
+    appUrl  = isRelease == false ? ENV["Firim_Shortcut_Link"] : ENV["App_Store_Link"];
 
     params = {
                 appPath: appPath,
                 appUrl: appUrl,
-                appIcon: appIcon,
-                dingUrl: dingUrl
+                appIcon: ENV["App_Icon_Link"],
+                dingUrl: ENV["Dingtalk_Url"]
               }
-    # puts "---#{params}--"
+    puts "---#{params}--"
     dingdingtalk_robot(params)
-
   end
 
   desc "测试"
@@ -134,6 +117,15 @@ platform :ios do
     # tokenfiles = "/Users/#{account}/Library/Caches/com.apple.amp.itmstransporter/UploadTokens/*.token"
     # UI.message "Token: #{tokenfiles}"
 
+    handleDingTalkParams()
+    # handleDingTalkParams(ipaDir: ENV["IpaDir_AppStore"], isRelease: true)
+
+  end
+
+  desc "one发布到Fir"
+  lane :testOne do
+    # actionFir(name: ENV["Scheme_name"], ipaDir: ENV["IpaDir_Fir"]) 
+    sh "fastlane test --env targetOne"
   end
 
   # You can define as many lanes as you want
