@@ -22,9 +22,9 @@ platform :ios do
   end
 
   desc "发布One到AppStore"
-  lane :releaseOne do
+  lane :releaseA do
     # actionRelease(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_AppStore"])
-    sh "fastlane release --env targetOne"
+    sh "fastlane release --env targetA"
   end
 
   desc "发布到Fir"
@@ -34,9 +34,9 @@ platform :ios do
   end
 
   desc "one发布到Fir"
-  lane :firOne do
+  lane :firA do
     # actionFir(name: ENV["Scheme_name"], ipaDir: ENV["IpaDir_Fir"]) 
-    sh "fastlane fir --env targetOne"
+    sh "fastlane fir --env targetA"
   end
 
   desc "[通用]发布新版本到 AppStore"
@@ -123,9 +123,9 @@ platform :ios do
   end
 
   desc "one发布到Fir"
-  lane :testOne do
+  lane :testA do
     # actionFir(name: ENV["Scheme_name"], ipaDir: ENV["IpaDir_Fir"]) 
-    sh "fastlane test --env targetOne"
+    sh "fastlane test --env targetA"
   end
 
   # You can define as many lanes as you want
