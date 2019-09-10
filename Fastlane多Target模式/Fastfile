@@ -51,7 +51,10 @@ platform :ios do
         method: 'app-store',
       }
     )
-    deliver(force: true)
+    deliver(force: true, 
+      metadata_path: ENV["MetaData_Path"], 
+      screenshots_path: ENV["Screenshots_Path"]
+    )
     handleDingTalkParams(name: name, ipaDir: ipaDir, isRelease: true)
   end
 

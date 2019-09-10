@@ -11,10 +11,10 @@
   fastlane release 打包并上传到appStore;
   fastlane fir 打包上传到fir;
   
-  fastlane releaseOne 打包targetOne并上传到appStore;
-  fastlane firOne 打包targetOne上传到fir;
+  fastlane releaseA 打包 targetA 并上传到 appStore;
+  fastlane firA 打包 targetA 上传到 fir;
   
   ···
-  targetTwo
-  targetThree
+  targetB
+  targetC
   同理
