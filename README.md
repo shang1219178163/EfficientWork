@@ -42,15 +42,17 @@ lazy模式：因为同时负责多个项目，本着fastlane文件写一个就�
   2.把项目文件夹拖入终端窗口;
   
   3.执行命令： 
-  fastlane release 打包并上传到appStore;
-  fastlane fir 打包上传到fir;
+  fastlane release 打包并上传到 appStore;
+  fastlane fir 打包上传到 fir;
   
-  fastlane releaseOne 打包targetOne并上传到appStore;
-  fastlane firOne 打包targetOne上传到fir;
+  fastlane releaseA 打包 targetOne 并上传到appStore;
+  fastlane firA 打包 targetOne 上传到fir;
   
   ···
   targetTwo
+  
   targetThree
+  
   同理
 ```
 ![钉钉打包通知](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/dingding%E7%9A%84Screenshot.png?raw=true)
