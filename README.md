@@ -190,3 +190,9 @@ CodeSnippets - 代码片段集，可以极快的录入预设代码,让工作效�
 
 效果图：
 ![](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/CodeSnippets2.gif?raw=true)
+
+
+git管理:
+	1. git clone https://github.com/shang1219178163/EfficientWork
+	2. cd EfficientWork
+	3. ./setup_snippets.sh
