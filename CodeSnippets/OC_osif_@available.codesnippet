@@ -3,34 +3,30 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>gcd_globle_main</string>
+	<string>osif_@available</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
+		<string>CodeBlock</string>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>DispatchQueue.global().async {
-    
-    DispatchQueue.main.async {
-    
-    }
-}</string>
+	<string>    if (@available(iOS &lt;#x.y#&gt;, *)) {
+        &lt;#API available statements#&gt;
+    } else {
+        &lt;#fallback statements#&gt;
+    }</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>1E592049-7091-45A7-A727-9B42A1A46B46</string>
+	<string>83426BCE-2E22-42A3-B1D0-78C09D75B68A</string>
 	<key>IDECodeSnippetLanguage</key>
-	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
 	<string></string>
 	<key>IDECodeSnippetTitle</key>
-	<string>DispatchQueue.global().async {
-    
-    DispatchQueue.main.async {
-    
-    }
-}</string>
+	<string>    if (@available(iOS &lt;#x.y#&gt;, *)) {
+</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>

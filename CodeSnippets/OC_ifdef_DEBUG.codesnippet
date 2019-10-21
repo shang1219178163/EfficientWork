@@ -3,34 +3,30 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>gcd_globle_main</string>
+	<string>ifdef_DEBUG</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
+		<string>CodeBlock</string>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>DispatchQueue.global().async {
-    
-    DispatchQueue.main.async {
-    
-    }
-}</string>
+	<string>#ifdef DEBUG
+    &lt;#code#&gt;
+#else
+    &lt;#code#&gt;
+#endif</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>1E592049-7091-45A7-A727-9B42A1A46B46</string>
+	<string>9ADD240F-1C60-49BB-B326-2245CD30B42C</string>
 	<key>IDECodeSnippetLanguage</key>
-	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
 	<string></string>
 	<key>IDECodeSnippetTitle</key>
-	<string>DispatchQueue.global().async {
-    
-    DispatchQueue.main.async {
-    
-    }
-}</string>
+	<string>#ifdef DEBUG
+</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>
