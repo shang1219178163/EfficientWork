@@ -14,8 +14,10 @@
 	<string>79D7B808-8834-4A70-97D9-1CBA22ED492B</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
 	<key>IDECodeSnippetTitle</key>
-	<string>copy 类型属性</string>
+	<string>属性 - copy 类型</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

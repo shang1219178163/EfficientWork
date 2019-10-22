@@ -3,26 +3,25 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>method</string>
+	<string>fixMe</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
+		<string>All</string>
 		<string>ClassImplementation</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>- (void)&lt;#methodName#&gt; {
-    
-}</string>
+	<string>// FIXME: - </string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>576C72F9-38CC-48C4-B6F5-34B5FABC1A09</string>
+	<string>250BBAE0-5E5B-4C63-B0FA-0D6BAAE8816F</string>
 	<key>IDECodeSnippetLanguage</key>
-	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>Create a method</string>
+	<string></string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Method</string>
+	<string>// FIXME: - </string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>

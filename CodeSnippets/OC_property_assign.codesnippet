@@ -14,8 +14,10 @@
 	<string>16DB74FE-F6E5-40FA-8A2C-07727B434548</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
 	<key>IDECodeSnippetTitle</key>
-	<string>assign 类型属性</string>
+	<string>属性 - assign 类型</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
