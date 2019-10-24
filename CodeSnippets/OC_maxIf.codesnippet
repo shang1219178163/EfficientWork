@@ -3,25 +3,30 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>fixMe</string>
+	<string>maxIF</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 		<string>ClassImplementation</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>// FIXME: - </string>
+	<string>#if __IPHONE_OS_VERSION_MAX_ALLOWED &gt;= __IPHONE_10_0
+
+#else
+
+#endif</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>250BBAE0-5E5B-4C63-B0FA-0D6BAAE8816F</string>
+	<string>0A43C5AF-827D-44A1-82FC-8CC85632CB35</string>
 	<key>IDECodeSnippetLanguage</key>
-	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
 	<string></string>
 	<key>IDECodeSnippetTitle</key>
-	<string>// FIXME: - </string>
+	<string>#if __IPHONE_OS_VERSION_MAX_ALLOWED &gt;= __IPHONE_10_0
+</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>
