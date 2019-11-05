@@ -6,6 +6,7 @@
 	<string>UITableView</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
+		<string>ClassImplementation</string>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
@@ -57,6 +58,10 @@
 	<string>7A9921A7-01B3-4040-8BE1-DDA8C8031281</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetPlatformFamily</key>
+	<string>iphoneos</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
 	<key>IDECodeSnippetTitle</key>
 	<string>UITableView 数据源和代理方法</string>
 	<key>IDECodeSnippetUserSnippet</key>
