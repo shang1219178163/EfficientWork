@@ -59,6 +59,13 @@ lazy模式：因为同时负责多个项目，本着fastlane文件写一个就�
 
 ![slack打包通知](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/slack%E7%9A%84Screenshot.png?raw=true)
 
+附：
+```
+#bundleVersion根据工程运行时间自动生成
+bundleVersion=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "$INFOPLIST_FILE")
+bundleVersion=$(date "+%Y%m%d%H%M")
+/usr/libexec/PlistBuddy -c "Set :CFBundleVersion $bundleVersion" "$INFOPLIST_FILE"
+```
 ## 第三篇章： CodeHelper — App代码助手（ObjC && Swift）
 
 功能：
@@ -245,4 +252,3 @@ export DEVELOPER_DIR="/Applications/XCode.app/Contents/Developer"
 1. debug文件夹复制到桌面，替换里边的 .dSYM；
 2. 删除所有 .crash文件，拖入自己的 .carsh文件；
 3. 终端 cd 进该文件夹，执行 sh debug.sh 即可
-
