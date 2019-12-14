@@ -1,7 +1,8 @@
 <img src="https://raw.githubusercontent.com/ReactiveX/RxSwift/master/assets/Rx_Logo_M.png" alt="" width="36" height="36"> EfficientWork
 ====================================== 
+ *_对于可以自动化，一劳永逸的部分，总是值得我们花费更多的时间和精力，毕竟这世界前进的本质就是效率。_*
 
-![帮助大家省出时间去享受生活](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/Beach.png?raw=true)
+![天魔曲](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/Beach.png?raw=true)
 
 ## 第一篇章： IconAndLaunch — iOS app图标和启动图一键生成
 ```
@@ -355,5 +356,3 @@ pod lib create 模块名 --template-url=https://github.com/*/pod-template.git
 
 此方法也可以用来创建新项目（模块名改为项目名称即可，毕竟 Example 本身就是一个项目）
 ```
-
-（对于可以自动化，一劳永逸的部分，总是值得我们花费更多的时间和精力，毕竟这世界前进的本质就是效率）
