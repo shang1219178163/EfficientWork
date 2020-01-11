@@ -356,3 +356,6 @@ pod lib create 模块名 --template-url=https://github.com/*/pod-template.git
 
 此方法也可以用来创建新项目（模块名改为项目名称即可，毕竟 Example 本身就是一个项目）
 ```
+
+## 第八篇章：批量生成需求控制器文件、API请求文件、自定义视图文件
+通过输入的文件名称字符串一键批量生成相应模板文件。
