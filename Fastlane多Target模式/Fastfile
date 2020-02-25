@@ -123,7 +123,8 @@ platform :ios do
       user_key: userKey,
       # update_description: "fastlane自动打包上传测试 pgyer",  
       update_description: "#{uploadtime}", 
-      install_type: "1",
+      password: "123456", 
+      install_type: "2",
       ipa: "#{ipaDir}/#{name}.ipa",
     )
     handleDingTalkParams(name: name, ipaDir: ipaDir, appUrl: ENV["Pgyer_Shortcut_Link"])
