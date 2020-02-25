@@ -1,6 +1,5 @@
 
-fastlane_version "2.112.0"
-
+# fastlane_version "2.112.0"
 default_platform :ios
 
 platform :ios do
@@ -10,15 +9,25 @@ platform :ios do
 
   # ipaDirFirOne = File.dirname(Dir.pwd) + "/ipa_firim/one"
   # ipaDirAppStoreOne = File.dirname(Dir.pwd) + "/ipa_appStore/one"
+  # export FASTLANE_ITUNES_TRANSPORTER_PATH=/usr/local/itms 
 
   #firim token
   FirToken = "*"
+  #蒲同英
+  PgyerApiKey = "*"
+  PgyerUserKey = "*"
 
   ## Common
   desc "发布新版本到AppStore"
   lane :release do
     #默认env文件
     actionRelease()
+  end
+
+  desc "上传新版本到AppStore"
+  lane :actionDeliver do
+    #默认env文件
+    actionDeliver()
   end
 
   desc "发布One到AppStore"
@@ -33,6 +42,12 @@ platform :ios do
     actionFir() 
   end
 
+  desc "发布到pgyer"
+  lane :pgy do
+    #默认env文件
+    actionPgyer()
+  end
+
   desc "one发布到Fir"
   lane :firA do
     # actionFir(name: ENV["Scheme_name"], ipaDir: ENV["IpaDir_Fir"]) 
@@ -42,25 +57,34 @@ platform :ios do
   desc "[通用]发布新版本到 AppStore"
   def actionRelease(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_AppStore"])
     clear_cache_files()
-    cocoapods()
+    # cocoapods()
     updateBuildVersion(showHash: false)
     gym(
       output_directory: ipaDir,
       scheme: name,
       export_options: {
         method: 'app-store',
+        xcargs: "-allowProvisioningUpdates",
       }
     )
-    deliver(force: true, 
-      metadata_path: ENV["MetaData_Path"], 
+    actionDeliver()
+  end
+
+  desc "[通用]发布新版本到 AppStore"
+  def actionDeliver(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_AppStore"])
+    deliver(force: true,
+      # ipa: "/Users/shang/ACS/access-admin-app-ios/ipa_appStore/AccessControlSystem.ipa",
+      ipa: "#{ipaDir}/#{name}.ipa",
+      metadata_path: ENV["Metadata_Path"], 
       screenshots_path: ENV["Screenshots_Path"]
     )
-    handleDingTalkParams(name: name, ipaDir: ipaDir, isRelease: true)
-  end
+    # system "open #{ipaDir}"
+    handleDingTalkParams(name: name, ipaDir: ipaDir, appUrl: ENV["App_Store_Link"])
+  end 
 
   desc "[通用]发布新版本到 fir"
   def actionFir(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Fir"], firToken: FirToken)
-    cocoapods()
+    # cocoapods()
     updateBuildVersion(showHash: true)
     gym(
       clean: true,
@@ -75,6 +99,34 @@ platform :ios do
     # 上传ipa到fir.im服务器，在fir.im获取firim_api_token
     firim(firim_api_token: firToken, icon: ENV["App_Icon_Local"])
     handleDingTalkParams(name: name, ipaDir: ipaDir)
+    # handleDingTalkParams(name: name, ipaDir: ipaDir, appUrl: ENV["Firim_Shortcut_Link"])
+  end
+
+  desc "[通用]发布新版本到 pgyer"
+  def actionPgyer(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Fir"], apiKey: PgyerApiKey, userKey: PgyerUserKey)
+    updateBuildVersion(showHash: true)
+    gym(
+      clean: true,
+      output_directory: ipaDir,
+      scheme: name,
+      configuration: 'Debug',
+      include_symbols: true,
+      export_options: {
+        method: 'development'
+      }
+    )
+
+    # uploadtime = Time.now.strftime("%Y%m%d%H%M")
+    uploadtime = Time.now.strftime("%Y-%m-%d %H:%M:%S")
+
+    pgyer(api_key: apiKey, 
+      user_key: userKey,
+      # update_description: "fastlane自动打包上传测试 pgyer",  
+      update_description: "#{uploadtime}", 
+      install_type: "1",
+      ipa: "#{ipaDir}/#{name}.ipa",
+    )
+    handleDingTalkParams(name: name, ipaDir: ipaDir, appUrl: ENV["Pgyer_Shortcut_Link"])
   end
 
   desc "更新BuildVersion"
@@ -96,11 +148,9 @@ platform :ios do
 
   end
 
-  #通用参数设置(有区别的参数才传入)
-  def handleDingTalkParams(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Fir"], isRelease: false)
-    appPath = ipaDir + "/#{name}.ipa" 
-    appUrl  = isRelease == false ? ENV["Firim_Shortcut_Link"] : ENV["App_Store_Link"];
 
+  def handleDingTalkParams(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Fir"], appUrl: ENV["Firim_Shortcut_Link"])
+    appPath = ipaDir + "/#{name}.ipa" 
     params = {
                 appPath: appPath,
                 appUrl: appUrl,
@@ -120,7 +170,7 @@ platform :ios do
     # tokenfiles = "/Users/#{account}/Library/Caches/com.apple.amp.itmstransporter/UploadTokens/*.token"
     # UI.message "Token: #{tokenfiles}"
 
-    handleDingTalkParams()
+    # handleDingTalkParams()
     # handleDingTalkParams(ipaDir: ENV["IpaDir_AppStore"], isRelease: true)
 
   end
@@ -132,7 +182,6 @@ platform :ios do
   end
 
   # You can define as many lanes as you want
-
   after_all do |lane|
 
   end
