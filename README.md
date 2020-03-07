@@ -358,4 +358,5 @@ pod lib create 模块名 --template-url=https://github.com/*/pod-template.git
 ```
 
 ## 第八篇章：批量生成需求控制器文件、API请求文件、自定义视图文件
-通过输入的文件名称字符串一键批量生成相应模板文件。
+通过输入的文件名称字符串一键批量生成相应模板文件，自动出现在下载目录中。这已经属于针对每个人每个不同项目的定制化代码生成工具。实现不复杂，但是看着模块代码自动生成对应文件真TM的爽！
+[BatchClassCreateController.swift](https://github.com/shang1219178163/MacTemplet/blob/master/MacTemplet/BatchClassCreateController.swift)
