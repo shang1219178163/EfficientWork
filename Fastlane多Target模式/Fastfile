@@ -55,6 +55,7 @@ platform :ios do
   end
 
   desc "[通用]发布新版本到 AppStore"
+  desc "[通用]发布新版本到 AppStore"
   def actionRelease(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_AppStore"])
     clear_cache_files()
     # cocoapods()
@@ -62,13 +63,14 @@ platform :ios do
     gym(
       output_directory: ipaDir,
       scheme: name,
+      export_method: 'app-store',
       export_options: {
-        method: 'app-store',
         xcargs: "-allowProvisioningUpdates",
+        iCloudContainerEnvironment: 'Production'
       }
     )
     actionDeliver()
-  end
+  endd
 
   desc "[通用]发布新版本到 AppStore"
   def actionDeliver(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_AppStore"])
@@ -76,7 +78,8 @@ platform :ios do
       # ipa: "/Users/shang/ACS/access-admin-app-ios/ipa_appStore/AccessControlSystem.ipa",
       ipa: "#{ipaDir}/#{name}.ipa",
       metadata_path: ENV["Metadata_Path"], 
-      screenshots_path: ENV["Screenshots_Path"]
+      screenshots_path: ENV["Screenshots_Path"],
+      export_options: { iCloudContainerEnvironment: 'Development' } # or 'Production'
     )
     # system "open #{ipaDir}"
     handleDingTalkParams(name: name, ipaDir: ipaDir, appUrl: ENV["App_Store_Link"])
@@ -84,20 +87,18 @@ platform :ios do
 
   desc "[通用]发布新版本到 fir"
   def actionFir(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Fir"], firToken: FirToken)
-    # cocoapods()
     updateBuildVersion(showHash: true)
     gym(
       clean: true,
+      include_symbols: true,
       output_directory: ipaDir,
       scheme: name,
       configuration: 'Debug',
-      include_symbols: true,
-      export_options: {
-        method: 'development'
-      }
+      export_method: 'development',
+      export_options: {iCloudContainerEnvironment: 'Development'}
     )
     # 上传ipa到fir.im服务器，在fir.im获取firim_api_token
-    firim(firim_api_token: firToken, icon: ENV["App_Icon_Local"])
+    firim(firim_api_token: firToken, icon: ENV["App_Icon_Local"], ipa: "#{ipaDir}/#{name}.ipa")
     handleDingTalkParams(name: name, ipaDir: ipaDir)
     # handleDingTalkParams(name: name, ipaDir: ipaDir, appUrl: ENV["Firim_Shortcut_Link"])
   end
@@ -107,13 +108,12 @@ platform :ios do
     updateBuildVersion(showHash: true)
     gym(
       clean: true,
+      include_symbols: true,
       output_directory: ipaDir,
       scheme: name,
       configuration: 'Debug',
-      include_symbols: true,
-      export_options: {
-        method: 'development'
-      }
+      export_method: 'development',
+      export_options: {iCloudContainerEnvironment: 'Development'}
     )
 
     # uploadtime = Time.now.strftime("%Y%m%d%H%M")
