@@ -1,0 +1,6 @@
+framework module Pods_Xcode11Project {
+  umbrella header "Pods-Xcode11Project-umbrella.h"
+
+  export *
+  module * { export * }
+}
