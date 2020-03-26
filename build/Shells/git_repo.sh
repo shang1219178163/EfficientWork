@@ -15,8 +15,8 @@ export LANG="zh_CN.GB2312"
 #     echo_green "--- Step: pod lib create $1 --template-url=https://github.com/$username/pod-template.git ---"
 #     pod lib create $1 --template-url=https://github.com/$username/pod-template.git || exit 1
 #
-#    echo_green "--- Step: curl -u ${username} https://api.github.com/user/repos -d '{\"name\":\"$1\"}' ---"
-#    curl -u ${username} https://api.github.com/user/repos -d '{"name":"$1"}' || exit 1
+#    echo_green "--- Step: curl -u ${username} https://api.github.com/user/repos -d "{\"name\":\"$1\"}" ---"
+#    curl -u ${username} https://api.github.com/user/repos -d "{\"name\":\"$1\"}" || exit 1
 #
 #    echo_green "--- Step: git remote rm origin ---"
 #    git remote rm origin || exit 1

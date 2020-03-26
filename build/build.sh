@@ -87,7 +87,7 @@ echo_blue "查找文件: ${fileNameAll}"
 if [ -f "$fileNameAll" ]
 then
     # echo_green "--- 存在：${fileNameAll} ---"
-    echo_green "--- date: $(datetime) ---"
+    echo_green "--- $(datetime) ---"
 #    testLogColor;
 
     gitUpdatePod ${fileNameAll};
