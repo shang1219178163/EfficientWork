@@ -86,20 +86,11 @@ echo_blue "查找文件: ${fileNameAll}"
 #if [[ "$result" != "" ]]
 if [ -f "$fileNameAll" ]
 then
-    # echo_green "--- 存在：${fileNameAll} ---"
     echo_green "--- $(datetime) ---"
 #    testLogColor;
-
-    gitUpdatePod ${fileNameAll};
+    updatePod ${fileNameAll};
 
 else
     echo_red "文件不存在：$fileNameAll"
 fi
-
-# if [ -f "$fileNameAll" ]
-# then
-#     echo "$fileNameAll found."
-# else
-#     echo "$fileNameAll not found."
-# fi
 
