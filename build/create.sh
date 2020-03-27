@@ -5,55 +5,6 @@ source Shells/git_action.sh
 
 export LANG="zh_CN.GB2312"
 
-##source run.sh AAButton
-
-#创建并关联到远程仓库
-#libCreateAndLinkRepo(){
-#    username=shang1219178163
-#    echo_green "--- ${username}: $1 ---"
-#
-#     echo_green "--- Step: pod lib create $1 --template-url=https://github.com/$username/pod-template.git ---"
-#     pod lib create $1 --template-url=https://github.com/$username/pod-template.git || exit 1
-#
-#    echo_green "--- Step: curl -u ${username} https://api.github.com/user/repos -d '{\"name\":\"$1\"}' ---"
-#    curl -u ${username} https://api.github.com/user/repos -d '{"name":"$1"}' || exit 1
-#
-#    echo_green "--- Step: git remote rm origin ---"
-#    git remote rm origin || exit 1
-#
-#    echo_green "--- Step: git remote add origin ssh://git@github.com:${username}/$1.git ---"
-#    git remote add origin ssh://git@github.com:${username}/$1.git
-#
-#    echo_green "--- Step: git remote set-url origin https://github.com/${username}/$1.git ---"
-#    git remote set-url origin https://github.com/${username}/$1.git || exit 1
-#
-#    echo_green "--- Step: git push --force --all ---"
-#    git push --force --all || exit 1
-#
-#    echo_yellow "--- Step: finished ！---"
-#}
-
-
-##创建本地仓库 local lib
-#createLib(){
-#    username=shang1219178163
-#    echo_green "--- ${username}: $1 (本地仓库开始创建)---"
-#
-#    echo_green "--- Step: pod lib create $1 --template-url=https://github.com/$username/pod-template.git ---"
-#    pod lib create $1 --template-url=git://github.com/$username/pod-template.git || exit 1
-#
-#    createRepo $1;
-#}
-#
-##创建远程仓库
-#createRepo(){
-#    username=shang1219178163
-#    echo_green "--- ${username}: $1 (远程仓库开始创建)---"
-#
-#    echo_green "--- Step: curl -u ${username} https://api.github.com/user/repos -d "{\"name\":\"$1\"}" ---"
-#    curl -u ${username} https://api.github.com/user/repos -d "{\"name\":\"$1\"}" || exit 1
-#}
-
 #------------------------------------------------------------------------
 #配置项目名称和路径等相关参数
 #------------------------------------------------------------------------
