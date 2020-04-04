@@ -79,6 +79,8 @@ bundleVersion=$(date "+%Y%m%d%H%M")
 
 [CodeHelper.dmg](https://github.com/shang1219178163/MacTemplet/releases/download/v1.3.2/CodeHelper.dmg)
 
+[CodeHelper.dmg v2.0.0](https://github.com/shang1219178163/MacTemplet/releases/tag/v2.0.0)
+
 ![效果图](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/screenshot.png?raw=true)
 ![效果图](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/screenshot1.png?raw=true)
 
