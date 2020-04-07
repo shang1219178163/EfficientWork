@@ -25,7 +25,7 @@ platform :ios do
   end
 
   desc "上传新版本到AppStore"
-  lane :actionDeliver do
+  lane :del do
     #默认env文件
     actionDeliver()
   end
@@ -79,7 +79,6 @@ platform :ios do
       ipa: "#{ipaDir}/#{name}.ipa",
       metadata_path: ENV["Metadata_Path"], 
       screenshots_path: ENV["Screenshots_Path"],
-      export_options: { iCloudContainerEnvironment: 'Development' } # or 'Production'
     )
     # system "open #{ipaDir}"
     handleDingTalkParams(name: name, ipaDir: ipaDir, appUrl: ENV["App_Store_Link"])
