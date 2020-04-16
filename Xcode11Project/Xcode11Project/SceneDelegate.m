@@ -17,7 +17,10 @@
 
         self.window.windowScene = windowScene;
         
-        UIViewController *controlller = [[NSClassFromString(@"Xcode11Project.MainViewController") alloc]init];
+        NSString *name = @"Xcode11Project.MainViewController";
+        name = @"TextViewTapController";
+        UIViewController *controlller = [[NSClassFromString(name) alloc]init];
+        
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controlller];
         self.window.rootViewController = navController;
     }

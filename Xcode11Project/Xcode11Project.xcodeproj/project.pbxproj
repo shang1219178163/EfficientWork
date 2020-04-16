@@ -15,6 +15,7 @@
 		1461E0FD2398A09C0078EB79 /* UIApplication+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1461E0FC2398A09C0078EB79 /* UIApplication+Helper.swift */; };
 		1461E1002398A1710078EB79 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1461E0FF2398A1710078EB79 /* HomeViewController.m */; };
 		1461E1022398ADA40078EB79 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1461E1012398ADA40078EB79 /* MainViewController.swift */; };
+		1479D62A24483E8C007F7CC4 /* TextViewTapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1479D62824483E8B007F7CC4 /* TextViewTapController.m */; };
 		E036A4DAC63BD4DA8A69800A /* Pods_Xcode11Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB9E409BE34999956F432DA /* Pods_Xcode11Project.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,8 @@
 		1461E0FE2398A1710078EB79 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		1461E0FF2398A1710078EB79 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		1461E1012398ADA40078EB79 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		1479D62824483E8B007F7CC4 /* TextViewTapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewTapController.m; sourceTree = "<group>"; };
+		1479D62924483E8B007F7CC4 /* TextViewTapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewTapController.h; sourceTree = "<group>"; };
 		3EB9E409BE34999956F432DA /* Pods_Xcode11Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Xcode11Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FE0F41CA356B6039C933EB3 /* Pods-Xcode11Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xcode11Project.release.xcconfig"; path = "Target Support Files/Pods-Xcode11Project/Pods-Xcode11Project.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,6 +80,8 @@
 				1461E0DE23989F5C0078EB79 /* SceneDelegate.m */,
 				1461E0FE2398A1710078EB79 /* HomeViewController.h */,
 				1461E0FF2398A1710078EB79 /* HomeViewController.m */,
+				1479D62924483E8B007F7CC4 /* TextViewTapController.h */,
+				1479D62824483E8B007F7CC4 /* TextViewTapController.m */,
 				1461E1012398ADA40078EB79 /* MainViewController.swift */,
 				1461E0FC2398A09C0078EB79 /* UIApplication+Helper.swift */,
 				1461E0E623989F5C0078EB79 /* Assets.xcassets */,
@@ -224,6 +229,7 @@
 				1461E0ED23989F5C0078EB79 /* main.m in Sources */,
 				1461E1002398A1710078EB79 /* HomeViewController.m in Sources */,
 				1461E0DF23989F5C0078EB79 /* SceneDelegate.m in Sources */,
+				1479D62A24483E8C007F7CC4 /* TextViewTapController.m in Sources */,
 				1461E1022398ADA40078EB79 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
