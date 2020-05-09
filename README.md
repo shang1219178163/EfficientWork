@@ -71,6 +71,7 @@ bundleVersion=$(date "+%Y%m%d%H%M")
 ```
 ## 第三篇章： CodeHelper — App代码助手（ObjC && Swift）
 
+（Mac OS 10.14之后，需要获取完全磁盘访问权限，才能访问Mail,Messages,Safari,Home，Time Machine backups等等为所有用户准备的工具区域。）
 功能：
 
 1.字符串生成模型文件，目前支持MJExtension、YYModel、HandyJson；
