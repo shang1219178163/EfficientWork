@@ -23,6 +23,8 @@ class MainViewController: UIViewController {
         let two = UserDefaults.standard["two", default: [String].self]
         DDLog(one, two)
         
+        let days = DateFormatter.getDateDays("2020-03-01", endTime: "2020-05-01")
+        DDLog(days)
     }
 
 

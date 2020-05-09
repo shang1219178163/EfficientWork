@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14305D512465037100B4CB3F /* NSDate+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14305D502465037100B4CB3F /* NSDate+Helper.swift */; };
 		1461E0DC23989F5C0078EB79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1461E0DB23989F5C0078EB79 /* AppDelegate.m */; };
 		1461E0DF23989F5C0078EB79 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1461E0DE23989F5C0078EB79 /* SceneDelegate.m */; };
 		1461E0E723989F5C0078EB79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1461E0E623989F5C0078EB79 /* Assets.xcassets */; };
@@ -16,10 +17,12 @@
 		1461E1002398A1710078EB79 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1461E0FF2398A1710078EB79 /* HomeViewController.m */; };
 		1461E1022398ADA40078EB79 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1461E1012398ADA40078EB79 /* MainViewController.swift */; };
 		1479D62A24483E8C007F7CC4 /* TextViewTapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1479D62824483E8B007F7CC4 /* TextViewTapController.m */; };
+		14FE3C30245A815D006B14D4 /* UIModalPresentationStyleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FE3C2F245A815D006B14D4 /* UIModalPresentationStyleController.swift */; };
 		E036A4DAC63BD4DA8A69800A /* Pods_Xcode11Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB9E409BE34999956F432DA /* Pods_Xcode11Project.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		14305D502465037100B4CB3F /* NSDate+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Helper.swift"; sourceTree = "<group>"; };
 		143F90374D98857ECCA6FBE6 /* Pods-Xcode11Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xcode11Project.debug.xcconfig"; path = "Target Support Files/Pods-Xcode11Project/Pods-Xcode11Project.debug.xcconfig"; sourceTree = "<group>"; };
 		1461E0D723989F5C0078EB79 /* Xcode11Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Xcode11Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1461E0DA23989F5C0078EB79 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -37,6 +40,7 @@
 		1461E1012398ADA40078EB79 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1479D62824483E8B007F7CC4 /* TextViewTapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewTapController.m; sourceTree = "<group>"; };
 		1479D62924483E8B007F7CC4 /* TextViewTapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewTapController.h; sourceTree = "<group>"; };
+		14FE3C2F245A815D006B14D4 /* UIModalPresentationStyleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIModalPresentationStyleController.swift; sourceTree = "<group>"; };
 		3EB9E409BE34999956F432DA /* Pods_Xcode11Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Xcode11Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FE0F41CA356B6039C933EB3 /* Pods-Xcode11Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xcode11Project.release.xcconfig"; path = "Target Support Files/Pods-Xcode11Project/Pods-Xcode11Project.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,8 +86,10 @@
 				1461E0FF2398A1710078EB79 /* HomeViewController.m */,
 				1479D62924483E8B007F7CC4 /* TextViewTapController.h */,
 				1479D62824483E8B007F7CC4 /* TextViewTapController.m */,
+				14FE3C2F245A815D006B14D4 /* UIModalPresentationStyleController.swift */,
 				1461E1012398ADA40078EB79 /* MainViewController.swift */,
 				1461E0FC2398A09C0078EB79 /* UIApplication+Helper.swift */,
+				14305D502465037100B4CB3F /* NSDate+Helper.swift */,
 				1461E0E623989F5C0078EB79 /* Assets.xcassets */,
 				1461E0E823989F5C0078EB79 /* LaunchScreen.storyboard */,
 				1461E0EB23989F5C0078EB79 /* Info.plist */,
@@ -230,7 +236,9 @@
 				1461E1002398A1710078EB79 /* HomeViewController.m in Sources */,
 				1461E0DF23989F5C0078EB79 /* SceneDelegate.m in Sources */,
 				1479D62A24483E8C007F7CC4 /* TextViewTapController.m in Sources */,
+				14305D512465037100B4CB3F /* NSDate+Helper.swift in Sources */,
 				1461E1022398ADA40078EB79 /* MainViewController.swift in Sources */,
+				14FE3C30245A815D006B14D4 /* UIModalPresentationStyleController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
