@@ -254,9 +254,9 @@ public let kDesDay   = "初一, 初二, 初三, 初四, 初五, 初六, 初七, 
 /// Debug模式日志打印
 public func DDLog(_ msgs: Any..., fileName: String = #file, methodName: String = #function, lineNumber: Int = #line){
     #if DEBUG
-    let params = msgs.compactMap{ "\($0)" }.joined(separator: "\n__");
+    let params = msgs.compactMap{ "\($0)" }.joined(separator: "\n");
     let formatter = DateFormatter.format("yyyy-MM-dd HH:mm:ss.SSS");
-    print(formatter.string(from: Date()),"\((fileName as NSString).lastPathComponent).\(methodName)[\(lineNumber)]:\n__\(params)")
+    print(formatter.string(from: Date()),"\((fileName as NSString).lastPathComponent).\(methodName)[\(lineNumber)]:\(params)")
 
     #endif
 }
