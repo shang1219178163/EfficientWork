@@ -26,9 +26,8 @@
         [self.window makeKeyAndVisible];
 
         NSString *name = @"HomeViewController";
-        name = @"TextViewTapController";
-        
-        name = @"Xcode11Project.MainViewController";
+//        name = @"TextViewTapController";
+//        name = @"Xcode11Project.MainViewController";
         UIViewController *controlller = [[NSClassFromString(name) alloc]init];
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controlller];
         self.window.rootViewController = navController;
