@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		14305D512465037100B4CB3F /* NSDate+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14305D502465037100B4CB3F /* NSDate+Helper.swift */; };
+		143F44A02491DCAC00ED160A /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 143F449F2491DCAC00ED160A /* Person.m */; };
+		143F44A32491E83600ED160A /* NSObject+KVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 143F44A22491E83600ED160A /* NSObject+KVO.m */; };
+		143F44A62491F0BC00ED160A /* KVOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 143F44A52491F0BC00ED160A /* KVOViewController.m */; };
+		143F44A92491F0E700ED160A /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 143F44A82491F0E700ED160A /* DetailViewController.m */; };
+		1458F835249DDF70007555EF /* NSArray+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1458F834249DDF70007555EF /* NSArray+Ext.m */; };
 		1461E0DC23989F5C0078EB79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1461E0DB23989F5C0078EB79 /* AppDelegate.m */; };
 		1461E0DF23989F5C0078EB79 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1461E0DE23989F5C0078EB79 /* SceneDelegate.m */; };
 		1461E0E723989F5C0078EB79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1461E0E623989F5C0078EB79 /* Assets.xcassets */; };
@@ -17,13 +22,29 @@
 		1461E1002398A1710078EB79 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1461E0FF2398A1710078EB79 /* HomeViewController.m */; };
 		1461E1022398ADA40078EB79 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1461E1012398ADA40078EB79 /* MainViewController.swift */; };
 		1479D62A24483E8C007F7CC4 /* TextViewTapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1479D62824483E8B007F7CC4 /* TextViewTapController.m */; };
+		14E3658124A471FE00B61850 /* UIView+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E3658024A471FE00B61850 /* UIView+Ext.m */; };
+		14E3659424A47EC400B61850 /* NXButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E3659324A47EC400B61850 /* NXButton.m */; };
+		14E365AE24A48FA600B61850 /* SudokuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E365AD24A48FA600B61850 /* SudokuViewController.m */; };
+		14E365BA24A49C7000B61850 /* UIImage+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E365B924A49C7000B61850 /* UIImage+Ext.m */; };
+		14E365BD24A49CCC00B61850 /* UIButton+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E365BC24A49CCC00B61850 /* UIButton+Ext.m */; };
 		14FE3C30245A815D006B14D4 /* UIModalPresentationStyleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FE3C2F245A815D006B14D4 /* UIModalPresentationStyleController.swift */; };
 		E036A4DAC63BD4DA8A69800A /* Pods_Xcode11Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB9E409BE34999956F432DA /* Pods_Xcode11Project.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		14305D502465037100B4CB3F /* NSDate+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Helper.swift"; sourceTree = "<group>"; };
+		143F449D2491DC6500ED160A /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		143F449E2491DCAC00ED160A /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		143F449F2491DCAC00ED160A /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		143F44A12491E83600ED160A /* NSObject+KVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KVO.h"; sourceTree = "<group>"; };
+		143F44A22491E83600ED160A /* NSObject+KVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KVO.m"; sourceTree = "<group>"; };
+		143F44A42491F0BC00ED160A /* KVOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KVOViewController.h; sourceTree = "<group>"; };
+		143F44A52491F0BC00ED160A /* KVOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KVOViewController.m; sourceTree = "<group>"; };
+		143F44A72491F0E700ED160A /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		143F44A82491F0E700ED160A /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		143F90374D98857ECCA6FBE6 /* Pods-Xcode11Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xcode11Project.debug.xcconfig"; path = "Target Support Files/Pods-Xcode11Project/Pods-Xcode11Project.debug.xcconfig"; sourceTree = "<group>"; };
+		1458F833249DDF6F007555EF /* NSArray+Ext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+Ext.h"; sourceTree = "<group>"; };
+		1458F834249DDF70007555EF /* NSArray+Ext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Ext.m"; sourceTree = "<group>"; };
 		1461E0D723989F5C0078EB79 /* Xcode11Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Xcode11Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1461E0DA23989F5C0078EB79 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1461E0DB23989F5C0078EB79 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -40,6 +61,16 @@
 		1461E1012398ADA40078EB79 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1479D62824483E8B007F7CC4 /* TextViewTapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewTapController.m; sourceTree = "<group>"; };
 		1479D62924483E8B007F7CC4 /* TextViewTapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewTapController.h; sourceTree = "<group>"; };
+		14E3657F24A471FE00B61850 /* UIView+Ext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Ext.h"; sourceTree = "<group>"; };
+		14E3658024A471FE00B61850 /* UIView+Ext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Ext.m"; sourceTree = "<group>"; };
+		14E3659224A47EC400B61850 /* NXButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NXButton.h; sourceTree = "<group>"; };
+		14E3659324A47EC400B61850 /* NXButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NXButton.m; sourceTree = "<group>"; };
+		14E365AC24A48FA600B61850 /* SudokuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SudokuViewController.h; sourceTree = "<group>"; };
+		14E365AD24A48FA600B61850 /* SudokuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SudokuViewController.m; sourceTree = "<group>"; };
+		14E365B824A49C7000B61850 /* UIImage+Ext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Ext.h"; sourceTree = "<group>"; };
+		14E365B924A49C7000B61850 /* UIImage+Ext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Ext.m"; sourceTree = "<group>"; };
+		14E365BB24A49CCC00B61850 /* UIButton+Ext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+Ext.h"; sourceTree = "<group>"; };
+		14E365BC24A49CCC00B61850 /* UIButton+Ext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Ext.m"; sourceTree = "<group>"; };
 		14FE3C2F245A815D006B14D4 /* UIModalPresentationStyleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIModalPresentationStyleController.swift; sourceTree = "<group>"; };
 		3EB9E409BE34999956F432DA /* Pods_Xcode11Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Xcode11Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FE0F41CA356B6039C933EB3 /* Pods-Xcode11Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xcode11Project.release.xcconfig"; path = "Target Support Files/Pods-Xcode11Project/Pods-Xcode11Project.release.xcconfig"; sourceTree = "<group>"; };
@@ -84,12 +115,33 @@
 				1461E0DE23989F5C0078EB79 /* SceneDelegate.m */,
 				1461E0FE2398A1710078EB79 /* HomeViewController.h */,
 				1461E0FF2398A1710078EB79 /* HomeViewController.m */,
+				14E365AC24A48FA600B61850 /* SudokuViewController.h */,
+				14E365AD24A48FA600B61850 /* SudokuViewController.m */,
+				143F44A72491F0E700ED160A /* DetailViewController.h */,
+				143F44A82491F0E700ED160A /* DetailViewController.m */,
+				143F44A42491F0BC00ED160A /* KVOViewController.h */,
+				143F44A52491F0BC00ED160A /* KVOViewController.m */,
 				1479D62924483E8B007F7CC4 /* TextViewTapController.h */,
 				1479D62824483E8B007F7CC4 /* TextViewTapController.m */,
 				14FE3C2F245A815D006B14D4 /* UIModalPresentationStyleController.swift */,
 				1461E1012398ADA40078EB79 /* MainViewController.swift */,
 				1461E0FC2398A09C0078EB79 /* UIApplication+Helper.swift */,
 				14305D502465037100B4CB3F /* NSDate+Helper.swift */,
+				14E365B824A49C7000B61850 /* UIImage+Ext.h */,
+				14E365B924A49C7000B61850 /* UIImage+Ext.m */,
+				14E365BB24A49CCC00B61850 /* UIButton+Ext.h */,
+				14E365BC24A49CCC00B61850 /* UIButton+Ext.m */,
+				14E3657F24A471FE00B61850 /* UIView+Ext.h */,
+				14E3658024A471FE00B61850 /* UIView+Ext.m */,
+				1458F833249DDF6F007555EF /* NSArray+Ext.h */,
+				1458F834249DDF70007555EF /* NSArray+Ext.m */,
+				143F44A12491E83600ED160A /* NSObject+KVO.h */,
+				143F44A22491E83600ED160A /* NSObject+KVO.m */,
+				14E3659224A47EC400B61850 /* NXButton.h */,
+				14E3659324A47EC400B61850 /* NXButton.m */,
+				143F449E2491DCAC00ED160A /* Person.h */,
+				143F449F2491DCAC00ED160A /* Person.m */,
+				143F449D2491DC6500ED160A /* Macro.h */,
 				1461E0E623989F5C0078EB79 /* Assets.xcassets */,
 				1461E0E823989F5C0078EB79 /* LaunchScreen.storyboard */,
 				1461E0EB23989F5C0078EB79 /* Info.plist */,
@@ -231,14 +283,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				1461E0FD2398A09C0078EB79 /* UIApplication+Helper.swift in Sources */,
+				143F44A32491E83600ED160A /* NSObject+KVO.m in Sources */,
+				14E365BD24A49CCC00B61850 /* UIButton+Ext.m in Sources */,
 				1461E0DC23989F5C0078EB79 /* AppDelegate.m in Sources */,
+				143F44A02491DCAC00ED160A /* Person.m in Sources */,
+				1458F835249DDF70007555EF /* NSArray+Ext.m in Sources */,
 				1461E0ED23989F5C0078EB79 /* main.m in Sources */,
+				143F44A62491F0BC00ED160A /* KVOViewController.m in Sources */,
 				1461E1002398A1710078EB79 /* HomeViewController.m in Sources */,
 				1461E0DF23989F5C0078EB79 /* SceneDelegate.m in Sources */,
+				14E365BA24A49C7000B61850 /* UIImage+Ext.m in Sources */,
 				1479D62A24483E8C007F7CC4 /* TextViewTapController.m in Sources */,
+				143F44A92491F0E700ED160A /* DetailViewController.m in Sources */,
+				14E3658124A471FE00B61850 /* UIView+Ext.m in Sources */,
 				14305D512465037100B4CB3F /* NSDate+Helper.swift in Sources */,
 				1461E1022398ADA40078EB79 /* MainViewController.swift in Sources */,
+				14E365AE24A48FA600B61850 /* SudokuViewController.m in Sources */,
 				14FE3C30245A815D006B14D4 /* UIModalPresentationStyleController.swift in Sources */,
+				14E3659424A47EC400B61850 /* NXButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

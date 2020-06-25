@@ -6,6 +6,9 @@ target 'Xcode11Project' do
   # Comment the next line if you don't want to use dynamic frameworks
 
   # Pods for Xcode11Project
+  pod 'Masonry'
+  pod 'MasonryExtend'
+
   pod 'SnapKit'
   pod 'SnapKitExtend'
   

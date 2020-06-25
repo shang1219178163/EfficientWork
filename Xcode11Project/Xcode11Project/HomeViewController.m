@@ -7,7 +7,9 @@
 //
 
 #import "HomeViewController.h"
+
 #import "Macro.h"
+#import "UIView+Ext.h"
 
 #import "DetailViewController.h"
 
@@ -24,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.title = @"HomeViewController";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(hanleActon:)];
 
@@ -43,7 +46,6 @@
 //    NSDate *localeDate = [date dateByAddingTimeInterval: interval];
 //    NSString *localeDateStr = [dateFormatter stringFromDate:localeDate];
 //    NSLog(@"%@", localeDateStr);
-    
 
 }
 

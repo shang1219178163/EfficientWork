@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "Define.h"
 
 FOUNDATION_EXPORT double SwiftExpandVersionNumber;
 FOUNDATION_EXPORT const unsigned char SwiftExpandVersionString[];

@@ -18,7 +18,7 @@
         self.window.windowScene = windowScene;
         
         NSString *name = @"Xcode11Project.MainViewController";
-
+        name = @"HomeViewController";
         UIViewController *controlller = [[NSClassFromString(name) alloc]init];
         
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controlller];
