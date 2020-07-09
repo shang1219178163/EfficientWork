@@ -10,42 +10,56 @@
 
 @implementation NSArray (Ext)
 
-
-- (NSArray *)map:(id (^)(id obj, NSUInteger idx))handler{
+- (NSArray *)map:(id (NS_NOESCAPE ^)(id obj, NSUInteger idx))block{
+    NSParameterAssert(block != nil);
+    
     __block NSMutableArray *marr = [NSMutableArray array];
     [self enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (handler) {
-            id blockResult = handler(obj, idx) ? : obj;
-            [marr addObject:blockResult];
+        id value = block(obj, idx);
+        if (value) {
+            [marr addObject:value];
         }
     }];
 //    DDLog(@"%@->%@", self, marr.copy);
     return marr.copy;
 }
 
-- (NSArray *)filter:(BOOL(^)(id obj, NSUInteger idx))handler{
+- (NSArray *)compactMap:(id (NS_NOESCAPE ^)(id obj, NSUInteger idx))block{
+    NSParameterAssert(block != nil);
+
     __block NSMutableArray *marr = [NSMutableArray array];
     [self enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (handler && handler(obj, idx) == true) {
+        id value = block(obj, idx) ? : obj;
+        if ([value isKindOfClass:NSArray.class]) {
+            [marr addObjectsFromArray:value];
+        } else {
+            [marr addObject:value];
+        }
+    }];
+//    DDLog(@"%@->%@", self, marr.copy);
+    return marr.copy;
+}
+
+- (NSArray *)filter:(BOOL(NS_NOESCAPE ^)(id obj, NSUInteger idx))block{
+    NSParameterAssert(block != nil);
+
+    __block NSMutableArray *marr = [NSMutableArray array];
+    [self enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (block(obj, idx) == true) {
             [marr addObject:obj];
         }
     }];
     return marr.copy;
 }
 
-- (NSNumber *)reduce:(NSNumber *(^)(NSNumber *num1, NSNumber *num2))handler{
-    __block CGFloat result = 0.0;
+- (NSNumber *)reduce:(NSNumber *)initial block:(NSNumber *(NS_NOESCAPE ^)(NSNumber *result, NSNumber *obj))block{
+    NSParameterAssert(block != nil);
+
+    __block NSNumber *value = initial;
     [self enumerateObjectsUsingBlock:^(NSNumber *_Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (idx < self.count - 1) {
-            NSNumber *num1 = idx == 0 ? obj : @(result);
-            NSNumber *num2 = self[idx+1];
-            if (handler) {
-                result = handler(num1, num2).floatValue;
-//                DDLog(@"handler_%@_%@_%@_%@",num1, num2, handler(num1, num2), @(result));
-            }
-        }
+        value = block(value, obj);
     }];
-    return @(result);
+    return value;
 }
 
 @end

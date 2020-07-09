@@ -11,21 +11,26 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSArray (Ext)
+@interface NSArray<ObjectType> (Ext)
 /**
- map 高阶函数(使用时需要将obj强转为数组元素类型)
+ map 高阶函数
  */
-- (NSArray *)map:(id (^)(id obj, NSUInteger idx))handler;
+- (NSArray *)map:(id (NS_NOESCAPE ^)(ObjectType obj, NSUInteger idx))block;
 
 /**
- filter 高阶函数(使用时需要将obj强转为数组元素类型)
+compactMap 高阶降维函数
+*/
+- (NSArray *)compactMap:(id (NS_NOESCAPE ^)(ObjectType obj, NSUInteger idx))block;
+
+/**
+ filter 高阶函数
  */
-- (NSArray *)filter:(BOOL(^)(id obj, NSUInteger idx))handler;
+- (NSArray *)filter:(BOOL(NS_NOESCAPE ^)(ObjectType obj, NSUInteger idx))block;
 
 /**
  reduce 高阶函数(求和,累加等)
  */
-- (NSNumber *)reduce:(NSNumber *(^)(NSNumber *num1, NSNumber *num2))handler;
+- (NSNumber *)reduce:(NSNumber *)initial block:(NSNumber *(NS_NOESCAPE ^)(NSNumber *result, NSNumber *obj))block;
 
 @end
 
