@@ -17,7 +17,7 @@ public extension Array{
     }
     
     /// ->String
-    var jsonString: String? {
+    var jsonString: String {
         return (self as NSArray).jsonString;
     }
     
@@ -26,7 +26,7 @@ public extension Array{
     }
     
     func subarray(_ loc: Int, _ len: Int) -> Array {
-        assert(loc < self.count);
+        assert((loc + len) < self.count);
         return Array(self[loc..<len]);
     }
 }
@@ -45,10 +45,10 @@ public extension Array{
     }
     
     /// ->NSString
-    var jsonString: String? {
+    var jsonString: String {
         guard let jsonData = self.jsonData as Data?,
         let jsonString = String(data: jsonData, encoding: .utf8) as String?
-        else { return nil }
+        else { return "" }
         return jsonString
     }
     

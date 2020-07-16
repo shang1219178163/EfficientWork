@@ -61,6 +61,7 @@
     //监听
     [self addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
 //    NSLog(@"%p_%@_%@", self.dict, self.dict, self.kvoController.blockArr);
+
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
@@ -70,6 +71,7 @@
         block(keyPath, change);
     }
 }
+
 
 #pragma mark - getter/setter
 - (NSMutableDictionary<NSString *, KVOBlock> *)dict {

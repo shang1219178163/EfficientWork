@@ -37,7 +37,6 @@ public extension Int{
 //        }
     }
     
-    
     static var randomCGFloat: CGFloat { return CGFloat(arc4random()) / CGFloat(UInt32.max) }
     static var random: Int { return Int(arc4random()) / Int(UInt32.max) }
 
@@ -61,14 +60,9 @@ public extension Double{
     
     /// 保留n为小数
     func roundedTo(_ n: Int) -> Double {
-        let format = NumberFormatter()
-        format.numberStyle = NumberFormatter.Style.decimal
-        format.multiplier = 2
-        format.roundingMode = .up
-        format.maximumFractionDigits = n
-        format.number(from: format.string(for: self )! )
-        
-        return (format.number(from: format.string(for: self )! )) as! Double
+        let divisor = pow(10.0, Double(n))
+        let result = (self * divisor).rounded() / divisor
+        return result
     }
     
     /// durationInfo

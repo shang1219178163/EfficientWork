@@ -16,6 +16,9 @@
 
 @property(nonatomic, strong) NSString *string;
 
+
+@property(nonatomic, strong) id localeChangeObserver;
+
 @end
 
 
@@ -23,6 +26,7 @@
 
 - (void)dealloc{
     NSLog(@"%@", NSStringFromSelector(_cmd));
+    [NSNotificationCenter.defaultCenter removeObserver:self.localeChangeObserver];
 }
 
 - (void)viewDidLoad {
@@ -47,6 +51,28 @@
         NSLog(@"%@_%@", keyPath, change);
     }];
     self.string = @"788";
+    
+    NSNotificationCenter * __weak center = NSNotificationCenter.defaultCenter;
+    self.localeChangeObserver = [center addObserverForName:NSCurrentLocaleDidChangeNotification
+                                                    object:nil
+                                                     queue:NSOperationQueue.mainQueue
+                                                usingBlock:^(NSNotification *note) {
+     
+        NSLog(@"The user's locale changed to: %@", NSLocale.currentLocale.localeIdentifier);
+    }];
+}
+
+-(void)scan{
+    NSNotificationCenter * __weak center = NSNotificationCenter.defaultCenter;
+    __block id observer = [center addObserverForName:@"ScanComplete"
+                                              object:nil
+                                               queue:nil
+                                          usingBlock:^(NSNotification *note){
+        /*
+         do something
+         */
+        [center removeObserver:observer];
+    }];
 }
 
 

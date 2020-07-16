@@ -130,6 +130,7 @@ import UIKit
         return obj!;
     }
     
+    
     /// 配置HolderView
     func setHolderView(for state: HolderViewState = .nomrol) {
         guard let imgView = holderView.subView(UIImageView.self) as? UIImageView,
@@ -215,14 +216,19 @@ import UIKit
 public extension UIView{
     
     ///更新各种子视图
-    final func updateItems<T: UIView>(_ count: Int, type: T.Type, hanler: ((T) -> Void)? = nil) -> [T] {
+    final func updateItems<T: UIView>(_ count: Int, type: T.Type, hanler: ((T) -> Void)) -> [T] {
+        if count == 0 {
+            return []
+        }
+        
         if let list = self.subviews.filter({ $0.isKind(of: type) }) as? [T] {
             if list.count == count {
+                list.forEach { hanler($0) }
                 return list
             }
         }
         
-        self.subviews.forEach { $0.removeFromSuperview() }
+        subviews.forEach { $0.removeFromSuperview() }
         
         var arr: [T] = [];
         for i in 0..<count {
@@ -231,27 +237,33 @@ public extension UIView{
             self.addSubview(subview)
             arr.append(subview)
             
-            hanler?(subview)
+            hanler(subview)
         }
         return arr;
     }
     
     ///更新各种子类按钮
-    final func updateButtonItems<T: UIButton>(_ count: Int, type: T.Type, hanler: ((T) -> Void)? = nil) -> [T] {
+    final func updateButtonItems<T: UIButton>(_ count: Int, type: T.Type, hanler: ((T) -> Void)) -> [T] {
         return updateItems(count, type: type) {
-            $0.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-            $0.setTitle("\(type)\($0.tag)", for: .normal)
-            $0.setTitleColor(.black, for: .normal)
-            $0.setBackgroundColor(.gray, for: .disabled)
+            if $0.title(for: .normal) == nil {
+                $0.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+                $0.setTitle("\(type)\($0.tag)", for: .normal)
+                $0.setTitleColor(.black, for: .normal)
+                $0.setBackgroundColor(.gray, for: .disabled)
+            }
+            hanler($0)
         }
     }
     
     ///更新各种子类UILabel
-    final func updateLabelItems<T: UILabel>(_ count: Int, type: T.Type, hanler: ((T) -> Void)? = nil) -> [T] {
+    final func updateLabelItems<T: UILabel>(_ count: Int, type: T.Type, hanler: ((T) -> Void)) -> [T] {
         return updateItems(count, type: type) {
-            $0.text = "\(type)\($0.tag)"
-            $0.textAlignment = .center
-            $0.font = UIFont.systemFont(ofSize: 15)
+            if $0.text == nil {
+                $0.text = "\(type)\($0.tag)"
+                $0.textAlignment = .center
+                $0.font = UIFont.systemFont(ofSize: 15)
+            }
+            hanler($0)
         }
     }
 }

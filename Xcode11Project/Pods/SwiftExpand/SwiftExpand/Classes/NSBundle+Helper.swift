@@ -15,7 +15,7 @@ import UIKit
         guard
             let pList = Bundle.main.path(forResource: plist, ofType: "plist"),
             let dic = NSDictionary(contentsOfFile: pList)
-            else { return nil; }
+            else { return nil }
         return dic as? [String : AnyObject]
     }
     /// 国际化语言适配

@@ -349,19 +349,28 @@ import UIKit
     static func didEnterBackground(_ block: (()->Void)? = nil) {
         let application: UIApplication = UIApplication.shared;
         var bgTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier(rawValue: 0);
-        //如果要后台运行
+        //注册一个后台任务，并提供一个在时间耗尽时执行的代码块
         bgTask = application.beginBackgroundTask(expirationHandler: {
             if bgTask != UIBackgroundTaskIdentifier.invalid {
+                //当时间耗尽时调用这个代码块
+                //如果在这个代码块返回之前没有调用endBackgroundTask
+                //应用程序将被终止
                 application.endBackgroundTask(bgTask)
                 bgTask = UIBackgroundTaskIdentifier.invalid
             }
         });
         
-        if block != nil {
-            block!();
+        let backgroundQueue = OperationQueue()
+        backgroundQueue.addOperation() {
+            //完成一些工作。我们有几分钟的时间来完成它
+            //在结束时，必须调用endBackgroundTask
+            NSLog("Doing some background work!")
+            if block != nil {
+                block!();
+            }
             application.endBackgroundTask(bgTask)
+            bgTask = UIBackgroundTaskIdentifier.invalid
         }
-        bgTask = UIBackgroundTaskIdentifier.invalid
     }
     /// 配置app图标(传 nil 恢复默认)
     static func setAppIcon(name: String?) {

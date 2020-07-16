@@ -10,24 +10,7 @@
 import UIKit
 
 @objc public extension UIViewController{
-    /// 关联obj任意对象
-    var obj: AnyObject? {
-        get {
-            return objc_getAssociatedObject(self, RuntimeKeyFromSelector(self, aSelector: #function)) as AnyObject;
-        }
-        set {
-            objc_setAssociatedObject(self, RuntimeKeyFromSelector(self, aSelector: #function), newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        }
-    }
-    /// 关联obj任意对象
-    var objOne: AnyObject? {
-        get {
-            return objc_getAssociatedObject(self, RuntimeKeyFromSelector(self, aSelector: #function)) as AnyObject;
-        }
-        set {
-            objc_setAssociatedObject(self, RuntimeKeyFromSelector(self, aSelector: #function), newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        }
-    }
+
     /// 关联NSMutableArray 数据容器
     var dataList: NSMutableArray {
         get {

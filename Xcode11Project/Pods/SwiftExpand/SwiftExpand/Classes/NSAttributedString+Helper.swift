@@ -11,8 +11,8 @@ import UIKit
     
     /// 富文本配置字典
     static func AttributeDict(_ type: Int) -> [NSAttributedString.Key: Any]{
-        var dic: [NSAttributedString.Key: Any] = [NSAttributedString.Key.foregroundColor:  UIColor.theme,
-                                                  NSAttributedString.Key.backgroundColor:  UIColor.white,]
+        var dic: [NSAttributedString.Key: Any] = [NSAttributedString.Key.foregroundColor: UIColor.theme,
+                                                  NSAttributedString.Key.backgroundColor: UIColor.white,]
         
         switch type {
         case 1:
@@ -62,7 +62,7 @@ import UIKit
     }
     
     /// [源]富文本
-    static func attString(_ text: String!,
+    static func attString(_ text: String,
                                 textTaps: [String]!,
                                 font: CGFloat = 15,
                                 tapFont: CGFloat = 15,
@@ -80,14 +80,14 @@ import UIKit
     }
     
     /// 特定范围子字符串差异华显示
-    static func attString(_ text: String!, offsetStart: Int, offsetEnd: Int) -> NSAttributedString! {
+    static func attString(_ text: String, offsetStart: Int, offsetEnd: Int) -> NSAttributedString {
         let nsRange = NSRange(location: offsetStart, length: (text.count - offsetStart - offsetEnd))
         let attrString = attString(text, nsRange: nsRange)
         return attrString
     }
     
     /// 字符串差异华显示
-    static func attString(_ text: String!, textSub: String) -> NSAttributedString! {
+    static func attString(_ text: String, textSub: String) -> NSAttributedString {
         let range = text.range(of: textSub)
         let nsRange = text.nsRange(from: range!)
         let attrString = attString(text, nsRange: nsRange)
@@ -95,8 +95,8 @@ import UIKit
     }
     
     /// nsRange范围子字符串差异华显示
-    static func attString(_ text: String!, nsRange: NSRange, font: CGFloat = 15, textColor: UIColor = UIColor.theme) -> NSAttributedString! {
-        assert(text.count >= (nsRange.location + nsRange.length))
+    static func attString(_ text: String, nsRange: NSRange, font: CGFloat = 15, textColor: UIColor = UIColor.theme) -> NSAttributedString {
+        assert((nsRange.location + nsRange.length) <= text.count)
         
         let attrString = NSMutableAttributedString(string: text)
         
@@ -105,6 +105,16 @@ import UIKit
         ]
         attrString.addAttributes(attDict, range: nsRange)
         return attrString
+    }
+    
+    ///  富文本只有同字体大小才能计算高度
+    func sizeWithWidth(_ width: CGFloat) -> CGSize {
+        let options: NSStringDrawingOptions = [.usesLineFragmentOrigin, .usesFontLeading]
+        
+        var size = self.boundingRect(with: CGSize(width: width, height: CGFloat(MAXFLOAT)), options: options, context: nil).size;
+        size.width = ceil(size.width);
+        size.height = ceil(size.height);
+        return size;
     }
     
 }

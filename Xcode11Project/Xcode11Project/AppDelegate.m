@@ -26,7 +26,8 @@
         [self.window makeKeyAndVisible];
 
         NSString *name = @"HomeViewController";
-        name = @"SudokuViewController";
+//        name = @"RuntimeViewController";
+//        name = @"SudokuViewController";
         
 //        name = @"TextViewTapController";
 //        name = @"Xcode11Project.MainViewController";

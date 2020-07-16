@@ -20,7 +20,6 @@ import UIKit
             let oriSel = #selector(setter: self.tintColor)
             let repSel = #selector(self.hook_tintColor(_:))
             _ = hookInstanceMethod(of: oriSel, with: repSel);
-            
         }
         
     }

@@ -46,7 +46,7 @@ public extension UserDefaults{
             return value(forKey: key) as? T ?? defaultProvider()
         }
         set {
-            setValue(newValue, forKey: key)
+            set(newValue, forKey: key)
         }
     }
 

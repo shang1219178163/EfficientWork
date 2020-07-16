@@ -105,16 +105,13 @@ import UIKit
         
         if isBegin == true {
             DDLog("\(NSStringFromClass(classForCoder))--Appear")
-            
         } else {
             DDLog("\(NSStringFromClass(classForCoder))--Disappear")
-            
         }
     }
     
     private func changeAppIconAction(){
         print("替换成功")
-
     }
 
 }

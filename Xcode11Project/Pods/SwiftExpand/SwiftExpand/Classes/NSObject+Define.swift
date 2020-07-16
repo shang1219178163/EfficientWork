@@ -9,7 +9,7 @@
 import UIKit
 
 // 定义数据类型(其实就是设置别名)
-public typealias SwiftClosure = (AnyObject, AnyObject, Int) -> Void
+public typealias SwiftClosure = ((AnyObject, AnyObject, Int) -> Void)
 
 public typealias ObjClosure = ((AnyObject) -> Void)
 public typealias ViewClosure = ((UITapGestureRecognizer?, UIView, NSInteger) -> Void)
@@ -56,7 +56,7 @@ public func AddressOf<T: AnyObject>(_ o: T) -> String {
 
 // MARK: - 关联属性的key
 
-public func RuntimeKeyFromParams(_ obj: NSObject, funcAbount: String!) -> UnsafeRawPointer {
+public func RuntimeKeyFromParams(_ obj: NSObject, funcAbount: String) -> UnsafeRawPointer {
     let unique = "\(AddressOf(obj))," + funcAbount
     let key: UnsafeRawPointer = AssociationKey.from(unique)
     return key;

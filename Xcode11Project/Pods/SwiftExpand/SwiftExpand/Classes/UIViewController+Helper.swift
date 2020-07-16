@@ -153,7 +153,7 @@ import UIKit
             if contentView.isHidden == true {
                 return
             }
-            action((reco as! UITapGestureRecognizer), (reco.view!.subviews.first)!, (reco.view?.subviews.first!.tag)!)
+            action((reco as! UITapGestureRecognizer), reco.view!.subviews.first!, reco.view!.subviews.first!.tag)
         }
 
         let barItem = UIBarButtonItem(customView: contentView)
@@ -165,14 +165,12 @@ import UIKit
         return contentView;
     }
 
-    public func goController(_ name: String!, obj: AnyObject? = nil, objOne: AnyObject? = nil) {
+    public func goController(_ name: String, animated: Bool = true) {
         assert(UICtrFromString(name).isKind(of: UIViewController.self))
         let controller = UICtrFromString(name)
-        controller.obj = obj
-        controller.objOne = objOne
-        navigationController?.pushViewController(controller, animated: true);
+        navigationController?.pushViewController(controller, animated: animated);
     }
-    
+        
     public func addControllerName(_ controllerName: String) {
         let controller = UICtrFromString(controllerName)
         assert(controller.isKind(of: UIViewController.self))
@@ -277,4 +275,11 @@ import UIKit
     }
 }
 
-
+public extension UIViewController{
+        
+    final func pushVC<T: UIViewController>(_ type: T.Type, animated: Bool = true, block: ((T) -> Void)? = nil) {
+        let controller = type.init()
+        block?(controller)
+        navigationController?.pushViewController(controller, animated: animated);
+    }
+}

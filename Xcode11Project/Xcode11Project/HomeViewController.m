@@ -10,6 +10,8 @@
 
 #import "Macro.h"
 #import "UIView+Ext.h"
+#import "NSArray+Ext.h"
+#import "NSDictionary+Ext.h"
 
 #import "DetailViewController.h"
 
@@ -46,6 +48,58 @@
 //    NSDate *localeDate = [date dateByAddingTimeInterval: interval];
 //    NSString *localeDateStr = [dateFormatter stringFromDate:localeDate];
 //    NSLog(@"%@", localeDateStr);
+        
+    NSArray<NSString *> *list = @[@"1", @"2", @"3", @"4", ];
+    NSArray *list1 = [list map:^id _Nonnull(NSString * _Nonnull obj, NSUInteger idx) {
+        return @[obj];
+    }];
+
+    NSArray *list2 = [list compactMap:^id _Nonnull(NSString * _Nonnull obj, NSUInteger idx) {
+        return obj;
+    }];
+
+    NSArray *list3 = [list1 compactMap:^id _Nonnull(NSArray *obj, NSUInteger idx) {
+        return [obj map:^id _Nonnull(NSNumber * obj, NSUInteger idx) {
+            return @(obj.integerValue *obj.integerValue);
+        }];
+    }];
+    DDLog(@"%@ %@ %@", list1, list2, list3);
+    
+    
+    
+    NSDictionary<NSString *, NSString *> *dic = @{
+        @"1" : @"11",
+        @"2" : @"22",
+        @"3" : @"33",
+    };
+    
+//    NSDictionary *dic1 = [dic compactMapValues:^id _Nonnull(NSString * _Nonnull obj) {
+//        return @(obj.integerValue + 100);
+//    }];
+//
+//    NSDictionary *dic2 = [dic compactMapValues:^id _Nonnull(NSString * _Nonnull obj) {
+//        return @(obj.integerValue > 20);
+//    }];
+//
+//    NSDictionary *dic3 = [dic map:^NSDictionary * _Nonnull(NSString * _Nonnull key, NSString * _Nonnull obj) {
+//        return @{[key stringByAppendingFormat:@"%@", @"_"] : [obj stringByAppendingFormat:@"%@", @"_"],
+//        };
+//    }];
+//    DDLog(@"%@ %@ %@", dic1, dic2, dic3);
+    
+    
+    NSString *value = dic.allKeys[3];
+    
+    NSMutableDictionary *mdic = @{@"aaa" : NSNull.null,
+                                  NSNull.null : @"bbb"
+    }.mutableCopy;
+    
+    NSString *tmp = nil;
+    mdic[@"ccc"] = tmp;
+    [mdic setObject:tmp forKey:@"aaa"];
+    DDLog(@"_%@_%@_", value, mdic);
+
+    [mdic removeObjectForKey:@"ddd"];
 
 }
 

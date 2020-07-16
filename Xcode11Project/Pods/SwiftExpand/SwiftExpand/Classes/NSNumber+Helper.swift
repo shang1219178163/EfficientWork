@@ -77,10 +77,7 @@ public let kNumIdentifyCurrencyAccounting = "格式化为货币会计输出";
     }
 
     /// 保留小数,默认四舍五入
-    static func fractionDigits(obj: CGFloat,
-                                     min: Int = 2,
-                                     max: Int = 2,
-                                     roundingMode: NumberFormatter.RoundingMode = .halfUp, identify: String = kNumIdentify) -> String {
+    static func fractionDigits(obj: CGFloat, min: Int = 2, max: Int = 2, roundingMode: NumberFormatter.RoundingMode = .halfUp, identify: String = kNumIdentify) -> String {
         let fmt = NumberFormatter.identify(identify)
         fmt.minimumFractionDigits = min
         fmt.maximumFractionDigits = max
@@ -89,7 +86,7 @@ public let kNumIdentifyCurrencyAccounting = "格式化为货币会计输出";
     }
     
     /// format 格式金钱显示
-    static func positive(_ obj: CGFloat, format: String = kNumFormat, defalut: String = "-") -> String {
+    static func positiveFormat(_ obj: CGFloat, format: String = kNumFormat, defalut: String = "-") -> String {
         let fmt = NumberFormatter.identify(kNumIdentifyDecimal)
         fmt.positiveFormat = format
         return fmt.string(for: obj) ?? defalut

@@ -44,11 +44,11 @@ import QuartzCore
     static let kTransformStrokeEnd       = "strokeEnd";
     /// kCAMediaTimingFunction集合
     static let kFunctionNames = [
-                                CAMediaTimingFunctionName.linear,//匀速
-                                CAMediaTimingFunctionName.easeIn,//先慢
-                                CAMediaTimingFunctionName.easeOut,//后慢
-                                CAMediaTimingFunctionName.easeInEaseOut,//先慢 后慢 中间快
-                                CAMediaTimingFunctionName.default//默认
-                                ];
+        CAMediaTimingFunctionName.linear,//匀速
+        CAMediaTimingFunctionName.easeIn,//先慢
+        CAMediaTimingFunctionName.easeOut,//后慢
+        CAMediaTimingFunctionName.easeInEaseOut,//先慢 后慢 中间快
+        CAMediaTimingFunctionName.default//默认
+    ];
 
 }

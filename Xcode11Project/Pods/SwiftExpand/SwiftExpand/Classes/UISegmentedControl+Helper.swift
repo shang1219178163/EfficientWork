@@ -105,7 +105,7 @@ import UIKit
     }
     
     /// 控件items
-    var itemList: [String] {
+    var items: [String] {
         get {
             return objc_getAssociatedObject(self, RuntimeKeyFromSelector(self, aSelector: #function)) as! [String]
         }

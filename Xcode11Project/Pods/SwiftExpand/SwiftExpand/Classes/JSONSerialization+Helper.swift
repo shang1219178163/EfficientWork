@@ -41,17 +41,6 @@ import UIKit
     /// data -> NSObject
     static func jsonObjectFromData(_ data: Data, options opt: JSONSerialization.ReadingOptions = []) -> Any? {
         return data.objValue
-//        if JSONSerialization.isValidJSONObject(data) {
-//            return nil;
-//        }
-//        do {
-//            let obj: Any = try JSONSerialization.jsonObject(with: data, options: opt)
-//            return obj;
-//
-//        } catch {
-//            print(error)
-//        }
-//        return nil;
     }
     
     /// NSString -> NSObject/NSDiction/NSArray

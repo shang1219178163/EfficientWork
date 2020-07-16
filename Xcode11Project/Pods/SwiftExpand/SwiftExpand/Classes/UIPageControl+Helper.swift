@@ -11,14 +11,14 @@ import UIKit
 
     /// [源]UIPageControl创建
     static func create(_ rect: CGRect = .zero, numberOfPages: Int, currentPage: Int = 0) -> Self {
-        let control = self.init(frame: rect);
-        control.currentPageIndicatorTintColor = UIColor.theme;
-        control.pageIndicatorTintColor = UIColor.lightGray;
-        control.isUserInteractionEnabled = true;
-        control.hidesForSinglePage = true;
-        control.currentPage = 0;
-        control.numberOfPages = numberOfPages;
+        let view = self.init(frame: rect);
+        view.currentPageIndicatorTintColor = UIColor.theme;
+        view.pageIndicatorTintColor = UIColor.lightGray;
+        view.isUserInteractionEnabled = true;
+        view.hidesForSinglePage = true;
+        view.currentPage = 0;
+        view.numberOfPages = numberOfPages;
         
-        return control;
+        return view;
     }
 }

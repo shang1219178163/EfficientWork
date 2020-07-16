@@ -60,18 +60,18 @@ import UIKit
     
     /// 来回移动动画
     func shakeAnimation() {
-        let animation = CAKeyframeAnimation(keyPath: "position.x")
+        let anim = CAKeyframeAnimation(keyPath: "position.x")
         //获取当前View的position坐标
         let positionX = self.position.x
         //设置抖动的范围
-        animation.values = [(positionX-10),(positionX),(positionX+10)]
+        anim.values = [(positionX-10),(positionX),(positionX+10)]
         //动画重复的次数
-        animation.repeatCount = 3
+        anim.repeatCount = 3
         //动画时间
-        animation.duration = 0.07
+        anim.duration = 0.07
         //设置自动反转
-        animation.autoreverses = true
+        anim.autoreverses = true
         //将动画添加到layer
-        self.add(animation, forKey: nil)
+        self.add(anim, forKey: nil)
     }
 }

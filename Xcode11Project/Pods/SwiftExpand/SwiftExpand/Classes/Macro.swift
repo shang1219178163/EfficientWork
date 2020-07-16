@@ -17,15 +17,15 @@ public let kUITabBarSwappableImageView = "UITabBarSwappableImageView";
 
 // MARK: - kSet
 /// 0123456789
-public let kSetNumber      =   "0123456789";
+public let kSetNumber      = "0123456789";
 /// 0123456789.
-public let kSetFloat       =   "0123456789.";
+public let kSetFloat       = "0123456789.";
 /// ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
-public let kSetAlpha       =   "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+public let kSetAlpha       = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 /// ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789
-public let kSetAlphaNum    =   "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+public let kSetAlphaNum    = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 /// ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.
-public let kSetAlphaFloat  =   "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.";
+public let kSetAlphaFloat  = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.";
 
 // MARK: - kArr
 /// avg.floatValue
@@ -268,11 +268,11 @@ public let kBlankFour    = "                ";
 public let kBlankFive    = "                    ";
 
 /// 一周七天
-public let kWeekDes: String  = "星期一,星期二,星期三,星期四,星期五,星期六,星期天";
+public let kWeekDes: String = "星期一,星期二,星期三,星期四,星期五,星期六,星期天";
 /// 一年十二月
 public let kMonthDes: String = "正月,二月,三月,四月,五月,六月,七月,八月,九月,十月,冬月,腊月";
 /// 一月31天
-public let kMontDayDes: String   = "初一,初二,初三,初四,初五,初六,初七,初八,初九,初十,十一,十二,十三,十四,十五,十六,十七,十八,十九,二十,廿一,廿二,廿三,廿四,廿五,廿六,廿七,廿八,廿九,三十,三十一";
+public let kMontDayDes: String = "初一,初二,初三,初四,初五,初六,初七,初八,初九,初十,十一,十二,十三,十四,十五,十六,十七,十八,十九,二十,廿一,廿二,廿三,廿四,廿五,廿六,廿七,廿八,廿九,三十,三十一";
 
 //MARK: - 其他
 
