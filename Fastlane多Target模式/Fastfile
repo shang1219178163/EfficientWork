@@ -93,6 +93,7 @@ platform :ios do
       output_directory: ipaDir,
       scheme: name,
       configuration: 'Debug',
+      # configuration: 'Release',
       export_method: 'development',
       export_options: {iCloudContainerEnvironment: 'Development'}
     )
@@ -111,6 +112,7 @@ platform :ios do
       output_directory: ipaDir,
       scheme: name,
       configuration: 'Debug',
+      # configuration: 'Release',
       export_method: 'development',
       export_options: {iCloudContainerEnvironment: 'Development'}
     )
