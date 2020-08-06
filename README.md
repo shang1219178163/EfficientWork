@@ -25,9 +25,10 @@ lazy模式：因为同时负责多个项目，本着fastlane文件写一个就�
 3. 修改verison值（Build为脚本自动设置yyyyMMddHHmm）；
 4. 把项目文件夹拖入终端窗口；
 5. 执行命令： 
-  fastlane release 打包并上传到appStore；
-  fastlane fir 打包上传到fir；
-  
+  fastlane release 打包上传到appStore；
+  fastlane fir 打包上传到 firim；
+  fastlane pgy 打包上传到 蒲公英；
+
   使用注意：
   scheme的配置和项目实际情况一一对应（特别是多targt模式）；
 ```
@@ -78,9 +79,7 @@ bundleVersion=$(date "+%Y%m%d%H%M")
 
 2.根据属性一键生成lazy方法；
 
-[CodeHelper.dmg](https://github.com/shang1219178163/MacTemplet/releases/download/v1.3.2/CodeHelper.dmg)
-
-[CodeHelper.dmg v2.0.0](https://github.com/shang1219178163/MacTemplet/releases/tag/v2.0.0)
+[CodeHelper.dmg v2.2.0](https://github.com/shang1219178163/MacTemplet/releases/download/v2.2.0/CodeHelper.dmg)
 
 ![效果图](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/screenshot.png?raw=true)
 ![效果图](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/screenshot1.png?raw=true)
