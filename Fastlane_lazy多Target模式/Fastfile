@@ -149,18 +149,34 @@ platform :ios do
     update_build({plist: plistFile, showHash: showHash})
   end
 
+
   desc "webhook 钉钉"
-  def handleDingTalk(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Development"], appUrl: ENV["Firim_Shortcut_Link"])
-    appPath = ipaDir + "/#{name}.ipa" 
-    params = {
-                appPath: appPath,
-                appUrl: appUrl,
-                appIcon: ENV["App_Icon_Link"],
-                dingUrl: ENV["Dingtalk_Url"]
+  def handleDingTalk(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Development"], downloadUrl: ENV["Firim_Shortcut_Link"])
+    appPath = ipaDir + "/#{name}.ipa"
+    params = {appPath: appPath,
+              appIcon: ENV["App_Icon_Link"],
+              dingUrl: ENV["Dingtalk_Url"],
+              slogan: ENV["APP_Slogan"],
+              downloadUrl: downloadUrl
               }
     puts "---#{params.to_json}--"
     dingdingtalk_robot(params)
   end
+
+
+  desc "推送通知到slack"
+  def handleDingSlack(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Development"], downloadUrl: ENV["Firim_Shortcut_Link"])
+    appPath = ipaDir + "/#{name}.ipa"
+    params = {appPath: appPath,
+              appIcon: ENV["App_Icon_Link"],
+              slackUrl: ENV["Slack_Url"],
+              slogan: ENV["APP_Slogan"],
+              downloadUrl: downloadUrl
+              }
+    puts "---#{params.to_json}--"
+    dingslack_robot(params)
+  end
+
 
   desc "测试"
   lane :test do
@@ -171,9 +187,8 @@ platform :ios do
     # tokenfiles = "/Users/#{account}/Library/Caches/com.apple.amp.itmstransporter/UploadTokens/*.token"
     # UI.message "Token: #{tokenfiles}"
 
-    # handleDingTalkParams(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Development"], appUrl: ENV["Pgyer_Shortcut_Link"])
-    # handleDingTalkParams(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Development"], appUrl: ENV["Firim_Shortcut_Link"])
-    handleDingTalkParams(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Development"], appUrl: ENV["App_Store_Link"])
+    handleDingSlack()
+    # handleDingTalk()
   end
 
   desc "one发布到Fir"
