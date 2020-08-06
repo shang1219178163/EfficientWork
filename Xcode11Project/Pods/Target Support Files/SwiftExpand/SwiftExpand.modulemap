@@ -1,6 +1,0 @@
-framework module SwiftExpand {
-  umbrella header "SwiftExpand-umbrella.h"
-
-  export *
-  module * { export * }
-}
