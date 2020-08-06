@@ -3,31 +3,26 @@
 default_platform :ios
 
 platform :ios do
-  # ipa包文件路径
-  # ipaDirFir = File.dirname(Dir.pwd) + "/ipa_firim"
-  # ipaDirAppStore = File.dirname(Dir.pwd) + "/ipa_appStore"
-
-  # ipaDirFirOne = File.dirname(Dir.pwd) + "/ipa_firim/one"
-  # ipaDirAppStoreOne = File.dirname(Dir.pwd) + "/ipa_appStore/one"
-  # export FASTLANE_ITUNES_TRANSPORTER_PATH=/usr/local/itms 
 
   #firim token
-  FirToken = "*"
+  FirToken = ""
   #蒲同英
-  PgyerApiKey = "*"
-  PgyerUserKey = "*"
+  PgyerApiKey = ""
+  PgyerUserKey = ""
+
 
   ## Common
   desc "发布新版本到AppStore"
   lane :release do
     #默认env文件
-    actionRelease()
+    archiveRelease()
+    uploadRelease()
   end
 
   desc "上传新版本到AppStore"
-  lane :del do
+  lane :releaseupload do
     #默认env文件
-    actionDeliver()
+    uploadRelease()
   end
 
   desc "发布One到AppStore"
@@ -39,13 +34,25 @@ platform :ios do
   desc "发布到Fir"
   lane :fir do
     #默认env文件
-    actionFir() 
+    archiveDevelopment() 
+    uploadFir()
+  end
+
+  lane :firupload do 
+    uploadFir()
   end
 
   desc "发布到pgyer"
   lane :pgy do
     #默认env文件
-    actionPgyer()
+    archiveDevelopment()
+    uploadPgyer()
+  end
+
+  desc "发布到pgyer"
+  lane :pgyupload do
+    #默认env文件
+    uploadPgyer()
   end
 
   desc "one发布到Fir"
@@ -54,9 +61,9 @@ platform :ios do
     sh "fastlane fir --env targetA"
   end
 
+ 
   desc "[通用]发布新版本到 AppStore"
-  desc "[通用]发布新版本到 AppStore"
-  def actionRelease(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_AppStore"])
+  def archiveRelease(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_AppStore"])
     clear_cache_files()
     # cocoapods()
     updateBuildVersion(showHash: false)
@@ -69,23 +76,22 @@ platform :ios do
         iCloudContainerEnvironment: 'Production'
       }
     )
-    actionDeliver()
-  endd
+  end
 
   desc "[通用]发布新版本到 AppStore"
-  def actionDeliver(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_AppStore"])
+  def uploadRelease(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_AppStore"])
     deliver(force: true,
       # ipa: "/Users/shang/ACS/access-admin-app-ios/ipa_appStore/AccessControlSystem.ipa",
       ipa: "#{ipaDir}/#{name}.ipa",
       metadata_path: ENV["Metadata_Path"], 
-      screenshots_path: ENV["Screenshots_Path"],
+      screenshots_path: ENV["Screenshots_Path"], 
     )
     # system "open #{ipaDir}"
-    handleDingTalkParams(name: name, ipaDir: ipaDir, appUrl: ENV["App_Store_Link"])
+    handleDingTalk(name: name, ipaDir: ipaDir, appUrl: ENV["App_Store_Link"])
   end 
 
   desc "[通用]发布新版本到 fir"
-  def actionFir(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Fir"], firToken: FirToken)
+  def archiveDevelopment(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Fir"])
     updateBuildVersion(showHash: true)
     gym(
       clean: true,
@@ -97,26 +103,16 @@ platform :ios do
       export_method: 'development',
       export_options: {iCloudContainerEnvironment: 'Development'}
     )
-    # 上传ipa到fir.im服务器，在fir.im获取firim_api_token
-    firim(firim_api_token: firToken, icon: ENV["App_Icon_Local"], ipa: "#{ipaDir}/#{name}.ipa")
-    handleDingTalkParams(name: name, ipaDir: ipaDir)
-    # handleDingTalkParams(name: name, ipaDir: ipaDir, appUrl: ENV["Firim_Shortcut_Link"])
   end
 
-  desc "[通用]发布新版本到 pgyer"
-  def actionPgyer(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Fir"], apiKey: PgyerApiKey, userKey: PgyerUserKey)
-    updateBuildVersion(showHash: true)
-    gym(
-      clean: true,
-      include_symbols: true,
-      output_directory: ipaDir,
-      scheme: name,
-      configuration: 'Debug',
-      # configuration: 'Release',
-      export_method: 'development',
-      export_options: {iCloudContainerEnvironment: 'Development'}
-    )
+  desc "上传ipad 到 firim"
+  def uploadFir(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Fir"], firToken: FirToken)
+    firim(firim_api_token: firToken, icon: ENV["App_Icon_Local"], ipa: "#{ipaDir}/#{name}.ipa")
+    handleDingTalk(name: name, ipaDir: ipaDir)
+  end
 
+  desc "上传ipad 到 Pgyer"
+  def uploadPgyer(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Fir"], apiKey: PgyerApiKey, userKey: PgyerUserKey)
     # uploadtime = Time.now.strftime("%Y%m%d%H%M")
     uploadtime = Time.now.strftime("%Y-%m-%d %H:%M:%S")
 
@@ -128,8 +124,9 @@ platform :ios do
       install_type: "2",
       ipa: "#{ipaDir}/#{name}.ipa",
     )
-    handleDingTalkParams(name: name, ipaDir: ipaDir, appUrl: ENV["Pgyer_Shortcut_Link"])
+    handleDingTalk(name: name, ipaDir: ipaDir, appUrl: ENV["Pgyer_Shortcut_Link"])
   end
+
 
   desc "更新BuildVersion"
   def updateBuildVersion(name: ENV["Scheme_Name"], showHash: true)
@@ -147,11 +144,10 @@ platform :ios do
 
     puts "plistFile：_#{plistFile}_"
     update_build({plist: plistFile, showHash: showHash})
-
   end
 
-
-  def handleDingTalkParams(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Fir"], appUrl: ENV["Firim_Shortcut_Link"])
+  desc "webhook 钉钉"
+  def handleDingTalk(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Fir"], appUrl: ENV["Firim_Shortcut_Link"])
     appPath = ipaDir + "/#{name}.ipa" 
     params = {
                 appPath: appPath,
@@ -159,7 +155,7 @@ platform :ios do
                 appIcon: ENV["App_Icon_Link"],
                 dingUrl: ENV["Dingtalk_Url"]
               }
-    puts "---#{params}--"
+    puts "---#{params.to_json}--"
     dingdingtalk_robot(params)
   end
 
@@ -172,9 +168,9 @@ platform :ios do
     # tokenfiles = "/Users/#{account}/Library/Caches/com.apple.amp.itmstransporter/UploadTokens/*.token"
     # UI.message "Token: #{tokenfiles}"
 
-    # handleDingTalkParams()
-    # handleDingTalkParams(ipaDir: ENV["IpaDir_AppStore"], isRelease: true)
-
+    # handleDingTalkParams(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Fir"], appUrl: ENV["Pgyer_Shortcut_Link"])
+    # handleDingTalkParams(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Fir"], appUrl: ENV["Firim_Shortcut_Link"])
+    handleDingTalkParams(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Fir"], appUrl: ENV["App_Store_Link"])
   end
 
   desc "one发布到Fir"

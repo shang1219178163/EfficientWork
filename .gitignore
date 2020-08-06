@@ -1,11 +1,6 @@
 # Xcode
-#
-# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
-
-## Build generated
-DerivedData/
-
-## Various settings
+.DS_Store
+*/build/*
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -14,24 +9,34 @@ DerivedData/
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
-xcuserdata/
-
-## Other
+xcuserdata
+profile
 *.moved-aside
-*.xccheckout
-*.xcscmblueprint
-
-## Obj-C/Swift specific
+DerivedData
+.idea/
 *.hmap
-*.ipa
-*.dSYM.zip
-*.dSYM
+*.xccheckout
+*.xcworkspace
+!default.xcworkspace
+build/
 
-Carthage/Build
 
-
+#Fastlane
 fastlane/report.xml
 fastlane/Preview.html
-fastlane/screenshots/**/*.png
+fastlane/screenshots
 fastlane/test_output
 
+#Release
+*.ipa
+*dSYM.zip
+
+#Fir
+firim/
+ipa_appStore/
+ipa_firim/
+
+#CocoaPods
+*/Pods
+!Podfile
+!Podfile.lock

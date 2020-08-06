@@ -23,8 +23,7 @@ module Fastlane
 
         appName = appName.empty? == false ? appName : other_action.get_ipa_info_plist_value(ipa: appPath, key: "CFBundleBundleName")
 
-        platformInfo = appPath.include?("fir") == true ? "已更新至fir" : "已上传至AppStoreConnect"
-
+        platformInfo = "已更新至 #{appUrl.split(".")[1].capitalize}"
         title = "iOS #{appName} #{appVersion} #{platformInfo}"
 
         markdown ={
