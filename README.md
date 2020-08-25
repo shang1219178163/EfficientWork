@@ -13,6 +13,8 @@
 
 app图标生成支持iPhone、iPad、iMac、iWatch四种类型图标；启动图仅支持iPhone。
 备注： 执行操作之前最好在 https://tinypng.com/ 进行压缩，达到最优体积。
+
+启动图有黑边可以设置背景色和启动图一个颜色。
 ```
 
 ## 第二篇章： Fastlane_lazy — iOS app自动化集成/打包

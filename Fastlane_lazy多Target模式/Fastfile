@@ -102,6 +102,7 @@ platform :ios do
       include_symbols: true,
       output_directory: ipaDir,
       scheme: name,
+      output_name: name,
       configuration: 'Debug',
       export_method: 'development',
       export_options: {iCloudContainerEnvironment: 'Development'}
@@ -177,6 +178,54 @@ platform :ios do
     dingslack_robot(params)
   end
 
+  desc "archive方法 'to:'后跟 pgy/fir/release"
+  lane :archive do |options|
+    # puts "-#{options}-"
+
+    platform = "#{options[:to]}"
+    if platform.start_with?"pgy" 
+      archiveDevelopment()
+      pgyupload()
+      
+    elsif platform.start_with?"fir" 
+      archiveDevelopment()
+      firupload()
+
+    elsif platform.start_with?"rel" 
+      archiveRelease()
+      releaseupload()
+
+    else
+      # puts "to:传参错误，请检查传参-#{options}-"
+      archiveDevelopment()
+      pgyupload()
+      
+    end
+      
+  end
+
+
+  desc "upload方法 'to:'后跟 pgy/fir/release"
+  lane :upload do |options|
+    # puts "-#{options}-"
+
+    platform = "#{options[:to]}"
+    if platform.start_with?"pgy" 
+      pgyupload()
+      
+    elsif platform.start_with?"fir" 
+      firupload()
+
+    elsif platform.start_with?"rel" 
+      releaseupload()
+
+    else
+      # puts "to:传参错误，请检查传参-#{options}-"
+      pgyupload()
+
+    end
+      
+  end
 
   desc "测试"
   lane :test do
