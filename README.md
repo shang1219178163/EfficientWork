@@ -397,6 +397,6 @@ pod lib create 模块名 --template-url=https://github.com/*/pod-template.git
 
 以前 XCode 本身支持的工具基本可以满足需求，但是随着 XCode 的升级和项目体积的增加，有些界面已经无法再支持分层可视化，随安装 Reveal 工具提高开发效率；
 
-[Reveal 24(12917).dmg](链接: https://pan.baidu.com/s/13IVbvF-EvAe48L9aq0giLg) 密码: sbjd
+[Reveal 24(12917).dmg](https://pan.baidu.com/s/13IVbvF-EvAe48L9aq0giLg) 密码: sbjd
 
 指导文档在 Reveal 文件夹之下，安装使用和升级问题解决；
