@@ -1,6 +1,6 @@
 <img src="https://raw.githubusercontent.com/ReactiveX/RxSwift/master/assets/Rx_Logo_M.png" alt="" width="36" height="36"> EfficientWork
 ====================================== 
- *_对于可以自动化，一劳永逸的部分，总是值得我们花费更多的时间和精力，毕竟这世界前进的本质就是效率。_*
+ *_繁琐工作自动化，总是值得我们花费更多的时间和精力，毕竟推动这世界前进的本质就是效率。_*
 
 ![天魔曲](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/Beach.png?raw=true)
 
