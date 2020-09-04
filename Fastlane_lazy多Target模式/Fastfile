@@ -74,9 +74,10 @@ platform :ios do
     gym(
       output_directory: ipaDir,
       scheme: name,
+      output_name: name,
       export_method: 'app-store',
       export_options: {
-        xcargs: "-allowProvisioningUpdates",
+        export_xcargs: "-allowProvisioningUpdates",
         iCloudContainerEnvironment: 'Production'
       }
     )
@@ -105,7 +106,9 @@ platform :ios do
       output_name: name,
       configuration: 'Debug',
       export_method: 'development',
-      export_options: {iCloudContainerEnvironment: 'Development'}
+      export_options: {
+        export_xcargs: "-allowProvisioningUpdates",
+        iCloudContainerEnvironment: 'Development'}
     )
   end
 
