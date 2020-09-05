@@ -248,12 +248,14 @@ export DEVELOPER_DIR="/Applications/XCode.app/Contents/Developer"
 #### 二. 脚本方式
 
 桌面创建一个debug文件夹，将dsym, crash文件，debug.sh放入其中，终端 cd 进该文件夹，执行 sh debug.sh 即可（ 0.txt, 1.txt 属于成功转化的崩溃日志）
+
 ├── 0.txt
 ├── 1.txt
 ├── app.dSYM
 ├── attachment-18041338411594966961crashlog-EABB45A1-4FAD-414C-92AF-0CF8F6743686..crash
 ├── attachment-9462394146614423376crashlog-26D38E76-FFDB-483E-8F45-8DEDCA802648..crash
 └── debug.sh
+
 
 ##### lazy：懒人模式
 1. debug文件夹复制到桌面，替换里边的 .dSYM；
@@ -362,6 +364,7 @@ pod lib create 模块名 --template-url=https://github.com/*/pod-template.git
 ```
 #### （更上二层）：Pod 库脚本化
 随着Pod库的数量逐渐增加，常用的七八个，长期维护的十几个，每次通过手敲 git 命令 创建维护升级 Pod 逐渐成为了一种负担（先不说命令是否记得住，记得全，不会敲错），遂花费几天时间脚本化。目录如下：
+
 ├── build
 │   ├── Shells
 │   │   ├── common.sh
