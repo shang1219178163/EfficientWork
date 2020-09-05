@@ -365,6 +365,7 @@ pod lib create 模块名 --template-url=https://github.com/*/pod-template.git
 #### （更上二层）：Pod 库脚本化
 随着Pod库的数量逐渐增加，常用的七八个，长期维护的十几个，每次通过手敲 git 命令 创建维护升级 Pod 逐渐成为了一种负担（先不说命令是否记得住，记得全，不会敲错），遂花费几天时间脚本化。目录如下：
 
+`
 ├── build
 │   ├── Shells
 │   │   ├── common.sh
@@ -373,6 +374,7 @@ pod lib create 模块名 --template-url=https://github.com/*/pod-template.git
 │   ├── create.sh (创建本地lib之后输入github密码创建远程repo)
 │   ├── push.sh (pod首次创建之后关联及其推送到repo)
 │   └── update.sh (pod库以后每次的版本升级)
+`
 
 如何使用：
 (首先将每个脚本中的 username 改为自己的 github 用户名， 本地 ssh 配置)
