@@ -406,4 +406,10 @@ pod lib create 模块名 --template-url=https://github.com/*/pod-template.git
 
 ## 第十篇章：TinyPNG4Mac
 
-持续更新中... (欢迎推荐)
+<div align=center><img width="150" height="150" src="https://github.com/shang1219178163/EfficientWork/blob/master/Resource/TinyPNG4Mac.jpeg?raw=true"/></div>
+
+这是一个基于 https://tinypng.com/ 的 mac 客户端，使用的时候只需要拖拽到上面即可，操作高效便利。
+
+[作者Github](https://github.com/kyleduo/TinyPNG4Mac)
+
+## 第十一篇章：。。。
