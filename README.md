@@ -404,6 +404,6 @@ pod lib create 模块名 --template-url=https://github.com/*/pod-template.git
 指导文档在 Reveal 文件夹之下，最简单的安装使用和升级问题解决办法；
 
 
-## 第十篇章：...
+## 第十篇章：TinyPNG4Mac
 
 持续更新中... (欢迎推荐)
