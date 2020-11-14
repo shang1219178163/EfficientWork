@@ -81,7 +81,7 @@ bundleVersion=$(date "+%Y%m%d%H%M")
 
 2.根据属性一键生成lazy方法；
 
-[CodeHelper.dmg v2.2.0](https://github.com/shang1219178163/MacTemplet/releases/download/v2.2.0/CodeHelper.dmg)
+[CodeHelper.dmg v2.4.0](https://github.com/shang1219178163/MacTemplet/releases/download/v2.4.0/CodeHelper.dmg)
 
 ![效果图](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/screenshot.png?raw=true)
 ![效果图](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/screenshot1.png?raw=true)
