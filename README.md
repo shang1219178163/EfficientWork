@@ -412,4 +412,484 @@ pod lib create 模块名 --template-url=https://github.com/*/pod-template.git
 
 [作者Github](https://github.com/kyleduo/TinyPNG4Mac)
 
-## 第十一篇章：。。。
+## 第十一篇章：RxSwift && OC 链式编程
+
+>凡是你觉得调用起来特别恶心的方法，都可以用链式封装调用，成倍的提高心情愉悦度和开发效率；
+
+RxSwift 好处不用多说，积极拥抱即可；
+
+链式编程：可以让程序变得优雅，开发更加高效
+
+用 NSAttributedString 示例：
+```
+🌰🌰：
+        let att0: NSMutableAttributedString = "Swift,".matt
+            .font(UIFont.systemFont(ofSize: 16))
+            .color(.systemBlue)
+            .underline(.single, .red)
+            .oblique(0.5)
+            .link("https://www.hackingwithswift.com")
+```
+
+///Swift 属性链式编程实现
+```
+@objc public extension NSMutableAttributedString {
+    
+    func font(_ font: UIFont) -> Self {
+        addAttributes([NSAttributedString.Key.font: font], range: NSMakeRange(0, self.length))
+        return self
+    }
+    
+    func color(_ color: UIColor) -> Self {
+        addAttributes([NSAttributedString.Key.foregroundColor: color], range: NSMakeRange(0, self.length))
+        return self
+    }
+    
+    func bgColor(_ color: UIColor) -> Self {
+        addAttributes([NSAttributedString.Key.backgroundColor: color], range: NSMakeRange(0, self.length))
+        return self
+    }
+    
+    func link(_ value: String) -> Self {
+        return linkURL(URL(string: value)!)
+    }
+    
+    func linkURL(_ value: URL) -> Self {
+        addAttributes([NSAttributedString.Key.link: value], range: NSMakeRange(0, self.length))
+        return self
+    }
+    //设置字体倾斜度，取值为float，正值右倾，负值左倾
+    func oblique(_ value: CGFloat = 0.1) -> Self {
+        addAttributes([NSAttributedString.Key.obliqueness: value], range: NSMakeRange(0, self.length))
+        return self
+    }
+       
+    //字符间距
+    func kern(_ value: CGFloat) -> Self {
+        addAttributes([.kern: value], range: NSMakeRange(0, self.length))
+        return self
+    }
+    
+    //设置字体的横向拉伸，取值为float，正值拉伸 ，负值压缩
+    func expansion(_ value: CGFloat) -> Self {
+        addAttributes([.expansion: value], range: NSMakeRange(0, self.length))
+        return self
+    }
+    
+    //设置下划线
+    func underline(_ style: NSUnderlineStyle = .single, _ color: UIColor) -> Self {
+        addAttributes([
+            .underlineColor: color,
+            .underlineStyle: style.rawValue
+        ], range: NSMakeRange(0, self.length))
+        return self
+    }
+    
+    //设置删除线
+    func strikethrough(_ style: NSUnderlineStyle = .single, _ color: UIColor) -> Self {
+        addAttributes([
+            .strikethroughColor: color,
+            .strikethroughStyle: style.rawValue,
+        ], range: NSMakeRange(0, self.length))
+        return self
+    }
+    
+    //设置删除线
+    func stroke(_ color: UIColor, _ value: CGFloat = 0) -> Self {
+        addAttributes([
+            .strokeColor: color,
+            .strokeWidth: value,
+        ], range: NSMakeRange(0, self.length))
+        return self
+    }
+    
+    ///设置基准位置 (正上负下)
+    func baseline(_ value: CGFloat) -> Self {
+        addAttributes([.baselineOffset: value], range: NSMakeRange(0, self.length))
+        return self
+    }
+    
+    ///设置段落
+    func paraStyle(_ alignment: NSTextAlignment,
+                   lineSpacing: CGFloat = 0,
+                   paragraphSpacingBefore: CGFloat = 0,
+                   lineBreakMode: NSLineBreakMode = .byTruncatingTail) -> Self {
+        let style = NSMutableParagraphStyle()
+        style.alignment = alignment
+        style.lineBreakMode = lineBreakMode
+        style.lineSpacing = lineSpacing
+        style.paragraphSpacingBefore = paragraphSpacingBefore
+        addAttributes([.paragraphStyle: style], range: NSMakeRange(0, self.length))
+        return self
+    }
+        
+    ///设置段落
+    func paragraphStyle(_ style: NSMutableParagraphStyle) -> Self {
+        addAttributes([.paragraphStyle: style], range: NSMakeRange(0, self.length))
+        return self
+    }
+}
+
+public extension String {
+    
+    /// -> NSMutableAttributedString
+    var matt: NSMutableAttributedString{
+        return NSMutableAttributedString(string: self)
+    }
+    
+}
+
+@objc public extension NSAttributedString {
+    
+    /// -> NSMutableAttributedString
+    var matt: NSMutableAttributedString{
+        return NSMutableAttributedString(attributedString: self)
+    }
+    
+}
+
+```
+///OC 版本（兼容Swift）
+```
+//
+//  NSMutableAttributedString+Chain.h
+//  KTAttributedString
+//
+//  Created by Bin Shang on 2020/12/20.
+//  Copyright © 2020 Shang. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface NSMutableAttributedString (Chain)
+
+// addAttrs
+@property(nonatomic, strong, readonly) NSMutableAttributedString *(^addAttrs)(NSDictionary<NSAttributedStringKey, id> *);
+
+// ParagraphStyle
+@property(nonatomic, strong, readonly) NSMutableAttributedString *(^paragraphStyle)(NSParagraphStyle *);
+
+// Font
+@property(nonatomic, strong, readonly) NSMutableAttributedString *(^font)(UIFont *);
+@property(nonatomic, strong, readonly) NSMutableAttributedString *(^fontSize)(CGFloat);
+
+// ForegroundColor
+@property(nonatomic, strong, readonly) NSMutableAttributedString *(^color)(UIColor *);
+
+// BackgroundColor
+@property(nonatomic, strong, readonly) NSMutableAttributedString *(^bgColor)(UIColor *);
+
+// Link
+@property(nonatomic, strong, readonly) NSMutableAttributedString *(^link)(NSString *);
+
+// Link
+@property(nonatomic, strong, readonly) NSMutableAttributedString *(^linkURL)(NSURL *);
+
+// Obliqueness
+@property(nonatomic, strong, readonly) NSMutableAttributedString *(^oblique)(CGFloat);
+
+// Kern
+@property(nonatomic, strong, readonly) NSMutableAttributedString *(^kern)(CGFloat);
+
+// Expansion
+@property(nonatomic, strong, readonly) NSMutableAttributedString *(^expansion)(CGFloat);
+
+// Ligature
+@property(nonatomic, strong, readonly) NSMutableAttributedString *(^ligature)(NSUInteger);
+
+// UnderlineStyle
+@property(nonatomic, strong, readonly) NSMutableAttributedString *(^underline)(NSUnderlineStyle, UIColor *);
+
+// StrikethroughStyle(负值填充效果，正值中空效果)
+@property(nonatomic, strong, readonly) NSMutableAttributedString *(^strikethrough)(NSUnderlineStyle, UIColor *);
+
+// Stroke
+@property(nonatomic, strong, readonly) NSMutableAttributedString *(^stroke)(UIColor *, CGFloat);
+
+// StrokeWidth
+@property(nonatomic, strong, readonly) NSMutableAttributedString *(^baselineOffset)(CGFloat);
+
+// Shadow
+@property(nonatomic, strong, readonly) NSMutableAttributedString *(^shadow)(NSShadow *);
+
+// TextEffect
+@property(nonatomic, strong, readonly) NSMutableAttributedString *(^textEffect)(NSString *);
+
+// Attachment
+@property(nonatomic, strong, readonly) NSMutableAttributedString *(^attachment)(NSTextAttachment *);
+
+@end
+
+
+@interface NSString (Chain)
+
+@property(nonatomic, strong, readonly) NSMutableAttributedString *matt;
+
+@end
+
+
+@interface NSAttributedString (Chain)
+
+@property(nonatomic, strong, readonly) NSMutableAttributedString *matt;
+
+@end
+
+NS_ASSUME_NONNULL_END
+```
+
+```
+//
+//  NSMutableAttributedString+Chain.m
+//  SwiftTemplet
+//
+//  Created by Bin Shang on 2020/12/20.
+//  Copyright © 2020 Shang. All rights reserved.
+//
+
+#import "NSMutableAttributedString+Chain.h"
+
+@implementation NSMutableAttributedString (Chain)
+
+- (NSMutableAttributedString * _Nonnull (^)(NSDictionary<NSAttributedStringKey, id> * _Nonnull))addAttrs{
+    return ^(NSDictionary<NSAttributedStringKey, id> * dic) {
+        [self addAttributes:dic range:NSMakeRange(0, self.length)];
+        return self;
+    };
+}
+
+- (NSMutableAttributedString * _Nonnull (^)(NSParagraphStyle * _Nonnull))paragraphStyle{
+    return ^(NSParagraphStyle *style) {
+        [self addAttributes:@{NSParagraphStyleAttributeName: style} range:NSMakeRange(0, self.length)];
+        return self;
+    };
+}
+
+- (NSMutableAttributedString *(^)(UIFont *))font {
+    return ^(UIFont *font) {
+        [self addAttributes:@{NSFontAttributeName: font} range:NSMakeRange(0, self.length)];
+        return self;
+    };
+}
+
+- (NSMutableAttributedString *(^)(CGFloat))fontSize {
+    return ^(CGFloat fontSize) {
+        [self addAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:fontSize]} range:NSMakeRange(0, self.length)];
+        return self;
+    };
+}
+
+- (NSMutableAttributedString *(^)(UIColor *))color {
+    return ^(UIColor *color) {
+        [self addAttributes:@{NSForegroundColorAttributeName: color} range:NSMakeRange(0, self.length)];
+        return self;
+    };
+}
+
+- (NSMutableAttributedString *(^)(UIColor *))bgColor {
+    return ^(UIColor *color) {
+        [self addAttributes:@{NSBackgroundColorAttributeName: color} range:NSMakeRange(0, self.length)];
+        return self;
+    };
+}
+
+- (NSMutableAttributedString *(^)(NSString *))link {
+    return ^(NSString *link) {
+        [self addAttributes:@{NSLinkAttributeName: link} range:NSMakeRange(0, self.length)];
+        return self;
+    };
+}
+
+- (NSMutableAttributedString *(^)(NSURL *))linkURL {
+    return ^(NSURL *link) {
+        [self addAttributes:@{NSLinkAttributeName: link} range:NSMakeRange(0, self.length)];
+        return self;
+    };
+}
+
+- (NSMutableAttributedString *(^)(CGFloat))oblique {
+    return ^(CGFloat value) {
+        [self addAttributes:@{NSObliquenessAttributeName: @(value)} range:NSMakeRange(0, self.length)];
+        return self;
+    };
+}
+
+- (NSMutableAttributedString *(^)(CGFloat))kern {
+    return ^(CGFloat kern) {
+        [self addAttributes:@{NSKernAttributeName: @(kern)} range:NSMakeRange(0, self.length)];
+        return self;
+    };
+}
+
+- (NSMutableAttributedString *(^)(CGFloat))expansion {
+    return ^(CGFloat value) {
+        [self addAttributes:@{NSExpansionAttributeName: @(value)} range:NSMakeRange(0, self.length)];
+        return self;
+    };
+}
+
+- (NSMutableAttributedString *(^)(NSUInteger))ligature {
+    return ^(NSUInteger ligature) {
+        [self addAttributes:@{NSLigatureAttributeName: @(ligature)} range:NSMakeRange(0, self.length)];
+        return self;
+    };
+}
+
+- (NSMutableAttributedString *(^)(NSUnderlineStyle, UIColor *))underline {
+    return ^(NSUnderlineStyle underline, UIColor *color) {
+        [self addAttributes:@{NSUnderlineStyleAttributeName: @(underline)} range:NSMakeRange(0, self.length)];
+        [self addAttributes:@{NSUnderlineColorAttributeName: color} range:NSMakeRange(0, self.length)];
+        return self;
+    };
+}
+
+- (NSMutableAttributedString *(^)(NSUnderlineStyle, UIColor *))strikethrough {
+    return ^(NSUnderlineStyle underline, UIColor *color) {
+        [self addAttributes:@{NSStrikethroughStyleAttributeName: @(underline)} range:NSMakeRange(0, self.length)];
+        [self addAttributes:@{NSStrikethroughColorAttributeName: color} range:NSMakeRange(0, self.length)];
+        return self;
+    };
+}
+
+- (NSMutableAttributedString * _Nonnull (^)(UIColor * _Nonnull, CGFloat))stroke{
+    return ^(UIColor *color, CGFloat value) {
+        [self addAttributes:@{NSStrokeColorAttributeName: color} range:NSMakeRange(0, self.length)];
+        [self addAttributes:@{NSStrokeWidthAttributeName: @(value)} range:NSMakeRange(0, self.length)];
+        return self;
+    };
+}
+
+- (NSMutableAttributedString *(^)(NSShadow *))shadow {
+    return ^(NSShadow *shadow) {
+        [self addAttributes:@{NSShadowAttributeName: shadow} range:NSMakeRange(0, self.length)];
+        return self;
+    };
+}
+
+- (NSMutableAttributedString *(^)(NSString *))textEffect {
+    return ^(NSString *textEffect) {
+        [self addAttributes:@{NSTextEffectAttributeName: textEffect} range:NSMakeRange(0, self.length)];
+        return self;
+    };
+}
+
+- (NSMutableAttributedString *(^)(NSTextAttachment *))attachment {
+    return ^(NSTextAttachment *attachment) {
+        [self addAttributes:@{NSAttachmentAttributeName: attachment} range:NSMakeRange(0, self.length)];
+        return self;
+    };
+}
+
+- (NSMutableAttributedString *(^)(CGFloat))baselineOffset {
+    return ^(CGFloat value) {
+        [self addAttributes:@{NSBaselineOffsetAttributeName: @(value)} range:NSMakeRange(0, self.length)];
+        return self;
+    };
+}
+
+@end
+
+
+@implementation NSString (Chain)
+
+- (NSMutableAttributedString *)matt {
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self];
+    return attributedString;
+}
+
+@end
+
+
+@implementation NSAttributedString (Chain)
+
+- (NSMutableAttributedString *)matt {
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithAttributedString:self];
+    return attributedString;
+}
+
+@end
+
+```
+
+附：OC 字符串常见操作链式化
+```
+#import <Foundation/Foundation.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface NSString (Chain)
+/// 过滤字符集
+@property(nonatomic, strong, readonly) NSString *(^trimmedBy)(NSString *);
+
+@property(nonatomic, strong, readonly) NSString *(^subStringBy)(NSUInteger loc, NSUInteger len);
+
+@property(nonatomic, strong, readonly) NSString *(^append)(NSString *);
+
+@property(nonatomic, strong, readonly) NSString *(^appendFormat)(NSString *format, ... );
+
+@property(nonatomic, strong, readonly) NSString *(^replace)(NSString *, NSString *);
+
+@end
+
+NS_ASSUME_NONNULL_END
+```
+
+```
+#import "NSString+Chain.h"
+
+@implementation NSString (Chain)
+
+- (NSString *(^)(NSString *))trimmedBy{
+    return ^(NSString *value) {
+        NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:value];
+        NSString *result = [self stringByTrimmingCharactersInSet:set];
+        return result;
+    };
+}
+
+- (NSString * _Nonnull (^)(NSUInteger, NSUInteger))subStringBy{
+    return ^(NSUInteger loc, NSUInteger len) {
+        if (loc + len > self.length) {
+            return self;
+        }
+        NSString *result = [self substringWithRange:NSMakeRange(loc, len)];
+        return result;
+    };
+}
+
+- (NSString *(^)(NSString * _Nonnull))append{
+    return ^(NSString *value){
+        return [self stringByAppendingString:value];
+    };
+}
+
+- (NSString * _Nonnull (^)(NSString * _Nonnull, ...))appendFormat{
+    return ^(NSString *format, ...){
+        va_list list;
+        va_start(list, format);
+        NSString *string = [[NSString alloc] initWithFormat:format arguments:list];
+        va_end(list);
+        NSString *result = [self stringByAppendingString:string];
+        return result;
+    };
+}
+
+- (NSString * _Nonnull (^)(NSString * _Nonnull, NSString * _Nonnull))replace{
+    return ^(NSString *target, NSString *replacement){
+        return [self stringByReplacingOccurrencesOfString:target withString:replacement];
+    };
+}
+
+@end
+```
+
+[代码助手CodeHelper.dmg](https://github.com/shang1219178163/MacTemplet/releases)
+
+## 第十二篇章：Text Scanner.app
+
+<div align=center><img width="150" height="150" src="https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/AppIcon-TextScan.png?raw=true"/></div>
+
+这是一个免费图片文字提取的 mac 客户端，使用的时候只需要拖拽图片或者截屏到上面，然后开始转化即可，操作高效便利。
+
+## 第十三篇章：待续。。。
