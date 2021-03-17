@@ -181,28 +181,28 @@ platform :ios do
     dingslack_robot(params)
   end
 
-  desc "archive方法 'to:'后跟 pgy/fir/release"
+
+  desc "archive :sign develop/release,'to:'后跟 pgy/fir/release"
   lane :archive do |options|
     # puts "-#{options}-"
 
+    sign = "#{options[:sign]}"
     platform = "#{options[:to]}"
-    if platform.start_with?"pgy" 
-      archiveDevelopment()
-      pgyupload()
-      
-    elsif platform.start_with?"fir" 
-      archiveDevelopment()
-      firupload()
 
-    elsif platform.start_with?"rel" 
+    if sign.start_with?"rel"
       archiveRelease()
-      releaseupload()
-
     else
-      # puts "to:传参错误，请检查传参-#{options}-"
       archiveDevelopment()
+    end
+
+    if platform.start_with?"pgy"
       pgyupload()
-      
+    elsif platform.start_with?"fir"
+      firupload()
+    elsif platform.start_with?"rel"
+      releaseupload()
+    else
+      pgyupload()
     end
       
   end
@@ -215,17 +215,12 @@ platform :ios do
     platform = "#{options[:to]}"
     if platform.start_with?"pgy" 
       pgyupload()
-      
     elsif platform.start_with?"fir" 
       firupload()
-
     elsif platform.start_with?"rel" 
       releaseupload()
-
     else
-      # puts "to:传参错误，请检查传参-#{options}-"
       pgyupload()
-
     end
       
   end
