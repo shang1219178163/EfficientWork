@@ -1,3 +1,4 @@
+
 # fastlane_version "2.112.0"
 default_platform :ios
 
@@ -11,61 +12,62 @@ platform :ios do
 
 
   ## Common
-  desc "发布新版本到AppStore"
-  lane :release do
+  desc "打包 release 版本, to: pgy/fir/release"
+  lane :release do |options|
     #默认env文件
     archiveRelease()
-    uploadRelease()
+    
+    platform = options[:to]
+    platform = platform ? platform : "release"
+
+    sh "fastlane releaseupload to:#{platform}"
   end
 
-  desc "上传新版本到AppStore"
-  lane :releaseupload do
-    #默认env文件
-    uploadRelease()
+
+  desc "上传 release 版本, to: pgy/fir/release"
+  lane :releaseupload do |options|
+    #默认env文件    
+    platform = options[:to]
+    platform = platform ? platform : "rel"
+    
+    if platform.start_with?"rel" 
+      uploadRelease(ipaDir: ENV["IpaDir_AppStore"])
+    elsif platform.start_with?"fir" 
+      uploadFir(ipaDir: ENV["IpaDir_AppStore"])
+    else
+      uploadPgyer(ipaDir: ENV["IpaDir_AppStore"])
+    end
+  
   end
 
-  desc "发布One到AppStore"
-  lane :releaseA do
-    # actionRelease(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_AppStore"])
-    sh "fastlane release --env targetA"
-  end
 
-  desc "发布到Fir"
-  lane :fir do
+  desc "打包 development 版本, to: pgy/fir"
+  lane :develop do |options|
     #默认env文件
     archiveDevelopment() 
-    uploadFir()
+
+    platform = options[:to]
+    platform = platform ? platform : "pgy"
+
+    sh "fastlane developupload to:#{platform}"
   end
 
-  lane :firupload do 
-    uploadFir()
+
+  desc "上传 develop 版本, to: pgy/fir"
+  lane :developupload do |options|
+    #默认env文件    
+    platform = options[:to]
+    platform = platform ? platform : "pgy"
+
+    if platform.start_with?"fir" 
+      uploadFir()
+    else
+      uploadPgyer()
+    end
+  
   end
 
-  desc "发布到pgyer"
-  lane :pgy do
-    #默认env文件
-    archiveDevelopment()
-    uploadPgyer()
-  end
 
-  desc "发布到pgyer"
-  lane :pgyupload do
-    #默认env文件
-    uploadPgyer()
-  end
-
-  desc "one发布到Fir"
-  lane :firA do
-    # actionFir(name: ENV["Scheme_name"], ipaDir: ENV["IpaDir_Development"]) 
-    sh "fastlane fir --env targetA"
-  end
-
-  desc "发布A到pgyer"
-  lane :pgyA do
-    #默认env文件
-    sh "fastlane pgy --env targetA"
-  end
- 
   desc "[通用]发布新版本到 AppStore"
   def archiveRelease(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_AppStore"])
     clear_cache_files()
@@ -74,14 +76,14 @@ platform :ios do
     gym(
       output_directory: ipaDir,
       scheme: name,
-      output_name: name,
       export_method: 'app-store',
       export_options: {
-        export_xcargs: "-allowProvisioningUpdates",
+        xcargs: "-allowProvisioningUpdates",
         iCloudContainerEnvironment: 'Production'
       }
     )
   end
+
 
   desc "[通用]发布新版本到 AppStore"
   def uploadRelease(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_AppStore"])
@@ -92,8 +94,9 @@ platform :ios do
       screenshots_path: ENV["Screenshots_Path"], 
     )
     # system "open #{ipaDir}"
-    handleDingTalk(name: name, ipaDir: ipaDir, appUrl: ENV["App_Store_Link"])
+    handleDingTalk(name: name, ipaDir: ipaDir, downloadUrl: ENV["App_Store_Link"])
   end 
+
 
   desc "[通用]发布新版本到 fir"
   def archiveDevelopment(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Development"])
@@ -103,20 +106,20 @@ platform :ios do
       include_symbols: true,
       output_directory: ipaDir,
       scheme: name,
-      output_name: name,
       configuration: 'Debug',
+      # configuration: 'Release',
       export_method: 'development',
-      export_options: {
-        export_xcargs: "-allowProvisioningUpdates",
-        iCloudContainerEnvironment: 'Development'}
+      export_options: {iCloudContainerEnvironment: 'Development'}
     )
   end
+
 
   desc "上传ipad 到 firim"
   def uploadFir(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Development"], firToken: FirToken)
     firim(firim_api_token: firToken, icon: ENV["App_Icon_Local"], ipa: "#{ipaDir}/#{name}.ipa")
-    handleDingTalk(name: name, ipaDir: ipaDir)
+    handleDingTalk(name: name, ipaDir: ipaDir, downloadUrl: ENV["Firim_Shortcut_Link"])
   end
+
 
   desc "上传ipad 到 Pgyer"
   def uploadPgyer(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Development"], apiKey: PgyerApiKey, userKey: PgyerUserKey)
@@ -131,7 +134,7 @@ platform :ios do
       install_type: "2",
       ipa: "#{ipaDir}/#{name}.ipa",
     )
-    handleDingTalk(name: name, ipaDir: ipaDir, appUrl: ENV["Pgyer_Shortcut_Link"])
+    handleDingTalk(name: name, ipaDir: ipaDir, downloadUrl: ENV["Pgyer_Shortcut_Link"])
   end
 
 
@@ -156,7 +159,7 @@ platform :ios do
 
   desc "webhook 钉钉"
   def handleDingTalk(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Development"], downloadUrl: ENV["Firim_Shortcut_Link"])
-    appPath = ipaDir + "/#{name}.ipa"
+    appPath = ipaDir + "/#{name}.ipa" 
     params = {appPath: appPath,
               appIcon: ENV["App_Icon_Link"],
               dingUrl: ENV["Dingtalk_Url"],
@@ -170,60 +173,17 @@ platform :ios do
 
   desc "推送通知到slack"
   def handleDingSlack(name: ENV["Scheme_Name"], ipaDir: ENV["IpaDir_Development"], downloadUrl: ENV["Firim_Shortcut_Link"])
-    appPath = ipaDir + "/#{name}.ipa"
+    appPath = ipaDir + "/#{name}.ipa" 
     params = {appPath: appPath,
               appIcon: ENV["App_Icon_Link"],
               slackUrl: ENV["Slack_Url"],
-              slogan: ENV["APP_Slogan"],
-              downloadUrl: downloadUrl
+              slogan: ENV["APP_Slogan"],  
+              downloadUrl: downloadUrl           
               }
     puts "---#{params.to_json}--"
     dingslack_robot(params)
   end
 
-
-  desc "archive :sign develop/release,'to:'后跟 pgy/fir/release"
-  lane :archive do |options|
-    # puts "-#{options}-"
-
-    sign = "#{options[:sign]}"
-    platform = "#{options[:to]}"
-
-    if sign.start_with?"rel"
-      archiveRelease()
-    else
-      archiveDevelopment()
-    end
-
-    if platform.start_with?"pgy"
-      pgyupload()
-    elsif platform.start_with?"fir"
-      firupload()
-    elsif platform.start_with?"rel"
-      releaseupload()
-    else
-      pgyupload()
-    end
-      
-  end
-
-
-  desc "upload方法 'to:'后跟 pgy/fir/release"
-  lane :upload do |options|
-    # puts "-#{options}-"
-
-    platform = "#{options[:to]}"
-    if platform.start_with?"pgy" 
-      pgyupload()
-    elsif platform.start_with?"fir" 
-      firupload()
-    elsif platform.start_with?"rel" 
-      releaseupload()
-    else
-      pgyupload()
-    end
-      
-  end
 
   desc "测试"
   lane :test do
@@ -233,16 +193,61 @@ platform :ios do
     # account = "#{`whoami`}".delete "\n"
     # tokenfiles = "/Users/#{account}/Library/Caches/com.apple.amp.itmstransporter/UploadTokens/*.token"
     # UI.message "Token: #{tokenfiles}"
+    
+    # handleDingSlack()
+    handleDingTalk()
 
-    handleDingSlack()
-    # handleDingTalk()
   end
 
-  desc "one发布到Fir"
-  lane :testA do
-    # actionFir(name: ENV["Scheme_name"], ipaDir: ENV["IpaDir_Development"]) 
-    sh "fastlane test --env targetA"
+
+  desc "archive sign: develop/release, to: pgy/fir/release, target: A/B/C"
+  lane :archive do |options|
+    # puts "-#{options}-"
+
+    sign = options[:sign]
+    platform = options[:to]
+    target = options[:target]
+
+    sign = sign ? sign : "develop"
+    platform = platform ? platform : "pgy"
+    targetInfo = target ? "--env target#{target.capitalize}" : ""
+
+    if sign != ""
+      if sign.start_with?"rel" 
+        sh "fastlane release to:#{platform} #{targetInfo}"
+      else
+        sh "fastlane develop to:#{platform} #{targetInfo}"
+      end
+    end
+
+    if platform != "" 
+      sh "fastlane upload to:#{platform} #{targetInfo}"
+    end
+      
   end
+
+ 
+  desc "upload sign: develop/release, to:pgy/fir/release, target: A/B/C"
+  lane :upload do |options|
+    # puts "-#{options}-"
+
+    sign = options[:sign]
+    platform = options[:to]
+    target = options[:target]
+
+    sign = sign ? sign : "develop"
+    platform = platform ? platform  : "pgy"
+    targetInfo = target ? "--env target#{target.capitalize}" : ""
+    # puts "_#{sign}_#{platform}_#{target}_#{targetInfo}_"
+
+    if sign.start_with?"rel" 
+      sh "fastlane releaseupload to:#{platform} #{targetInfo}"
+    else
+      sh "fastlane developupload to:#{platform} #{targetInfo}"
+    end
+      
+  end
+
 
   # You can define as many lanes as you want
   after_all do |lane|
