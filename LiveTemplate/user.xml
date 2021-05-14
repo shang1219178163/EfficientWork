@@ -1,0 +1,25 @@
+<templateSet group="user">
+  <template name="hCopyright" value="//&#10;//  $fileName$&#10;//  $projectName$&#10;//&#10;//  Created by $user$ on $date$ $time$.&#10;//  Copyright © $year$ $user$. All rights reserved.&#10;//&#10;&#10;" toReformat="false" toShortenFQNames="true">
+    <variable name="fileName" expression="fileName()" defaultValue="" alwaysStopAt="true" />
+    <variable name="projectName" expression="groovyScript(&quot;def list = _1.split('/'); def result = list[4]; return result;&quot;, filePath());" defaultValue="" alwaysStopAt="true" />
+    <variable name="user" expression="user()" defaultValue="" alwaysStopAt="true" />
+    <variable name="date" expression="date()" defaultValue="" alwaysStopAt="true" />
+    <variable name="time" expression="time()" defaultValue="" alwaysStopAt="true" />
+    <variable name="year" expression="date()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="hStatefulWidget" value="import 'package:flutter/cupertino.dart';&#10;import 'package:flutter/material.dart';&#10;&#10;class $fileName$ extends StatefulWidget {&#10;&#10;  final String? title;&#10;&#10;  $fileName$({ Key? key, this.title}) : super(key: key);&#10;&#10;  &#10;  @override&#10;  _$fileName$State createState() =&gt; _$fileName$State();&#10;}&#10;&#10;class _$fileName$State extends State&lt;$fileName$&gt; {&#10;&#10;&#10;  @override&#10;  void initState() {&#10;    super.initState();&#10;  }&#10;&#10;  @override&#10;  void dispose() {&#10;    super.dispose();&#10;  }&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    dynamic arguments = ModalRoute&#10;        .of(context)!&#10;        .settings&#10;        .arguments;&#10;&#10;    return Scaffold(&#10;        appBar: AppBar(&#10;          title: Text(arguments[1]),&#10;        ),&#10;        body: Text(arguments.toString())&#10;    );&#10;  }&#10;&#10;}" toReformat="false" toShortenFQNames="true">
+    <variable name="fileName" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="hStatelessWidget" value="import 'package:flutter/material.dart';&#10;&#10;class $fileName$ extends StatelessWidget {&#10;&#10;  final String? title;&#10;&#10;  const $fileName$({&#10;  &#9;Key? key,&#10;  &#9;this.title,&#10;  }) : super(key: key);&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    dynamic arguments = ModalRoute.of(context)!.settings.arguments;&#10;&#10;    return Scaffold(&#10;        appBar: AppBar(&#10;          title: Text(arguments[1]),&#10;        ),&#10;        body: Text(arguments.toString())&#10;    );&#10;  }&#10;}" toReformat="false" toShortenFQNames="true">
+    <variable name="fileName" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+</templateSet>
