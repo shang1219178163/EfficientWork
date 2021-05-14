@@ -1,5 +1,5 @@
 <templateSet group="user">
-  <template name="hCopyright" value="//&#10;//  $fileName$&#10;//  $projectName$&#10;//&#10;//  Created by $user$ on $date$ $time$.&#10;//  Copyright © $year$ $user$. All rights reserved.&#10;//&#10;&#10;" toReformat="false" toShortenFQNames="true">
+  <template name="hCopyright" value="//&#10;//  $fileName$&#10;//  $projectName$&#10;//&#10;//  Created by $user$ on $date$ $time$.&#10;//  Copyright © $year$ $user$. All rights reserved.&#10;//&#10;&#10;" description="版权声明" toReformat="false" toShortenFQNames="true">
     <variable name="fileName" expression="fileName()" defaultValue="" alwaysStopAt="true" />
     <variable name="projectName" expression="groovyScript(&quot;def list = _1.split('/'); def result = list[4]; return result;&quot;, filePath());" defaultValue="" alwaysStopAt="true" />
     <variable name="user" expression="user()" defaultValue="" alwaysStopAt="true" />
@@ -10,14 +10,49 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="hStatefulWidget" value="import 'package:flutter/cupertino.dart';&#10;import 'package:flutter/material.dart';&#10;&#10;class $fileName$ extends StatefulWidget {&#10;&#10;  final String? title;&#10;&#10;  $fileName$({ Key? key, this.title}) : super(key: key);&#10;&#10;  &#10;  @override&#10;  _$fileName$State createState() =&gt; _$fileName$State();&#10;}&#10;&#10;class _$fileName$State extends State&lt;$fileName$&gt; {&#10;&#10;&#10;  @override&#10;  void initState() {&#10;    super.initState();&#10;  }&#10;&#10;  @override&#10;  void dispose() {&#10;    super.dispose();&#10;  }&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    dynamic arguments = ModalRoute&#10;        .of(context)!&#10;        .settings&#10;        .arguments;&#10;&#10;    return Scaffold(&#10;        appBar: AppBar(&#10;          title: Text(arguments[1]),&#10;        ),&#10;        body: Text(arguments.toString())&#10;    );&#10;  }&#10;&#10;}" toReformat="false" toShortenFQNames="true">
+  <template name="hStatefulWidget" value="import 'package:flutter/cupertino.dart';&#10;import 'package:flutter/material.dart';&#10;&#10;class $fileName$ extends StatefulWidget {&#10;&#10;  final String? title;&#10;&#10;  $fileName$({ Key? key, this.title}) : super(key: key);&#10;&#10;  &#10;  @override&#10;  _$fileName$State createState() =&gt; _$fileName$State();&#10;}&#10;&#10;class _$fileName$State extends State&lt;$fileName$&gt; {&#10;&#10;&#10;  @override&#10;  void initState() {&#10;    super.initState();&#10;  }&#10;&#10;  @override&#10;  void dispose() {&#10;    super.dispose();&#10;  }&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    dynamic arguments = ModalRoute&#10;        .of(context)!&#10;        .settings&#10;        .arguments;&#10;&#10;    return Scaffold(&#10;        appBar: AppBar(&#10;          title: Text(arguments[1]),&#10;        ),&#10;        body: Text(arguments.toString())&#10;    );&#10;  }&#10;&#10;}" description="StatefulWidget创建" toReformat="false" toShortenFQNames="true">
     <variable name="fileName" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="hStatelessWidget" value="import 'package:flutter/material.dart';&#10;&#10;class $fileName$ extends StatelessWidget {&#10;&#10;  final String? title;&#10;&#10;  const $fileName$({&#10;  &#9;Key? key,&#10;  &#9;this.title,&#10;  }) : super(key: key);&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    dynamic arguments = ModalRoute.of(context)!.settings.arguments;&#10;&#10;    return Scaffold(&#10;        appBar: AppBar(&#10;          title: Text(arguments[1]),&#10;        ),&#10;        body: Text(arguments.toString())&#10;    );&#10;  }&#10;}" toReformat="false" toShortenFQNames="true">
+  <template name="hStatelessWidget" value="import 'package:flutter/material.dart';&#10;&#10;class $fileName$ extends StatelessWidget {&#10;&#10;  final String? title;&#10;&#10;  const $fileName$({&#10;  &#9;Key? key,&#10;  &#9;this.title,&#10;  }) : super(key: key);&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    dynamic arguments = ModalRoute.of(context)!.settings.arguments;&#10;&#10;    return Scaffold(&#10;        appBar: AppBar(&#10;          title: Text(arguments[1]),&#10;        ),&#10;        body: Text(arguments.toString())&#10;    );&#10;  }&#10;}" description="StatelessWidget创建" toReformat="false" toShortenFQNames="true">
     <variable name="fileName" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="hswitch_string" value="switch (&quot;&quot;) {&#10;  case &quot;&quot;:&#10;    {&#10;&#10;    }&#10;    break;&#10;  case &quot;&quot;:&#10;    {&#10;&#10;    }&#10;    break;&#10;  case &quot;&quot;:&#10;    {&#10;    }&#10;    break;&#10;  default:&#10;    break;&#10;}" description="自定义 switch 字符串方法" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="hif" value="if () {&#10;  &#10;}" description="自定义 if 方法" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="hifelse" value="if () {&#10;  &#10;} else {&#10;  &#10;}" description="自定义 if else 方法" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="hifelse_if" value="if () {&#10;  &#10;} else if () {&#10;  &#10;}" description="自定义" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="func" value="void $func$(BuildContext context) {&#10;&#10;}" toReformat="false" toShortenFQNames="true">
+    <variable name="func" expression="dartMethodName()" defaultValue="&quot;func&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="hswitch_int" value="switch ($value$) {&#10;  case $pattern$:&#10;    {&#10;&#10;    }&#10;    break;&#10;  case $pattern1$:&#10;    {&#10;&#10;    }&#10;    break;&#10;  case $pattern2$:&#10;    {&#10;    }&#10;    break;&#10;  default:&#10;    break;&#10;}" description="自定义" toReformat="false" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="&quot;value&quot;" alwaysStopAt="true" />
+    <variable name="pattern" expression="" defaultValue="&quot;0&quot;" alwaysStopAt="true" />
+    <variable name="pattern1" expression="" defaultValue="&quot;1&quot;" alwaysStopAt="true" />
+    <variable name="pattern2" expression="" defaultValue="&quot;2&quot;" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
     </context>
