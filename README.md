@@ -892,4 +892,199 @@ NS_ASSUME_NONNULL_END
 
 这是一个免费图片文字提取的 mac 客户端，使用的时候只需要拖拽图片或者截屏到上面，然后开始转化即可，操作高效便利。
 
-## 第十三篇章：待续。。。
+## 第十三篇章：LiveTemplate 自定义
+用 AndirodStudio 开发 dart 时极不方便
+
+>当我熟悉了 XCode 中的 CodeSnippets 功能之后，就为此功能深深着迷，无输次拯救我敲代码不提示的抓狂；所以当用 Andriod Studio 创建 Dart 文件时，看见创建的文件一片空白，nothing !!! 这能忍？随无限谷歌之后找到 LiveTemplate （类 CodeSnippets）更强大，然后定义自己的快捷代码。
+
+一.  Live template 是什么？
+直译是“实时模板”，它的机制简单地说就是提前定义好一些通用的代码片段在编写代码时插入编辑器，使用方法类似代码补全；同时支持 Groovy 函数自定义，无限扩展。
+```
+///Groovy 函数自定义
+groovyScript(<String>, [arg, ...])	
+```
+
+二. Live Template 如何自定义？
+
+1. 点击添加一个Live Template 空白文件；
+2. 填写 Abbreviation  缩写快捷键；
+3. 描述（可选）；
+4. Template Text 编写，然后 Edit variables（本质就是字符串加变量）；
+5. 支持语言设置；
+6. 点击 Apply，OK 生效； 
+
+![6751620996088_.pic_hd.jpg](https://upload-images.jianshu.io/upload_images/281882-f0f5478c4d72a725.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+🌰🌰：
+```
+//
+//  $fileName$
+//  $projectName$
+//
+//  Created by $user$ on $date$ $time$.
+//  Copyright © $year$ $user$. All rights reserved.
+//
+```
+上边变量的对应关系为：
+fileName 对应 fileName()
+user 对应 user()
+date 对应 date()
+time 对应 time()
+year 对应 date()
+
+projectName 复杂一些，为工程名称，[官方预定义方法](https://www.jetbrains.com/help/idea/template-variables.html#predefined_functions) 并未提供相应的方法，所以就需要我们通过编写 groovyScript 代码来得到对应的结果，代码如下；
+```
+groovyScript("def list = _1.split('/'); def result = list[4]; return result;", filePath());
+```
+[groovy sdk 安装](https://blog.csdn.net/HUandroid/article/details/114359409)
+VSCode 安装 [code runner 插件](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner) ；
+[groovy 基础语法](https://www.w3cschool.cn/groovy/groovy_operators.html)
+
+
+三. 如何导出导入？
+（有时我们公司和家里电脑，需要导出导入进行同步）
+
+![导出第一步.jpg](https://upload-images.jianshu.io/upload_images/281882-fdc7d8a6a1102c9f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![导出第二步.jpg](https://upload-images.jianshu.io/upload_images/281882-4016cb08f421a486.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![导出结果.jpg](https://upload-images.jianshu.io/upload_images/281882-0dd4b7d32469e23d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+[user.xml](https://github.com/shang1219178163/EfficientWork/blob/master/LiveTemplate/user.xml) 中就是我们自定义的 LiveTemplate；如果你有特别棒的模板，可以分享到 github ，一起 lazy 才是 nice ！
+
+已定义模板 :
+hCopyright
+```
+//
+//  $fileName$
+//  $projectName$
+//
+//  Created by $user$ on $date$ $time$.
+//  Copyright © $year$ $user$. All rights reserved.
+//
+```
+
+hstatelessWidget 
+```
+import 'package:flutter/material.dart';
+
+class $fileName$ extends StatelessWidget {
+
+  final String? title;
+
+  const $fileName$({
+  	Key? key,
+  	this.title,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    dynamic arguments = ModalRoute.of(context)!.settings.arguments;
+
+    return Scaffold(
+        appBar: AppBar(
+          title: Text(arguments[1]),
+        ),
+        body: Text(arguments.toString())
+    );
+  }
+}
+
+```
+hStatefulWidget
+```
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+class $fileName$ extends StatefulWidget {
+
+  final String? title;
+
+  $fileName$({ Key? key, this.title}) : super(key: key);
+
+  
+  @override
+  _$fileName$State createState() => _$fileName$State();
+}
+
+class _$fileName$State extends State<$fileName$> {
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    dynamic arguments = ModalRoute
+        .of(context)!
+        .settings
+        .arguments;
+
+    return Scaffold(
+        appBar: AppBar(
+          title: Text(arguments[1]),
+        ),
+        body: Text(arguments.toString())
+    );
+  }
+
+}
+```
+hswitch_int
+```
+switch ($value$) {
+  case $pattern$:
+    {
+
+    }
+    break;
+  case $pattern1$:
+    {
+
+    }
+    break;
+  case $pattern2$:
+    {
+    }
+    break;
+  default:
+    break;
+}
+```
+hswitch_string
+```
+switch ("") {
+  case "":
+    {
+
+    }
+    break;
+  case "":
+    {
+
+    }
+    break;
+  case "":
+    {
+    }
+    break;
+  default:
+    break;
+}
+```
+hifelse
+```
+if () {
+  
+} else {
+  
+}
+```
+
+## 第十四篇章：待续。。。
