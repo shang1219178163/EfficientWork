@@ -6,8 +6,12 @@
         //title , subtitle below the Icon；
     }
     
-#### 效果图：
+#### screen shot：
 ![stepper enhance](https://github.com/shang1219178163/EfficientWork/blob/master/flutter/enhance/stepper.jpeg?raw=true)
+
+### use:
+    replace file:
+    /Users/*/flutter/packages/flutter/lib/src/material/stepper.dart
 
 #### code：
     //
