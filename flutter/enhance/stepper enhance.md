@@ -1,8 +1,10 @@
 ## stepper enhance
 
 
-    Step 新增 isStepperTypeHorizontalBottom 属性；
-    当 type 为 StepperType.horizontal 且 isStepperTypeHorizontalBottom 为 true，title 和 subtitle 布局在底部；
+    Step add 'bool isStepperTypeHorizontalBottom'；
+    if(type == StepperType.horizontal && isStepperTypeHorizontalBottom == true) {
+        //title , subtitle below the Icon；
+    }
     
 #### 效果图：
 ![stepper enhance](https://github.com/shang1219178163/EfficientWork/blob/master/flutter/enhance/stepper.jpeg?raw=true)
