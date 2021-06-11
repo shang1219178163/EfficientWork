@@ -88,6 +88,7 @@ class Step {
     this.state = StepState.indexed,
     this.isActive = false,
     this.isStepperTypeHorizontalBottom = false,
+    this.isStepperTypeHorizontalBottomLineFollowIconMidY = false,
   }) : assert(title != null),
        assert(content != null),
        assert(state != null);
@@ -115,6 +116,8 @@ class Step {
 
   /// title and subtitle below the StepIcon
   final bool isStepperTypeHorizontalBottom;
+
+  final bool isStepperTypeHorizontalBottomLineFollowIconMidY;
 }
 
 /// A material stepper widget that displays progress through a sequence of
@@ -707,10 +710,17 @@ class _StepperState extends State<Stepper> with TickerProviderStateMixin {
         ),
         if (!_isLast(i))
           Expanded(
-            child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 8.0),
-              height: 1.0,
-              color: Colors.grey.shade400,
+            child: Column(
+              children: [
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 8.0),
+                  height: 1.0,
+                  color: Colors.grey.shade400,
+                ),
+                widget.type == StepperType.horizontal
+                    && widget.steps[i].isStepperTypeHorizontalBottom == true
+                    && widget.steps[i].isStepperTypeHorizontalBottomLineFollowIconMidY  == true? SizedBox(height: 44) : SizedBox(height: 0),
+              ],
             ),
           ),
       ],
