@@ -65,12 +65,12 @@
     
       void go(int index) {
         if (index == -1 && _index <= 0 ) {
-          DDLog("已经是第一个 Step了,无法再后退了");
+          DDLog("first step");
           return;
         }
     
         if (index == 1 && _index >= titles.length - 1) {
-          DDLog("已经是最后一个 Step了,无法再前进了");
+          DDLog("last step");
           return;
         }
     
@@ -109,4 +109,41 @@
         );
       }
 
+    }
+
+#### DDLog
+    // ignore: non_constant_identifier_names
+    void DDLog(dynamic obj){
+      DDTraceModel model = DDTraceModel(StackTrace.current);
+      print("${DateTime.now()}  ${model.fileName}, ${model.className} [line ${model.lineNumber}]: $obj");
+    }
+    
+    class DDTraceModel {
+      final StackTrace _trace;
+    
+      String fileName = "";
+      String className = "";
+      int lineNumber = 0;
+      int columnNumber = 0;
+    
+      DDTraceModel(this._trace) {
+        _parseTrace();
+      }
+    
+      void _parseTrace() {
+        var traceString = this._trace.toString().split("\n")[1];
+        this.className = traceString.split(".")[0].replaceAll("#1", "").trim();
+        // print('___${this.className}_$traceString');
+        // print('___${this.className}_\n${this._trace.toString()}');
+    
+        var indexOfFileName = traceString.indexOf(RegExp(r'[A-Za-z_]+.dart'));
+        var fileInfo = traceString.substring(indexOfFileName);
+        var listOfInfos = fileInfo.split(":");
+        this.fileName = listOfInfos[0];
+        this.lineNumber = int.parse(listOfInfos[1]);
+    
+        var columnStr = listOfInfos[2];
+        columnStr = columnStr.replaceFirst(")", "");
+        this.columnNumber = int.parse(columnStr);
+      }
     }
