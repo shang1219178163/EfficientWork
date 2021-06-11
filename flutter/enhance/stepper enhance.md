@@ -7,7 +7,23 @@
     }
     
 #### screen shot：
+
+    Step(
+        //...
+        isStepperTypeHorizontalBottom: true,
+        //...
+      )
+      
 ![stepper enhance](https://github.com/shang1219178163/EfficientWork/blob/master/flutter/enhance/stepper.jpeg?raw=true)
+
+    Step(
+        //...
+        isStepperTypeHorizontalBottom: true,
+        isStepperTypeHorizontalBottomLineFollowIconMidY: true,
+        //...
+      )
+
+![stepper enhance](https://github.com/shang1219178163/EfficientWork/blob/master/flutter/enhance/stepper1.jpeg?raw=true)
 
 ### use:
     replace file:
@@ -99,6 +115,7 @@
           steps: titles.map((e) => Step(
             isActive: _index == titles.indexOf(e),
             isStepperTypeHorizontalBottom: true,
+            isStepperTypeHorizontalBottomLineFollowIconMidY: true,
             title: Text(e,),
             subtitle: Text("subtitle${titles.indexOf(e)}",),
             content: Container(
