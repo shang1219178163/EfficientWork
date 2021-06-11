@@ -26,7 +26,6 @@
     import 'package:fluttertemplet/dartExpand/DDLog.dart';
     
     
-    /// This is the stateful widget that the main application instantiates.
     class StepperDemoPage extends StatefulWidget {
       StepperDemoPage({Key? key}) : super(key: key);
     
