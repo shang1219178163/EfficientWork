@@ -677,7 +677,6 @@ class _StepperState extends State<Stepper> with TickerProviderStateMixin {
           ),
         ),
         Container(
-          margin: const EdgeInsetsDirectional.only(start: 12.0),
           child: _buildHeaderText(i),
         ),
         SizedBox(height: 12,),
