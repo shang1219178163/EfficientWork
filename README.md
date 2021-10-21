@@ -1078,7 +1078,7 @@ switch ("") {
     break;
 }
 ```
-hifelse
+ifelse
 ```
 if () {
   
