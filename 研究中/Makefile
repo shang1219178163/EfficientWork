@@ -1,5 +1,7 @@
 #需要注意的是，我们在每个target内使用制表符而不是空格是非常重要的。复制和粘贴内容时尤其如此。如果我们添加空格而不是制表符，我们将收到错误消息；
 
+#log
+
 NOCOLOR=\033[0m
 RED=\033[0;31m
 GREEN=\033[0;32m
@@ -11,13 +13,38 @@ LIGHTGRAY=\033[0;37m
 DARKGRAY=\033[1;30m
 LIGHTRED=\033[1;31m
 LIGHTGREEN=\033[1;32m
-YELLOW=\033[1;33m
+YELLOW=\033[33m
 LIGHTBLUE=\033[1;34m
 LIGHTPURPLE=\033[1;35m
 LIGHTCYAN=\033[1;36m
 WHITE=\033[1;37m
 
 
+#define echo_blue
+#	@echo "${BLUE} $$(date +"%Y-%m-%d %H:%M:%S %z") $@: $(1)"
+#endef
+
+define echo_color
+	@echo "$1 $$(date +"%Y-%m-%d %H:%M:%S %z") $@: $2"
+endef
+
+define echo_blue
+	$(call echo_color, ${BLUE}, $1)
+endef
+
+define echo_yellow
+	$(call echo_color, ${YELLOW}, $1)
+endef
+
+define echo_green
+	$(call echo_color, ${GREEN}, $1)
+endef
+
+define echo_red
+	$(call echo_color, ${RED}, $1)
+endef
+
+#.PHONY
 
 .PHONY: all
 all: postget clean pubGet run
@@ -59,6 +86,12 @@ run: ## flutter run -d fbd70656d622f1abc00f00ea8fe4ab6c46e96127
 .PHONY:	test
 test:	## test
 #	@echo "\033[34m >>> test..."
-	echo "${BLUE} >>> this is a test .PHONY target"
+#	@echo "${BLUE} >>> this is a test .PHONY target"
+#	@echo "--- ${username}"
 #	echo -e "The first five colors of the rainbow are ${RED}red ${ORANGE}orange ${YELLOW}yellow ${GREEN}green ${NOCOLOR}and ${BLUE}blue${NOCOLOR}"
+	$(call echo_blue, __ this is a test log.)
+	$(call echo_green, __ this is a test log.)
+	$(call echo_yellow, __ this is a test log.)
+	$(call echo_red, __ this is a test log.)
+
 
