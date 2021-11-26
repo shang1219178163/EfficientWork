@@ -29,7 +29,7 @@ username=shang1219178163
 #}
 
 #创建本地仓库 local lib
-createLib(){
+function createLib(){
     echo_green "--- ${username}: $1 (本地仓库开始创建)---"
 
     echo_green "--- Step: pod lib create $1 --template-url=https://github.com/$username/pod-template.git ---"
@@ -39,7 +39,7 @@ createLib(){
 }
 
 #创建远程仓库
-createRepo(){
+function createRepo(){
     echo_green "--- ${username}: $1 (远程仓库开始创建)---"
 
     echo_green "--- Step: curl -u ${username} https://api.github.com/user/repos -d "{\"name\":\"$1\"}" ---"
@@ -47,7 +47,7 @@ createRepo(){
 }
 
 #推送到远程仓库
-pushLib(){
+function pushLib(){
     echo_green "--- ${username}: $1 ---"
 
 #     echo_green "--- Step: git remote rm origin ---"
@@ -62,7 +62,7 @@ pushLib(){
      echo_green "--- Step: git add . ---"
      git add . || exit 1
      
-     echo_green "--- Step: git commit -m \"update\" ---"
+     echo_green "--- Step: git commit -m \"initial\" ---"
      git commit -m "updatet" || exit 1
 
 #     echo_green "--- Step: git push origin master ---"
@@ -76,8 +76,26 @@ pushLib(){
     echo_yellow "--- Step: finished ！---"
 }
 
+function addTag_by_version(){
+    local version=$1
+    echo "--- version: $version ---"
+
+    commitID=`git log -1 --pretty=%h`
+    commitMessage=`git log -1 --pretty=format:"%s"`
+    echo "--- commitID: $commitID ---"
+    echo "--- commitMessage: $commitMessage ---"
+    echo "--- Step: add tag to local reposit：$commitID - $commitMessage---"
+#    echo "git tag ${version} $commitID -m \"$commitMessage\""
+    git tag ${version} $commitID -m "$commitMessage" || exit 1
+
+    echo "--- Step: push tag to remote reposit ---"
+    git push origin ${version} || exit 1
+
+    echo "--- Step: finished ！---"
+}
+
 #第一个参数为文件名称*.podspec
-updatePod(){
+function updatePod(){
     version=$(grep -E 's\.version.+=' $1 | grep -E '[0-9][0-9.]+' -o)
     # echo_green "--- version: ${version} ---"
     echo_green "--- $1: ${version} ---"
@@ -95,11 +113,11 @@ updatePod(){
 #    git push -u origin master || exit 1
     git push || exit 1
 
-    echo_green "--- Step: add tag to local reposit ---"
-    git tag -a ${version} -m "$(git log -1 --pretty=format:"%s")" || exit 1
+    echo_green "--- Step: add tag to local reposit：`git log -1 --pretty=format:"%s"`---"
+    git tag -a ${version} -m "`git log -1 --pretty=format:"%s"`" || exit 1
 
     echo_green "--- Step: push tag to remote reposit ---"
-    git push --tags || exit 1
+    git push origin ${version} || exit 1
 
     echo_green "--- Step: pod trunk push to remote reposit ---"
     pod trunk push $1 --allow-warnings --use-libraries || exit 1
@@ -117,4 +135,12 @@ updatePod(){
     #     # Put Success actions here...
     # fi
 }
+
+# deleteTags(){
+#     #删除远程 tags
+#     git show-ref --tag | grep "refs/tags/$1" | awk "{print $2}"|xargs git push origin --delete
+#     git tag | grep "$1" | xargs git tag -d
+
+#     echo_yellow "--- Step: tags delete success ！---"
+# }
 
