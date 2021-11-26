@@ -30,95 +30,73 @@
 # echo -e "\033[46m 青底色 \033[0m"
 # echo -e "\033[47m 白底色 \033[0m"
 
-kForegroundBlackColor=30;
-kForegroundRedColor=31;
-kForegroundGreenColor=32;
-kForegroundYellowColor=33;
-kForegroundBlueColor=34;
-kForegroundCyanColor=35;
-kForegroundPurpleColor=36;
-kForegroundWhiteColor=37
-
-kBackgroundBlackColor=40;
-kBackgroundRedColor=41;
-kBackgroundGreenColor=42;
-kBackgroundYellowColor=44;
-kBackgroundBlueColor=44;
-kBackgroundCyanColor=45;
-kBackgroundPurpleColor=46;
-kBackgroundWhiteColor=47;
-
 ## red to echo
 function echo_red(){
-    echo "\033[31m$1\033[0m"
+    echo -e "\033[31m$1\033[0m"
     # echo -e "\033[31m\033[01m\033[05m[ $1 ]\033[0m"
 }
 
 function echo_redbg(){
-    # echo "\033[41;37m$1\033[0m"
-    echo "\033[41;30m$1\033[0m"
+    # echo -e "\033[41;37m$1\033[0m"
+    echo -e "\033[41;30m$1\033[0m"
 }
-
-# function echo_redbg(){
-#     echo "\033[${kBackgroundRedColor};${kForegroundWhiteColor}m${1}\033[0m"
-#     echo "\033[${kBackgroundRedColor};${kForegroundBlackColor}m${1}\033[0m"
-# }
 
 ## green to echo 
 function echo_green(){
-    echo "\033[32m$1\033[0m"
+    echo -e "\033[32m$1\033[0m"
+
 }
 
 function echo_greenbg(){
     # echo "\033[42;37m$1\033[0m"
-    echo "\033[42;30m$1\033[0m"
+    echo -e "\033[42;30m$1\033[0m"
 }
 
 ## yellow to echo 
 function echo_yellow(){
-    echo "\033[33m$1\033[0m"
+    echo -e "\033[33m$1\033[0m"
 }
 
 function echo_yellowbg(){
     # echo "\033[43;37m$1\033[0m"
-    echo "\033[43;30m$1\033[0m"
+    echo -e "\033[43;30m$1\033[0m"
 }
 
 ## blue to echo 
 function echo_blue(){
-    echo "\033[34m$1\033[0m"
+    echo -e "\033[34m$1\033[0m"
 }
 
 function echo_bluebg(){
     # echo "\033[44;37m$1\033[0m"
-    echo "\033[44;30m$1\033[0m"
+    echo -e "\033[44;30m$1\033[0m"
 }
 
 function echo_purple(){
-    echo "\033[35m$1\033[0m"
+    echo -e "\033[35m$1\033[0m"
 }
 
 function echo_purplebg(){
     # echo "\033[45;37m$1\033[0m"
-    echo "\033[45;30m$1\033[0m"
+    echo -e "\033[45;30m$1\033[0m"
 }
 
 function echo_cyan(){
-    echo "\033[36m$1\033[0m"
+    echo -e "\033[36m$1\033[0m"
 }
 
 function echo_cyanbg(){
     # echo "\033[46;37m$1\033[0m"
-    echo "\033[46;30m$1\033[0m"
+    echo -e "\033[46;30m$1\033[0m"
 }
 
 function echo_white(){
-    echo "\033[37m$1\033[0m"
+    echo -e "\033[37m$1\033[0m"
 }
 
 function echo_whitebg(){
     # echo "\033[47;37m$1\033[0m"
-    echo "\033[47;30m$1\033[0m"
+    echo -e "\033[47;30m$1\033[0m"
 }
 
 #设置日志级别
