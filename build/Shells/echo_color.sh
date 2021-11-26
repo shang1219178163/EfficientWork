@@ -141,3 +141,35 @@ function log(){
     } | tee -a $logfile
 
 }
+
+
+function testLogColor(){
+    local send=$(datetime)
+    echo $send
+    echo_red "red $send"
+    echo_green "green $send"
+    echo_yellow "yellow $send"
+    echo_blue "blue $send"
+    echo_purple "purple $send"
+    echo_cyan "cyan $send"
+    echo_white "white $send"
+
+    # echo_redbg "red $send"
+    # echo_greenbg "green $send"
+    # echo_yellowbg "yellow $send"
+    # echo_bluebg "blue $send"
+    # echo_purplebg "purple $send"
+    # echo_cyanbg "cyan $send"
+    # echo_whitebg "white $send"
+
+    log "${send}"
+
+    log debug "${send}"
+    log info "${send}"
+    log warn "${send}"
+    log error "${send}"
+
+    # echo "___$?___"
+    # echo_purple `$now()`
+    exit 1;
+}
