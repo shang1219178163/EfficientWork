@@ -1087,4 +1087,107 @@ if () {
 }
 ```
 
-## 第十四篇章：待续。。。
+## 第十四篇章：SourceTree 自定义命令
+利用sourcetree自定义操作调用git-bash、cmd、powershell等命令执行工具，传入自定义脚本命令并运行。
+mac： SourceTree/偏好设置/自定义操作
+
+![](https://github.com/shang1219178163/EfficientWork/blob/master/sourcetree_custom_action/doc/sourecetree_custom_action.png?raw=true)
+
+![](https://github.com/shang1219178163/EfficientWork/blob/master/sourcetree_custom_action/doc/sourecetree_custom_action2.png?raw=true)
+
+push.sh
+```
+#!/bin/bash
+branchName=`git symbolic-ref --short -q HEAD` ##获取分支名
+echo 推送到分支： $branchName
+git push origin HEAD:refs/for/$branchName
+read -p "按任意键关闭" -n 1
+```
+
+push.sh
+```
+#!/bin/bash
+branchName=`git symbolic-ref --short -q HEAD` ##获取分支名
+echo 推送到分支： $branchName
+git push origin HEAD:refs/for/$branchName
+read -p "按任意键关闭" -n 1
+```
+
+addtag.sh（flutter项目）
+```
+#!/bin/bash
+#!/bin/zsh
+
+#parse_yaml <*.yaml> <prefix>
+#parse_yaml pubspec.yaml
+function parse_yaml {
+   local prefix=$2
+   local s='[[:space:]]*' w='[a-zA-Z0-9_]*' fs=$(echo @|tr @ '\034')
+   sed -ne "s|^\($s\):|\1|" \
+        -e "s|^\($s\)\($w\)$s:$s[\"']\(.*\)[\"']$s\$|\1$fs\2$fs\3|p" \
+        -e "s|^\($s\)\($w\)$s:$s\(.*\)$s\$|\1$fs\2$fs\3|p"  $1 |
+   awk -F$fs '{
+      indent = length($1)/2;
+      vname[indent] = $2;
+      for (i in vname) {if (i > indent) {delete vname[i]}}
+      if (length($3) > 0) {
+         vn=""; for (i=0; i<indent; i++) {vn=(vn)(vname[i])("_")}
+         printf("%s%s%s=\"%s\"\n", "'$prefix'",vn, $2, $3);
+      }
+   }'
+}
+
+#addTag + version
+function addTag_by_version(){
+    local version=$1
+    echo "--- version: $version ---"
+
+    commitID=`git log -1 --pretty=%h`
+    commitMessage=`git log -1 --pretty=format:"%s"`
+    echo "--- commitID: $commitID ---"
+    echo "--- commitMessage: $commitMessage ---"
+    echo "--- Step: add tag to local reposit：$commitID - $commitMessage---"
+#    echo "git tag ${version} $commitID -m \"$commitMessage\""
+    git tag ${version} $commitID -m "$commitMessage" || exit 1
+
+    echo "--- Step: push tag to remote reposit ---"
+    git push origin ${version} || exit 1
+
+    echo "--- Step: finished ！---"
+}
+
+#解析 pubspec.yaml 添加 tag
+function addTag_by_yaml(){
+    eval $(parse_yaml pubspec.yaml "yaml_")
+    echo "--- version: $yaml_version ---"
+    
+    addTag_by_version $yaml_version
+}
+
+addTag_by_yaml
+
+```
+## 第十五篇章：VSCode extension 开发
+个人开发插件 easy-flutter-plugin 用于将 flutter plugin 功能简化；根据 lib dart方法一键生成 objc/swift + java/kotlin + web .dart + example/lib/.main.dart + test.dart 的方法生成；开发者只需要关注函数内部实现即可；模板化的工作让插件生成，提高开发效率； 
+
+VSCode 插件开发发布
+
+// 安装需要的包
+npm install -g yo generator-code
+// 运行命令，创建工程
+yo code
+
+。。。实现功能（推荐使用typescript）；
+
+1.注册账号 https://aka.ms/SignupAzureDevOps；
+
+2.创建 Personal Access Token
+点击创建新的个人访问令牌，这里特别要注意Organization要选择all accessible organizations，Scopes要选择Full access，否则后面发布会失败。
+
+3.打包发布
+vsce package
+
+vsce publish -p <*Personal Access Token*>
+
+
+## 第十六篇章：待续。。。
