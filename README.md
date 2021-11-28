@@ -1104,15 +1104,6 @@ git push origin HEAD:refs/for/$branchName
 read -p "按任意键关闭" -n 1
 ```
 
-push.sh
-```
-#!/bin/bash
-branchName=`git symbolic-ref --short -q HEAD` ##获取分支名
-echo 推送到分支： $branchName
-git push origin HEAD:refs/for/$branchName
-read -p "按任意键关闭" -n 1
-```
-
 addtag.sh（flutter项目）
 ```
 #!/bin/bash
