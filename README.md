@@ -1159,7 +1159,7 @@ addTag_by_yaml
 
 ```
 ## 第十五篇章：VSCode extension 开发
-个人开发插件 easy-flutter-plugin 用于将 flutter plugin 功能简化；根据 lib dart方法一键生成 objc/swift + java/kotlin + web .dart + example/lib/.main.dart + test.dart 的方法生成；开发者只需要关注函数内部实现即可；模板化的工作让插件生成，提高开发效率； 
+个人开发插件 [easy-flutter-plugin ](https://marketplace.visualstudio.com/items?itemName=shang.easy-flutter-plugin)用于将 flutter plugin 功能简化；根据 lib dart方法一键生成 objc/swift + java/kotlin + web .dart + example/lib/.main.dart + test.dart 的方法生成；开发者只需要关注函数内部实现即可；模板化的工作让插件生成，提高开发效率； 
 
 VSCode 插件开发发布
 
