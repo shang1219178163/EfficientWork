@@ -1,24 +1,25 @@
-#需要注意的是，我们在每个target内使用制表符而不是空格是非常重要的。复制和粘贴内容时尤其如此。如果我们添加空格而不是制表符，我们将收到错误消息；
 
 #log
 
 NOCOLOR=\033[0m
 RED=\033[0;31m
 GREEN=\033[0;32m
-ORANGE=\033[0;33m
+YELLOW=\033[0;33m
 BLUE=\033[0;34m
 PURPLE=\033[0;35m
 CYAN=\033[0;36m
 LIGHTGRAY=\033[0;37m
-DARKGRAY=\033[1;30m
-LIGHTRED=\033[1;31m
-LIGHTGREEN=\033[1;32m
-YELLOW=\033[33m
-LIGHTBLUE=\033[1;34m
-LIGHTPURPLE=\033[1;35m
-LIGHTCYAN=\033[1;36m
+
+#DARKGRAY=\033[1;30m
+#LIGHT_RED=\033[1;31m
+#LIGHT_GREEN=\033[1;32m
+#YELLOW=\033[1;33m
+#LIGHT_BLUE=\033[1;34m
+#LIGHT_PURPLE=\033[1;35m
+#LIGHT_CYAN=\033[1;36m
 WHITE=\033[1;37m
 
+COLORS=RED GREEN YELLOW BLUE PURPLE CYAN LIGHTGRAY WHITE
 
 #define echo_blue
 #	@echo "${BLUE} $$(date +"%Y-%m-%d %H:%M:%S %z") $@: $(1)"
@@ -43,6 +44,12 @@ endef
 define echo_red
 	$(call echo_color, ${RED}, $1)
 endef
+
+
+define test_echo_color
+	$(foreach e, $(COLORS), $(call echo_color, ${${e}}, $1\n))
+endef
+
 
 #.PHONY
 
@@ -83,15 +90,24 @@ run: ## flutter run -d fbd70656d622f1abc00f00ea8fe4ab6c46e96127
 	@echo "\033[34m >>> ./flutter run..."
 	@flutter run -d fbd70656d622f1abc00f00ea8fe4ab6c46e96127
 
+
+
 .PHONY:	test
+current_dir = ${CURDIR}
+username = ${shell whoami}
+current_dir2 = ${shell pwd}
+hostname = ${shell Hostname}
+
 test:	## test
-#	@echo "\033[34m >>> test..."
+	@echo "\033[34m >>> test..."
 #	@echo "${BLUE} >>> this is a test .PHONY target"
 #	@echo "--- ${username}"
-#	echo -e "The first five colors of the rainbow are ${RED}red ${ORANGE}orange ${YELLOW}yellow ${GREEN}green ${NOCOLOR}and ${BLUE}blue${NOCOLOR}"
-	$(call echo_blue, __ this is a test log.)
-	$(call echo_green, __ this is a test log.)
-	$(call echo_yellow, __ this is a test log.)
-	$(call echo_red, __ this is a test log.)
+#	echo -e "The first five colors of the rainbow are ${RED}red ${YELLOW}orange ${YELLOW}yellow ${GREEN}green ${NOCOLOR}and ${BLUE}blue${NOCOLOR}"
+	$(call test_echo_color, __ this is a test log111.)
+	$(call echo_color, ${BLUE}, ${username})
+	$(call echo_color, ${BLUE}, ${current_dir})
+	$(call echo_color, ${BLUE}, ${current_dir2})
+	$(call echo_color, ${BLUE}, ${hostname})
 
+	@echo ">>> test finished."
 
