@@ -23,7 +23,7 @@
 	<key>DVTConsoleExectuableOutputTextFont</key>
 	<string>SFMono-Bold - 11.0</string>
 	<key>DVTConsoleTextBackgroundColor</key>
-	<string>0.18856 0.195 0.22444 1</string>
+    <string>0.121569 0.121569 0.141176 1</string>
 	<key>DVTConsoleTextInsertionPointColor</key>
 	<string>0.321569 0.545098 1 1</string>
 	<key>DVTConsoleTextSelectionColor</key>
