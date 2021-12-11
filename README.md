@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/ReactiveX/RxSwift/master/assets/Rx_Logo_M.png" alt="" width="36" height="36"> EfficientWork
+<img src="https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/ProfilePhoto.jpg?raw=true" alt="" width="30" height="30"> EfficientWork
 ====================================== 
  *_繁琐工作自动化，总是值得我们花费更多的时间和精力，毕竟推动这世界前进的本质就是效率。_*
 
@@ -1181,4 +1181,15 @@ vsce package
 vsce publish -p <*Personal Access Token*>
 
 
-## 第十六篇章：待续。。。
+## 第十六篇章：Syntax Highlight.app —— QuickLook 代码文件类型扩展
+![Syntax Highlight.app](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/Syntax%20Highlight.png?raw=true)
+
+这是一个开源 Mac 软件，[SourceCodeSyntaxHighlight](https://github.com/sbarex/SourceCodeSyntaxHighlight)，习惯了QuickLook的都知道有多好用！
+
+因为 MacOS 10.15 Catalina 已弃用 qlgenerator API。此外，Library/QuickLook 中的 .qlgenerator 包必须在 10.15.0 上进行公证才能工作。（私下修改plist文件不起作用）
+
+安装：
+1. brew install --cask syntax-highlight
+2. tag 下载
+
+## 第十七篇章：待续。。。
