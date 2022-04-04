@@ -1,4 +1,4 @@
-<img src="https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/ProfilePhoto.jpg?raw=true" alt="" width="30" height="30"> EfficientWork
+<img src="https://raw.githubusercontent.com/ReactiveX/RxSwift/master/assets/Rx_Logo_M.png" alt="" width="36" height="36"> EfficientWork
 ====================================== 
  *_繁琐工作自动化，总是值得我们花费更多的时间和精力，毕竟推动这世界前进的本质就是效率。_*
 
@@ -1095,7 +1095,7 @@ mac： SourceTree/偏好设置/自定义操作
 
 ![](https://github.com/shang1219178163/EfficientWork/blob/master/sourcetree_custom_action/doc/sourecetree_custom_action2.png?raw=true)
 
-push.sh
+sourcetree_gerrit_push.sh
 ```
 #!/bin/bash
 branchName=`git symbolic-ref --short -q HEAD` ##获取分支名
@@ -1104,7 +1104,7 @@ git push origin HEAD:refs/for/$branchName
 read -p "按任意键关闭" -n 1
 ```
 
-addtag.sh（flutter项目）
+sourcetree_gerrit_add_tag.sh（flutter项目）
 ```
 #!/bin/bash
 #!/bin/zsh
@@ -1180,16 +1180,14 @@ vsce package
 
 vsce publish -p <*Personal Access Token*>
 
+## 第十六篇章： VSCode - CodeSnippets 
+很简单就不详细说了，vue 的插件本身支持不是什么特别好（相对flutter， iOS而言），所以需要大量自定义适合自己的代码片段来提高生产力。
 
-## 第十六篇章：Syntax Highlight.app —— QuickLook 代码文件类型扩展
+## 第十七篇章：Syntax Highlight.app —— QuickLook 代码文件类型扩展
 ![Syntax Highlight.app](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/Syntax%20Highlight.png?raw=true)
-
-这是一个开源 Mac 软件，[SourceCodeSyntaxHighlight](https://github.com/sbarex/SourceCodeSyntaxHighlight)，习惯了QuickLook的都知道有多好用！
-
-因为 MacOS 10.15 Catalina 已弃用 qlgenerator API。此外，Library/QuickLook 中的 .qlgenerator 包必须在 10.15.0 上进行公证才能工作。（私下修改plist文件不起作用）
 
 安装：
 1. brew install --cask syntax-highlight
 2. tag 下载
 
-## 第十七篇章：待续。。。
+## 第十八篇章：待续。。。

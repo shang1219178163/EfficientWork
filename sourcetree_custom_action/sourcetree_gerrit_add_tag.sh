@@ -1,9 +1,10 @@
+#!/bin/sh
 #!/bin/bash
 #!/bin/zsh
 
 
-#parse_yaml <*.yaml> <prefix>
-#parse_yaml pubspec.yaml
+#add tag and push.sh
+
 function parse_yaml {
    local prefix=$2
    local s='[[:space:]]*' w='[a-zA-Z0-9_]*' fs=$(echo @|tr @ '\034')
