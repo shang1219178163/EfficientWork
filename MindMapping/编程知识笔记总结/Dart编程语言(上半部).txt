@@ -1,0 +1,166 @@
+﻿Dart编程语言(上半部)
+	重要的概念
+	```
+	1.任何保存在变量中的都是一个 对象 ， 并且所有的对象都是对应一个 类 的实例。 无论是数字，函数和 null 都是对象。所有对象继承自 Object 类。 
+	2.与 Java 不同，Dart 没有关键字 “public” ， “protected” 和 “private” 。 如果标识符以下划线（_）开头，则它相对于库是私有的。
+	```
+	关键字
+	```
+	不能在标记为 async ，async* 或 sync* 的任何函数体中使用 await 或 yield 作为标识符。
+	```
+	变量
+		默认值
+		```
+		1.未初始化的变量默认值是 null。即使变量是数字类型默认值也是 null，因为在 Dart 中一切都是对象，数字类型 也不例外。
+		2.如果对象不限定为单个类型，可以指定为 对象类型 或 动态类型，dynamic name = 'Bob';
+		
+		```
+		Final 和 Const
+		```
+		1.使用过程中从来不会被修改的变量， 可以使用 final 或 const, 而不是 var 或者其他类型， Final 变量的值只能被设置一次； Const 变量在编译时就已经固定 (Const 变量 是隐式 Final 的类型.) 最高级 final 变量或类变量在第一次使用时被初始化。
+		2.实例变量可以是 final 类型但不能是 const 类型。 必须在构造函数体执行之前初始化 final 实例变量。
+		```
+	内建类型
+		Number 
+		```
+		1.int 整数值不大于64位;
+		2.double 64位（双精度）浮点数
+		3.int 和 double 都是 num. 的亚类型。 num 类型包括基本运算 +， -， /， 和 *， 以及 abs()， ceil()， 和 floor()， 等函数方法。 （按位运算符，例如»，定义在 int 类中。） 如果 num 及其亚类型找不到你想要的方法， 尝试查找使用 dart:math 库。
+		```
+		String
+		```
+		1.字符串是一组 UTF-16 单元序列。 字符串通过单引号或者双引号创建。
+		2.== 运算符用来测试两个对象是否相等。
+		3.使用 r 前缀，可以创建 “原始 raw” 字符串：
+		var s = r"In a raw string, even \n isn't special.";
+		```
+		Boolean
+		```
+		字面量 true 和 false 是布尔类型，都是编译时常量。
+		```
+		List
+		```
+		 array 或有序的对象集合。
+		```
+		Set
+		```
+		一个元素唯一且无需的集合。
+		```
+		Map
+		```
+		1.Map 是用来关联 keys 和 values 的对象。 keys 和 values 可以是任何类型的对象。在一个 Map 对象中一个 key 只能出现一次。 但是 value 可以出现多次。 
+		2.使用 .length 函数获取当前 Map 中的 key-value 对数量：
+		
+		```
+		Rune
+		```
+		1.Rune 用来表示字符串中的 UTF-32 编码字符。
+		2.Unicode 定义了一个全球的书写系统编码， 系统中使用的所有字母，数字和符号都对应唯一的数值编码。 由于 Dart 字符串是一系列 UTF-16 编码单元， 因此要在字符串中表示32位 Unicode 值需要特殊语法支持。
+		3.表示 Unicode 编码的常用方法是， \uXXXX, 这里 XXXX 是一个4位的16进制数。 例如，心形符号 (♥) 是 \u2665。 对于特殊的非 4 个数值的情况， 把编码值放到大括号中即可。 例如，emoji 的笑脸 (�) 是 \u{1f600}。
+		4.String 类有一些属性可以获得 rune 数据。 属性 codeUnitAt 和 codeUnit 返回16位编码数据。 属性 runes 获取字符串中的 Rune 。
+		```
+		Symbol
+		```
+		1.一个 Symbol 对象表示 Dart 程序中声明的运算符或者标识符。 
+		2.通过字面量 Symbol ，也就是标识符前面添加一个 # 号，来获取标识符的 Symbol 。
+		```
+	函数
+		可选参数
+		```
+		1.可选参数可以是命名参数或者位置参数，但一个参数只能选择其中一种方式修饰。
+		2.命名可选参数
+		void enableFlags({bool bold, bool hidden}) {...}
+		3.位置可选参数 []
+		String say(String from, String msg, [String device]) {...}
+		
+		```
+		默认参数值
+		```
+		在定义方法的时候，可以使用 = 来定义可选参数的默认值。 默认值只能是编译时常量。 如果没有提供默认值，则默认值为 null。
+		```
+		main() 函数
+		```
+		任何应用都必须有一个顶级 main() 函数，作为应用服务的入口。 main() 函数返回值为空，参数为一个可选的 List<String> 。
+		```
+		函数是一等对象/公民
+		
+		匿名函数
+		```
+		多数函数是有名字的， 比如 main() 。 也可以创建没有名字的函数，这种函数被称为 匿名函数， 有时候也被称为 lambda 或者 closure 。 匿名函数可以赋值到一个变量中 。
+		```
+		词法作用域
+		```
+		花括号{}内的是变量可见的作用域。
+		```
+		词法闭包
+		```
+		闭包即一个函数对象，即使函数对象的调用在它原始作用域之外， 依然能够访问在它词法作用域内的变量。
+		```
+		顶级函数
+		```
+		void foo() {} // 顶级函数
+		
+		class A {
+		  static void bar() {} // 静态方法
+		  void baz() {} // 示例方法
+		}
+		```
+		返回值
+		```
+		所有函数都会返回一个值。 如果没有明确指定返回值， 函数体会被隐式的添加 return null; 语句。
+		```
+	运算符
+		算术运算符
+		```
+		assert(5 / 2 == 2.5); // 结果是双浮点型
+		assert(5 ~/ 2 == 2); // 结果是整型
+		```
+		关系运算符
+		类型判定运算符
+		```
+		1.as， is， 和 is! 运算符用于在运行时处理类型检查：
+		2.使用 as 运算符将对象强制转换为特定类型。 通常，可以认为是 is 类型判定后，被判定对象调用函数的一种缩写形式。 
+		3.if (emp is Person) { emp.firstName = 'Bob'; }  
+		 (emp as Person).firstName = 'Bob';
+		
+		```
+		赋值运算符
+		逻辑运算符
+		按位和移位运算符
+		条件表达式
+		级联运算符 (..)
+		```
+		实现对同一个对像进行一系列的操作。 除了调用函数， 还可以访问同一对象上的字段属性。 
+		querySelector('#confirm') // 获取对象。
+		  ..text = 'Confirm' // 调用成员变量。
+		  ..classes.add('important')
+		  ..onClick.listen((e) => window.alert('Confirmed!'));
+		
+		上面的代码等价于：
+		var button = querySelector('#confirm');
+		button.text = 'Confirm';
+		button.classes.add('important');
+		button.onClick.listen((e) => window.alert('Confirmed!'));
+		
+		级联运算符可以嵌套，例如：
+		final addressBook = (AddressBookBuilder()
+		      ..name = 'jenny'
+		      ..email = 'jenny@example.com'
+		      ..phone = (PhoneNumberBuilder()
+		            ..number = '415-555-0100'
+		            ..label = 'home')
+		          .build())
+		    .build();
+		
+		```
+		其他运算符
+		```
+		() [] . ?.
+		```
+	控制流程语句
+		if 和 else
+		for 循环、 for-in 
+		while 和 do-while
+		break 和 continue
+		switch 和 case
+		assert
