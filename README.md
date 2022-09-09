@@ -310,6 +310,15 @@ export DEVELOPER_DIR="/Applications/XCode.app/Contents/Developer"
     👍  Tell your friends!
     --------------------------------------------------------------------------------
     
+发布成功后但是不能通过pod search到
+在终端输入
+
+    rm ~/Library/Caches/CocoaPods/search_index.json
+
+完成后再搜索
+
+    pod search *
+    
 #### 三. 私有库：
 1.创建私有spec repo，专门存放私有库模块
 
