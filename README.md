@@ -901,6 +901,9 @@ NS_ASSUME_NONNULL_END
 
 这是一个免费图片文字提取的 mac 客户端，使用的时候只需要拖拽图片或者截屏到上面，然后开始转化即可，操作高效便利。
 
+####备用：[搜狗输入助手-图片转文字.app](https://apps.apple.com/cn/app/%E6%90%9C%E7%8B%97%E8%BE%93%E5%85%A5%E5%8A%A9%E6%89%8B-%E5%9B%BE%E7%89%87%E8%BD%AC%E6%96%87%E5%AD%97/id1621072638?mt=12)
+<div align=center><img width="150" height="150" src="https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/AppIcon-sougou.png?raw=true"/></div>
+
 ## 第十三篇章：LiveTemplate 自定义
 用 AndirodStudio 开发 dart 时极不方便
 
