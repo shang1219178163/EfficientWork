@@ -901,6 +901,9 @@ NS_ASSUME_NONNULL_END
 
 这是一个免费图片文字提取的 mac 客户端，使用的时候只需要拖拽图片或者截屏到上面，然后开始转化即可，操作高效便利。
 
+####备用：[搜狗输入助手-图片转文字.app](https://apps.apple.com/cn/app/%E6%90%9C%E7%8B%97%E8%BE%93%E5%85%A5%E5%8A%A9%E6%89%8B-%E5%9B%BE%E7%89%87%E8%BD%AC%E6%96%87%E5%AD%97/id1621072638?mt=12)
+<div align=center><img width="150" height="150" src="https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/AppIcon-sougou.png?raw=true"/></div>
+
 ## 第十三篇章：LiveTemplate 自定义
 用 AndirodStudio 开发 dart 时极不方便
 
@@ -1199,4 +1202,76 @@ vsce publish -p <*Personal Access Token*>
 1. brew install --cask syntax-highlight
 2. tag 下载
 
-## 第十八篇章：待续。。。
+## 第十八篇章：搭建自己的前端开发脚手架（以 Vue 为例）
+
+#### 一、是什么？
+可以理解为为你从仓库克隆代码添加了一个中间层，你可以在项目模板的基础上进行业务方面的任意定制,名称、描述、关键字、作者等等。
+
+#### 二、怎么做？
+1.初始化一个npm项目
+
+    mkdir test-cli && cd test-cli && npm init -y 
+
+2.安装第三方依赖
+
+    npm i chalk log-symbols ora download-git-repo fs-extra inquirer commander shelljs
+
+3.在项目根目录下依次新建js文件
+
+    cli.js：入口文件，负责调用初始化项目的执行函数；
+    init.js：初始化项目函数的具体实现，负责调用下载模板、询问配置信息、安装依赖等工作；
+    clone.js：下载远端git仓库模板；
+
+4.修改package.json文件 type（commonjs（默认值），适用于Nodejs环境；module，即ES Module语法，适用于浏览器环境。）
+
+    // package.json
+    {
+        "type": "module",
+    }
+
+5.设置执行命令以及对应的文件
+
+    // package.json
+    {
+      ...,
+      "bin": {
+        "test-cli": "./cli.js"
+      }
+    }
+    
+    执行命令为test-cli，执行文件为./cli.js
+
+6.开发调试
+    
+    在开发过程中，可通过将当前项目链接到全局的方式，然后再使用，避免每次将脚手架发布到npm仓库。在当前项目执行npm link，，则可以在...\AppData\Roaming\npm\node_modules中找到当前项目的一个链接，然后就可以在全局使用test-cli命令来创建项目。
+    
+7.发布与更新
+    发布方式一
+使用npm login[登录](https://www.npmjs.com/)npm仓库, 如果没有先注册;
+使用npm publish将当前项目发布到npm仓库，稍等一会儿刷新即可使用;
+
+每次发布代码前，需要更新package.json中的version字段；
+
+[源码](https://github.com/shang1219178163/shang-cli)
+
+#### 三、第三方依赖简介
+
+chalk：终端字体颜色；
+log-symbols：在终端上显示√或×等图标；
+ora：终端显示下载中的动画；
+download-git-repo：下载并提取git仓库；
+fs-extra：删除非空文件夹；
+inquirer：通用的命令行用户界面集合，用于交互；
+commander：解析命令和参数，用于处理用户输入的命令；
+shelljs：自动化处理重复的事；
+
+#### 四、结束了吗？NO
+重新介绍一下几个主角：
+
+##### commander：完整的 node.js 命令行解决方案。[预览](https://github.com/shang1219178163/EfficientWork/blob/develop/MindMapping/Web%E7%BC%96%E7%A8%8B%E7%9F%A5%E8%AF%86/%E5%B7%A5%E5%85%B7commander.png)
+##### fs-extra：系统fs模块的扩展，提供了更多便利的API，并继承了fs模块的API。[预览](https://github.com/shang1219178163/EfficientWork/blob/develop/MindMapping/Web%E7%BC%96%E7%A8%8B%E7%9F%A5%E8%AF%86/%E5%B7%A5%E5%85%B7fs-extra.png)
+##### ShellJS：一个可移植的 （Windows/Linux/macOS） 在 Node.js API 之上实现的 Unix shell 命令。您可以使用它来消除shell脚本对Unix的依赖性，同时仍然保留其熟悉且功能强大的命令。你也可以全局安装它，这样你就可以从Node项目外部运行它 - 告别那些粗糙的Bash脚本！[预览](https://github.com/shang1219178163/EfficientWork/blob/develop/MindMapping/Web%E7%BC%96%E7%A8%8B%E7%9F%A5%E8%AF%86/%E5%B7%A5%E5%85%B7shelljs.png)
+
+以三个库为核心你可以用 js 去实现任何你曾经想实现的shell脚本；之前也写过一些 shell脚本，但是用写起来是真的难受（shell大神请无视我）。换句话说，用 js 写自动化工具的世界已为你打开!
+
+## 第十九篇章：待续。。。
