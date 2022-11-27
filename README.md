@@ -1274,4 +1274,9 @@ shelljs：自动化处理重复的事；
 
 以三个库为核心你可以用 js 去实现任何你曾经想实现的shell脚本；之前也写过一些 shell脚本，但是用写起来是真的难受（shell大神请无视我）。换句话说，用 js 写自动化工具的世界已为你打开!
 
-## 第十九篇章：待续。。。
+## 第十九篇章：VSCode 开发 flutter 小技巧
+用 andriod studio 开发flutter时，可以在选定组件树之后通过 option + enter 唤醒重构菜单；
+
+但是在 VSCode 中变为 ctr + shift + R；可以通过vscode的键盘快捷键自定义将 ctr + shift + R 修改为 option + enter，方便多个 ide 工具的习惯统一，提高工作效率。（因为某些原因，需要频繁的在 as 和 VSCode 之间来回切换使用）。
+
+## 第二十篇章：待续。。。
