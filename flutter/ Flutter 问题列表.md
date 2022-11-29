@@ -38,3 +38,11 @@ flutter run -d linux
 flutter run -d windows
 flutter run -d winuwp
 ```
+
+4、ios Invalid `Podfile` file: undefined method `dirname
+
+（如果项目集成了 mPaaS）
+解决办法：执行终端命令：
+
+    sh <(curl -s http://mpaas-ios.oss-cn-hangzhou.aliyuncs.com/cocoapods/installmPaaSCocoaPodsPlugin.sh)
+
