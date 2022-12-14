@@ -1,0 +1,32 @@
+{
+  // flutter 用 vscode attach 链接真机时配置文件。 
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "iPhone13ProMax",
+      "type": "dart",
+      "request": "attach",
+      "deviceId": "*",
+      "vmServiceUri": "http://127.0.0.1:49718/0mRa5XNo9qc=/"
+    },
+    {
+      "name": "iPhone6splus",
+      "type": "dart",
+      "request": "attach",
+      "deviceId": "*",
+      "vmServiceUri": "http://127.0.0.1:50880/17DfkE85Wr4=/"
+    },
+    {
+      "name": "app (profile mode)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile"
+    },
+    {
+      "name": "app (release mode)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release"
+    }
+  ]
+}

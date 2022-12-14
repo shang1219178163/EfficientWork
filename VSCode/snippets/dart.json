@@ -29,10 +29,10 @@
 			"",
 			"class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} extends StatefulWidget {"
 			"",
-			"  final String? title;"
-			"",
 			"  ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}({ Key? key, this.title}) : super(key: key);"
 			"",
+			"  final String? title;"
+      "",
 			"  @override"
 			"  _${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}$State createState() => _${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}State();"
 			"}"
@@ -43,11 +43,6 @@
 			"  @override"
 			"  void initState() {"
 			"	super.initState();"
-			"  }"
-			"",
-			"  @override"
-			"  void dispose() {"
-			"	super.dispose();"
 			"  }"
 			"",
 			"  @override"
@@ -76,10 +71,10 @@
 			"",
 			"class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} extends StatelessWidget {"
 			"",
-			"  final String? title;"
-			"",
 			"  ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}({ Key? key, this.title}) : super(key: key);"
 			"",
+      "",
+			"  final String? title;"
 			"",
 			"  @override"
 			"  Widget build(BuildContext context) {"
