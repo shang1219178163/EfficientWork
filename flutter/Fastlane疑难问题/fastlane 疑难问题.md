@@ -16,3 +16,4 @@
 2.Could not find proper version of fastlane (2.112.0) in any of the sources
 解决方法：
 remove Gemfile.lock in your project directory, and run 'fastlane init'
+
