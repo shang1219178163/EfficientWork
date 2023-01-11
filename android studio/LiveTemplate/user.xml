@@ -1,49 +1,54 @@
 <templateSet group="user">
-  <template name="hCopyright" value="//&#10;//  $fileName$.dart&#10;//  $projectName$&#10;//&#10;//  Created by $user$ on $date$ $time$.&#10;//  Copyright © $year$ $user$. All rights reserved.&#10;//&#10;&#10;" description="版权声明" toReformat="false" toShortenFQNames="true">
+  <template name="hcopyright" value="//&#10;//  $fileName$.dart&#10;//  $projectName$&#10;//&#10;//  Created by $user$ on $date$ $time$.&#10;//  Copyright © $year$ $user$. All rights reserved.&#10;//&#10;&#10;&#10;$exp$&#10;&#10;&#10;" description="版权声明" toReformat="false" toShortenFQNames="true">
+    <variable name="fileName" expression="capitalize(camelCase(fileNameWithoutExtension()))" defaultValue="" alwaysStopAt="true" />
     <variable name="projectName" expression="groovyScript(&quot;def list = _1.split('/'); def result = list[4]; return result;&quot;, filePath());" defaultValue="" alwaysStopAt="true" />
     <variable name="user" expression="user()" defaultValue="" alwaysStopAt="true" />
     <variable name="date" expression="date()" defaultValue="" alwaysStopAt="true" />
     <variable name="time" expression="time()" defaultValue="" alwaysStopAt="true" />
     <variable name="year" expression="date()" defaultValue="" alwaysStopAt="true" />
+    <variable name="exp" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="hstatefulWidget" value="import 'package:flutter/material.dart';&#10;&#10;class $fileName$ extends StatefulWidget {&#10;&#10;  $fileName$({ Key? key, this.title}) : super(key: key);&#10;&#10;  final String? title;&#10;&#10;  @override&#10;  _$fileName$State createState() =&gt; _$fileName$State();&#10;}&#10;&#10;class _$fileName$State extends State&lt;$fileName$&gt; {&#10;&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    dynamic arguments = ModalRoute.of(context)!.settings.arguments;&#10;&#10;    return Scaffold(&#10;        appBar: AppBar(&#10;          title: Text(widget.title ?? &quot;$widget&quot;),&#10;          actions: ['done',].map((e) =&gt; TextButton(&#10;            child: Text(e,&#10;              style: TextStyle(color: Colors.white),&#10;            ),&#10;            onPressed: () =&gt; print(e),)&#10;        ),&#10;        body: Text(arguments.toString())&#10;    );&#10;  }&#10;&#10;}" description="StatefulWidget创建" toReformat="false" toShortenFQNames="true">
     <variable name="fileName" expression="capitalize(camelCase(fileNameWithoutExtension()))" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="hStatefulWidget" value="import 'package:flutter/material.dart';&#10;&#10;class $fileName$ extends StatefulWidget {&#10;&#10;  $fileName$({ Key? key, this.title}) : super(key: key);&#10;&#10;  final String? title;&#10;&#10;  @override&#10;  _$fileName$State createState() =&gt; _$fileName$State();&#10;}&#10;&#10;class _$fileName$State extends State&lt;$fileName$&gt; {&#10;&#10;&#10;  @override&#10;  void initState() {&#10;    super.initState();&#10;  }&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    dynamic arguments = ModalRoute.of(context)!.settings.arguments;&#10;&#10;    return Scaffold(&#10;        appBar: AppBar(&#10;          title: Text(widget.title ?? &quot;$widget&quot;),&#10;        ),&#10;        body: Text(arguments.toString())&#10;    );&#10;  }&#10;&#10;}" description="StatefulWidget创建" toReformat="false" toShortenFQNames="true">
+  <template name="hstatelessWidget" value="import 'package:flutter/material.dart';&#10;&#10;class $fileName$ extends StatelessWidget {&#10;&#10;  const $fileName$({&#10;  &#9;Key? key,&#10;  &#9;this.title,&#10;  }) : super(key: key);&#10;&#10;  final String? title;&#10;  &#10;  @override&#10;  Widget build(BuildContext context) {&#10;    dynamic arguments = ModalRoute.of(context)!.settings.arguments;&#10;&#10;    return Scaffold(&#10;        appBar: AppBar(&#10;          title: Text(title ?? &quot;$this&quot;),&#10;          actions: ['done',].map((e) =&gt; TextButton(&#10;            child: Text(e,&#10;              style: TextStyle(color: Colors.white),&#10;            ),&#10;            onPressed: () =&gt; print(e),)&#10;        ),&#10;        body: Text(arguments.toString())&#10;    );&#10;  }&#10;}" description="StatelessWidget创建" toReformat="false" toShortenFQNames="true">
     <variable name="fileName" expression="capitalize(camelCase(fileNameWithoutExtension()))" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="hStatelessWidget" value="import 'package:flutter/material.dart';&#10;&#10;class $fileName$ extends StatelessWidget {&#10;&#10;  const $fileName$({&#10;  &#9;Key? key,&#10;  &#9;this.title,&#10;  }) : super(key: key);&#10;&#10;  final String? title;&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    dynamic arguments = ModalRoute.of(context)!.settings.arguments;&#10;&#10;    return Scaffold(&#10;        appBar: AppBar(&#10;          title: Text(arguments[1]),&#10;        ),&#10;        body: Text(arguments.toString())&#10;    );&#10;  }&#10;}" description="StatelessWidget创建" toReformat="false" toShortenFQNames="true">
-    <variable name="fileName" expression="capitalize(camelCase(fileNameWithoutExtension()))" defaultValue="" alwaysStopAt="true" />
+  <template name="hswitch_string" value="switch ($exp$) {&#10;  case &quot;&quot;:&#10;    {&#10;&#10;    }&#10;    break;&#10;  case &quot;&quot;:&#10;    {&#10;&#10;    }&#10;    break;&#10;  case &quot;&quot;:&#10;    {&#10;    }&#10;    break;&#10;  default:&#10;    break;&#10;}" description="自定义 switch 字符串方法" toReformat="false" toShortenFQNames="true">
+    <variable name="exp" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="hswitch_string" value="switch (&quot;&quot;) {&#10;  case &quot;&quot;:&#10;    {&#10;&#10;    }&#10;    break;&#10;  case &quot;&quot;:&#10;    {&#10;&#10;    }&#10;    break;&#10;  case &quot;&quot;:&#10;    {&#10;    }&#10;    break;&#10;  default:&#10;    break;&#10;}" description="自定义 switch 字符串方法" toReformat="false" toShortenFQNames="true">
+  <template name="if" value="if ($exp$) {&#10;  &#10;}" description="自定义 if 方法" toReformat="false" toShortenFQNames="true">
+    <variable name="exp" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="hif" value="if () {&#10;  &#10;}" description="自定义 if 方法" toReformat="false" toShortenFQNames="true">
+  <template name="ifelse" value="if ($exp$) {&#10;  &#10;} else {&#10;  &#10;}" description="自定义 if else 方法" toReformat="false" toShortenFQNames="true">
+    <variable name="exp" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="hifelse" value="if () {&#10;  &#10;} else {&#10;  &#10;}" description="自定义 if else 方法" toReformat="false" toShortenFQNames="true">
+  <template name="ifelse_if" value="if ($exp$) {&#10;  &#10;} else if () {&#10;  &#10;}" description="自定义" toReformat="false" toShortenFQNames="true">
+    <variable name="exp" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="hifelse_if" value="if () {&#10;  &#10;} else if () {&#10;  &#10;}" description="自定义" toReformat="false" toShortenFQNames="true">
-    <context>
-      <option name="DART" value="true" />
-    </context>
-  </template>
-  <template name="func" value="void $func$(BuildContext context) {&#10;&#10;}" description="" toReformat="false" toShortenFQNames="true">
-    <variable name="func" expression="dartMethodName()" defaultValue="&quot;func&quot;" alwaysStopAt="true" />
+  <template name="func" value="_build$func$() {&#10;&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="func" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
     </context>
@@ -55,6 +60,34 @@
     <variable name="pattern2" expression="" defaultValue="&quot;2&quot;" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="for" value="for (var i = 0; i &lt; count; i++) {&#10;    $exp$&#10;}" description="for 循环" toReformat="false" toShortenFQNames="true">
+    <variable name="exp" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="forin" value="for (var item in items) {&#10;  $exp$&#10;}" description="forin" toReformat="false" toShortenFQNames="true">
+    <variable name="exp" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="try" value="try {&#10;    $exp$&#10;} on DioError catch (exception) {&#10;  onError(exception.toString());&#10;}" description="自定义方法" toReformat="false" toShortenFQNames="true">
+    <variable name="exp" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="hsingle" value="&#10;static final $filename$ _instance = $filename$._();&#10;$filename$._();&#10;factory $filename$() =&gt; _instance;&#10;static $filename$ get instance =&gt; _instance;" description="单例模式" toReformat="false" toShortenFQNames="true">
+    <variable name="filename" expression="capitalize(camelCase(fileNameWithoutExtension()))" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
     </context>
   </template>
 </templateSet>
