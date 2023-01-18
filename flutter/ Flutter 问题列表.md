@@ -46,3 +46,12 @@ flutter run -d winuwp
 
     sh <(curl -s http://mpaas-ios.oss-cn-hangzhou.aliyuncs.com/cocoapods/installmPaaSCocoaPodsPlugin.sh)
 
+# Xcode 真机调试无法识别手机解决方法
+
+1.退出xcode。
+2.打开命令行工具，输入 sudo pkill usbmuxd ，输入密码.
+3.重启xcode就可以到手机调试连接了.
+
+# 依赖库报错
+
+主工程 flutter pub get 之后，LocalPackages 中子工程也需要 flutter pub get 获取最新代码；
