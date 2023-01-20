@@ -1,5 +1,5 @@
 <templateSet group="user">
-  <template name="hcopyright" value="//&#10;//  $fileName$.dart&#10;//  $projectName$&#10;//&#10;//  Created by $user$ on $date$ $time$.&#10;//  Copyright © $year$ $user$. All rights reserved.&#10;//&#10;&#10;&#10;$exp$&#10;&#10;&#10;" description="版权声明" toReformat="false" toShortenFQNames="true">
+  <template name="hcopyright" value="//&#10;//  $fileName$.dart&#10;//  $projectName$&#10;//&#10;//  Created by $user$ on $date$ $time$.&#10;//  Copyright © $year$ $user$. All rights reserved.&#10;//&#10;&#10;&#10;$exp$&#10;" description="版权声明" toReformat="false" toShortenFQNames="true">
     <variable name="fileName" expression="capitalize(camelCase(fileNameWithoutExtension()))" defaultValue="" alwaysStopAt="true" />
     <variable name="projectName" expression="groovyScript(&quot;def list = _1.split('/'); def result = list[4]; return result;&quot;, filePath());" defaultValue="" alwaysStopAt="true" />
     <variable name="user" expression="user()" defaultValue="" alwaysStopAt="true" />
@@ -11,13 +11,13 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="hstatefulWidget" value="import 'package:flutter/material.dart';&#10;&#10;class $fileName$ extends StatefulWidget {&#10;&#10;  $fileName$({ Key? key, this.title}) : super(key: key);&#10;&#10;  final String? title;&#10;&#10;  @override&#10;  _$fileName$State createState() =&gt; _$fileName$State();&#10;}&#10;&#10;class _$fileName$State extends State&lt;$fileName$&gt; {&#10;&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    dynamic arguments = ModalRoute.of(context)!.settings.arguments;&#10;&#10;    return Scaffold(&#10;        appBar: AppBar(&#10;          title: Text(widget.title ?? &quot;$widget&quot;),&#10;          actions: ['done',].map((e) =&gt; TextButton(&#10;            child: Text(e,&#10;              style: TextStyle(color: Colors.white),&#10;            ),&#10;            onPressed: () =&gt; print(e),)&#10;          ).toList(),&#10;        ),&#10;        body: Text(arguments.toString())&#10;    );&#10;  }&#10;&#10;}" description="StatefulWidget创建" toReformat="false" toShortenFQNames="true">
+  <template name="hstatefulWidget" value="import 'package:flutter/material.dart';&#10;&#10;class $fileName$ extends StatefulWidget {&#10;&#10;  $fileName$({ Key? key, this.title}) : super(key: key);&#10;&#10;  final String? title;&#10;&#10;  @override&#10;  _$fileName$State createState() =&gt; _$fileName$State();&#10;}&#10;&#10;class _$fileName$State extends State&lt;$fileName$&gt; {&#10;&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    dynamic arguments = ModalRoute.of(context)!.settings.arguments;&#10;&#10;    return Scaffold(&#10;        appBar: AppBar(&#10;          title: Text(widget.title ?? &quot;$widget&quot;),&#10;          actions: ['done',].map((e) =&gt; TextButton(&#10;            child: Text(e,&#10;              style: TextStyle(color: Colors.white),&#10;            ),&#10;            onPressed: () =&gt; print(e),)&#10;          ).toList(),&#10;        ),&#10;        body: Text(arguments.toString())&#10;    );&#10;  }&#10;&#10;}" description="自定义 StatefulWidget 创建" toReformat="false" toShortenFQNames="true">
     <variable name="fileName" expression="capitalize(camelCase(fileNameWithoutExtension()))" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="hstatelessWidget" value="import 'package:flutter/material.dart';&#10;&#10;class $fileName$ extends StatelessWidget {&#10;&#10;  const $fileName$({&#10;  &#9;Key? key,&#10;  &#9;this.title,&#10;  }) : super(key: key);&#10;&#10;  final String? title;&#10;  &#10;  @override&#10;  Widget build(BuildContext context) {&#10;    dynamic arguments = ModalRoute.of(context)!.settings.arguments;&#10;&#10;    return Scaffold(&#10;        appBar: AppBar(&#10;          title: Text(title ?? &quot;$this&quot;),&#10;          actions: ['done',].map((e) =&gt; TextButton(&#10;            child: Text(e,&#10;              style: TextStyle(color: Colors.white),&#10;            ),&#10;            onPressed: () =&gt; print(e),)&#10;        ),&#10;        body: Text(arguments.toString())&#10;    );&#10;  }&#10;}" description="StatelessWidget创建" toReformat="false" toShortenFQNames="true">
+  <template name="hstatelessWidget" value="import 'package:flutter/material.dart';&#10;&#10;class $fileName$ extends StatelessWidget {&#10;&#10;  const $fileName$({&#10;  &#9;Key? key,&#10;  &#9;this.title,&#10;  }) : super(key: key);&#10;&#10;  final String? title;&#10;  &#10;  @override&#10;  Widget build(BuildContext context) {&#10;    dynamic arguments = ModalRoute.of(context)!.settings.arguments;&#10;&#10;    return Scaffold(&#10;        appBar: AppBar(&#10;          title: Text(title ?? &quot;$this&quot;),&#10;          actions: ['done',].map((e) =&gt; TextButton(&#10;            child: Text(e,&#10;              style: TextStyle(color: Colors.white),&#10;            ),&#10;            onPressed: () =&gt; print(e),)&#10;        ),&#10;        body: Text(arguments.toString())&#10;    );&#10;  }&#10;}" description="自定义 StatelessWidget 创建" toReformat="false" toShortenFQNames="true">
     <variable name="fileName" expression="capitalize(camelCase(fileNameWithoutExtension()))" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
@@ -47,7 +47,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="func" value="_build$func$() {&#10;&#10;}" description="" toReformat="false" toShortenFQNames="true">
+  <template name="func" value="_build$func$() {&#10;&#10;}" description="自定义私有方法声明" toReformat="false" toShortenFQNames="true">
     <variable name="func" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
@@ -88,6 +88,26 @@
     <context>
       <option name="DART" value="true" />
       <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="hlayoutBuilder" value="LayoutBuilder(&#10;  builder: (BuildContext context, BoxConstraints constraints){&#10;    $exp$&#10;    return SizedBox();&#10;  }&#10;)," description="自定义 LayoutBuilder 代码片段" toReformat="false" toShortenFQNames="true">
+    <variable name="exp" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+      <option name="DART_TOPLEVEL" value="false" />
+    </context>
+  </template>
+  <template name="hstatefulBuilder" value="StatefulBuilder(&#10;  builder: (BuildContext context, StateSetter setState) {&#10;    $exp$&#10;    return SizedBox();&#10;  }&#10;)," description="自定义 StatefulBuilder 代码片段" toReformat="false" toShortenFQNames="true">
+    <variable name="exp" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+      <option name="DART_TOPLEVEL" value="false" />
+    </context>
+  </template>
+  <template name="hbuilder" value="Builder(&#10;  builder: (context) {&#10;    $exp$&#10;    return SizedBox();&#10;  }&#10;)," description="自定义 Builder 代码片段" toReformat="false" toShortenFQNames="true">
+    <variable name="exp" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART_STATEMENT" value="true" />
     </context>
   </template>
 </templateSet>
