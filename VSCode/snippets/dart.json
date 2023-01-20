@@ -7,55 +7,51 @@
 	"hCopyright 版权声明": {
 		"prefix": "hCopyright",
 		"body": [
-			"//"
-			"//  ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}.dart"
-			"//  $WORKSPACE_NAME"
-			"//"
-			"//  Created by $user$ on $CURRENT_YEAR/$CURRENT_MONTH/$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE."
-			"//  Copyright © $CURRENT_YEAR $user$. All rights reserved."
-			"//"
-			"//"
+			"//",
+			"//  ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}.dart",
+			"//  $WORKSPACE_NAME",
+			"//",
+			"//  Created by $shangbinbin on $CURRENT_YEAR/$CURRENT_MONTH/$CURRENT_DATE.",
+			"//  Copyright © $CURRENT_YEAR $Shang. All rights reserved.",
+			"//",
+			"//",
+			"",
 			"$1"
 		],
 		"description": "create StatefulWidget"
 	},
-
 	"StatefulWidget 模板": {
 		"prefix": "hStatefulWidget",
 		"body": [
 			"",
-			"import 'package:flutter/material.dart';"
+			"import 'package:flutter/material.dart';",
 			"",
 			"",
-			"class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} extends StatefulWidget {"
+			"class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} extends StatefulWidget {",
 			"",
-			"  ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}({ Key? key, this.title}) : super(key: key);"
-			"",
-			"  final String? title;"
+			"  ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}({ Key? key, this.title}) : super(key: key);",
       "",
-			"  @override"
-			"  _${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}$State createState() => _${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}State();"
-			"}"
+			"  final String? title;",
+      "",
+			"  @override",
+			"  _${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}$State createState() => _${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}State();",
+			"}",
 			"",
-			"class _${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}$State extends State<${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}> {"
+			"class _${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}$State extends State<${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}> {",
 			"",
 			"",
-			"  @override"
-			"  void initState() {"
-			"	super.initState();"
-			"  }"
 			"",
-			"  @override"
-			"  Widget build(BuildContext context) {"
-			"	dynamic arguments = ModalRoute.of(context)!.settings.arguments;"
+			"  @override",
+			"  Widget build(BuildContext context) {",
+			"	dynamic arguments = ModalRoute.of(context)!.settings.arguments;",
 			"",
-			"	return Scaffold("
-			"		appBar: AppBar("
-			"		  title: Text(widget.title ?? '$widget'),"
-			"		),"
-			"		body: Text(arguments.toString())"
-			"	  );"
-			"  }"
+			"	return Scaffold(",
+			"		appBar: AppBar(",
+			"		  title: Text(widget.title ?? '$$widget$1'),",
+			"		),",
+			"		body: Text(arguments.toString())",
+			"	  );",
+			"  }",
 			"",
 			"}",
 		],
@@ -66,30 +62,77 @@
 		"prefix": "hStatelessWidget",
 		"body": [
 			"",
-			"import 'package:flutter/material.dart';"
+			"import 'package:flutter/material.dart';",
 			"",
 			"",
-			"class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} extends StatelessWidget {"
+			"class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} extends StatelessWidget {",
 			"",
-			"  ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}({ Key? key, this.title}) : super(key: key);"
-			"",
+			"  ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}({ Key? key, this.title}) : super(key: key);",
       "",
-			"  final String? title;"
+			"  String? title;",
+      "",
 			"",
-			"  @override"
-			"  Widget build(BuildContext context) {"
-			"	dynamic arguments = ModalRoute.of(context)!.settings.arguments;"
+			"  @override",
+			"  Widget build(BuildContext context) {",
+			"	dynamic arguments = ModalRoute.of(context)!.settings.arguments;",
 			"",
-			"	return Scaffold("
-			"		appBar: AppBar("
-			"		  title: Text(title ?? '$$this'),"
-			"		),"
-			"		body: Text(arguments.toString())"
-			"	  );"
-			"  }"
+			"	return Scaffold(",
+			"		appBar: AppBar(",
+			"		  title: Text(title ?? '$$this'),",
+			"		),",
+			"		body: Text(arguments.toString())",
+			"	  );",
+			"  }",
 			"",
 			"}",
 		],
 		"description": "create StatelessWidget"
-	}
+	},
+	"singleton 单例": {
+		"prefix": "hSingleton",
+		"body": [
+			"static final ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} _instance = ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}._();",
+			"${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}._();",
+			"factory ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}() => _instance;",
+			"static ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} get instance => _instance;",
+			"$1"
+		],
+		"description": "create Singleton"
+	},
+  "Builder": {
+		"prefix": "hBuilder",
+		"body": [
+			"Builder(",
+			"  builder: (context) {",
+			"    $1",
+			"    return SizedBox();",
+			"  }",
+      "),"
+		],
+		"description": "create Builder"
+	},
+	"StatefulBuilder": {
+		"prefix": "hStatefulBuilder",
+		"body": [
+			"StatefulBuilder(",
+			"  builder: (context, setState) {",
+			"    $1",
+			"    return SizedBox();",
+			"  }",
+      "),"
+		],
+		"description": "create StatefulBuilder"
+	},
+	"LayoutBuilder": {
+		"prefix": "hLayoutBuilder",
+		"body": [
+			"LayoutBuilder(",
+			"  builder: (context, constraints) {",
+			"    $1",
+			"    return SizedBox();",
+			"  }",
+      "),"
+		],
+		"description": "create LayoutBuilder"
+	},
 }
