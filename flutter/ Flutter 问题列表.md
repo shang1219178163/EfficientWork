@@ -55,3 +55,6 @@ flutter run -d winuwp
 # 依赖库报错
 
 主工程 flutter pub get 之后，LocalPackages 中子工程也需要 flutter pub get 获取最新代码；
+
+# Pipeline 检查报错
+修改 pubspec.lock 中对应包的版本可以解决；

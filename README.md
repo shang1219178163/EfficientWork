@@ -1279,4 +1279,10 @@ shelljs：自动化处理重复的事；
 
 但是在 VSCode 中变为 ctr + shift + R；可以通过vscode的键盘快捷键自定义将 ctr + shift + R 修改为 option + enter，方便多个 ide 工具的习惯统一，提高工作效率。（因为某些原因，需要频繁的在 as 和 VSCode 之间来回切换使用）。
 
-## 第二十篇章：待续。。。
+## 第二十篇章：iPhone 真机调试 iOS/Flutter 时截图/录屏快速获取 
+
+![图像捕捉.app](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/AppIcon-%E5%9B%BE%E5%83%8F%E6%8D%95%E6%8D%89.png?raw=true)
+
+**打开 图像捕捉.app 选择下载文件夹，然后选择文件点击下载即可。（此方法比通过 AirDrop 传递快了无数倍。）**
+
+## 第二十一篇章：待续。。。
