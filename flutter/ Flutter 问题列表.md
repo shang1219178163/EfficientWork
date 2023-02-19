@@ -56,5 +56,7 @@ flutter run -d winuwp
 
 主工程 flutter pub get 之后，LocalPackages 中子工程也需要 flutter pub get 获取最新代码；
 
-# Pipeline 检查报错
-修改 pubspec.lock 中对应包的版本可以解决；
+
+# 壳工程如果想断线保留，需要设为调试模式改为 release 模式
+
+# 如果没有当前壳工程的机器证书，可以将 bundle id 进行修改
