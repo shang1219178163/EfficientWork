@@ -17,6 +17,12 @@
       "vmServiceUri": "http://127.0.0.1:50880/17DfkE85Wr4=/"
     },
     {
+      "name": "M2011K2C_Android",
+      "type": "dart",
+      "request": "attach",
+      "deviceId": "*"
+    },
+    {
       "name": "app (profile mode)",
       "request": "launch",
       "type": "dart",
