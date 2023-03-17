@@ -982,12 +982,12 @@ import 'package:flutter/material.dart';
 
 class $fileName$ extends StatelessWidget {
 
-  final String? title;
-
   const $fileName$({
   	Key? key,
   	this.title,
   }) : super(key: key);
+  
+ final String? title;
 
   @override
   Widget build(BuildContext context) {
@@ -1033,16 +1033,19 @@ class _$fileName$State extends State<$fileName$> {
 
   @override
   Widget build(BuildContext context) {
-    dynamic arguments = ModalRoute
-        .of(context)!
-        .settings
-        .arguments;
+    dynamic arguments = ModalRoute.of(context)!.settings.arguments;
 
     return Scaffold(
-        appBar: AppBar(
-          title: Text(arguments[1]),
-        ),
-        body: Text(arguments.toString())
+      appBar: AppBar(
+        title: Text(widget.title ?? "$widget"),
+        actions: ['done',].map((e) => TextButton(
+          child: Text(e,
+            style: TextStyle(color: Colors.white),
+          ),
+          onPressed: () => print(e),)
+        ).toList(),
+      ),
+      body: Text(arguments.toString())
     );
   }
 
@@ -1069,36 +1072,24 @@ switch ($value$) {
     break;
 }
 ```
-hswitch_string
+hlayoutBuilder（根据当前可用约束条件布局，避免组件越界）
 ```
-switch ("") {
-  case "":
-    {
-
-    }
-    break;
-  case "":
-    {
-
-    }
-    break;
-  case "":
-    {
-    }
-    break;
-  default:
-    break;
-}
+LayoutBuilder(
+  builder: (context, constraints){
+    
+    return SizedBox();
+  }
+),
 ```
-ifelse
+hstatefulBuilder（函数组件转 StatefulWidget）
 ```
-if () {
-  
-} else {
-  
-}
+StatefulBuilder(
+  builder: (context, setState) {
+    
+    return SizedBox();
+  }
+),
 ```
-
 ## 第十四篇章：SourceTree 自定义命令
 利用sourcetree自定义操作调用git-bash、cmd、powershell等命令执行工具，传入自定义脚本命令并运行。
 mac： SourceTree/偏好设置/自定义操作
@@ -1196,6 +1187,7 @@ vsce publish -p <*Personal Access Token*>
 很简单就不详细说了，vue 的插件本身支持不是什么特别好（相对flutter， iOS而言），所以需要大量自定义适合自己的代码片段来提高生产力。
 
 ## 第十七篇章：Syntax Highlight.app —— QuickLook 代码文件类型扩展
+代码预览器神器，懂的都懂.
 ![Syntax Highlight.app](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/Syntax%20Highlight.png?raw=true)
 
 安装：
@@ -1290,7 +1282,7 @@ shelljs：自动化处理重复的事；
 ![控制台.app](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/screenshot-%E6%8E%A7%E5%88%B6%E5%8F%B0.png?raw=true)
 
 ## 第二十二篇章：PNG压缩与格式转换工具 - iSparta
-
+常用于图片转 webp
 ![iSparta.png](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/iSparta.png?raw=true)
 
 iSparta提供PNG等图片格式的图片压缩
@@ -1300,7 +1292,7 @@ APNG动图向动态WebP格式的转换
 [iSparta 下载链接](http://isparta.github.io/)
 
 ## 第二十三篇章：ipa 文件体积瘦身分析工具 - OmniDiskSweeper
-
+ipa体积太多，分析文件体积神器。
 ![OmniDiskSweeper.png](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/OmniDiskSweeper.png?raw=true)
 
 ![screenshot-OmniDiskSweeper.png](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/screenshot-OmniDiskSweeper.png?raw=true)
