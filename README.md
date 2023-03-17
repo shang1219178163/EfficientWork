@@ -1287,7 +1287,7 @@ shelljs：自动化处理重复的事；
 
 ## 第二十一篇章：flutter 开发时可以通过 Mac 的控制台应用过滤进程，查看特定app的日志信息
 
-![控制台](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/screenshot-20230317-%E6%8E%A7%E5%88%B6%E5%8F%B0.png?raw=true)
+![控制台.app](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/screenshot-20230317-%E6%8E%A7%E5%88%B6%E5%8F%B0.png?raw=true)
 
 ## 第二十二篇章：PNG压缩与格式转换工具 - iSparta
 
@@ -1297,4 +1297,14 @@ iSparta提供PNG等图片格式的图片压缩
 PNG等格式向APNG、WebP格式的转换
 APNG动图向动态WebP格式的转换
 
-## 第二十三篇章：待续。。。
+[iSparta 下载链接](http://isparta.github.io/)
+
+## 第二十三篇章：ipa 文件体积瘦身分析工具 - OmniDiskSweeper
+
+![OmniDiskSweeper.png](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/OmniDiskSweeper.png?raw=true)
+
+![screenshot-OmniDiskSweeper.png](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/OmniDiskSweeper.png?raw=true)
+
+[OmniDiskSweeper 下载链接](http://files.omnigroup.com/software/macOS/11/)
+
+## 第二十四篇章：待续。。。
