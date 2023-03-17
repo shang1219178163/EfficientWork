@@ -1287,7 +1287,7 @@ shelljs：自动化处理重复的事；
 
 ## 第二十一篇章：flutter 开发时可以通过 Mac 的控制台应用过滤进程，查看特定app的日志信息
 
-![控制台.app](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/screenshot-20230317-%E6%8E%A7%E5%88%B6%E5%8F%B0.png?raw=true)
+![控制台.app](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/screenshot-%E6%8E%A7%E5%88%B6%E5%8F%B0.png?raw=true)
 
 ## 第二十二篇章：PNG压缩与格式转换工具 - iSparta
 
