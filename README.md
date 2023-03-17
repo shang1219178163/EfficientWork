@@ -1285,4 +1285,10 @@ shelljs：自动化处理重复的事；
 
 **打开 图像捕捉.app 选择下载文件夹，然后选择文件点击下载即可。（此方法比通过 AirDrop 传递快了无数倍。）**
 
-## 第二十一篇章：待续。。。
+## 第二十一篇章：flutter 开发时可以通过 Mac 的控制台应用过滤进程，查看特定app的日志信息
+
+![控制台](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/screenshot-20230317-%E6%8E%A7%E5%88%B6%E5%8F%B0.png?raw=true)
+
+## 第二十二篇章：待续。。。
+
+## 第二十三篇章：待续。。。
