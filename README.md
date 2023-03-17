@@ -1303,7 +1303,7 @@ APNG动图向动态WebP格式的转换
 
 ![OmniDiskSweeper.png](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/OmniDiskSweeper.png?raw=true)
 
-![screenshot-OmniDiskSweeper.png](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/OmniDiskSweeper.png?raw=true)
+![screenshot-OmniDiskSweeper.png](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/screenshot-OmniDiskSweeper.png?raw=true)
 
 [OmniDiskSweeper 下载链接](http://files.omnigroup.com/software/macOS/11/)
 
