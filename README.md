@@ -6,11 +6,13 @@
 
 #### MindMapping 目录
 包含 Flutter和移动h5开发的一些知识点总结（笔者夜观天象，发现大前端和全栈是未来技术的发展趋势，为愿意转型大前端的 iOS 开发者提供一些帮助）；
-
-├── iOS编程知识
-├── Flutter编程知识
-└── Web编程知识
-
+```
+├── MindMapping
+│   ├──iOS编程知识
+│   ├── Flutter编程知识
+│   └── Web编程知识
+└── …
+```
 ## 第一篇章： IconAndLaunch — iOS app图标和启动图一键生成
 ```
 (目前支持到iOS12 iPhone XS Max)
