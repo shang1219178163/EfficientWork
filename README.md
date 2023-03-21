@@ -1,8 +1,15 @@
-<img src="https://raw.githubusercontent.com/ReactiveX/RxSwift/master/assets/Rx_Logo_M.png" alt="" width="36" height="36"> EfficientWork
+<img src="https://github.com/shang1219178163/EfficientWork/blob/master/Resource/avatar.jpg?raw=true" alt="" width="36" height="36"> EfficientWork
 ====================================== 
  *_繁琐工作自动化，总是值得我们花费更多的时间和精力，毕竟推动这世界前进的本质就是效率。_*
 
 ![天魔曲](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/Beach.png?raw=true)
+
+#### MindMapping 目录
+包含 Flutter和移动h5开发的一些知识点总结（笔者夜观天象，发现大前端和全栈是未来技术的发展趋势，为愿意转型大前端的 iOS 开发者提供一些帮助）；
+
+├── iOS编程知识
+├── Flutter编程知识
+└── Web编程知识
 
 ## 第一篇章： IconAndLaunch — iOS app图标和启动图一键生成
 ```
