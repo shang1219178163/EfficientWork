@@ -1,0 +1,130 @@
+<templateSet group="user">
+  <template name="hcopyright" value="//&#10;//  $fileName$.dart&#10;//  $projectName$&#10;//&#10;//  Created by $user$ on $date$ $time$.&#10;//  Copyright © $year$ $user$. All rights reserved.&#10;//&#10;&#10;&#10;$exp$&#10;" description="版权声明" toReformat="false" toShortenFQNames="true">
+    <variable name="fileName" expression="capitalize(camelCase(fileNameWithoutExtension()))" defaultValue="" alwaysStopAt="true" />
+    <variable name="projectName" expression="groovyScript(&quot;def list = _1.split('/'); def result = list[4]; return result;&quot;, filePath());" defaultValue="" alwaysStopAt="true" />
+    <variable name="user" expression="user()" defaultValue="" alwaysStopAt="true" />
+    <variable name="date" expression="date()" defaultValue="" alwaysStopAt="true" />
+    <variable name="time" expression="time()" defaultValue="" alwaysStopAt="true" />
+    <variable name="year" expression="date()" defaultValue="" alwaysStopAt="true" />
+    <variable name="exp" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="hstatefulWidget" value="import 'package:flutter/material.dart';&#10;&#10;class $fileName$ extends StatefulWidget {&#10;&#10;  $fileName$({&#10;    Key? key, &#10;    this.title&#10;  }) : super(key: key);&#10;&#10;  final String? title;&#10;&#10;  @override&#10;  _$fileName$State createState() =&gt; _$fileName$State();&#10;}&#10;&#10;class _$fileName$State extends State&lt;$fileName$&gt; {&#10;&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    dynamic arguments = ModalRoute.of(context)!.settings.arguments;&#10;&#10;    return Scaffold(&#10;      appBar: AppBar(&#10;        title: Text(widget.title ?? &quot;$widget&quot;),&#10;        actions: ['done',].map((e) =&gt; TextButton(&#10;          child: Text(e,&#10;            style: TextStyle(color: Colors.white),&#10;          ),&#10;          onPressed: () =&gt; print(e),)&#10;        ).toList(),&#10;      ),&#10;      body: Text(arguments.toString())&#10;    );&#10;  }&#10;&#10;}" description="自定义 StatefulWidget 创建" toReformat="false" toShortenFQNames="true">
+    <variable name="fileName" expression="capitalize(camelCase(fileNameWithoutExtension()))" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="hstatelessWidget" value="import 'package:flutter/material.dart';&#10;&#10;class $fileName$ extends StatelessWidget {&#10;&#10;  const $fileName$({&#10;  &#9;Key? key,&#10;  &#9;this.title,&#10;  }) : super(key: key);&#10;&#10;  final String? title;&#10;  &#10;  @override&#10;  Widget build(BuildContext context) {&#10;    dynamic arguments = ModalRoute.of(context)!.settings.arguments;&#10;&#10;    return Scaffold(&#10;      appBar: AppBar(&#10;        title: Text(title ?? &quot;$this&quot;),&#10;        actions: ['done',].map((e) =&gt; TextButton(&#10;          child: Text(e,&#10;            style: TextStyle(color: Colors.white),&#10;          ),&#10;          onPressed: () =&gt; print(e),&#10;        )).toList(),&#10;      ),&#10;      body: Text(arguments.toString());&#10;    );&#10;  }&#10;}" description="自定义 StatelessWidget 创建" toReformat="false" toShortenFQNames="true">
+    <variable name="fileName" expression="capitalize(camelCase(fileNameWithoutExtension()))" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="hswitch_string" value="switch ($exp$) {&#10;  case &quot;&quot;:&#10;    {&#10;&#10;    }&#10;    break;&#10;  case &quot;&quot;:&#10;    {&#10;&#10;    }&#10;    break;&#10;  case &quot;&quot;:&#10;    {&#10;    }&#10;    break;&#10;  default:&#10;    break;&#10;}" description="自定义 switch 字符串方法" toReformat="false" toShortenFQNames="true">
+    <variable name="exp" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="if" value="if ($exp$) {&#10;  &#10;}" description="自定义 if 方法" toReformat="false" toShortenFQNames="true">
+    <variable name="exp" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="ifelse" value="if ($exp$) {&#10;  &#10;} else {&#10;  &#10;}" description="自定义 if else 方法" toReformat="false" toShortenFQNames="true">
+    <variable name="exp" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="ifelse_if" value="if ($exp$) {&#10;  &#10;} else if () {&#10;  &#10;}" description="自定义" toReformat="false" toShortenFQNames="true">
+    <variable name="exp" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="func" value="_build$func$() {&#10;&#10;}" description="自定义私有方法声明" toReformat="false" toShortenFQNames="true">
+    <variable name="func" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="hswitch_int" value="switch ($value$) {&#10;  case $pattern$:&#10;    {&#10;&#10;    }&#10;    break;&#10;  case $pattern1$:&#10;    {&#10;&#10;    }&#10;    break;&#10;  case $pattern2$:&#10;    {&#10;    }&#10;    break;&#10;  default:&#10;    break;&#10;}" description="自定义" toReformat="false" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="&quot;value&quot;" alwaysStopAt="true" />
+    <variable name="pattern" expression="" defaultValue="&quot;0&quot;" alwaysStopAt="true" />
+    <variable name="pattern1" expression="" defaultValue="&quot;1&quot;" alwaysStopAt="true" />
+    <variable name="pattern2" expression="" defaultValue="&quot;2&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="for" value="for (var i = 0; i &lt; count; i++) {&#10;    $exp$&#10;}" description="for 循环" toReformat="false" toShortenFQNames="true">
+    <variable name="exp" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="forin" value="for (var item in items) {&#10;  $exp$&#10;}" description="forin" toReformat="false" toShortenFQNames="true">
+    <variable name="exp" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="try" value="try {&#10;    $exp$&#10;} on DioError catch (exception) {&#10;  onError(exception.toString());&#10;}" description="自定义方法" toReformat="false" toShortenFQNames="true">
+    <variable name="exp" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="hsingle" value="&#10;static final $filename$ _instance = $filename$._();&#10;$filename$._();&#10;factory $filename$() =&gt; _instance;&#10;static $filename$ get instance =&gt; _instance;" description="单例模式" toReformat="false" toShortenFQNames="true">
+    <variable name="filename" expression="capitalize(camelCase(fileNameWithoutExtension()))" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="hlayoutBuilder" value="LayoutBuilder(&#10;  builder: (BuildContext context, BoxConstraints constraints){&#10;    $exp$&#10;    return SizedBox();&#10;  }&#10;)," description="自定义 LayoutBuilder 代码片段" toReformat="false" toShortenFQNames="true">
+    <variable name="exp" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+      <option name="DART_TOPLEVEL" value="false" />
+    </context>
+  </template>
+  <template name="hstatefulBuilder" value="StatefulBuilder(&#10;  builder: (BuildContext context, StateSetter setState) {&#10;    $exp$&#10;    return SizedBox();&#10;  }&#10;)," description="自定义 StatefulBuilder 代码片段" toReformat="false" toShortenFQNames="true">
+    <variable name="exp" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+      <option name="DART_TOPLEVEL" value="false" />
+    </context>
+  </template>
+  <template name="hbuilder" value="Builder(&#10;  builder: (context) {&#10;    $exp$&#10;    return SizedBox();&#10;  }&#10;)," description="自定义 Builder 代码片段" toReformat="false" toShortenFQNames="true">
+    <variable name="exp" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="hstatefulWidget_TabBarView" value="import 'package:flutter/material.dart';&#10;import 'package:tuple/tuple.dart';&#10;import 'package:flutter_templet_project/extension/color_ext.dart';&#10;&#10;class $fileName$ extends StatefulWidget {&#10;&#10;  $fileName$({&#10;    Key? key, &#10;    this.title&#10;  }) : super(key: key);&#10;&#10;  final String? title;&#10;&#10;  @override&#10;  _$fileName$State createState() =&gt; _$fileName$State();&#10;}&#10;&#10;class _$fileName$State extends State&lt;$fileName$&gt; with AutomaticKeepAliveClientMixin{&#10;&#10;&#10;  var initialIndex = 0;&#10;&#10;  var items = &lt;Tuple2&lt;Tab, Widget&gt;&gt;[];&#10;&#10;  @override&#10;  void initState() {&#10;    items = &lt;Tuple2&lt;Tab, Widget&gt;&gt;[&#10;      Tuple2(&#10;        Tab(icon: Icon(Icons.directions_railway)),&#10;        _buildPage(),&#10;      ),&#10;      Tuple2(&#10;        Tab(icon: Icon(Icons.directions_car)),&#10;        _buildPage1(),&#10;      ),&#10;      Tuple2(&#10;        Tab(icon: Icon(Icons.directions_bus)),&#10;        _buildPage2(),&#10;      ),&#10;      Tuple2(&#10;        Tab(icon: Icon(Icons.directions_bike)),&#10;        _buildPage3(),&#10;      ),&#10;      Tuple2(&#10;        Tab(icon: Icon(Icons.directions_boat)),&#10;        _buildPage4(),&#10;      ),&#10;    ];&#10;&#10;    super.initState();&#10;  }&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    super.build(context);&#10;&#10;    return MaterialApp(&#10;      home: DefaultTabController(&#10;        initialIndex: initialIndex,&#10;        length: items.length,&#10;        child: Scaffold(&#10;          appBar: AppBar(&#10;            bottom: TabBar(&#10;              tabs: items.map((e) =&gt; e.item1).toList(),&#10;            ),&#10;            title: Text('$widget'),&#10;          ),&#10;          body: TabBarView(&#10;            children: items.map((e) =&gt; e.item2).toList(),&#10;          ),&#10;        ),&#10;      ),&#10;    );&#10;  }&#10;&#10;  @override&#10;  bool get wantKeepAlive =&gt; true;&#10;&#10;  _buildPage() {&#10;    return SafeArea(&#10;      child: CustomScrollView(&#10;        slivers: &lt;Widget&gt;[&#10;          Column(&#10;            children: [&#10;              Container(&#10;                height: 500,&#10;                width: double.infinity,&#10;                color: ColorExt.random,&#10;                padding: EdgeInsets.all(8),&#10;                child: Wrap(&#10;                  children: [&#10;                    ElevatedButton(onPressed: onPressed, child: Text(&quot;Iterable&quot;)),&#10;                  ],&#10;                ),&#10;              )&#10;            ],&#10;          ),&#10;        ].map((e) =&gt; SliverToBoxAdapter(child: e)).toList(),&#10;      ),&#10;    );&#10;  }&#10;&#10;  _buildPage1() {&#10;    return SafeArea(&#10;      child: CustomScrollView(&#10;        slivers: &lt;Widget&gt;[&#10;          Column(&#10;            children: [&#10;              Container(&#10;                height: 500,&#10;                color: ColorExt.random,&#10;&#10;              )&#10;            ],&#10;          ),&#10;        ].map((e) =&gt; SliverToBoxAdapter(child: e)).toList(),&#10;      ),&#10;    );&#10;  }&#10;&#10;  _buildPage2() {&#10;    return SafeArea(&#10;      child: CustomScrollView(&#10;        slivers: &lt;Widget&gt;[&#10;          Column(&#10;            children: [&#10;              Container(&#10;                height: 500,&#10;                color: ColorExt.random,&#10;&#10;              )&#10;            ],&#10;          ),&#10;        ].map((e) =&gt; SliverToBoxAdapter(child: e)).toList(),&#10;      ),&#10;    );&#10;  }&#10;&#10;  _buildPage3() {&#10;    return SafeArea(&#10;      child: CustomScrollView(&#10;        slivers: &lt;Widget&gt;[&#10;          Column(&#10;            children: [&#10;              Container(&#10;                height: 500,&#10;                color: ColorExt.random,&#10;&#10;              )&#10;            ],&#10;          ),&#10;        ].map((e) =&gt; SliverToBoxAdapter(child: e)).toList(),&#10;      ),&#10;    );&#10;  }&#10;&#10;  _buildPage4() {&#10;    return SafeArea(&#10;      child: CustomScrollView(&#10;        slivers: &lt;Widget&gt;[&#10;          Column(&#10;            children: [&#10;              Container(&#10;                height: 500,&#10;                color: ColorExt.random,&#10;&#10;              )&#10;            ],&#10;          ),&#10;        ].map((e) =&gt; SliverToBoxAdapter(child: e)).toList(),&#10;      ),&#10;    );&#10;  }&#10;&#10;  onPressed() {&#10;    print(&quot;onPressed&quot;);&#10;&#10;  }&#10;&#10;}" description="TabBarView 模板页面" toReformat="false" toShortenFQNames="true">
+    <variable name="fileName" expression="capitalize(camelCase(fileNameWithoutExtension()))" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="hstatefulWidget_CustomScrollView" value="//&#10;//  $fileName$.dart&#10;//  $projectName$&#10;//&#10;//  Created by $user$ on $date$ $time$.&#10;//  Copyright © $year$ $user$. All rights reserved.&#10;//&#10;&#10;&#10;import 'package:flutter/material.dart';&#10;&#10;class $fileName$ extends StatefulWidget {&#10;&#10;  $fileName$({&#10;    Key? key, &#10;    this.title&#10;  }) : super(key: key);&#10;&#10;  final String? title;&#10;&#10;  @override&#10;  _$fileName$State createState() =&gt; _$fileName$State();&#10;}&#10;&#10;class _$fileName$State extends State&lt;$fileName$&gt; {&#10;&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    dynamic arguments = ModalRoute.of(context)!.settings.arguments;&#10;&#10;    return Scaffold(&#10;      appBar: AppBar(&#10;        title: Text(widget.title ?? &quot;$widget&quot;),&#10;        actions: ['done',].map((e) =&gt; TextButton(&#10;          child: Text(e,&#10;            style: TextStyle(color: Colors.white),&#10;          ),&#10;          onPressed: () =&gt; print(&quot;done&quot;),&#10;        )).toList(),&#10;      ),&#10;      body: _buildBody(),&#10;    );&#10;  }&#10;&#10;  _buildBody() {&#10;    return SafeArea(&#10;      child: CustomScrollView(&#10;        slivers: &lt;Widget&gt;[&#10;          Column(&#10;            children: [&#10;              Container(&#10;                height: 500,&#10;                width: double.infinity,&#10;                padding: EdgeInsets.all(8),&#10;                child: Wrap(&#10;                  children: [&#10;                    ElevatedButton(onPressed: onPressed, child: Text(&quot;utton&quot;)),&#10;                  ],&#10;                ),&#10;              )&#10;            ],&#10;          ),&#10;        ].map((e) =&gt; SliverToBoxAdapter(child: e)).toList(),&#10;      ),&#10;    );&#10;  }&#10;  &#10;  onPressed() {&#10;&#10;  }&#10;}" description="自定义 StatefulWidget 创建 CustomScrollView" toReformat="false" toShortenFQNames="true">
+    <variable name="fileName" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="projectName" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="user" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="date" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="time" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="year" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+</templateSet>

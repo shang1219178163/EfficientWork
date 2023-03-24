@@ -1,0 +1,12 @@
+Dart
+com.cjamcu.getx-snippets
+com.localizely.flutter-intl
+com.mallowigi
+com.tabnine.TabNine
+com.tao.getx
+com.zcy.plugins.CommonTools
+com.zll.format
+dart.helper.exgou.cn
+github.cweijan.test-theme
+io.flutter
+izhangzhihao.rainbow.brackets
