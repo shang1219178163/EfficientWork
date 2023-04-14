@@ -1,4 +1,4 @@
-<img src="https://github.com/shang1219178163/EfficientWork/blob/master/Resource/avatar.jpg?raw=true" alt="" width="36" height="36"> EfficientWork
+<img src="https://github.com/shang1219178163/EfficientWork/blob/master/Resource/avatar.jpg?raw=true" alt="" width="36" height="36">EfficientWork
 ====================================== 
  *_繁琐工作自动化，总是值得我们花费更多的时间和精力，毕竟推动这世界前进的本质就是效率。_*
 
