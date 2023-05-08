@@ -1,12 +1,13 @@
 Dart
-com.cjamcu.getx-snippets
+com.ankit.mahadik.json.dart.class
+com.crzsc.FlutterAssetsGenerator
+com.herbert.george.flutter-snippets
+com.jiajun.flutter_add_image
 com.localizely.flutter-intl
 com.mallowigi
-com.tabnine.TabNine
-com.tao.getx
-com.zcy.plugins.CommonTools
 com.zll.format
 dart.helper.exgou.cn
 github.cweijan.test-theme
 io.flutter
+io.gitlab.zlamalp.arc-theme-idea
 izhangzhihao.rainbow.brackets

@@ -1,0 +1,5 @@
+<application>
+  <component name="LogcatExperimentalSettings">
+    <option name="logcatV2Enabled" value="true" />
+  </component>
+</application>

@@ -1,0 +1,9 @@
+<application>
+  <component name="UpdatesConfigurable">
+    <option name="CHECK_NEEDED" value="false" />
+    <option name="LAST_BUILD_CHECKED" value="AI-213.7172.25.2113.9014738" />
+    <option name="LAST_TIME_CHECKED" value="1683443485366" />
+    <option name="THIRD_PARTY_PLUGINS_ALLOWED" value="true" />
+    <option name="UPDATE_CHANNEL_TYPE" value="release" />
+  </component>
+</application>
