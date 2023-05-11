@@ -54,3 +54,26 @@ materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
 ```
    final bool extendBodyBehindAppBar;
 ```
+
+### 6、关闭按钮水波纹
+```
+    style: ButtonStyle(
+          overlayColor: MaterialStateColor.resolveWith((states) => Colors.transparent),
+    ),
+```
+
+### 7、Divider 默认高度 16
+```
+    Divider(
+        height: 1, //defaults to 16.0
+        color: Colors.red,
+    ),
+```
+```
+    VerticalDivider(
+       color: Colors.red,
+       width: 1, // defaults to 16.0
+       thickness: 1,
+    ),
+```
+  
