@@ -8,9 +8,14 @@
 //   ),
 ```
 
-### 2、去除 Choice item 上下边距 
+### 2、去除 Choice item 上下边距 （button同）
 ```
-materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+```
+```
+    style: TextButton.styleFrom(
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+    ),
 ```
 
 ### 3、Stack postion不响应事件
