@@ -17,6 +17,16 @@
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
     ),
 ```
+取消长按背景阴影
+```
+Theme(
+    data: ThemeData(
+       canvasColor: Colors.transparent,
+       highlightColor: Colors.white,
+    ),
+    child: ChoiceChip(
+      pressElevation: 0,
+```
 
 ### 3、Stack postion不响应事件
 ```
