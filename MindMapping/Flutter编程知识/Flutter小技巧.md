@@ -91,4 +91,9 @@ Theme(
        thickness: 1,
     ),
 ```
-  
+  ### 8、竖排三个汉字和四个汉字两端对齐
+```
+    Text('身份证号',style: TextStyle(fontSize: 18.0)),
+    Text('注册',style: TextStyle(fontSize: 18.0, letterSpacing: 18.0 * 2)),
+    Text('手机号',style: TextStyle(fontSize: 18.0, letterSpacing: 18.0 / 2)),
+```
