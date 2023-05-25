@@ -97,3 +97,36 @@ Theme(
     Text('注册',style: TextStyle(fontSize: 18.0, letterSpacing: 18.0 * 2)),
     Text('手机号',style: TextStyle(fontSize: 18.0, letterSpacing: 18.0 / 2)),
 ```
+  ### 9、状态栏及字体颜色的设置方法
+```
+    appBar: AppBar(
+		  title: new Text(''),
+	  elevation: 0,
+	  brightness: Brightness.dark, //设置为白色字体
+	  ),
+```
+
+```
+    @override
+     Widget build(BuildContext context) {
+    
+     return AnnotatedRegion<SystemUiOverlayStyle (
+      value: SystemUiOverlayStyle.light,
+      child: Material(child:Scaffold(),),);
+     }
+```
+
+  ### 10、模型转换数组字符串类型报错
+```
+    attachedImgs = List<String>.from(json["attachedImgs"] ?? []);
+    data["attachedImgs"] = List<String>.from(attachedImgs ?? []);
+```
+
+### 12、json类型转换
+```
+import 'dart:convert' as convert;
+
+final array = convert.json.decode(restructureMsgBody ?? "") ?? 【】;
+
+final json = convert.json.decode(customElem?.data ?? "") ;
+```
