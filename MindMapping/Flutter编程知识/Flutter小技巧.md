@@ -130,3 +130,22 @@ final array = convert.json.decode(restructureMsgBody ?? "") ?? 【】;
 
 final json = convert.json.decode(customElem?.data ?? "") ;
 ```
+
+### 13、解决ListView默认的的SliverPadding
+```
+child: MediaQuery.removePadding(
+  removeTop: true,
+  context: context,
+  child: ListView.builder(
+    itemCount: _dataSource.length,
+    itemBuilder: (BuildContext context, int index){
+      return Material(
+        color: Colors.green,
+        child: ListTile(
+          title: Text(_dataSource[index]),
+        ),
+      );
+    },
+  ),
+),
+```
