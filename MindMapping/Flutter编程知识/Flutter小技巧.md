@@ -8,6 +8,23 @@
 //   ),
 ```
 
+```
+椭圆边框
+const ShapeDecoration(
+  color: bgColor,
+  shape: StadiumBorder(),
+),
+```
+
+```
+圆边框
+const ShapeDecoration(
+  color: Colors.red,
+  shape: CircleBorder(),
+),
+
+```
+
 ### 2、去除 Choice item 上下边距 （button同）
 ```
     materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
@@ -42,6 +59,9 @@ Theme(
         ],
       ),
       Positioned(
+        right: 0,
+        left: 0,
+        bottom: 0,
         child: FloatingActionButton(
           child: Icon(Icons.add),
           onPressed: () {
@@ -49,9 +69,6 @@ Theme(
           },
           backgroundColor: Colors.blueGrey,
         ),
-        right: 0,
-        left: 0,
-        bottom: 0,
       ),
     ],
   )
@@ -148,4 +165,14 @@ child: MediaQuery.removePadding(
     },
   ),
 ),
+```
+
+### 14、解决ListView滚动到底部闪一下
+```
+倒转 ListView
+```
+
+### 15、长文字 Text 直接显示 ...
+```
+title.replaceAll('', '\u200B')
 ```
