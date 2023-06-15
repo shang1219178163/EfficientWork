@@ -1,7 +1,10 @@
 # Flutter tencent_cloud_chat_sdk注意点
 
-更新日志（Flutter）
+更新日志（Flutter）:
 https://cloud.tencent.com/document/product/269/52049
+
+通用错误码：
+https://cloud.tencent.com/document/product/269/1671
 
 ### 1、多媒体消息默认不再返回 URL
 ```
