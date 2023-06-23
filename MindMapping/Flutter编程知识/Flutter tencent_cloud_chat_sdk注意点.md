@@ -26,3 +26,26 @@ V2TimMessage 属性 status
 // 5:导入到本地的消息
 // 6:被撤回的消息
 ```
+
+### 2、撤回消息回调 
+```
+  onRecvMessageRevoked: (String messageid) {
+    // 在本地维护的消息中处理被对方撤回的消息
+    final array = messageid.split("-");
+    debugPrint("messageid: $messageid");
+
+    for (var i = 0; i < dataList.value.length; i++) {
+      final e = dataList.value[i];
+      // final sequenceNoList = e.sequenceNo?.seperator("-") ?? [];
+      // final sequenceNoListLast = sequenceNoList.last;
+      debugPrint("sequenceNoList: ${i}_${e.random ?? ""}_${messageid.contains(e.random ?? "")}");
+      if (e.random?.isNotEmpty == true && messageid.endsWith(e.random ?? "")) {
+        dataList.value[i].isRevoked = "Y";
+        // debugPrint("过滤");
+        dataList.value = [...dataList.value];
+        return;
+      }
+    }
+  },
+```
+需要通过 random 和 messageid 最后一段做本地列表过滤；

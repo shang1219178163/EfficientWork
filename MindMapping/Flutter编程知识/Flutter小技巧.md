@@ -16,13 +16,18 @@ const ShapeDecoration(
 ),
 ```
 
-```
 圆边框
+```
 const ShapeDecoration(
   color: Colors.red,
   shape: CircleBorder(),
 ),
 
+
+decoration: BoxDecoration(
+  color: color,
+  shape: BoxShape.circle,
+),
 ```
 
 ### 2、去除 Choice item 上下边距 （button同）
