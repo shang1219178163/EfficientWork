@@ -27,7 +27,7 @@ V2TimMessage 属性 status
 // 6:被撤回的消息
 ```
 
-### 2、撤回消息回调 
+### 3、撤回消息回调 
 ```
   onRecvMessageRevoked: (String messageid) {
     // 在本地维护的消息中处理被对方撤回的消息
@@ -49,3 +49,10 @@ V2TimMessage 属性 status
   },
 ```
 需要通过 random 和 messageid 最后一段做本地列表过滤；
+
+### 4、会话列表可以通过判断会话的 groupID 为空，不显示被解散的群
+```
+if ( e == null || e.groupID == null || e.groupID?.isEmpty == true) {
+    return const SizedBox();
+}
+```
