@@ -59,4 +59,9 @@ flutter run -d winuwp
 
 # 壳工程如果想断线保留，需要设为调试模式改为 release 模式
 
-# 如果没有当前壳工程的机器证书，可以将 bundle id 进行修改
+# 如果没有当前壳工程的机器证书，可以将 bundle id 进行修改；
+
+
+# gitLab pipeline检查报错
+
+修改 pubspec.lock 中版本号即可；
