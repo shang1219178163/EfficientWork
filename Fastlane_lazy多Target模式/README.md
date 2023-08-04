@@ -1,6 +1,32 @@
 # Fastlane 多Target模式
   因项目需要开发定制版，所以项目开始多Target模式。
   
+### 配置 fastlane：
+
+       1、安转 fastlane： 
+          全局目录下执行： brew install fastlane --cask
+       
+       2、iOS 目录下执行：
+           2.1 初始化
+             fastlane init
+           2.2 安装插件
+            fastlane add_plugin pgyer
+            fastlane add_plugin firim
+       
+       3、修改配置文件 
+           3.1 .env 文件
+               Apple_Id 改为自己的appstore上传账号
+               
+               IpaDir_Development 本地开发包存储路径
+               IpaDir_AppStore 本地生产包存储路径
+        
+               Dingtalk_Url 一般是app测试群机器人url
+               
+          3.2 Fastfile 文件
+               PgyerApiKey 改为团队的蒲公英 ApiKey
+            
+               FirToken 改为团队Firm token
+  
 ### 使用方法：
 
   1.修改verison值（Build为脚本自动设置yyyyMMddHHmm）
