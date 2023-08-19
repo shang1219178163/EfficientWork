@@ -191,3 +191,25 @@ IconButton(
 ```
 
 ### 17、WillPopScope 会阻止右滑返回
+
+
+### 18、键盘高度无法检测
+
+如果是使用了 flutter_screenutil 设置 useInheritedMediaQuery 为true 即可；
+```
+ScreenUtilInit(
+  useInheritedMediaQuery: true,
+  designSize: const Size(376, 812),
+  builder: (context, child) {
+    return const Scaffold(
+      resizeToAvoidBottomInset: true,
+      body: Column(
+        children: [
+          Spacer(),
+          TextField(),
+        ],
+      ),
+    );
+  },
+);
+```
