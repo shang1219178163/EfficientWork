@@ -146,11 +146,11 @@ Theme(
 
 ### 12、json类型转换
 ```
-import 'dart:convert' as convert;
+import 'dart:convert';
 
-final array = convert.json.decode(restructureMsgBody ?? "") ?? 【】;
+final array = jsonDecode(restructureMsgBody ?? "") ?? 【】;
 
-final json = convert.json.decode(customElem?.data ?? "") ;
+final json = jsonDecode(customElem?.data ?? "") ;
 ```
 
 ### 13、解决ListView默认的的SliverPadding
@@ -212,4 +212,12 @@ ScreenUtilInit(
     );
   },
 );
+```
+
+### 18、禁止键盘推起内容
+```
+    return Scaffold(
+      ...
+      resizeToAvoidBottomInset: false,
+      
 ```
