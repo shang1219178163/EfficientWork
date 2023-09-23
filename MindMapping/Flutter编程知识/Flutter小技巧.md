@@ -1,5 +1,15 @@
 # Flutter小技巧
 
+### Text底部黄色双划线
+修改根组件为Material 或者 Scaffold组件；
+```
+    Text("content",
+      style: TextStyle(
+        decoration: TextDecoration.none,
+      )
+    );
+```
+
 ### 1、椭圆边框
 ```
 椭圆边框
