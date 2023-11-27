@@ -231,3 +231,19 @@ ScreenUtilInit(
       resizeToAvoidBottomInset: false,
       
 ```
+
+### 19、Remove end drawer icon in scaffold
+
+drawer
+```
+  automaticallyImplyLeading: false,
+```
+end drawer
+```
+  actions: <Widget>[Container()],
+```
+
+### 20、openEndDrawer
+```
+Scaffold.of(context).openEndDrawer(); 
+```
