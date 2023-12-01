@@ -1315,4 +1315,8 @@ ipa体积太多，分析文件体积神器。
 https://function12.io/
 
 
-## 第二十五篇章：待续。。。
+## 第二十五篇章：Flutter 进阶：json 转 model 工具开发
+
+https://juejin.cn/spost/7307501392788471844
+
+## 第二十六篇章：待续。。。
