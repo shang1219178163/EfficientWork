@@ -1317,6 +1317,8 @@ https://function12.io/
 
 ## 第二十五篇章：Flutter 进阶：json 转 model 工具开发
 
+![效果图](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/Flutter-jsonToModel.jpg?raw=true)
+
 https://juejin.cn/spost/7307501392788471844
 
 ## 第二十六篇章：待续。。。
