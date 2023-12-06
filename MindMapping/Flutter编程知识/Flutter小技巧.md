@@ -247,3 +247,8 @@ end drawer
 ```
 Scaffold.of(context).openEndDrawer(); 
 ```
+
+### 21、flutter_easy_refresh 下拉加载的时候拖拽会导致footer无法收起,并且一直停在成功的状态
+```
+ClassicFooter中的infiniteOffset设置为null
+```
