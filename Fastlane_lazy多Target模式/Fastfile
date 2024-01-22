@@ -104,12 +104,19 @@ platform :ios do
     gym(
       clean: true,
       include_symbols: true,
+      skip_profile_detection: true,
       output_directory: ipaDir,
       scheme: name,
       configuration: 'Debug',
       # configuration: 'Release',
       export_method: 'development',
-      export_options: {iCloudContainerEnvironment: 'Development'}
+      # export_options: {
+      #   method: 'development',
+      #   iCloudContainerEnvironment: 'Development',
+      #   provisioningProfiles:{
+      #     "bundle id" => "开发证书名称(不需要扩展名)",
+      #   }
+      # }
     )
   end
 
