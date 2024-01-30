@@ -51,3 +51,15 @@
   targetB
   targetC
   ···
+  
+  
+===
+
+### 问题
+
+1. fastlane-credentials 报错
+   https://github.com/fastlane/fastlane/tree/master/credentials_manager
+
+2. This request is forbidden for security reasons - The API key in use does not allow this request
+   https://github.com/fastlane/fastlane/issues/14372
+   账号权限从开发者改为管理者；
