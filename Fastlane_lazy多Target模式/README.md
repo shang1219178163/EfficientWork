@@ -63,3 +63,8 @@
 2. This request is forbidden for security reasons - The API key in use does not allow this request
    https://github.com/fastlane/fastlane/issues/14372
    账号权限从开发者改为管理者；
+   https://github.com/fastlane/fastlane/issues/21544   
+   
+3. Timeout received: 'Spaceship::AccessForbiddenError', 'This request is forbidden for security reasons - The API key in use does not allow this request'. Retrying after 3 seconds (remaining: 4)...
+    AppStore connect 创建新版本； 
+
