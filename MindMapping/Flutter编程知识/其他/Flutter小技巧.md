@@ -252,3 +252,28 @@ Scaffold.of(context).openEndDrawer();
 ```
 ClassicFooter中的infiniteOffset设置为null
 ```
+
+### 22、缩放 CupertinoSwitch
+```
+StatefulBuilder(
+  builder: (BuildContext context, StateSetter setState) {
+    return Container(
+      width: 32,
+      height: 18,
+      child: FittedBox(
+        fit: BoxFit.contain,
+        child: CupertinoSwitch(
+          value: switchValue,
+          onChanged: (value) {
+            setState(() {
+              switchValue = value;
+              setState(() {});
+              YLog.d("switchValue: $switchValue");
+            });
+          },
+        ),
+      ),
+    ).toBorder();
+  },
+),
+```
