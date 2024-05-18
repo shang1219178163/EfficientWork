@@ -321,3 +321,56 @@ if ( e == null || e.groupID == null || e.groupID?.isEmpty == true) {
     return last；
   }
 ```
+
+### 7、发送消息人的信息应该放在 CloudCustomData 中，一般包含如下字段
+```
+   /// 创建消息附带云端数据
+  static Future<Map<String, dynamic>> createCloudCustomData({
+    Map<String, dynamic> payload = const {},
+    String? scene,
+  }) async {
+    final map = <String, dynamic>{
+      "userId": CacheService().detailModel?.userId ?? "",
+      "userType": CacheService().userType, // 发送方账户类型
+      "avatar": CacheService().detailModel?.avatar ?? "",
+      "realName": CacheService().detailModel?.realName ?? "",
+      "platform": "*",
+      "scene": scene,
+      "terminal": CacheService().userTypeEnum?.name ?? "",
+      "data": "",
+    };
+    return map;
+  }
+```
+
+### 8、同步个人信息
+```dart
+  /// 设置个人资料
+  static Future<V2TimCallback> setUsersInfo({
+    required Map userInfo,
+  }) async {
+    final isSUBJECT = userInfo["userType"] == UserTypeEnum.SUBJECT.name;
+    final userNo = userInfo['userNo'];
+    final name = userInfo["nickName"] ?? userInfo['realName'];
+    final nickName = isSUBJECT ? userNo : name;
+    CacheService().nickName = nickName;
+    final userID = CacheService().userID;
+    // debugPrint("setUsersInfo  nickName ${CacheService().nickName}");
+
+    V2TimUserFullInfo userFullInfo = V2TimUserFullInfo(
+      nickName: nickName, // 用户昵称
+      // allowType: 0,//用户的好友验证方式 0:允许所有人加我好友 1:不允许所有人加我好友 2:加我好友需我确认
+      // birthday: 0,//用户生日
+      // customInfo: {"custom":"custom"},//用户的自定义状态 旗舰版支持修改此属性
+      faceUrl: userInfo['avatar'], //用户头像 url
+      // gender: 1,//用户的性别 1:男 2:女
+      // level: 0,//用户的等级
+      // role: 0,//用户的角色
+      // selfSignature: "",//用户的签名
+      userID: userID, //用户 ID
+    );
+    final setUserInfo = await TencentImSDKPlugin.v2TIMManager
+        .setSelfInfo(userFullInfo: userFullInfo);
+    return setUserInfo;
+  }
+  ```
