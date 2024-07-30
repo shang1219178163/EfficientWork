@@ -65,3 +65,8 @@ flutter run -d winuwp
 # gitLab pipeline检查报错
 
 修改 pubspec.lock 中版本号即可；
+
+# Framework 'Pods_Runner' not found
+Open XCode > [Build Phases] > [Link Binary WIth Libraries].
+
+remove Pod_Runner.framework
