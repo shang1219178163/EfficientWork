@@ -2,7 +2,13 @@
 
 #项目文件外部执行此脚本
 
-project_name="*"
+# 提示用户输入
+echo "请输入项目姓名:"
+read project_name
+
+# 显示输入的内容
+echo "项目姓名: $project_name"
+
 
 # 获取当前脚本所在目录的路径
 script_dir=$(dirname "$(realpath "$0")")
