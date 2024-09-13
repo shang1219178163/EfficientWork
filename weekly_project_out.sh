@@ -37,4 +37,7 @@ echo "git_branch: $git_branch"
 date_start=$(date -v -5d +%Y-%m-%d)
 echo "date_start: $date_start"
 
-git log --author="${git_author}" --after="$date_start" --pretty=format:"%s" > ../commit_messages.txt
+log_file_name="${project_name}_log.txt"
+echo "log_file_name: $log_file_name"
+
+git log --author="${git_author}" --after="$date_start" --pretty=format:"%s" > ../$log_file_name
