@@ -1332,5 +1332,5 @@ https://localsend.org/zh-CN/download
 ![ios_privacy_manifest_maker.png](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/ios_privacy_manifest_maker.png?raw=true)
 
 https://wemakeapps.net/manifest-maker
-
+[简单文档](https://wemakeapps.medium.com/how-to-quickly-get-a-privacyinfo-xcprivacy-file-for-your-ios-app-9b43e7b938fe)
 ## 第二十八篇章：待续。。。
