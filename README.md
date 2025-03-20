@@ -1328,4 +1328,9 @@ https://juejin.cn/spost/7307501392788471844
 
 https://localsend.org/zh-CN/download
 
-## 第二十七篇章：待续。。。
+## 第二十七篇章：iOS隐私文件 PrivacyInfo.xcprivacy 生成工具
+![ios_privacy_manifest_maker.png](https://github.com/shang1219178163/EfficientWork/blob/master/Resource/ios_privacy_manifest_maker.png?raw=true)
+
+https://wemakeapps.net/manifest-maker
+
+## 第二十八篇章：待续。。。
