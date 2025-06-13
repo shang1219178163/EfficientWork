@@ -7,11 +7,59 @@
 #### [MindMapping目录](https://github.com/shang1219178163/EfficientWork/tree/develop/MindMapping) 
 包含 Flutter和移动h5开发的一些知识点总结（笔者夜观天象，发现大前端和全栈是未来技术的发展趋势，为愿意转型大前端的 iOS 开发者提供一些帮助）；
 ```
-├── MindMapping
-│   ├── iOS编程知识
+.
+├── CodeSnippets（Xcode代码片段，提高开发效率）
+├── Crash文件符号化
+│   └── debug
+├── Fastlane_lazy多Target模式
+│   └── actions
+├── IconAndLaunch（脚本生成图片）
+│   ├── Shells
+│   ├── iMac
+│   │   └── AppIcon.appiconset
+│   ├── iPhone
+│   │   ├── AppIcon.appiconset
+│   │   └── LaunchImage.launchimage
+│   └── iWatch
+│       └── AppIcon.appiconset
+├── Linux命令
+├── MindMapping（思维导图）
 │   ├── Flutter编程知识
-│   └── Web编程知识
-└── …
+│   │   ├── Flutter状态管理
+│   │   └── 其他
+│   ├── MiniProgram
+│   ├── Web编程知识
+│   │   ├── HTML
+│   │   ├── JavaScript
+│   │   │   └── JavaScript 内置对象
+│   │   ├── React
+│   │   ├── Vue
+│   │   │   └── 其他
+│   │   ├── Web API
+│   │   ├── Web CSS
+│   │   ├── 其他
+│   │   └── 浏览器原理相关
+│   ├── iOS编程知识
+│   │   ├── SwiftUI
+│   │   │   └── 其他
+│   │   └── 其他
+│   ├── 其他
+│   ├── 社会常识
+│   └── 编程语言基础
+├── Reveal
+├── VSCode
+│   └── snippets
+├── android studio
+│   └── LiveTemplate
+├── build （iOS CocoaPods 库通过脚本化维护，提高50%的开发效率。）
+│   └── Shells
+├── flutter
+│   ├── Fastlane疑难问题
+│   ├── enhance
+│   └── 其他
+├── sourcetree_custom_action（sourcetree自定义命令）
+│   └── doc
+└── 其他
 ```
 ## 第一篇章： IconAndLaunch — iOS app图标和启动图一键生成
 ```
