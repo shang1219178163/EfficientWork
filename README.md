@@ -1381,4 +1381,9 @@ https://localsend.org/zh-CN/download
 
 https://wemakeapps.net/manifest-maker
 [简单文档](https://wemakeapps.medium.com/how-to-quickly-get-a-privacyinfo-xcprivacy-file-for-your-ios-app-9b43e7b938fe)
-## 第二十八篇章：待续。。。
+
+## 第二十八篇章：使用AI工具编码
+![Cursor](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/Cursor.png?raw=true)
+[Cursor下载](https://www.cursor.com/cn) 选择一个你觉的不错的AI编程工具，先尝试一个月。
+
+## 第二十九篇章：待续。。。
