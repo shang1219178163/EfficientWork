@@ -46,27 +46,31 @@ flutter run -d winuwp
 
     sh <(curl -s http://mpaas-ios.oss-cn-hangzhou.aliyuncs.com/cocoapods/installmPaaSCocoaPodsPlugin.sh)
 
-# Xcode 真机调试无法识别手机解决方法
+5、Xcode 真机调试无法识别手机解决方法
 
-1.退出xcode。
-2.打开命令行工具，输入 sudo pkill usbmuxd ，输入密码.
-3.重启xcode就可以到手机调试连接了.
+    1.退出xcode。
+    2.打开命令行工具，输入 sudo pkill usbmuxd ，输入密码.
+    3.重启xcode就可以到手机调试连接了.
 
-# 依赖库报错
+6、依赖库报错
 
 主工程 flutter pub get 之后，LocalPackages 中子工程也需要 flutter pub get 获取最新代码；
 
 
-# 壳工程如果想断线保留，需要设为调试模式改为 release 模式
+7、壳工程如果想断线保留，需要设为调试模式改为 release 模式
 
-# 如果没有当前壳工程的机器证书，可以将 bundle id 进行修改；
+8、如果没有当前壳工程的机器证书，可以将 bundle id 进行修改；
 
 
-# gitLab pipeline检查报错
+9、gitLab pipeline检查报错
 
 修改 pubspec.lock 中版本号即可；
 
-# Framework 'Pods_Runner' not found
+10、Framework 'Pods_Runner' not found
 Open XCode > [Build Phases] > [Link Binary WIth Libraries].
 
-remove Pod_Runner.framework
+    remove Pod_Runner.framework
+
+11 flutter项目 FileSystemException: Cannot open file
+
+    ulimit -n 1024
