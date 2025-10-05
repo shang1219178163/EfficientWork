@@ -1386,4 +1386,9 @@ https://wemakeapps.net/manifest-maker
 ![Cursor](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/Cursor.png?raw=true)
 [Cursor下载](https://www.cursor.com/cn) 选择一个你觉的不错的AI编程工具，先尝试一个月。
 
-## 第二十九篇章：待续。。。
+## 第二十九篇章：Json To Dart Model 自定义
+![Cursor](https://github.com/shang1219178163/EfficientWork/blob/develop/Resource/screenshot_json_to_model.png?raw=true)
+
+[JsonToModel](https://shang1219178163.github.io/json_model/#/JsonToModel)
+
+## 第三十篇章：待续。。。
