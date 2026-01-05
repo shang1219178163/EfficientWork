@@ -6,7 +6,7 @@
 
 **flutter create .**
 
--------
+---
 
 2、Flutter error: "CocoaPods not installed or not in valid state."
 
@@ -54,7 +54,7 @@ flutter run -d winuwp
 
 6、依赖库报错
 
-主工程 flutter pub get 之后，LocalPackages 中子工程也需要 flutter pub get 获取最新代码；
+    主工程 flutter pub get 之后，LocalPackages 中子工程也需要 flutter pub get 获取最新代码；
 
 
 7、壳工程如果想断线保留，需要设为调试模式改为 release 模式
@@ -64,13 +64,23 @@ flutter run -d winuwp
 
 9、gitLab pipeline检查报错
 
-修改 pubspec.lock 中版本号即可；
+    修改 pubspec.lock 中版本号即可；
 
 10、Framework 'Pods_Runner' not found
 Open XCode > [Build Phases] > [Link Binary WIth Libraries].
 
     remove Pod_Runner.framework
 
-11 flutter项目 FileSystemException: Cannot open file
+11、flutter项目 FileSystemException: Cannot open file
 
     ulimit -n 1024
+    
+12、屏幕底部闪动问题（可能是键盘问题）
+
+    SystemChannels.textInput.invokeMethod<T>('TextInput.hide');
+    
+13、华为手机配置启动图之后重复启动的问题，添加以下启动图文件夹
+    
+    ├── drawable-xhdpi
+    ├── drawable-xxhdpi
+    ├── drawable-xxxhdpi
