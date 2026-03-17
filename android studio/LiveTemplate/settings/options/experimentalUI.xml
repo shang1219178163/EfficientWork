@@ -1,0 +1,5 @@
+<application>
+  <component name="ExperimentalUI">
+    <option name="enabled" value="true" />
+  </component>
+</application>

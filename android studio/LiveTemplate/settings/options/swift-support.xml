@@ -1,0 +1,5 @@
+<application>
+  <component name="SwiftApplicationSettings">
+    <option name="freemiumNotification" value="true" />
+  </component>
+</application>

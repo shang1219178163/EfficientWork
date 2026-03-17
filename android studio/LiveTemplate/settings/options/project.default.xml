@@ -117,9 +117,17 @@
           </codeStyleSettings>
         </code_scheme>
       </component>
-      <component name="PropertiesComponent">
-        <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-        <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+      <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "settings.editor.selected.configurable": "editing.templates"
+  }
+}]]></component>
+      <component name="VcsDirectoryMappings" defaultProject="true" />
+      <component name="WindowStateProjectService">
+        <state x="349" y="90" key="SettingsEditor" timestamp="1758340602041">
+          <screen x="0" y="25" width="1680" height="948" />
+        </state>
+        <state x="349" y="90" key="SettingsEditor/0.25.1680.948" timestamp="1758340602041" />
       </component>
     </defaultProject>
   </component>
