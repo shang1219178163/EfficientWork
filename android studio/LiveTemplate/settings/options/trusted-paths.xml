@@ -1,0 +1,191 @@
+<application>
+  <component name="Trusted.Paths">
+    <option name="TRUSTED_PROJECT_PATHS">
+      <map>
+        <entry key="$USER_HOME$/.Trash/flutter_wechat_assets_picker 15-43-42-199" value="true" />
+        <entry key="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/tencent_calls_uikit-1.7.1" value="true" />
+        <entry key="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/tencent_calls_uikit-1.7.1/android" value="true" />
+        <entry key="$USER_HOME$/Desktop/flutter_easy_refresh-3" value="true" />
+        <entry key="$USER_HOME$/Desktop/flutter_pickers" value="true" />
+        <entry key="$USER_HOME$/Desktop/flutter_pickers-2.1.9" value="true" />
+        <entry key="$USER_HOME$/Desktop/learning/fl_pip-3.2.0" value="true" />
+        <entry key="$USER_HOME$/Desktop/trtc_demo" value="true" />
+        <entry key="$USER_HOME$/Desktop/yl_ylgcp_app_ding" value="true" />
+        <entry key="$USER_HOME$/Downloads" value="true" />
+        <entry key="$USER_HOME$/Downloads/Notification 4/hello" value="true" />
+        <entry key="$USER_HOME$/Downloads/TRTCFlutterScenesDemo" value="true" />
+        <entry key="$USER_HOME$/Downloads/azlistview" value="true" />
+        <entry key="$USER_HOME$/Downloads/azlistview-master/example" value="true" />
+        <entry key="$USER_HOME$/Downloads/azlistview/example" value="true" />
+        <entry key="$USER_HOME$/Downloads/chewie-1.10.0" value="true" />
+        <entry key="$USER_HOME$/Downloads/color_scheme_demo" value="true" />
+        <entry key="$USER_HOME$/Downloads/easy_refresh-3.3.1" value="true" />
+        <entry key="$USER_HOME$/Downloads/easy_refresh-3.3.1/example" value="true" />
+        <entry key="$USER_HOME$/Downloads/easy_refresh-3.3.2+1" value="true" />
+        <entry key="$USER_HOME$/Downloads/easy_refresh-3.4.0" value="true" />
+        <entry key="$USER_HOME$/Downloads/equatable-2.0.7" value="true" />
+        <entry key="$USER_HOME$/Downloads/extended_nested_scroll_view" value="true" />
+        <entry key="$USER_HOME$/Downloads/extended_nested_scroll_view-master" value="true" />
+        <entry key="$USER_HOME$/Downloads/fl_pip-3.2.0" value="true" />
+        <entry key="$USER_HOME$/Downloads/fl_pip-3.2.0 (1)" value="true" />
+        <entry key="$USER_HOME$/Downloads/fl_pip-3.2.1" value="true" />
+        <entry key="$USER_HOME$/Downloads/flutter_in_app_pip-1.7.4" value="true" />
+        <entry key="$USER_HOME$/Downloads/flutter_sticky_header-0.7.0" value="true" />
+        <entry key="$USER_HOME$/Downloads/flutter_web_demo" value="true" />
+        <entry key="$USER_HOME$/Downloads/flutter_wechat_assets_picker-main" value="true" />
+        <entry key="$USER_HOME$/Downloads/get-4.7.2 (1)" value="true" />
+        <entry key="$USER_HOME$/Downloads/gzx_dropdown_menu-master" value="true" />
+        <entry key="$USER_HOME$/Downloads/hello" value="true" />
+        <entry key="$USER_HOME$/Downloads/photo_manager-2.1.1" value="true" />
+        <entry key="$USER_HOME$/Downloads/pull_to_refresh_notification-master" value="true" />
+        <entry key="$USER_HOME$/Downloads/qr_code_scanner-1.0.1_副本/example/android" value="true" />
+        <entry key="$USER_HOME$/Downloads/red_packet_rain" value="true" />
+        <entry key="$USER_HOME$/Downloads/restoration_demo" value="true" />
+        <entry key="$USER_HOME$/Downloads/scribble-0.0.4" value="true" />
+        <entry key="$USER_HOME$/Downloads/sheet_test" value="true" />
+        <entry key="$USER_HOME$/Downloads/web_example" value="true" />
+        <entry key="$USER_HOME$/Downloads/wechat_assets_picker-6.2.2" value="true" />
+        <entry key="$USER_HOME$/GitHub/TUICallKit" value="true" />
+        <entry key="$USER_HOME$/GitHub/TestApp/podcast_app" value="true" />
+        <entry key="$USER_HOME$/GitHub/audio_visualizer" value="true" />
+        <entry key="$USER_HOME$/GitHub/chewie" value="true" />
+        <entry key="$USER_HOME$/GitHub/color_scheme_demo" value="true" />
+        <entry key="$USER_HOME$/GitHub/dart_ci" value="true" />
+        <entry key="$USER_HOME$/GitHub/dart_ci_project" value="true" />
+        <entry key="$USER_HOME$/GitHub/ddlog" value="true" />
+        <entry key="$USER_HOME$/GitHub/emoji_picker_flutter" value="true" />
+        <entry key="$USER_HOME$/GitHub/enhance_expansion_panel" value="true" />
+        <entry key="$USER_HOME$/GitHub/enhance_stepper" value="true" />
+        <entry key="$USER_HOME$/GitHub/flutter" value="true" />
+        <entry key="$USER_HOME$/GitHub/flutter_dapp" value="true" />
+        <entry key="$USER_HOME$/GitHub/flutter_model" value="true" />
+        <entry key="$USER_HOME$/GitHub/flutter_pickers" value="true" />
+        <entry key="$USER_HOME$/GitHub/flutter_swiper_null_safety" value="true" />
+        <entry key="$USER_HOME$/GitHub/flutter_templet_project" value="true" />
+        <entry key="$USER_HOME$/GitHub/flutter_templet_project 2" value="true" />
+        <entry key="$USER_HOME$/GitHub/flutter_templet_project/android" value="true" />
+        <entry key="$USER_HOME$/GitHub/flutter_templet_project_324" value="true" />
+        <entry key="$USER_HOME$/GitHub/flutter_wechat_assets_picker" value="true" />
+        <entry key="$USER_HOME$/GitHub/hellow" value="true" />
+        <entry key="$USER_HOME$/GitHub/image_editor_plus" value="true" />
+        <entry key="$USER_HOME$/GitHub/isar_demo" value="true" />
+        <entry key="$USER_HOME$/GitHub/json_model" value="true" />
+        <entry key="$USER_HOME$/GitHub/json_to_dart" value="true" />
+        <entry key="$USER_HOME$/GitHub/n_slide_popup" value="true" />
+        <entry key="$USER_HOME$/GitHub/n_slide_popup_poute" value="true" />
+        <entry key="$USER_HOME$/GitHub/podcast_app" value="true" />
+        <entry key="$USER_HOME$/GitHub/route_manager" value="true" />
+        <entry key="$USER_HOME$/GitHub/route_stack_manager" value="true" />
+        <entry key="$USER_HOME$/GitHub/shc" value="true" />
+        <entry key="$USER_HOME$/GitHub/web_tool" value="true" />
+        <entry key="$USER_HOME$/Haier/syn_new_test" value="true" />
+        <entry key="$USER_HOME$/Haier/三翼鸟/LocalPackages/syn_base_tools" value="true" />
+        <entry key="$USER_HOME$/Haier/三翼鸟/LocalPackages/syn_home_pages" value="true" />
+        <entry key="$USER_HOME$/Haier/三翼鸟/LocalPackages/syn_mine_pages" value="true" />
+        <entry key="$USER_HOME$/Haier/三翼鸟/app" value="true" />
+        <entry key="$USER_HOME$/Haier/三翼鸟工作台/LocalPackages/eshop_material" value="true" />
+        <entry key="$USER_HOME$/MyApplication" value="true" />
+        <entry key="$USER_HOME$/MyApplication111111" value="true" />
+        <entry key="$USER_HOME$/capture_screen" value="true" />
+        <entry key="$USER_HOME$/flutter_demo" value="true" />
+        <entry key="$USER_HOME$/flutter_pickers" value="true" />
+        <entry key="$USER_HOME$/ftdemo" value="true" />
+        <entry key="$USER_HOME$/fvm/versions/2.8.0/packages/flutter/lib/src/widgets" value="true" />
+        <entry key="$USER_HOME$/hello" value="true" />
+        <entry key="$USER_HOME$/hellow" value="true" />
+        <entry key="$USER_HOME$/json_to_dart" value="true" />
+        <entry key="$USER_HOME$/web_toobal" value="true" />
+        <entry key="$USER_HOME$/web_tool" value="true" />
+        <entry key="$USER_HOME$/ydxk/packages/chewie" value="true" />
+        <entry key="$USER_HOME$/ydxk/projects/kbs_fe_app" value="true" />
+        <entry key="$USER_HOME$/ydxk/projects/kbs_fe_app_副本" value="true" />
+        <entry key="$USER_HOME$/yl/emoji_picker_flutter" value="true" />
+        <entry key="$USER_HOME$/yl/flutter_wechat_assets_picker" value="true" />
+        <entry key="$USER_HOME$/yl/image_editor_plus" value="true" />
+        <entry key="$USER_HOME$/yl/modules/yl_ai_consult_mod" value="true" />
+        <entry key="$USER_HOME$/yl/modules/yl_cross_care_biz_mod" value="true" />
+        <entry key="$USER_HOME$/yl/package/tencent_calls_uikit-1.7.1" value="true" />
+        <entry key="$USER_HOME$/yl/packages/flutter_wechat_assets_picker" value="true" />
+        <entry key="$USER_HOME$/yl/packages/route_stack_manager" value="true" />
+        <entry key="$USER_HOME$/yl/packages/yl_app_upgrader" value="true" />
+        <entry key="$USER_HOME$/yl/packages/yl_design" value="true" />
+        <entry key="$USER_HOME$/yl/packages/yl_foundation" value="true" />
+        <entry key="$USER_HOME$/yl/packages/yl_media" value="true" />
+        <entry key="$USER_HOME$/yl/packages/yl_route_stack_manager" value="true" />
+        <entry key="$USER_HOME$/yl/projects/yl_crm_app" value="true" />
+        <entry key="$USER_HOME$/yl/projects/yl_health_app" value="true" />
+        <entry key="$USER_HOME$/yl/projects/yl_health_app(db)" value="true" />
+        <entry key="$USER_HOME$/yl/projects/yl_health_app_副本" value="true" />
+        <entry key="$USER_HOME$/yl/projects/yl_health_manage_app" value="true" />
+        <entry key="$USER_HOME$/yl/projects/yl_health_manage_app_副本" value="true" />
+        <entry key="$USER_HOME$/yl/projects/yl_patient_app" value="true" />
+        <entry key="$USER_HOME$/yl/projects/yl_patient_app_副本" value="true" />
+        <entry key="$USER_HOME$/yl/projects/yl_yft_health" value="true" />
+        <entry key="$USER_HOME$/yl/projects/yl_ylgcp_app" value="true" />
+        <entry key="$USER_HOME$/yl/projects/yl_ylgcp_app/android" value="true" />
+        <entry key="$USER_HOME$/yl/projects/yl_ylgcp_app_副本" value="true" />
+        <entry key="$USER_HOME$/yl/projects/yl_ylgcp_app_副本2" value="true" />
+        <entry key="$USER_HOME$/yl/yl_crm_app" value="true" />
+        <entry key="$USER_HOME$/yl/yl_design" value="true" />
+        <entry key="$USER_HOME$/yl/yl_foundation" value="true" />
+        <entry key="$USER_HOME$/yl/yl_gcp_app" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_app" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_app 2" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_app(db)" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_app/android" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_app_172" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_app_172 2" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_app_172_副本2" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_app_2" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_app_2.20.2.1" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_app_no_callkit" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_app_prod" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_app_v2.20.4.1" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_app_v2.20.5" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_app_v2.20.5 2" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_app_v2.20.5.2" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_app_v2.20.5.3" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_app_副本" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_app_副本1111" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_app_副本132" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_app_副本2" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_app_副本3" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_app（TUICallKit）" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_app（isar）" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_manage_app" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_manage_app 2" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_manage_app_2" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_manage_app_2.20.3" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_manage_app_2.20.4.1" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_manage_app_v2.20.4.1" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_manage_app_v2.20.5" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_manage_app_v2.20.5 2" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_manage_app_v2.20.5.2" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_manage_app_v2.20.5.3" value="true" />
+        <entry key="$USER_HOME$/yl/yl_health_manage_app_副本" value="true" />
+        <entry key="$USER_HOME$/yl/yl_patient_app" value="true" />
+        <entry key="$USER_HOME$/yl/yl_patient_app 2" value="true" />
+        <entry key="$USER_HOME$/yl/yl_patient_app_2" value="true" />
+        <entry key="$USER_HOME$/yl/yl_patient_app_220p" value="true" />
+        <entry key="$USER_HOME$/yl/yl_patient_app_v2.20.4.1" value="true" />
+        <entry key="$USER_HOME$/yl/yl_patient_app_v2.20.5" value="true" />
+        <entry key="$USER_HOME$/yl/yl_patient_app_v2.20.5.3" value="true" />
+        <entry key="$USER_HOME$/yl/yl_patient_app_副本" value="true" />
+        <entry key="$USER_HOME$/yl/yl_patient_app_副本2" value="true" />
+        <entry key="$USER_HOME$/yl/yl_ylgcp_app" value="true" />
+        <entry key="$USER_HOME$/yl/yl_ylgcp_app 2" value="true" />
+        <entry key="$USER_HOME$/yl/yl_ylgcp_app_2" value="true" />
+        <entry key="$USER_HOME$/yl/yl_ylgcp_app_副本" value="true" />
+        <entry key="$USER_HOME$/代码备份" value="true" />
+      </map>
+    </option>
+  </component>
+  <component name="Trusted.Paths.Settings">
+    <option name="TRUSTED_PATHS">
+      <list>
+        <option value="$USER_HOME$/GitHub" />
+        <option value="$USER_HOME$" />
+      </list>
+    </option>
+  </component>
+</application>

@@ -1,8 +1,17 @@
 <application>
-  <component name="FileTypeManager" version="18">
+  <component name="FileTypeManager" version="19">
     <extensionMap>
       <mapping pattern="sign_out_api.dart" type="AUTO_DETECTED" />
+      <mapping pattern="PageViewDemoTwo.dart" type="AUTO_DETECTED" />
+      <mapping pattern="IMConversationMarkCreateApi.dart" type="AUTO_DETECTED" />
+      <mapping pattern="aa" type="AUTO_DETECTED" />
+      <mapping pattern="Fastfile" type="AUTO_DETECTED" />
       <mapping pattern="color_extension" type="Dart" />
+      <mapping pattern=".env.pre" type="PLAIN_TEXT" />
+      <mapping ext="xmind" type="PLAIN_TEXT" />
+      <mapping ext="rb" type="PLAIN_TEXT" />
+      <mapping ext="proto" type="PLAIN_TEXT" />
+      <mapping ext="yaml的替身" type="YAML" />
       <removed_mapping ext="apk" approved="true" type="ARCHIVE" />
       <removed_mapping ext="pro" approved="true" type="DeviceSpecFile" />
       <removed_mapping ext="psd" approved="true" type="Image" />

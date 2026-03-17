@@ -1,0 +1,170 @@
+<application>
+  <component name="ToolWindowLayout"><![CDATA[{
+  "layouts": {
+    "Custom": {
+      "v1": [
+        {
+          "id": "Project",
+          "order": 0,
+          "contentUiType": "COMBO",
+          "weight": 0.25
+        },
+        {
+          "id": "Structure",
+          "order": 1,
+          "weight": 0.25
+        },
+        {
+          "id": "Message",
+          "order": 0,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "Find",
+          "order": 1,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "Run",
+          "order": 2,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "Debug",
+          "order": 3,
+          "anchor": "BOTTOM",
+          "weight": 0.4
+        },
+        {
+          "id": "Cvs",
+          "order": 4,
+          "anchor": "BOTTOM",
+          "weight": 0.25
+        },
+        {
+          "id": "Inspection",
+          "order": 5,
+          "anchor": "BOTTOM",
+          "weight": 0.4
+        },
+        {
+          "id": "TODO",
+          "order": 6,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "Commander",
+          "order": 0,
+          "anchor": "RIGHT",
+          "type": "SLIDING",
+          "internalType": "SLIDING",
+          "weight": 0.4
+        },
+        {
+          "id": "Ant Build",
+          "order": 1,
+          "anchor": "RIGHT",
+          "weight": 0.25
+        },
+        {
+          "id": "Hierarchy",
+          "order": 2,
+          "anchor": "RIGHT",
+          "contentUiType": "COMBO",
+          "weight": 0.25
+        }
+      ],
+      "v2": [
+        {
+          "id": "Project",
+          "order": 0,
+          "contentUiType": "COMBO",
+          "weight": 0.25
+        },
+        {
+          "id": "Commit",
+          "order": 1,
+          "weight": 0.25
+        },
+        {
+          "id": "Resources Explorer",
+          "order": 2,
+          "weight": 0.25
+        },
+        {
+          "id": "Version Control",
+          "order": 0,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "Terminal",
+          "order": 1,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "Problems",
+          "order": 2,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "Problems View",
+          "order": 3,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "Logcat",
+          "order": 4,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "App Quality Insights",
+          "order": 5,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "Build",
+          "order": 6,
+          "anchor": "BOTTOM"
+        },
+        {
+          "id": "Notifications",
+          "order": 0,
+          "anchor": "RIGHT",
+          "contentUiType": "COMBO",
+          "weight": 0.25
+        },
+        {
+          "id": "Gradle",
+          "order": 1,
+          "anchor": "RIGHT",
+          "weight": 0.25
+        },
+        {
+          "id": "Device Manager",
+          "order": 2,
+          "anchor": "RIGHT",
+          "weight": 0.25
+        },
+        {
+          "id": "Device Manager 2",
+          "order": 3,
+          "anchor": "RIGHT",
+          "weight": 0.25
+        },
+        {
+          "id": "Running Devices",
+          "order": 4,
+          "anchor": "RIGHT",
+          "weight": 0.25
+        },
+        {
+          "id": "StudioBot",
+          "order": 5,
+          "anchor": "RIGHT",
+          "weight": 0.25
+        }
+      ]
+    }
+  }
+}]]></component>
+</application>

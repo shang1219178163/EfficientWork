@@ -9,18 +9,22 @@
     <variable name="exp" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
+      <option name="FLUTTER_RIVERPOD_SNIPPETS" value="true" />
     </context>
   </template>
-  <template name="hstatefulWidget" value="import 'package:flutter/material.dart';&#10;&#10;class $fileName$ extends StatefulWidget {&#10;&#10;  $fileName$({&#10;    Key? key, &#10;    this.title&#10;  }) : super(key: key);&#10;&#10;  final String? title;&#10;&#10;  @override&#10;  _$fileName$State createState() =&gt; _$fileName$State();&#10;}&#10;&#10;class _$fileName$State extends State&lt;$fileName$&gt; {&#10;&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    dynamic arguments = ModalRoute.of(context)!.settings.arguments;&#10;&#10;    return Scaffold(&#10;      appBar: AppBar(&#10;        title: Text(widget.title ?? &quot;$widget&quot;),&#10;        actions: ['done',].map((e) =&gt; TextButton(&#10;          child: Text(e,&#10;            style: TextStyle(color: Colors.white),&#10;          ),&#10;          onPressed: () =&gt; debugPrint(e),)&#10;        ).toList(),&#10;      ),&#10;      body: Text(arguments.toString())&#10;    );&#10;  }&#10;&#10;}" description="自定义 StatefulWidget 创建" toReformat="false" toShortenFQNames="true">
+  <template name="hstatefulWidget" value="import 'package:flutter/material.dart';&#10;import 'package:get/get.dart';&#10;&#10;class $fileName$ extends StatefulWidget {&#10;&#10;  const $fileName$({&#10;    super.key, &#10;    this.arguments,&#10;  });&#10;&#10;  final Map&lt;String, dynamic&gt;? arguments;&#10;&#10;  @override&#10;  State&lt;$fileName$&gt; createState() =&gt; _$fileName$State();&#10;}&#10;&#10;class _$fileName$State extends State&lt;$fileName$&gt; {&#10;&#10;  bool get hideApp =&gt;&#10;      &quot;$widget&quot;.toLowerCase().endsWith(Get.currentRoute.toLowerCase());&#10;&#10;  final scrollController = ScrollController();&#10;&#10;  Map&lt;String, dynamic&gt; arguments = Get.arguments ?? &lt;String, dynamic&gt;{};&#10;  /// id&#10;  late final id = arguments[&quot;id&quot;];&#10;  &#10;    &#10;  @override&#10;  void didUpdateWidget(covariant $fileName$ oldWidget) {&#10;    super.didUpdateWidget(oldWidget);&#10;  }&#10;  &#10;  @override&#10;  Widget build(BuildContext context) {&#10;    return Scaffold(&#10;      appBar: hideApp ? null : AppBar(&#10;        title: Text(&quot;$widget&quot;),&#10;        actions: ['done',].map((e) =&gt; TextButton(&#10;          child: Text(e,&#10;            style: TextStyle(color: Colors.white),&#10;          ),&#10;          onPressed: () =&gt; debugPrint(e),)&#10;        ).toList(),&#10;      ),&#10;      body: buildBody(),&#10;    );&#10;  }&#10;&#10;  Widget buildBody() {&#10;    return Scrollbar(&#10;      controller: scrollController,&#10;      child: SingleChildScrollView(&#10;        controller: scrollController,&#10;        child: Column(&#10;          children: [&#10;            Text(&quot;$widget&quot;),&#10;          ],&#10;        ),&#10;      ),&#10;    );&#10;  }&#10;  &#10;}" description="自定义 StatefulWidget 创建" toReformat="false" toShortenFQNames="true">
     <variable name="fileName" expression="capitalize(camelCase(fileNameWithoutExtension()))" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+      <option name="FLUTTER_RIVERPOD_SNIPPETS" value="true" />
     </context>
   </template>
-  <template name="hstatelessWidget" value="import 'package:flutter/material.dart';&#10;&#10;class $fileName$ extends StatelessWidget {&#10;&#10;  const $fileName$({&#10;  &#9;Key? key,&#10;  &#9;this.title,&#10;  }) : super(key: key);&#10;&#10;  final String? title;&#10;  &#10;  @override&#10;  Widget build(BuildContext context) {&#10;    dynamic arguments = ModalRoute.of(context)!.settings.arguments;&#10;&#10;    return Scaffold(&#10;      appBar: AppBar(&#10;        title: Text(title ?? &quot;$this&quot;),&#10;        actions: ['done',].map((e) =&gt; TextButton(&#10;          child: Text(e,&#10;            style: TextStyle(color: Colors.white),&#10;          ),&#10;          onPressed: () =&gt; debugPrint(e),&#10;        )).toList(),&#10;      ),&#10;      body: Text(arguments.toString());&#10;    );&#10;  }&#10;}" description="自定义 StatelessWidget 创建" toReformat="false" toShortenFQNames="true">
+  <template name="hstatelessWidget" value="import 'package:flutter/material.dart';&#10;&#10;class $fileName$ extends StatelessWidget {&#10;&#10;  const $fileName$({&#10;  &#9;super.key,&#10;  &#9;this.arguments,&#10;  });&#10;&#10;  final Map&lt;String, dynamic&gt;? arguments;&#10;&#10;  &#10;  @override&#10;  Widget build(BuildContext context) {&#10;    // dynamic arguments = ModalRoute.of(context)!.settings.arguments;&#10;&#10;    return Scaffold(&#10;      appBar: AppBar(&#10;        title: Text(&quot;$this&quot;),&#10;        actions: ['done',].map((e) =&gt; TextButton(&#10;          child: Text(e,&#10;            style: TextStyle(color: Colors.white),&#10;          ),&#10;          onPressed: () =&gt; debugPrint(e),&#10;        )).toList(),&#10;      ),&#10;      body: Text(arguments.toString()),&#10;    );&#10;  }&#10;}" description="自定义 StatelessWidget 创建" toReformat="false" toShortenFQNames="true">
     <variable name="fileName" expression="capitalize(camelCase(fileNameWithoutExtension()))" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
+      <option name="FLUTTER_RIVERPOD_SNIPPETS" value="true" />
     </context>
   </template>
   <template name="hswitch_string" value="switch ($exp$) {&#10;  case &quot;&quot;:&#10;    {&#10;&#10;    }&#10;    break;&#10;  case &quot;&quot;:&#10;    {&#10;&#10;    }&#10;    break;&#10;  case &quot;&quot;:&#10;    {&#10;    }&#10;    break;&#10;  default:&#10;    break;&#10;}" description="自定义 switch 字符串方法" toReformat="false" toShortenFQNames="true">
@@ -47,7 +51,7 @@
       <option name="DART" value="true" />
     </context>
   </template>
-  <template name="func" value="_build$func$() {&#10;&#10;}" description="自定义私有方法声明" toReformat="false" toShortenFQNames="true">
+  <template name="build" value="Widget build$func$() {&#10;  return &#10;}" description="自定义私有方法声明" toReformat="false" toShortenFQNames="true">
     <variable name="func" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
@@ -69,14 +73,14 @@
       <option name="FLUTTER" value="true" />
     </context>
   </template>
-  <template name="forin" value="for (var item in items) {&#10;  $exp$&#10;}" description="forin" toReformat="false" toShortenFQNames="true">
+  <template name="forin" value="for (final e in items) {&#10;  $exp$&#10;}" description="forin" toReformat="false" toShortenFQNames="true">
     <variable name="exp" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
       <option name="FLUTTER" value="true" />
     </context>
   </template>
-  <template name="try" value="try {&#10;    $exp$&#10;} on DioError catch (exception) {&#10;  onError(exception.toString());&#10;}" description="自定义方法" toReformat="false" toShortenFQNames="true">
+  <template name="try" value="try {&#10;    $exp$&#10;} catch (e) {&#10;  debugPrint(&quot;$this $e&quot;);&#10;}" description="自定义方法" toReformat="false" toShortenFQNames="true">
     <variable name="exp" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
@@ -101,7 +105,6 @@
     <variable name="exp" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
-      <option name="DART_TOPLEVEL" value="false" />
     </context>
   </template>
   <template name="hbuilder" value="Builder(&#10;  builder: (context) {&#10;    $exp$&#10;    return SizedBox();&#10;  }&#10;)," description="自定义 Builder 代码片段" toReformat="false" toShortenFQNames="true">
@@ -110,13 +113,14 @@
       <option name="DART_STATEMENT" value="true" />
     </context>
   </template>
-  <template name="hstatefulWidget_TabBarView" value="import 'package:flutter/material.dart';&#10;import 'package:tuple/tuple.dart';&#10;import 'package:flutter_templet_project/extension/color_ext.dart';&#10;&#10;class $fileName$ extends StatefulWidget {&#10;&#10;  $fileName$({&#10;    Key? key, &#10;    this.title&#10;  }) : super(key: key);&#10;&#10;  final String? title;&#10;&#10;  @override&#10;  _$fileName$State createState() =&gt; _$fileName$State();&#10;}&#10;&#10;class _$fileName$State extends State&lt;$fileName$&gt; with AutomaticKeepAliveClientMixin{&#10;&#10;&#10;  var initialIndex = 0;&#10;&#10;  var items = &lt;Tuple2&lt;Tab, Widget&gt;&gt;[];&#10;&#10;  @override&#10;  void initState() {&#10;    items = &lt;Tuple2&lt;Tab, Widget&gt;&gt;[&#10;      Tuple2(&#10;        Tab(icon: Icon(Icons.directions_railway)),&#10;        _buildPage(),&#10;      ),&#10;      Tuple2(&#10;        Tab(icon: Icon(Icons.directions_car)),&#10;        _buildPage1(),&#10;      ),&#10;      Tuple2(&#10;        Tab(icon: Icon(Icons.directions_bus)),&#10;        _buildPage2(),&#10;      ),&#10;      Tuple2(&#10;        Tab(icon: Icon(Icons.directions_bike)),&#10;        _buildPage3(),&#10;      ),&#10;      Tuple2(&#10;        Tab(icon: Icon(Icons.directions_boat)),&#10;        _buildPage4(),&#10;      ),&#10;    ];&#10;&#10;    super.initState();&#10;  }&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    super.build(context);&#10;&#10;    return MaterialApp(&#10;      home: DefaultTabController(&#10;        initialIndex: initialIndex,&#10;        length: items.length,&#10;        child: Scaffold(&#10;          appBar: AppBar(&#10;            bottom: TabBar(&#10;              tabs: items.map((e) =&gt; e.item1).toList(),&#10;            ),&#10;            title: Text('$widget'),&#10;          ),&#10;          body: TabBarView(&#10;            children: items.map((e) =&gt; e.item2).toList(),&#10;          ),&#10;        ),&#10;      ),&#10;    );&#10;  }&#10;&#10;  @override&#10;  bool get wantKeepAlive =&gt; true;&#10;&#10;  _buildPage() {&#10;    return SafeArea(&#10;      child: CustomScrollView(&#10;        slivers: &lt;Widget&gt;[&#10;          Column(&#10;            children: [&#10;              Container(&#10;                height: 500,&#10;                width: double.infinity,&#10;                color: ColorExt.random,&#10;                padding: EdgeInsets.all(8),&#10;                child: Wrap(&#10;                  children: [&#10;                    ElevatedButton(onPressed: onPressed, child: Text(&quot;Iterable&quot;)),&#10;                  ],&#10;                ),&#10;              )&#10;            ],&#10;          ),&#10;        ].map((e) =&gt; SliverToBoxAdapter(child: e)).toList(),&#10;      ),&#10;    );&#10;  }&#10;&#10;  _buildPage1() {&#10;    return SafeArea(&#10;      child: CustomScrollView(&#10;        slivers: &lt;Widget&gt;[&#10;          Column(&#10;            children: [&#10;              Container(&#10;                height: 500,&#10;                color: ColorExt.random,&#10;&#10;              )&#10;            ],&#10;          ),&#10;        ].map((e) =&gt; SliverToBoxAdapter(child: e)).toList(),&#10;      ),&#10;    );&#10;  }&#10;&#10;  _buildPage2() {&#10;    return SafeArea(&#10;      child: CustomScrollView(&#10;        slivers: &lt;Widget&gt;[&#10;          Column(&#10;            children: [&#10;              Container(&#10;                height: 500,&#10;                color: ColorExt.random,&#10;&#10;              )&#10;            ],&#10;          ),&#10;        ].map((e) =&gt; SliverToBoxAdapter(child: e)).toList(),&#10;      ),&#10;    );&#10;  }&#10;&#10;  _buildPage3() {&#10;    return SafeArea(&#10;      child: CustomScrollView(&#10;        slivers: &lt;Widget&gt;[&#10;          Column(&#10;            children: [&#10;              Container(&#10;                height: 500,&#10;                color: ColorExt.random,&#10;&#10;              )&#10;            ],&#10;          ),&#10;        ].map((e) =&gt; SliverToBoxAdapter(child: e)).toList(),&#10;      ),&#10;    );&#10;  }&#10;&#10;  _buildPage4() {&#10;    return SafeArea(&#10;      child: CustomScrollView(&#10;        slivers: &lt;Widget&gt;[&#10;          Column(&#10;            children: [&#10;              Container(&#10;                height: 500,&#10;                color: ColorExt.random,&#10;&#10;              )&#10;            ],&#10;          ),&#10;        ].map((e) =&gt; SliverToBoxAdapter(child: e)).toList(),&#10;      ),&#10;    );&#10;  }&#10;&#10;  onPressed() {&#10;    print(&quot;onPressed&quot;);&#10;&#10;  }&#10;&#10;}" description="TabBarView 模板页面" toReformat="false" toShortenFQNames="true">
+  <template name="hstatefulWidget_TabBarView" value="import 'package:flutter/material.dart';&#10;import 'package:tuple/tuple.dart';&#10;import 'package:flutter_templet_project/extension/color_ext.dart';&#10;&#10;class $fileName$ extends StatefulWidget {&#10;&#10;  const $fileName$({&#10;    super.key, &#10;    this.arguments,&#10;  });&#10;&#10;  final Map&lt;String, dynamic&gt;? arguments;&#10;&#10;&#10;  @override&#10;  State&lt;$fileName$&gt; createState() =&gt; _$fileName$State();&#10;}&#10;&#10;class _$fileName$State extends State&lt;$fileName$&gt; with AutomaticKeepAliveClientMixin{&#10;&#10;&#10;  var initialIndex = 0;&#10;&#10;  late var items = &lt;Tuple2&lt;Tab, Widget&gt;&gt;[&#10;    Tuple2(Tab(text: &quot;选项1&quot;), buildPage()),&#10;    Tuple2(Tab(text: &quot;选项2&quot;), buildPage1()),&#10;    Tuple2(Tab(text: &quot;选项2&quot;), buildPage2()),&#10;  ];&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    super.build(context);&#10;&#10;    return MaterialApp(&#10;      home: DefaultTabController(&#10;        initialIndex: initialIndex,&#10;        length: items.length,&#10;        child: Scaffold(&#10;          appBar: AppBar(&#10;            bottom: TabBar(&#10;              tabs: items.map((e) =&gt; e.item1).toList(),&#10;            ),&#10;            title: Text('$widget'),&#10;          ),&#10;          body: TabBarView(&#10;            children: items.map((e) =&gt; e.item2).toList(),&#10;          ),&#10;        ),&#10;      ),&#10;    );&#10;  }&#10;&#10;  @override&#10;  bool get wantKeepAlive =&gt; true;&#10;&#10;  Widget buildPage() {&#10;    return SafeArea(&#10;      child: CustomScrollView(&#10;        slivers: &lt;Widget&gt;[&#10;          Column(&#10;            children: [&#10;              Container(&#10;                height: 500,&#10;                width: double.infinity,&#10;                color: ColorExt.random,&#10;                padding: EdgeInsets.all(8),&#10;                child: Wrap(&#10;                  spacing: 8,&#10;                  runSpacing: 8,&#10;                  children: [&#10;                    ElevatedButton(onPressed: (){&#10;                        print(&quot;onPressed&quot;);&#10;                    }, child: Text(&quot;Iterable&quot;),),&#10;                  ],&#10;                ),&#10;              )&#10;            ],&#10;          ),&#10;        ].map((e) =&gt; SliverToBoxAdapter(child: e)).toList(),&#10;      ),&#10;    );&#10;  }&#10;&#10;  Widget buildPage1() {&#10;    return SafeArea(&#10;      child: CustomScrollView(&#10;        slivers: &lt;Widget&gt;[&#10;          Column(&#10;            children: [&#10;              Container(&#10;                height: 500,&#10;                color: ColorExt.random,&#10;&#10;              )&#10;            ],&#10;          ),&#10;        ].map((e) =&gt; SliverToBoxAdapter(child: e)).toList(),&#10;      ),&#10;    );&#10;  }&#10;&#10;  Widget buildPage2() {&#10;    return SafeArea(&#10;      child: CustomScrollView(&#10;        slivers: &lt;Widget&gt;[&#10;          Column(&#10;            children: [&#10;              Container(&#10;                height: 500,&#10;                color: ColorExt.random,&#10;&#10;              )&#10;            ],&#10;          ),&#10;        ].map((e) =&gt; SliverToBoxAdapter(child: e)).toList(),&#10;      ),&#10;    );&#10;  }&#10;&#10;&#10;&#10;}" description="TabBarView 模板页面" toReformat="false" toShortenFQNames="true">
     <variable name="fileName" expression="capitalize(camelCase(fileNameWithoutExtension()))" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
+      <option name="FLUTTER_RIVERPOD_SNIPPETS" value="true" />
     </context>
   </template>
-  <template name="hstatefulWidget_CustomScrollView" value="//&#10;//  $fileName$.dart&#10;//  $projectName$&#10;//&#10;//  Created by $user$ on $date$ $time$.&#10;//  Copyright © $year$ $user$. All rights reserved.&#10;//&#10;&#10;&#10;import 'package:flutter/material.dart';&#10;&#10;class $fileName$ extends StatefulWidget {&#10;&#10;  $fileName$({&#10;    Key? key, &#10;    this.title&#10;  }) : super(key: key);&#10;&#10;  final String? title;&#10;&#10;  @override&#10;  _$fileName$State createState() =&gt; _$fileName$State();&#10;}&#10;&#10;class _$fileName$State extends State&lt;$fileName$&gt; {&#10;&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    dynamic arguments = ModalRoute.of(context)!.settings.arguments;&#10;&#10;    return Scaffold(&#10;      appBar: AppBar(&#10;        title: Text(widget.title ?? &quot;$widget&quot;),&#10;        actions: ['done',].map((e) =&gt; TextButton(&#10;          child: Text(e,&#10;            style: TextStyle(color: Colors.white),&#10;          ),&#10;          onPressed: () =&gt; debugPrint(&quot;done&quot;),&#10;        )).toList(),&#10;      ),&#10;      body: _buildBody(),&#10;    );&#10;  }&#10;&#10;  _buildBody() {&#10;    return SafeArea(&#10;      child: CustomScrollView(&#10;        slivers: &lt;Widget&gt;[&#10;          Column(&#10;            children: [&#10;              Container(&#10;                height: 500,&#10;                width: double.infinity,&#10;                padding: EdgeInsets.all(8),&#10;                child: Wrap(&#10;                  children: [&#10;                    ElevatedButton(onPressed: onPressed, child: Text(&quot;utton&quot;)),&#10;                  ],&#10;                ),&#10;              )&#10;            ],&#10;          ),&#10;        ].map((e) =&gt; SliverToBoxAdapter(child: e)).toList(),&#10;      ),&#10;    );&#10;  }&#10;  &#10;  onPressed() {&#10;&#10;  }&#10;}" description="自定义 StatefulWidget 创建 CustomScrollView" toReformat="false" toShortenFQNames="true">
+  <template name="hstatefulWidget_CustomScrollView" value="//&#10;//  $fileName$.dart&#10;//  $projectName$&#10;//&#10;//  Created by $user$ on $date$ $time$.&#10;//  Copyright © $year$ $user$. All rights reserved.&#10;//&#10;&#10;&#10;import 'package:flutter/material.dart';&#10;&#10;class $fileName$ extends StatefulWidget {&#10;&#10;  const $fileName$({&#10;    super.key, &#10;    this.arguments,&#10;  });&#10;&#10;  final Map&lt;String, dynamic&gt;? arguments;&#10;&#10;&#10;  @override&#10;  State&lt;$fileName$&gt; createState() =&gt; _$fileName$State();&#10;}&#10;&#10;class _$fileName$State extends State&lt;$fileName$&gt; {&#10;&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    // dynamic arguments = ModalRoute.of(context)!.settings.arguments;&#10;&#10;    return Scaffold(&#10;      appBar: AppBar(&#10;        title: Text(&quot;$widget&quot;),&#10;        actions: ['done',].map((e) =&gt; TextButton(&#10;          child: Text(e,&#10;            style: TextStyle(color: Colors.white),&#10;          ),&#10;          onPressed: () =&gt; debugPrint(&quot;done&quot;),&#10;        )).toList(),&#10;      ),&#10;      body: _buildBody(),&#10;    );&#10;  }&#10;&#10;  _buildBody() {&#10;    return SafeArea(&#10;      child: CustomScrollView(&#10;        slivers: &lt;Widget&gt;[&#10;          Column(&#10;            children: [&#10;              Container(&#10;                height: 500,&#10;                width: double.infinity,&#10;                padding: EdgeInsets.all(8),&#10;                child: Wrap(&#10;                  children: [&#10;                    ElevatedButton(onPressed: onPressed, child: Text(&quot;utton&quot;)),&#10;                  ],&#10;                ),&#10;              )&#10;            ],&#10;          ),&#10;        ].map((e) =&gt; SliverToBoxAdapter(child: e)).toList(),&#10;      ),&#10;    );&#10;  }&#10;  &#10;  onPressed() {&#10;&#10;  }&#10;}" description="自定义 StatefulWidget 创建 CustomScrollView" toReformat="false" toShortenFQNames="true">
     <variable name="fileName" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="projectName" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="user" expression="" defaultValue="" alwaysStopAt="true" />
@@ -131,12 +135,233 @@
     <variable name="fileName" expression="capitalize(camelCase(fileNameWithoutExtension()))" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
+      <option name="FLUTTER_RIVERPOD_SNIPPETS" value="true" />
     </context>
   </template>
   <template name="hvalueListenableBuilder" value="ValueListenableBuilder(&#10;   valueListenable: hasTab, &#10;   builder: (context, $exp$ value, child){&#10;   &#10;      return SizedBox();&#10;    }&#10;)," description="ValueListenableBuilder" toReformat="false" toShortenFQNames="true">
     <variable name="exp" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="htextButtonstyleFrom" value="TextButton.styleFrom(&#10;  padding: EdgeInsets.zero,&#10;  tapTargetSize: MaterialTapTargetSize.shrinkWrap,&#10;  minimumSize: Size(50, 18),&#10;  primary: primary,&#10;)," description="TextButton.styleFrom(" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="helevatedButtonstyleFrom" value="ElevatedButton.styleFrom(&#10;    backgroundColor: Color(0xff5690F4).withOpacity(0.1),&#10;    foregroundColor: Color(0xff5690F4),&#10;    elevation: 0,&#10;    shape: StadiumBorder(),&#10;    tapTargetSize: MaterialTapTargetSize.shrinkWrap,&#10;    minimumSize: Size(64.w, 32.w),&#10;    )," description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="hboxDecoration" value="BoxDecoration(&#10;  color: Colors.transparent,&#10;  border: Border.all(color: Colors.blue),&#10;  borderRadius: BorderRadius.all(Radius.circular(0)),&#10;)" description="BoxDecoration" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="hshapeDecoration" value="ShapeDecoration(&#10;  color: Colors.transparent,&#10;  shape: StadiumBorder(),&#10;),&#10;" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="hcircleBorder" value="ShapeDecoration(&#10;  color: Colors.transparent,&#10;  shape: CircleBorder(),&#10;)," description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="hempty" value="if (id == null || id.isEmpty) {&#10;  debugPrint(&quot;id 不能为空&quot;);&#10;  //BrunoUtil.showInfoToast(&quot;id 不能为空&quot;);&#10;  return;&#10;}" description="id 不能为空" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="hanimatedBuilder" value="AnimatedBuilder(&#10;  animation: Listenable.merge([&#10;    _successVN,&#10;    _percentVN,&#10;  ]),&#10;  builder: (context, child) {&#10;    return Container(&#10;      decoration: BoxDecoration(&#10;        color: Colors.transparent,&#10;        border: Border.all(color: Colors.blue),&#10;        borderRadius: BorderRadius.all(Radius.circular(0)),&#10;      ),&#10;    );&#10;  }&#10;)," description="多监听" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="haddPostFrameCallback" value="WidgetsBinding.instance.addPostFrameCallback((_) {&#10;  ///...&#10;});" description="页面渲染完毕回调" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="hrichText" value="Text.rich(&#10;  TextSpan(&#10;    children: [&#10;      TextSpan(&#10;          text: &quot;&quot;,&#10;          style: const TextStyle(&#10;            fontSize: 14,&#10;            fontWeight: FontWeight.w500,&#10;            color: Color(0xFF1A1A1A),&#10;          )&#10;      ),&#10;      TextSpan(&#10;          text: &quot;&quot;,&#10;          style: const TextStyle(&#10;            fontSize: 14,&#10;            fontWeight: FontWeight.w500,&#10;            color: Color(0xFF1A1A1A),&#10;          )&#10;      ),&#10;    ],&#10;  ),&#10;  maxLines: 2,&#10;  overflow: TextOverflow.ellipsis,&#10;)" description="Text.rich" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="hrightAcrion" value="InkWell(&#10;             onTap: (){&#10;               Get.to(() =&gt; InviteQrCodePage());&#10;             },&#10;             child: Icon(Icons.more_horiz),&#10;           )" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="hdividing" value="// **************************************** 分割线 **********************************" description="分割线注释" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="func" value="void $func$() {&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="func" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="hdeprecated" value="@Deprecated(&quot;已弃用,请使用 $1&quot;)" description="弃用" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+      <option name="FLUTTER_RIVERPOD_SNIPPETS" value="true" />
+    </context>
+  </template>
+  <template name="hsetList" value="  late List&lt;Map&lt;String, dynamic&gt;&gt; _list;&#10;  List&lt;Map&lt;String, dynamic&gt;&gt; get list =&gt; _list;&#10;  set list(List&lt;Map&lt;String, dynamic&gt;&gt; value) {&#10;    if (_list == value) {&#10;      return;&#10;    }&#10;    _list = value;&#10;    //update();&#10;  }" description="数组变量 get set 方法" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="hset" value="  late bool _isUpdate;&#10;  bool get isUpdate =&gt; _isUpdate;&#10;  set isUpdate(bool value) {&#10;    if (_isUpdate == value) {&#10;      return;&#10;    }&#10;    _isUpdate = value;&#10;    //update();&#10;  }" description="重写set get 方法" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="hgoRoute" value="/// 路由名称&#10;static String routeName = '$fileName$';&#10;      &#10;/// 路由&#10;static final route = GoRoute(&#10;  name: routeName,&#10;  path: '/$routeName',&#10;  pageBuilder: (context, state) =&gt; MaterialPage(&#10;    fullscreenDialog: true,&#10;    child: $fileName$(),&#10;  ),&#10;);" description="GoRoute 路由声明" toReformat="false" toShortenFQNames="true">
+    <variable name="fileName" expression="capitalize(camelCase(fileNameWithoutExtension()))" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="hriverpodPage" value="import 'package:flutter/cupertino.dart';&#10;import 'package:flutter/material.dart';&#10;import 'package:flutter_riverpod/flutter_riverpod.dart';&#10;import 'package:riverpod_annotation/riverpod_annotation.dart';&#10;import 'package:go_router/go_router.dart';&#10;import 'package:yl_gcp_app/core/router/based.dart';&#10;import 'package:yl_gcp_app/core/router/provider.dart';&#10;import 'package:yl_gcp_app/module/_examples/page/state.dart';&#10;import 'package:yl_gcp_app/module/account/model/auth_token_vo.dart';&#10;import 'package:yl_gcp_app/vender/toast_util.dart';&#10;&#10;&#10;class $fileName$ extends ConsumerStatefulWidget {&#10;  &#10;    /// 路由名称&#10;  static String routeName = '$fileName$';&#10;  &#10;  /// 路由&#10;  static final route = GoRoute(&#10;    name: routeName,&#10;    path: '/' + routeName,&#10;    pageBuilder: (context, state) =&gt; MaterialPage(&#10;      fullscreenDialog: true,&#10;      child: $fileName$(),&#10;    ),&#10;  );&#10;&#10;  const $fileName$({&#10;    super.key,&#10;  });&#10;&#10;  @override&#10;  ConsumerState&lt;ConsumerStatefulWidget&gt; createState() =&gt; _$fileName$State();&#10;}&#10;&#10;class _$fileName$State extends ConsumerState&lt;$fileName$&gt;&#10;    with AutomaticKeepAliveClientMixin, _PageBuilder {&#10;  @override&#10;  _$fileName$State get state =&gt; this;&#10;&#10;  @override&#10;  bool get wantKeepAlive =&gt; true;&#10;&#10;  /// 跳转页面并接收返回值&#10;  void pickXXX() async {&#10;    final result = await ref.router.pushRoutable&lt;String&gt;(&#10;      const ExamplePage(&#10;        requiredValue: '必传参数',&#10;        model: AuthTokenVo(&#10;          accessToken: 'AAA',&#10;          refreshToken: 'RRR',&#10;          expiration: 1,&#10;        ),&#10;      ),&#10;    );&#10;  }&#10;}&#10;&#10;&#10;mixin _PageBuilder on ConsumerState&lt;$fileName$&gt; {&#10;  _$fileName$State get state;&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    // 调用 AutomaticKeepAliveClientMixin.build&#10;    super.build(context);&#10;&#10;    return Scaffold(&#10;      backgroundColor: Colors.yellowAccent,&#10;      appBar: AppBar(&#10;        title: Text(&quot;$fileName$&quot;),&#10;      ),&#10;      body: ListView(&#10;        padding: const EdgeInsets.all(16),&#10;        children: [&#10;          ElevatedButton(&#10;            onPressed: () async {&#10;              state.pickXXX();&#10;            },&#10;            child: const Text('带参跳转并接收返回值'),&#10;          ),&#10;          Text('返回值:'),&#10;        ],&#10;      ),&#10;    );&#10;  }&#10;}" description="riverpod Page" toReformat="false" toShortenFQNames="true">
+    <variable name="fileName" expression="capitalize(camelCase(fileNameWithoutExtension()))" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="fvoid" value="Future&lt;void&gt; " description="Future&lt;void&gt;" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="himage" value="Image(&#10;  image: $1.toAssetImage(),&#10;  width: 16,&#10;  height: 16,&#10;)" description="Image" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="hgetBuilder" value="GetBuilder&lt;$1&gt;(&#10;  builder: (controller) {&#10;  &#10;  }&#10;)" description="GetBuilder" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER" value="true" />
+    </context>
+  </template>
+  <template name="hshaderMask" value="ShaderMask(&#10;  shaderCallback: (Rect bounds) {&#10;    return const LinearGradient(&#10;      begin: Alignment.topLeft,&#10;      end: Alignment.bottomRight,&#10;      colors: [Color(0xff9a876d), Color(0xffcab072), Color(0xff6a583e)],&#10;      stops: [0, 0.5, 1.0],&#10;    ).createShader(bounds);&#10;  },&#10;  child: $1,&#10;)" description="着色器" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="hthemeProviderGet" value="ThemeProvider get themeProvider =&gt; context.read&lt;ThemeProvider&gt;();&#10;" description="ThemeProvider get themeProvider =&gt; context.read&lt;ThemeProvider&gt;();" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="hthemeProvider" value="late final themeProvider = context.read&lt;ThemeProvider&gt;();" description="late final themeProvider = context.read&lt;ThemeProvider&gt;();" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="h181829AndWhite" value="themeProvider.isDark ? AppColors.color_181829 : Colors.white" description="themeProvider.isDark ? AppColors.color_181829 : Colors.white" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="hscaffoldBackgroundColor" value="final scaffoldBackgroundColor = Theme.of(context).scaffoldBackgroundColor;" description="final scaffoldBackgroundColor = Theme.of(context).scaffoldBackgroundColor;" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="hborder" value="border: Border.all(color: Colors.blue)," description="border: Border.all(color: Colors.blue)," toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="htheme" value="final theme = Theme.of(context);&#10;final isDark = theme.brightness == Brightness.dark;" description="late final themeProvider = context.read&lt;ThemeProvider&gt;();" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="hbuildWrap" value="  Widget buildWrap({required ValueChanged&lt;int&gt; onChanged}) {&#10;    final list = List.generate(8, (i) =&gt; i);&#10;&#10;    return LayoutBuilder(&#10;      builder: (context, constraints) {&#10;        final spacing = 8.0;&#10;        final rowCount = 4.0;&#10;        final itemWidth = (constraints.maxWidth - spacing * (rowCount - 1)) / rowCount;&#10;&#10;        return Wrap(&#10;          spacing: spacing,&#10;          runSpacing: spacing,&#10;          // crossAxisAlignment: WrapCrossAlignment.center,&#10;          children: [&#10;            ...list.map(&#10;              (e) {&#10;                final i = list.indexOf(e);&#10;                final btnTitle = &quot;card $e&quot;;&#10;                return GestureDetector(&#10;                  onTap: () =&gt; onChanged(i),&#10;                  child: Container(&#10;                    width: itemWidth.truncateToDouble(),&#10;                    height: itemWidth * 1.2,&#10;                    decoration: BoxDecoration(&#10;                      color: Colors.transparent,&#10;                      border: Border.all(color: Colors.blue),&#10;                      borderRadius: BorderRadius.all(Radius.circular(0)),&#10;                    ),&#10;                    child: Text(btnTitle),&#10;                  ),&#10;                );&#10;              },&#10;            ),&#10;          ],&#10;        );&#10;      },&#10;    );&#10;  }" description="Widget buildWrap() {" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER_RIVERPOD_SNIPPETS" value="true" />
+    </context>
+  </template>
+  <template name="hlistenableBuilder" value="ListenableBuilder(&#10;  listenable: Listenable.merge([&#10;    _successVN,&#10;    _percentVN,&#10;  ]),&#10;  builder: (context, Widget? child) {&#10;    return Container(&#10;      decoration: BoxDecoration(&#10;        color: Colors.transparent,&#10;        border: Border.all(color: Colors.blue),&#10;        borderRadius: BorderRadius.all(Radius.circular(0)),&#10;      ),&#10;    );&#10;  },&#10;)," description="ListenableBuilder" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER_RIVERPOD_SNIPPETS" value="true" />
+    </context>
+  </template>
+  <template name="hpreferredSize" value="PreferredSize(&#10;  preferredSize: Size.fromHeight(60),&#10;  child: Container(&#10;    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),&#10;    child: RoundedSearchBar(&#10;      controller: controller,&#10;      fillColor: themeProvider.isDark ? AppColors.color242434 : AppColors.bgColorF5F8F9,&#10;      hint: &quot;搜索主播手机号或看比赛号&quot;,&#10;      onChange: (value) {&#10;        pageNum = 1;&#10;        initData();&#10;      },&#10;    ),&#10;  ),&#10;)," description="PreferredSize(   preferredSize: Size.fromHeight(60)," toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="hsetget" value="// 添加一个新属性&#10;String? _type;&#10;&#10;String? get type =&gt; _type;&#10;&#10;set type(String? value) {&#10;    _type = value;&#10;}" description="属性 set get" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER_RIVERPOD_SNIPPETS" value="true" />
+    </context>
+  </template>
+  <template name="hvalueVN_Listener" value="  @override&#10;  void dispose() {&#10;    widget.valueVN.removeListener(onValueLtr);&#10;    super.dispose();&#10;  }&#10;&#10;  @override&#10;  void initState() {&#10;    widget.valueVN.addListener(onValueLtr);&#10;    super.initState();&#10;  }&#10;&#10;  onValueLtr() {&#10;    value = widget.valueVN.value;&#10;    setState(() {});&#10;  }&#10;" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER_RIVERPOD_SNIPPETS" value="true" />
+    </context>
+  </template>
+  <template name="hmaterialPageRoute" value="Navigator.push(&#10;  context,&#10;  MaterialPageRoute(builder: (context) =&gt; e),&#10;);" description="原生跳转方法" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER_RIVERPOD_SNIPPETS" value="true" />
+    </context>
+  </template>
+  <template name="hfontFamily_PingFang" value="fontFamily: 'PingFang SC'," description="fontFamily: 'PingFang SC'," toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="DART_TOPLEVEL" value="false" />
+      <option name="FLUTTER_RIVERPOD_SNIPPETS" value="true" />
+    </context>
+  </template>
+  <template name="hfontWeight_ FontWeight.w500," value="fontWeight: FontWeight.w500," description="fontWeight: FontWeight.w500," toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="DART_TOPLEVEL" value="false" />
+      <option name="FLUTTER_RIVERPOD_SNIPPETS" value="true" />
+    </context>
+  </template>
+  <template name="hoverflow" value="overflow: TextOverflow.ellipsis," description="overflow: TextOverflow.ellipsis," toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER_RIVERPOD_SNIPPETS" value="true" />
+    </context>
+  </template>
+  <template name="hborderSide" value="Divider.createBorderSide(context, width: 1.0)" description="Divider.createBorderSide(context, width: 1.0)," toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+      <option name="FLUTTER_RIVERPOD_SNIPPETS" value="true" />
     </context>
   </template>
 </templateSet>

@@ -1,9 +1,229 @@
 <application>
   <component name="ProjectJdkTable">
     <jdk version="2">
+      <name value="corretto-11" />
+      <type value="JavaSDK" />
+      <version value="Amazon Corretto 11.0.19" />
+      <homePath value="$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home" />
+      <roots>
+        <annotationsPath>
+          <root type="composite">
+            <root url="jar://$APPLICATION_HOME_DIR$/plugins/java/lib/resources/jdkAnnotations.jar!/" type="simple" />
+          </root>
+        </annotationsPath>
+        <classPath>
+          <root type="composite">
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/java.base" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/java.compiler" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/java.datatransfer" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/java.desktop" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/java.instrument" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/java.logging" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/java.management" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/java.management.rmi" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/java.naming" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/java.net.http" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/java.prefs" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/java.rmi" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/java.scripting" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/java.se" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/java.security.jgss" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/java.security.sasl" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/java.smartcardio" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/java.sql" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/java.sql.rowset" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/java.transaction.xa" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/java.xml" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/java.xml.crypto" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.accessibility" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.aot" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.attach" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.charsets" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.compiler" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.crypto.cryptoki" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.crypto.ec" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.dynalink" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.editpad" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.hotspot.agent" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.httpserver" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.internal.ed" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.internal.jvmstat" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.internal.le" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.internal.opt" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.internal.vm.ci" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.internal.vm.compiler" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.internal.vm.compiler.management" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.jartool" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.javadoc" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.jcmd" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.jconsole" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.jdeps" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.jdi" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.jdwp.agent" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.jfr" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.jlink" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.jshell" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.jsobject" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.jstatd" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.localedata" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.management" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.management.agent" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.management.jfr" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.naming.dns" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.naming.ldap" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.naming.rmi" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.net" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.pack" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.rmic" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.scripting.nashorn" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.scripting.nashorn.shell" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.sctp" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.security.auth" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.security.jgss" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.unsupported" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.unsupported.desktop" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.xml.dom" type="simple" />
+            <root url="jrt://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home!/jdk.zipfs" type="simple" />
+          </root>
+        </classPath>
+        <javadocPath>
+          <root type="composite" />
+        </javadocPath>
+        <sourcePath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/java.se" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.aot" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.jdi" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.jfr" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.net" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/java.rmi" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/java.sql" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/java.xml" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.jcmd" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.pack" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.rmic" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.sctp" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/java.base" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.jdeps" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.jlink" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.zipfs" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/java.prefs" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.attach" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.jshell" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.jstatd" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/java.naming" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.editpad" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.jartool" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.javadoc" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.xml.dom" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/java.desktop" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/java.logging" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.charsets" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.compiler" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.dynalink" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.jconsole" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.jsobject" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/java.compiler" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/java.net.http" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.crypto.ec" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/java.scripting" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.httpserver" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.jdwp.agent" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.localedata" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.management" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.naming.dns" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.naming.rmi" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/java.instrument" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/java.management" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/java.sql.rowset" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/java.xml.crypto" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.internal.ed" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.internal.le" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.naming.ldap" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.unsupported" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/java.smartcardio" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.internal.opt" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/java.datatransfer" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.accessibility" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.hotspot.agent" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.security.auth" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.security.jgss" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/java.security.jgss" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/java.security.sasl" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.internal.vm.ci" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.management.jfr" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/java.management.rmi" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/java.transaction.xa" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.crypto.cryptoki" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.internal.jvmstat" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.management.agent" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.scripting.nashorn" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.unsupported.desktop" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.internal.vm.compiler" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.scripting.nashorn.shell" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/lib/src.zip!/jdk.internal.vm.compiler.management" type="simple" />
+          </root>
+        </sourcePath>
+      </roots>
+      <additional />
+    </jdk>
+    <jdk version="2">
+      <name value="Android API 28 Platform" />
+      <type value="Android SDK" />
+      <homePath value="$USER_HOME$/Library/Android/sdk" />
+      <roots>
+        <annotationsPath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Library/Android/sdk/platforms/android-28/data/annotations.zip!/" type="simple" />
+          </root>
+        </annotationsPath>
+        <classPath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Library/Android/sdk/platforms/android-28/android.jar!/" type="simple" />
+            <root url="file://$USER_HOME$/Library/Android/sdk/platforms/android-28/data/res" type="simple" />
+          </root>
+        </classPath>
+        <javadocPath>
+          <root type="composite">
+            <root url="http://developer.android.com/reference/" type="simple" />
+          </root>
+        </javadocPath>
+        <sourcePath>
+          <root type="composite" />
+        </sourcePath>
+      </roots>
+      <additional sdk="android-28" />
+    </jdk>
+    <jdk version="2">
+      <name value="Android API 29 Platform" />
+      <type value="Android SDK" />
+      <homePath value="$USER_HOME$/Library/Android/sdk" />
+      <roots>
+        <annotationsPath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Library/Android/sdk/platforms/android-29/data/annotations.zip!/" type="simple" />
+          </root>
+        </annotationsPath>
+        <classPath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Library/Android/sdk/platforms/android-29/android.jar!/" type="simple" />
+            <root url="file://$USER_HOME$/Library/Android/sdk/platforms/android-29/data/res" type="simple" />
+          </root>
+        </classPath>
+        <javadocPath>
+          <root type="composite">
+            <root url="http://developer.android.com/reference/" type="simple" />
+          </root>
+        </javadocPath>
+        <sourcePath>
+          <root type="composite" />
+        </sourcePath>
+      </roots>
+      <additional sdk="android-29" />
+    </jdk>
+    <jdk version="2">
       <name value="Android API 30 Platform" />
       <type value="Android SDK" />
-      <version value="java version &quot;1.8.0_202&quot;" />
       <homePath value="$USER_HOME$/Library/Android/sdk" />
       <roots>
         <annotationsPath>
@@ -26,90 +246,194 @@
           </root>
         </sourcePath>
       </roots>
-      <additional jdk="11" sdk="android-30" />
+      <additional sdk="android-30" />
     </jdk>
     <jdk version="2">
-      <name value="11" />
-      <type value="JavaSDK" />
-      <version value="version 11.0.13" />
-      <homePath value="$APPLICATION_HOME_DIR$/jre/Contents/Home" />
+      <name value="Android API 31 Platform" />
+      <type value="Android SDK" />
+      <homePath value="$USER_HOME$/Library/Android/sdk" />
       <roots>
         <annotationsPath>
           <root type="composite">
-            <root url="jar://$APPLICATION_HOME_DIR$/plugins/java/lib/jdkAnnotations.jar!/" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Android/sdk/platforms/android-31/data/annotations.zip!/" type="simple" />
           </root>
         </annotationsPath>
         <classPath>
           <root type="composite">
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/java.base" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/java.compiler" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/java.datatransfer" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/java.desktop" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/java.instrument" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/java.logging" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/java.management" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/java.management.rmi" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/java.naming" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/java.net.http" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/java.prefs" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/java.rmi" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/java.scripting" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/java.se" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/java.security.jgss" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/java.security.sasl" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/java.smartcardio" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/java.sql" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/java.sql.rowset" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/java.transaction.xa" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/java.xml" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/java.xml.crypto" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.accessibility" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.aot" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.attach" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.charsets" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.compiler" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.crypto.cryptoki" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.crypto.ec" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.dynalink" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.hotspot.agent" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.httpserver" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.internal.ed" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.internal.jvmstat" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.internal.le" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.internal.opt" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.internal.vm.ci" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.internal.vm.compiler" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.internal.vm.compiler.management" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.jartool" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.javadoc" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.jdeps" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.jdi" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.jdwp.agent" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.jfr" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.jlink" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.jsobject" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.localedata" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.management" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.management.agent" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.management.jfr" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.naming.dns" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.naming.rmi" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.net" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.pack" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.scripting.nashorn" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.scripting.nashorn.shell" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.sctp" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.security.auth" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.security.jgss" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.unsupported" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.xml.dom" type="simple" />
-            <root url="jrt:///Applications/Android Studio.app/Contents/jre/Contents/Home!/jdk.zipfs" type="simple" />
+            <root url="jar://$USER_HOME$/Library/Android/sdk/platforms/android-31/android.jar!/" type="simple" />
+            <root url="file://$USER_HOME$/Library/Android/sdk/platforms/android-31/data/res" type="simple" />
           </root>
         </classPath>
         <javadocPath>
           <root type="composite">
-            <root url="https://docs.oracle.com/en/java/javase/11/docs/api/" type="simple" />
+            <root url="http://developer.android.com/reference/" type="simple" />
           </root>
+        </javadocPath>
+        <sourcePath>
+          <root type="composite" />
+        </sourcePath>
+      </roots>
+      <additional sdk="android-31" />
+    </jdk>
+    <jdk version="2">
+      <name value="Android API 32 Platform" />
+      <type value="Android SDK" />
+      <homePath value="$USER_HOME$/Library/Android/sdk" />
+      <roots>
+        <annotationsPath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Library/Android/sdk/platforms/android-32/data/annotations.zip!/" type="simple" />
+          </root>
+        </annotationsPath>
+        <classPath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Library/Android/sdk/platforms/android-32/android.jar!/" type="simple" />
+            <root url="file://$USER_HOME$/Library/Android/sdk/platforms/android-32/data/res" type="simple" />
+          </root>
+        </classPath>
+        <javadocPath>
+          <root type="composite">
+            <root url="http://developer.android.com/reference/" type="simple" />
+          </root>
+        </javadocPath>
+        <sourcePath>
+          <root type="composite" />
+        </sourcePath>
+      </roots>
+      <additional sdk="android-32" />
+    </jdk>
+    <jdk version="2">
+      <name value="Android API 33, extension level 3 Platform" />
+      <type value="Android SDK" />
+      <homePath value="$USER_HOME$/Library/Android/sdk" />
+      <roots>
+        <annotationsPath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Library/Android/sdk/platforms/android-33/data/annotations.zip!/" type="simple" />
+          </root>
+        </annotationsPath>
+        <classPath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Library/Android/sdk/platforms/android-33/android.jar!/" type="simple" />
+            <root url="file://$USER_HOME$/Library/Android/sdk/platforms/android-33/data/res" type="simple" />
+          </root>
+        </classPath>
+        <javadocPath>
+          <root type="composite">
+            <root url="http://developer.android.com/reference/" type="simple" />
+          </root>
+        </javadocPath>
+        <sourcePath>
+          <root type="composite" />
+        </sourcePath>
+      </roots>
+      <additional sdk="android-33" />
+    </jdk>
+    <jdk version="2">
+      <name value="Android API 34, extension level 7 Platform" />
+      <type value="Android SDK" />
+      <homePath value="$USER_HOME$/Library/Android/sdk" />
+      <roots>
+        <annotationsPath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Library/Android/sdk/platforms/android-34/data/annotations.zip!/" type="simple" />
+          </root>
+        </annotationsPath>
+        <classPath>
+          <root type="composite">
+            <root url="jar://$USER_HOME$/Library/Android/sdk/platforms/android-34/android.jar!/" type="simple" />
+            <root url="file://$USER_HOME$/Library/Android/sdk/platforms/android-34/data/res" type="simple" />
+          </root>
+        </classPath>
+        <javadocPath>
+          <root type="composite" />
+        </javadocPath>
+        <sourcePath>
+          <root type="composite">
+            <root url="file://$USER_HOME$/Library/Android/sdk/sources/android-34" type="simple" />
+          </root>
+        </sourcePath>
+      </roots>
+      <additional sdk="android-34" />
+    </jdk>
+    <jdk version="2">
+      <name value="jbr-17" />
+      <type value="JavaSDK" />
+      <version value="JetBrains Runtime version 17.0.6" />
+      <homePath value="$APPLICATION_HOME_DIR$/jbr/Contents/Home" />
+      <roots>
+        <annotationsPath>
+          <root type="composite">
+            <root url="jar://$APPLICATION_HOME_DIR$/plugins/java/lib/resources/jdkAnnotations.jar!/" type="simple" />
+          </root>
+        </annotationsPath>
+        <classPath>
+          <root type="composite">
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/java.base" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/java.compiler" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/java.datatransfer" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/java.desktop" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/java.instrument" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/java.logging" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/java.management" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/java.management.rmi" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/java.naming" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/java.net.http" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/java.prefs" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/java.rmi" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/java.scripting" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/java.se" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/java.security.jgss" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/java.security.sasl" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/java.smartcardio" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/java.sql" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/java.sql.rowset" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/java.transaction.xa" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/java.xml" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/java.xml.crypto" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.accessibility" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.attach" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.charsets" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.compiler" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.crypto.cryptoki" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.crypto.ec" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.dynalink" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.hotspot.agent" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.httpserver" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.internal.ed" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.internal.jvmstat" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.internal.le" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.internal.opt" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.internal.vm.ci" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.internal.vm.compiler" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.internal.vm.compiler.management" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.jartool" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.javadoc" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.jcmd" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.jdeps" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.jdi" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.jdwp.agent" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.jfr" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.jlink" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.jsobject" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.localedata" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.management" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.management.agent" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.management.jfr" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.naming.dns" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.naming.rmi" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.net" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.sctp" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.security.auth" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.security.jgss" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.unsupported" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.unsupported.desktop" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.xml.dom" type="simple" />
+            <root url="jrt://$APPLICATION_HOME_DIR$/jbr/Contents/Home!/jdk.zipfs" type="simple" />
+          </root>
+        </classPath>
+        <javadocPath>
+          <root type="composite" />
         </javadocPath>
         <sourcePath>
           <root type="composite" />
