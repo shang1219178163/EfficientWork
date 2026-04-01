@@ -297,6 +297,61 @@ complex（复数）
             print ("相加后的值为 : ", sum( 10, 20 ))//30
             				def myfunc(n):
             return lambda a : a * n
+            
+## 函数式编程    
+    函数式编程的一个特点就是，允许把函数本身作为参数传入另一个函数，还允许返回一个函数！
+### 高阶函数
+#### map
+map()函数接收两个参数，一个是函数，一个是序列，用于将一个函数作用于一个序列，以此得到另一个序列；。
+
+    >>> def f(x):
+    ...     return x * x
+    ...
+    >>> r = map(f, [1, 2, 3, 4, 5, 6, 7, 8, 9])
+    >>> list(r)
+    [1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+#### reduce
+reduce把一个函数作用在一个序列[x1, x2, x3, ...]上，这个函数必须接收两个参数，reduce把结果继续和序列的下一个元素做累积计算，其效果就是：
+
+    reduce(f, [x1, x2, x3, x4]) = f(f(f(x1, x2), x3), x4)
+    
+    求和：
+    >>> from functools import reduce
+    >>> def add(x, y):
+    ...     return x + y
+    ...
+    >>> reduce(add, [1, 3, 5, 7, 9])
+    25
+
+#### filter
+filter()把传入的函数依次作用于每个元素，然后根据返回值是 True 还是 False 决定保留还是丢弃该元素。
+由于使用了惰性计算，所以只有在取 filter() 结果的时候，才会真正筛选并每次返回下一个筛出的元素。
+如果要强迫 filter() 完成计算结果，需要用list()函数获得所有结果并返回list。
+
+    #序列中的空字符串删掉
+    def not_empty(s):
+        return s and s.strip()
+    
+    list(filter(not_empty, ['A', '', 'B', None, 'C', '  ']))
+    # 结果: ['A', 'B', 'C']
+    
+#### sorted
+
+key指定的函数将作用于list的每一个元素上，并根据key函数返回的结果进行排序。对比原始的list和经过key=abs处理过的list：
+
+list = [36, 5, -12, 9, -21]
+
+keys = [36, 5,  12, 9,  21]
+
+    >>> sorted([36, 5, -12, 9, -21], key=abs)
+    [5, 9, -12, -21, 36]
+
+### 返回函数
+### 匿名函数
+### 装饰器
+### 偏函数
+
 
 ## 装饰器
 	函数装饰器
@@ -360,7 +415,31 @@ complex（复数）
     db1 = Database()
     db2 = Database()
     print(db1 is db2)  # True，说明是同一个实例
+---
+    def logger(func):
+    """日志装饰器，捕获并打印参数"""
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        # 打印位置参数
+        print(f"位置参数: {args}")
+        # 打印关键字参数
+        print(f"关键字参数: {kwargs}")
+        
+        result = func(*args, **kwargs)
+        
+        print(f"返回值: {result}")
+        return result
+    return wrapper
+
+
+    @logger
+    def add(a, b, c=0):
+        return a + b + c
     
+    add(1, 2, c=3)
+    # 位置参数: (1, 2)
+    # 关键字参数: {'c': 3}
+    # 返回值: 6
     
 内置的装饰器
 
@@ -605,3 +684,140 @@ complex（复数）
     	re 模块：re 模块提供了正则表达式处理函数，可以用于文本搜索、替换、分割等。
     	json 模块：json 模块提供了 JSON 编码和解码函数，可以将 Python 对象转换为 JSON 格式，并从 JSON 格式中解析出 Python 对象。
     	urllib 模块：urllib 模块提供了访问网页和处理 URL 的功能，包括下载文件、发送 POST 请求、处理 cookies 等。
+    	
+# 高级特性
+## 切片
+可以理解为切片参数【from:to:by】
+from 默认值最小索引；
+to 默认最大索引；
+by 间隔，默认1, 负数倒序；
+    
+    1、取一个list或tuple的部分元素是非常常见的操作。
+    >>> L = ['Michael', 'Sarah', 'Tracy', 'Bob', 'Jack']
+    
+    2、获取子序列：从索引1开始，取出2个元素出来
+    >>> L[1:3]
+    ['Sarah', 'Tracy']
+
+    >>> L[-2:]
+    ['Bob', 'Jack']
+    >>> L[-2:-1]
+    ['Bob']
+
+    3、序列倒数第一个元素的索引是 -1。
+    >>> L = list(range(100))
+    
+    前10个数：
+    >>> L[:10]
+    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    
+    后10个数：
+    >>> L[-10:]
+    [90, 91, 92, 93, 94, 95, 96, 97, 98, 99]
+    
+    前11-20个数：
+    >>> L[10:20]
+    [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+    
+    前10个数，每两个取一个：
+    >>> L[:10:2]
+    [0, 2, 4, 6, 8]
+    
+    所有数，每5个取一个：
+    >>> L[::5]
+    [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
+    甚至什么都不写，只写[:]就可以原样复制一个list：
+    
+    >>> L[:]
+    [0, 1, 2, 3, ..., 99]
+
+## 迭代
+
+## 列表生成式
+列表生成式即List Comprehensions，是Python内置的非常简单却强大的可以用来创建list的生成式。
+
+    1、生成列表 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    >>> list(range(1, 11))
+    
+    2、生成[1x1, 2x2, 3x3, ..., 10x10]
+    或[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+    >>> [x * x for x in range(1, 11)]
+    
+    3、筛选出仅偶数的平方 [4, 16, 36, 64, 100]
+    >>> [x * x for x in range(1, 11) if x % 2 == 0]
+    
+
+    4、两层循环，可以生成全排列：['AX', 'AY', 'AZ', 'BX', 'BY', 'BZ', 'CX', 'CY', 'CZ']
+    >>> [m + n for m in 'ABC' for n in 'XYZ']
+
+    5、列出当前目录下的所有文件和目录名：
+    >>> import os # 导入os模块，模块的概念后面讲到
+    >>> [d for d in os.listdir('.')] # os.listdir可以列出文件和目录
+    
+    6、同时迭代key和value
+    >>> d = {'x': 'A', 'y': 'B', 'z': 'C' }
+    >>> [k + '=' + v for k, v in d.items()]
+    ['y=B', 'x=A', 'z=C']
+
+    7、把一个list中所有的字符串变成小写
+    >>> L = ['Hello', 'World', 'IBM', 'Apple']
+    >>> [s.lower() for s in L]
+    ['hello', 'world', 'ibm', 'apple']
+
+    8、if ... else
+    for前面的部分是一个表达式，它必须根据x计算出一个结果。
+    >>> [x for x in range(1, 11) if x % 2 == 0]
+    [2, 4, 6, 8, 10]
+
+    跟在for后面的if是一个筛选条件，不能带else。
+    >>> [x if x % 2 == 0 else -x for x in range(1, 11)]
+    [-1, 2, -3, 4, -5, 6, -7, 8, -9, 10]
+
+
+## 生成器
+在Python中，一边循环一边计算的机制，称为生成器：generator。generator保存的是算法，每次调用next(g)，就计算出g的下一个元素的值，直到计算到最后一个元素，没有更多的元素时，抛出StopIteration的错误。
+
+### 创建一个generator：
+    第一种方法很简单，只要把一个列表生成式的[]改成()，就创建了一个generator。
+    
+    >>> L = [x * x for x in range(10)]
+    >>> L
+    [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+    >>> g = (x * x for x in range(10))
+    >>> g
+    <generator object <genexpr> at 0x1022ef630>
+    可以通过next()函数获得generator的下一个返回值；
+    
+    不断调用next(g)实在是太变态了，正确的方法是使用for循环，因为generator也是可迭代对象：
+    >>> g = (x * x for x in range(10))
+    >>> for n in g:
+    ...     print(n)
+    
+
+## 迭代器
+可以直接作用于for循环的数据类型有以下几种：
+一类是集合数据类型，如list、tuple、dict、set、str等；
+一类是generator，包括生成器和带yield的generator function。
+
+这些可以直接作用于for循环的对象统称为可迭代对象：Iterable。Iterator 对象表示的是一个数据流。
+可以使用 isinstance() 判断一个对象是否是Iterable对象：
+
+    >>> from collections.abc import Iterable
+    >>> isinstance([], Iterable)
+    True
+    >>> isinstance({}, Iterable)
+    True
+    >>> isinstance('abc', Iterable)
+    True
+    >>> isinstance((x for x in range(10)), Iterable)
+    True
+    >>> isinstance(100, Iterable)
+    False
+    
+    凡是可作用于for循环的对象都是Iterable类型；
+
+凡是可作用于 next() 函数的对象都是 Iterator 类型，它们表示一个惰性计算的序列；
+
+集合数据类型如 list、dict、str 等是 Iterable 但不是 Iterator，不过可以通过 iter()函数获得一个 Iterator 对象。
+
+Python的 for 循环本质上就是通过不断调用 next() 函数实现的。
