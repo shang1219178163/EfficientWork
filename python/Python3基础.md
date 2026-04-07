@@ -351,6 +351,19 @@ keys = [36, 5,  12, 9,  21]
 ### 匿名函数
 ### 装饰器
 ### 偏函数
+当函数的参数个数太多，需要简化时，使用 functools.partial 可以创建一个新的函数，这个新函数可以给原函数的部分参数设置默认参数，从而在调用时更简单。
+
+    >>> import functools
+    
+    >>> int('1000000')
+    1000000
+
+    >>> int2 = functools.partial(int, base=2)
+    >>> int2('1000000')
+    64
+    >>> int2('1010101')
+    85
+
 
 
 ## 装饰器
@@ -568,31 +581,6 @@ keys = [36, 5,  12, 9,  21]
         data1New = pickle.load(pkl_file)
         pkl_file.close()
 
-## File文件
-	open
-		open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
-		参数说明
-			file: 必需，文件路径（相对或者绝对路径）。
-			mode: 可选，文件打开模式
-				mode：决定了打开文件的模式：只读，写入，追加等。所有可取值见如下的完全列表。这个参数是非强制的，默认文件访问模式为只读(r)。
-					r	以只读方式打开文件，文件指针将会放在文件的开头（默认模式）。
-					rb	以二进制格式打开一个文件用于只读。
-					r+	打开一个文件用于读写。
-					rb+	以二进制格式打开一个文件用于读写。
-					w	打开一个文件只用于写入。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。
-					wb	以二进制格式打开一个文件只用于写入。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。
-					w+	打开一个文件用于读写。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。
-					wb+	以二进制格式打开一个文件用于读写。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。
-					a	打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。
-					ab	以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。
-					a+	打开一个文件用于读写。如果该文件已存在，文件指针将会放在文件的结尾。文件打开时会是追加模式。如果该文件不存在，创建新文件用于读写。
-					ab+	以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。如果该文件不存在，创建新文件用于读写。
-			buffering: 设置缓冲
-			encoding: 一般使用utf8
-			errors: 报错级别
-			newline: 区分换行符
-			closefd: 传入的file参数类型
-			opener: 设置自定义开启器，开启器的返回值必须是一个打开的文件描述符。
 ## OS 文件/目录方法
 	1. 获取当前工作目录
 		os.getcwd() 函数用于获取当前工作目录的路径。当前工作目录是 Python 脚本执行时所在的目录。
@@ -628,6 +616,97 @@ keys = [36, 5,  12, 9,  21]
     		os.system(command) 函数用于在操作系统的 shell 中执行命令。命令执行后，返回命令的退出状态。
     		os.system("ls -l")
     		
+
+## File文件
+	open
+		open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
+		参数说明
+			file: 必需，文件路径（相对或者绝对路径）。
+			mode: 可选，文件打开模式
+				mode：决定了打开文件的模式：只读，写入，追加等。所有可取值见如下的完全列表。这个参数是非强制的，默认文件访问模式为只读(r)。
+					r	以只读方式打开文件，文件指针将会放在文件的开头（默认模式）。
+					rb	以二进制格式打开一个文件用于只读。
+					r+	打开一个文件用于读写。
+					rb+	以二进制格式打开一个文件用于读写。
+					w	打开一个文件只用于写入。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。
+					wb	以二进制格式打开一个文件只用于写入。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。
+					w+	打开一个文件用于读写。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。
+					wb+	以二进制格式打开一个文件用于读写。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。
+					a	打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。
+					ab	以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。
+					a+	打开一个文件用于读写。如果该文件已存在，文件指针将会放在文件的结尾。文件打开时会是追加模式。如果该文件不存在，创建新文件用于读写。
+					ab+	以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。如果该文件不存在，创建新文件用于读写。
+			buffering: 设置缓冲
+			encoding: 一般使用utf8
+			errors: 报错级别
+			newline: 区分换行符
+			closefd: 传入的file参数类型
+			opener: 设置自定义开启器，开启器的返回值必须是一个打开的文件描述符。
+			
+    f=open('/Users/michael/notfound.txt', 'r')
+    >>> f.read()
+    >>> f.readlines()
+    >>> f.close()
+    
+## 查看当前目录的绝对路径:
+    >>> os.path.abspath('.')
+    '/Users/michael'
+    
+    # 在某个目录下创建一个新目录，首先把新目录的完整路径表示出来:
+    >>> os.path.join('/Users/michael', 'testdir')
+    '/Users/michael/testdir'
+    
+    >>> os.path.split('/Users/michael/testdir/file.txt')
+    ('/Users/michael/testdir', 'file.txt')
+    
+    >>> os.path.splitext('/path/to/file.txt')
+    ('/path/to/file', '.txt')
+
+    # 对文件重命名:
+    >>> os.rename('test.txt', 'test.py')
+    
+    # 删掉文件:
+    >>> os.remove('test.py')
+    
+    >>> [x for x in os.listdir('.') if os.path.isfile(x) and os.path.splitext(x)[1]=='.py']
+    ['apis.py', 'config.py', 'models.py', 'pymonitor.py', 'test_db.py', 'urls.py', 'wsgiapp.py']
+
+
+幸运的是shutil模块提供了copyfile()的函数，你还可以在shutil模块中找到很多实用函数，它们可以看做是os模块的补充。
+
+## StringIO和BytesIO
+StringIO 在内存中读写字符串。
+
+    >>> from io import StringIO
+    >>> f = StringIO()
+    >>> f.write('hello')
+    5
+    >>> f.write(' ')
+    1
+    >>> f.write('world!')
+    6
+    >>> print(f.getvalue())
+    hello world!
+    
+BytesIO 在内存中读写二进制数据。
+    
+    >>> from io import BytesIO
+    >>> f = BytesIO()
+    >>> f.write('中文'.encode('utf-8'))
+    6
+    >>> print(f.getvalue())
+    b'\xe4\xb8\xad\xe6\x96\x87'
+
+## 环境变量
+
+在操作系统中定义的环境变量，全部保存在os.environ这个变量中，可以直接查看：
+
+    >>> os.environ
+    environ({'VERSIONER_PYTHON_PREFER_32_BIT': 'no', 'TERM_PROGRAM_VERSION': '326', 'LOGNAME': 'michael', 'USER': 'michael', 'PATH': ...})
+    
+要获取某个环境变量的值，可以调用os.environ.get('key')。
+
+
 ## 面向对象
 	类(Class): 用来描述具有相同的属性和方法的对象的集合。它定义了该集合中每个对象所共有的属性和方法。对象是类的实例。
 	方法：类中定义的函数。
@@ -732,6 +811,32 @@ by 间隔，默认1, 负数倒序；
     [0, 1, 2, 3, ..., 99]
 
 ## 迭代
+    迭代是通过for ... in来完成的。
+    判断一个对象是可迭代对象呢？方法是通过collections.abc模块的Iterable类型判断：
+
+    >>> from collections.abc import Iterable
+    >>> isinstance('abc', Iterable) # str是否可迭代
+    True
+    >>> isinstance([1,2,3], Iterable) # list是否可迭代
+    True
+    >>> isinstance(123, Iterable) # 整数是否可迭代
+    False
+    
+    # 同时迭代索引和元素本身
+    >>> for i, value in enumerate(['A', 'B', 'C']):
+    ...     print(i, value)
+    ...
+    0 A
+    1 B
+    2 C
+    
+    # 多变量
+    >>> for x, y in [(1, 1), (2, 4), (3, 9)]:
+    ...     print(x, y)
+    ...
+    1 1
+    2 4
+    3 9
 
 ## 列表生成式
 列表生成式即List Comprehensions，是Python内置的非常简单却强大的可以用来创建list的生成式。
@@ -821,3 +926,225 @@ by 间隔，默认1, 负数倒序；
 集合数据类型如 list、dict、str 等是 Iterable 但不是 Iterator，不过可以通过 iter()函数获得一个 Iterator 对象。
 
 Python的 for 循环本质上就是通过不断调用 next() 函数实现的。
+
+
+## 面相对象编程
+
+### 1、总结
+实例属性属于各个实例所有，互不干扰；
+类属性属于类所有，所有实例共享一个属性；
+不要对实例属性和类属性使用相同的名字，否则将产生难以发现的错误。
+
+    class Student(object):
+        def __init__(self, name, score):
+            self.__name = name
+            self.__score = score
+    
+        def get_name(self):
+            return self.__name
+            
+        def set_name(self, v):
+            self.__name = v
+        
+        def get_score(self):
+            return self.__score
+            
+        def set_score(self, v):
+            if 0 <= v <= 100:
+                self.__score = v
+            else:
+                raise ValueError('bad score')
+                
+        # 打印分数
+        def print_score(self):
+            print('%s: %s' % (self.__name, self.__score))
+
+    #打印私有属性
+    >>> bart._Student__name
+    'Bart Simpson'
+
+### 2、面向对象高级编程
+
+#### 给实例绑定一个方法
+
+    >>> s = Student()
+    >>> from types import MethodType
+    >>> s.set_age = MethodType(set_age, s) # 给实例绑定一个方法（对另一个实例无效）
+    >>> s.set_age(25) # 调用实例方法
+    
+#### 给所有实例都绑定方法，可以给class绑定方法：
+
+    >>> def set_score(self, score):
+    ...     self.score = score
+    ...
+    >>> Student.set_score = set_score
+
+#### 使用__slots__
+    注意：__slots__定义的属性仅对当前类实例起作用，对继承的子类是不起作用的：
+
+    class Student(object):
+        __slots__ = ('name', 'age') # 用tuple定义允许绑定的属性名称
+
+#### 使用@property
+
+把一个getter方法变成属性，只需要加上@property。
+把一个setter方法变成属性赋值，只需要加上 @score.setter。
+
+    class Student(object):
+        @property
+        def score(self):
+            return self._score
+    
+        @score.setter
+        def score(self, value):
+            if not isinstance(value, int):
+                raise ValueError('score must be an integer!')
+            if value < 0 or value > 100:
+                raise ValueError('score must between 0 ~ 100!')
+            self._score = value
+
+### 3、定制类
+__str__()返回用户看到的字符串；
+__repr__()返回程序开发者看到的字符串。
+
+    class Student(object):
+        def __init__(self, name):
+            self.name = name
+        def __str__(self):
+            return 'Student object (name=%s)' % self.name
+        __repr__ = __str__
+
+__getattr__ 动态返回一个属性。
+实际上可以把一个类的所有属性和方法调用全部动态化处理了，不需要任何特殊手段。
+
+    class Student(object):
+        def __init__(self):
+            self.name = 'Michael'
+    
+        def __getattr__(self, attr):
+            if attr == 'score':
+                return 99
+            raise AttributeError('\'Student\' object has no attribute \'%s\'' % attr)
+
+URL完全动态调用
+
+    class Chain(object):
+        def __init__(self, path=''):
+            self._path = path
+    
+        def __getattr__(self, param):
+            return Chain('%s/%s' % (self._path, param))
+    
+        def __call__(self, param):
+            return Chain('%s/%s' % (self._path, param))
+        
+        def __str__(self):
+            return self._path
+    
+        __repr__ = __str__
+
+        path = Chain().status.user.timeline.list
+        print(path)  # 输出: /status/user/timeline/list
+
+        p = Chain().users('michael').repos
+        print(p) # 输出: /users/michael/repos
+
+
+## 序列化
+把变量从内存中变成可存储或传输的过程称之为序列化，在Python中叫pickling，在其他语言中也被称之为serialization等等。反过来，把变量内容从序列化的对象重新读到内存里称之为反序列化，即unpickling。
+
+Python提供了pickle模块来实现序列化。
+
+    >>> import pickle
+    >>> d = dict(name='Bob', age=20, score=88)
+    >>> pickle.dumps(d)
+    b'\x80\x03}q\x00(X\x03\x00\x00\x00ageq\x01K\x14X\x05\x00\x00\x00scoreq\x02KXX\x04\x00\x00\x00nameq\x03X\x03\x00\x00\x00Bobq\x04u.'
+
+    >>> f = open('dump.txt', 'wb')
+    >>> pickle.dump(d, f)//序列化
+    >>> f.close()
+    
+    >>> f = open('dump.txt', 'rb')
+    >>> d = pickle.load(f)//反序列化
+    >>> d
+    {'age': 20, 'score': 88, 'name': 'Bob'}
+
+### JSON
+    >>> import json
+    >>> d = dict(name='Bob', age=20, score=88)
+    >>> json.dumps(d)
+    '{"age": 20, "score": 88, "name": "Bob"}'
+
+    >>> json_str = '{"age": 20, "score": 88, "name": "Bob"}'
+    >>> json.loads(json_str)
+    {'age': 20, 'score': 88, 'name': 'Bob'}
+
+## 使用枚举类
+
+    from enum import Enum, unique
+    
+    @unique
+    class Weekday(Enum):
+        Sun = (0, "星期日")
+        Mon = (1, "星期一")
+        Tue = (2, "星期二")
+        Wed = (3, "星期三")
+        Thu = (4, "星期四")
+        Fri = (5, "星期五")
+        Sat = (6, "星期六")
+        
+        def __init__(self, value, desc):
+            self._value_ = value
+            self.desc = desc
+    
+        def toJson(self):
+            return {
+                'value': self.value,
+                'desc': self.desc,
+            }
+        
+        @classmethod
+        def fromJson(cls, dict):
+            # 根据value值返回对应的枚举成员
+            for member in cls:
+                if member.value == dict['value']:
+                    return member
+            return None
+    
+    # 使用
+    print(Weekday.Mon.value)  # 输出: 1
+    print(Weekday.Mon.desc)   # 输出: 星期一
+    print(Weekday.Mon)        # 输出: Weekday.Mon
+    day = Weekday.fromJson({"value": 1, 'desc':"星期一"})
+    print(day.toJson())       # {'value': 1, 'desc': '星期一'}
+### 使用元类
+
+#### type()
+    
+    >>> from hello import Hello
+    >>> h = Hello()
+    >>> h.hello()
+    Hello, world.
+    >>> print(type(Hello))
+    <class 'type'>
+    >>> print(type(h))
+    <class 'hello.Hello'>
+    
+#### metaclass
+    
+元类，简单的解释就是：定义了类以后，根据这个类创建出实例，所以：先定义类，然后创建实例。
+
+    # metaclass是类的模板，所以必须从`type`类型派生：
+    
+    class ListMetaclass(type):
+        def __new__(cls, name, bases, attrs):
+            attrs['add'] = lambda self, value: self.append(value)
+            return type.__new__(cls, name, bases, attrs)
+            
+    class MyList(list, metaclass=ListMetaclass):
+        pass
+
+当我们传入关键字参数metaclass时，魔术就生效了，它指示Python解释器在创建MyList时，要通过ListMetaclass.__new__()来创建，在此，我们可以修改类的定义，比如，加上新的方法，然后，返回修改后的定义。
+
+需要通过metaclass修改类定义的。ORM就是一个典型的例子。ORM全称“Object Relational Mapping”，即对象-关系映射，就是把关系数据库的一行映射为一个对象，也就是一个类对应一个表，这样，写代码更简单，不用直接操作SQL语句。
+
