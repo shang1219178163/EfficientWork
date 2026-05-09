@@ -1391,4 +1391,12 @@ https://wemakeapps.net/manifest-maker
 
 [JsonToModel](https://shang1219178163.github.io/json_model/#/JsonToModel)
 
-## 第三十篇章：待续。。。
+## 第三十篇章：使用 Flutter Inspector
+Flutter Inspector 可以通过点击组件，快速定位到响应代码的位置，在调整 UI 阶段是最高效的定位方式。
+
+## 第三十一篇章：使用 github action自动发布 pub package包
+
+.github/workflows/publish.yml
+[GitHub Actions](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets?tool=cli)
+
+## 第三十三篇章：待续。。。
