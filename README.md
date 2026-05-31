@@ -1399,4 +1399,13 @@ Flutter Inspector 可以通过点击组件，快速定位到响应代码的位�
 .github/workflows/publish.yml
 [GitHub Actions](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets?tool=cli)
 
-## 第三十三篇章：待续。。。
+## 第三十三篇章：部分代码AI生成
+使用 Cursor + figma/蓝湖 生产部分代码。
+
+1、Cursor + figma
+https://github.com/GLips/Figma-Context-MCP
+
+2、Cursor + 蓝湖
+https://github.com/dsphper/lanhu-mcp
+
+## 第三十四篇章：待续。。。
