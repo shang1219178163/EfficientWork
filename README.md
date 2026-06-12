@@ -1408,4 +1408,12 @@ https://github.com/GLips/Figma-Context-MCP
 2、Cursor + 蓝湖
 https://github.com/dsphper/lanhu-mcp
 
-## 第三十四篇章：待续。。。
+## 第三十四篇章：用MCP flutter_agent_lens 分析应用性能
+[flutter_agent_lens 用 MCP 服务，将 Flutter DevTools 暴露给 AI](https://mp.weixin.qq.com/s/aem5PBksrnrQ6U_bNT7ftA)
+
+[flutter_agent_lens](
+https://github.com/dhruvanbhalara/flutter_agent_lens)
+
+flutter_agent_lens depends on dart_mcp >=0.1.0 which requires SDK version >=3.7.0 <4.0.0
+
+## 第三十五篇章：待续。。。
