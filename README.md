@@ -1416,4 +1416,8 @@ https://github.com/dhruvanbhalara/flutter_agent_lens)
 
 flutter_agent_lens depends on dart_mcp >=0.1.0 which requires SDK version >=3.7.0 <4.0.0
 
-## 第三十五篇章：待续。。。
+## 第三十五篇章：分析项目架构，用 archify 生成架构图。
+
+https://tt-a1i.github.io/archify/
+
+## 第三十六篇章：待续。。。
