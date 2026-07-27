@@ -45,3 +45,38 @@ Flutter 通过这个差异对比算法，确保只更新真正发生变化的部
 使用 Key 可以显著提升树中复杂节点的对比效率，尤其是在列表或重复组件中。
 总结
 Flutter 的组件树对比算法专注于高效、灵活的 UI 更新机制。通过对比 Widget 树和 Element 树，它能有效地管理应用的界面更新，减少不必要的重新构建和性能损耗，同时允许开发者使用 Key 来进一步优化复杂场景下的树对比。
+
+
+
+# Element.updateChild 源码：
+
+    Element? updateChild(Element? child, Widget? newWidget, Object? newSlot) {
+      // 情况1：新 Widget 为 null → 移除子 Element
+      if (newWidget == null) {
+        if (child != null) deactivateChild(child);
+        return null;
+      }
+    
+      final Element newChild;
+      if (child != null) {
+        // 情况2：Widget 完全相同（identical），直接复用
+        if (child.widget == newWidget) {
+          newChild = child;
+        } 
+        // 情况3：类型和 key 相同但实例不同 → 更新 Element
+        else if (Widget.canUpdate(child.widget, newWidget)) {
+          child.update(newWidget);
+          newChild = child;
+        } 
+        // 情况4：类型或 key 不同 → 销毁重建
+        else {
+          deactivateChild(child);
+          newChild = inflateWidget(newWidget, newSlot);
+        }
+      } else {
+        // 情况5：没有旧 Element → 创建新的
+        newChild = inflateWidget(newWidget, newSlot);
+      }
+    
+      return newChild;
+    }
