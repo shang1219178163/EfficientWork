@@ -5,16 +5,17 @@
 # - 中间视频：片头和片尾都删除
 # - 仅一个视频时：不做裁剪，直接复制
 #
-# 默认使用 ffmpeg 流复制（-c copy）无损批处理。
-# 注意：无损裁切只能落在关键帧附近；需要帧级精确时加 -r。
+# 裁剪默认使用 ffmpeg 流复制（-c copy）加快批处理。
+# 多段合并用 filter_complex concat 重编码拼接（禁止 AAC -c copy，避免后半段无声）。
+# 需要帧级精确裁切时加 -r。
 #
 # 依赖：ffmpeg、ffprobe
 #
 # 用法：
-#   /Users/shang/GitHub/trim_video.sh <视频文件夹> [-s <片头秒数>] [-e <片尾秒数>] [-r]
+#   video_merge.sh <视频文件夹> [-s <片头秒数>] [-e <片尾秒数>] [-r]
 #
 # 示例：
-#   /Users/shang/GitHub/trim_video.sh ~/Movies/episode -s 5 -e 8
+#   video_merge.sh ~/Movies/episode -s 5 -e 8
 #   裁剪输出: ~/Movies/episode/trimmed/
 #   合并输出: ~/Movies/episode/trimmed/<首个视频序号前前缀>.mp4
 
@@ -24,19 +25,19 @@ INPUT_DIR=""
 OUTPUT_SUBDIR="trimmed"
 INTRO_SECONDS="5"
 OUTRO_SECONDS="5"
-# 默认无损流复制；-r 时改为重编码（更精确但有损）
+# 默认无损流复制裁切；-r 时改为重编码（更精确但有损）
 REENCODE=0
 
 print_usage() {
   cat <<'EOF'
 用法:
-  trim_video.sh <视频文件夹> [-s <片头秒数>] [-e <片尾秒数>] [-r]
+  video_merge.sh <视频文件夹> [-s <片头秒数>] [-e <片尾秒数>] [-r]
 
 参数:
   <视频文件夹>  待处理视频所在目录（必填）
   -s            片头时长，单位秒（默认: 5）
   -e            片尾时长，单位秒（默认: 5）
-  -r            重编码模式（帧级更准，但有损且更慢；默认关闭，使用无损 -c copy）
+  -r            重编码裁切（帧级更准，但有损且更慢；默认关闭，裁切用 -c copy）
   -h            显示帮助
 
 输出:
@@ -52,7 +53,8 @@ print_usage() {
   5. 全部裁剪完成后，按自然排序合并为一个视频
 
 说明:
-  默认 -c copy 无损批处理；切点依赖关键帧，可能与设定秒数略有偏差。
+  裁切默认 -c copy（切点依赖关键帧，可能与设定秒数略有偏差）。
+  多段合并始终重编码并统一音轨，降低丢音与衔接闪屏概率。
 EOF
 }
 
@@ -74,11 +76,27 @@ get_video_duration() {
   ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$file_path"
 }
 
+# 是否存在音频流
+has_audio_stream() {
+  local file_path="$1"
+  local count
+  count="$(ffprobe -v error -select_streams a -show_entries stream=index -of csv=p=0 "$file_path" | wc -l | tr -d ' ')"
+  [[ "${count:-0}" -gt 0 ]]
+}
+
+# 是否存在视频流（-ss 在 -i 后 + copy 可能只剩音轨）
+has_video_stream() {
+  local file_path="$1"
+  local count
+  count="$(ffprobe -v error -select_streams v -show_entries stream=index -of csv=p=0 "$file_path" | wc -l | tr -d ' ')"
+  [[ "${count:-0}" -gt 0 ]]
+}
+
 format_seconds() {
   awk -v value="$1" 'BEGIN { printf "%.3f", value + 0 }'
 }
 
-# 无损裁切：流复制，不重新编码
+# 无损裁切：-ss 必须在 -i 之前，否则 copy 可能丢掉视频流只剩音频
 trim_video_copy() {
   local input_path="$1"
   local output_path="$2"
@@ -88,24 +106,51 @@ trim_video_copy() {
     -ss "$start_seconds" \
     -i "$input_path" \
     -t "$keep_duration" \
+    -map 0:v:0 \
+    -map 0:a:0? \
     -c copy \
     -avoid_negative_ts make_zero \
     -movflags +faststart \
     "$output_path"
+  if ! has_video_stream "$output_path"; then
+    die "裁切后缺少视频流: $output_path（请改用 -r 重编码裁切）"
+  fi
 }
 
-# 重编码裁切：更精确，但有损
+# 重编码裁切：更精确；统一像素格式与 AAC，缺音轨时补静音
 trim_video_reencode() {
   local input_path="$1"
   local output_path="$2"
   local start_seconds="$3"
   local end_seconds="$4"
+  if has_audio_stream "$input_path"; then
+    # 重编码时 -ss 放在 -i 之后，按绝对时间精确裁切
+    ffmpeg -y -hide_banner -loglevel error \
+      -i "$input_path" \
+      -ss "$start_seconds" \
+      -to "$end_seconds" \
+      -map 0:v:0 \
+      -map 0:a:0 \
+      -c:v libx264 -preset veryfast -crf 18 -pix_fmt yuv420p \
+      -c:a aac -b:a 192k -ar 48000 -ac 2 \
+      -af "aresample=async=1:first_pts=0" \
+      -movflags +faststart \
+      "$output_path"
+    return
+  fi
+  echo "  提示: 源文件无音轨，补齐静音轨"
+  local keep_duration
+  keep_duration="$(awk -v s="$start_seconds" -v e="$end_seconds" 'BEGIN { printf "%.3f", e - s }')"
   ffmpeg -y -hide_banner -loglevel error \
     -i "$input_path" \
     -ss "$start_seconds" \
-    -to "$end_seconds" \
-    -c:v libx264 -preset veryfast -crf 18 \
-    -c:a aac -b:a 192k \
+    -t "$keep_duration" \
+    -f lavfi -i "anullsrc=channel_layout=stereo:sample_rate=48000" \
+    -map 0:v:0 \
+    -map 1:a:0 \
+    -c:v libx264 -preset veryfast -crf 18 -pix_fmt yuv420p \
+    -c:a aac -b:a 192k -ar 48000 -ac 2 \
+    -shortest \
     -movflags +faststart \
     "$output_path"
 }
@@ -113,9 +158,69 @@ trim_video_reencode() {
 copy_video() {
   local input_path="$1"
   local output_path="$2"
+  if has_audio_stream "$input_path"; then
+    ffmpeg -y -hide_banner -loglevel error \
+      -i "$input_path" \
+      -map 0:v:0 \
+      -map 0:a:0 \
+      -c copy \
+      -movflags +faststart \
+      "$output_path"
+    return
+  fi
+  echo "提示: 源文件无音轨，补齐静音轨后输出"
   ffmpeg -y -hide_banner -loglevel error \
     -i "$input_path" \
-    -c copy \
+    -f lavfi -i "anullsrc=channel_layout=stereo:sample_rate=48000" \
+    -map 0:v:0 \
+    -map 1:a:0 \
+    -c:v copy \
+    -c:a aac -b:a 192k -ar 48000 -ac 2 \
+    -shortest \
+    -movflags +faststart \
+    "$output_path"
+}
+
+# 合并前统一音轨为 AAC 48k 立体声（视频能 copy 则 copy，减少重复压缩）
+normalize_segment_for_merge() {
+  local input_path="$1"
+  local output_path="$2"
+  if ! has_video_stream "$input_path"; then
+    die "合并前片段缺少视频流: $input_path"
+  fi
+  if has_audio_stream "$input_path"; then
+    if ffmpeg -y -hide_banner -loglevel error \
+      -i "$input_path" \
+      -map 0:v:0 \
+      -map 0:a:0 \
+      -c:v copy \
+      -c:a aac -b:a 192k -ar 48000 -ac 2 \
+      -af "aresample=async=1:first_pts=0" \
+      -movflags +faststart \
+      "$output_path"; then
+      return
+    fi
+    echo "  提示: 视频流复制失败，改用重编码规范化"
+    ffmpeg -y -hide_banner -loglevel error \
+      -i "$input_path" \
+      -map 0:v:0 \
+      -map 0:a:0 \
+      -c:v libx264 -preset veryfast -crf 18 -pix_fmt yuv420p \
+      -c:a aac -b:a 192k -ar 48000 -ac 2 \
+      -af "aresample=async=1:first_pts=0" \
+      -movflags +faststart \
+      "$output_path"
+    return
+  fi
+  echo "  提示: $(basename "$input_path") 无音轨，补齐静音"
+  ffmpeg -y -hide_banner -loglevel error \
+    -i "$input_path" \
+    -f lavfi -i "anullsrc=channel_layout=stereo:sample_rate=48000" \
+    -map 0:v:0 \
+    -map 1:a:0 \
+    -c:v libx264 -preset veryfast -crf 18 -pix_fmt yuv420p \
+    -c:a aac -b:a 192k -ar 48000 -ac 2 \
+    -shortest \
     -movflags +faststart \
     "$output_path"
 }
@@ -149,52 +254,112 @@ extract_name_before_index() {
   printf '%s' "$base"
 }
 
-# 按自然排序后无损合并
+get_stream_duration() {
+  local file_path="$1"
+  local stream_selector="$2"
+  ffprobe -v error -select_streams "$stream_selector" \
+    -show_entries stream=duration -of default=noprint_wrappers=1:nokey=1 "$file_path" | head -1
+}
+
+# 校验输出确实有可播放音轨，且音轨时长不能明显短于视频（防止后半段无声）
+assert_output_has_audible_track() {
+  local file_path="$1"
+  local require_real_audio="$2"
+  has_video_stream "$file_path" || die "合并结果缺少视频流: $file_path"
+  has_audio_stream "$file_path" || die "合并结果缺少音频流: $file_path"
+  local video_duration audio_duration
+  video_duration="$(get_stream_duration "$file_path" v:0)"
+  audio_duration="$(get_stream_duration "$file_path" a:0)"
+  if [[ -n "$video_duration" && -n "$audio_duration" ]]; then
+    if awk -v a="$audio_duration" -v v="$video_duration" 'BEGIN { exit !(v > 1 && a < v * 0.95) }'; then
+      die "合并结果音轨过短（音频 ${audio_duration}s / 视频 ${video_duration}s），后半段可能无声: $file_path"
+    fi
+  fi
+  if [[ "$require_real_audio" -eq 1 ]]; then
+    local mean_volume
+    # 只抽样片头，避免长视频全量检测过慢
+    mean_volume="$(ffmpeg -hide_banner -t 45 -i "$file_path" -af volumedetect -f null - 2>&1 \
+      | awk -F': ' '/mean_volume/ { print $2; exit }' \
+      | awk '{ print $1 }')"
+    if [[ -z "$mean_volume" ]]; then
+      die "无法检测合并结果音量: $file_path"
+    fi
+    # -91 dB 近似数字静音；源有音轨却接近静音则失败
+    if awk -v v="$mean_volume" 'BEGIN { exit !(v <= -90) }'; then
+      die "合并结果几乎无声（mean_volume=${mean_volume} dB）: $file_path"
+    fi
+  fi
+}
+
+# 用 filter_complex concat 重编码拼接，避免 AAC -c copy 导致后半段音轨丢失
+merge_normalized_with_filter() {
+  local merge_output="$1"
+  shift
+  local files=("$@")
+  local file_count="${#files[@]}"
+  local inputs=()
+  local filter=""
+  local index=0
+  local file_path=""
+  for file_path in "${files[@]}"; do
+    inputs+=(-i "$file_path")
+    filter+="[${index}:v:0][${index}:a:0]"
+    index=$((index + 1))
+  done
+  filter+="concat=n=${file_count}:v=1:a=1[v][a]"
+  ffmpeg -y -hide_banner -loglevel error \
+    "${inputs[@]}" \
+    -filter_complex "$filter" \
+    -map "[v]" \
+    -map "[a]" \
+    -c:v libx264 -preset veryfast -crf 18 -pix_fmt yuv420p \
+    -c:a aac -b:a 192k -ar 48000 -ac 2 \
+    -movflags +faststart \
+    "$merge_output"
+}
+
+# 多段合并：先规范化音视频，再用 filter concat 重编码拼接
 merge_trimmed_videos() {
   local merge_output="$1"
   shift
   local files=("$@")
   local file_count="${#files[@]}"
   [[ "$file_count" -gt 0 ]] || die "没有可合并的裁剪视频"
-  if [[ "$file_count" -eq 1 ]]; then
-    echo "仅 1 个裁剪视频，直接复制为合并结果"
-    copy_video "${files[0]}" "$merge_output"
-    return
-  fi
-  local list_file
-  list_file="$(mktemp -t trim_video_concat.XXXXXX)"
+  local source_has_audio=0
   local file_path=""
   for file_path in "${files[@]}"; do
-    escape_concat_path "$file_path" >> "$list_file"
+    if has_audio_stream "$file_path"; then
+      source_has_audio=1
+      break
+    fi
   done
-  echo "开始合并 ${file_count} 个视频（自然排序，无损 -c copy）..."
+  if [[ "$file_count" -eq 1 ]]; then
+    echo "仅 1 个裁剪视频，规范化后输出合并结果"
+    normalize_segment_for_merge "${files[0]}" "$merge_output"
+    assert_output_has_audible_track "$merge_output" "$source_has_audio"
+    return
+  fi
+  local norm_dir
+  norm_dir="$(mktemp -d -t trim_video_norm.XXXXXX)"
+  local normalized_files=()
   local index=0
+  echo "开始合并 ${file_count} 个视频（先统一编码，再 filter 拼接）..."
   for file_path in "${files[@]}"; do
     index=$((index + 1))
-    echo "  [$index/$file_count] $(basename "$file_path")"
+    local norm_path="${norm_dir}/seg_$(printf '%03d' "$index").mp4"
+    echo "  [$index/$file_count] 规范化 $(basename "$file_path")"
+    normalize_segment_for_merge "$file_path" "$norm_path"
+    has_audio_stream "$norm_path" || die "规范化后仍无音轨: $norm_path"
+    has_video_stream "$norm_path" || die "规范化后仍无视频流: $norm_path"
+    normalized_files+=("$norm_path")
   done
-  if ffmpeg -y -hide_banner -loglevel error \
-    -f concat -safe 0 \
-    -i "$list_file" \
-    -c copy \
-    -movflags +faststart \
-    "$merge_output"; then
-    rm -f "$list_file"
-    return
+  if ! merge_normalized_with_filter "$merge_output" "${normalized_files[@]}"; then
+    rm -rf "$norm_dir"
+    die "视频合并失败"
   fi
-  echo "无损合并失败，改用重编码合并..."
-  if ffmpeg -y -hide_banner -loglevel error \
-    -f concat -safe 0 \
-    -i "$list_file" \
-    -c:v libx264 -preset veryfast -crf 18 \
-    -c:a aac -b:a 192k \
-    -movflags +faststart \
-    "$merge_output"; then
-    rm -f "$list_file"
-    return
-  fi
-  rm -f "$list_file"
-  die "视频合并失败"
+  rm -rf "$norm_dir"
+  assert_output_has_audible_track "$merge_output" "$source_has_audio"
+  echo "合并音画校验通过"
 }
 
 # 支持「文件夹在前」或「选项在前」两种写法
@@ -264,8 +429,8 @@ done < <(
 total_count="${#video_files[@]}"
 [[ "$total_count" -gt 0 ]] || die "视频文件夹中没有找到视频文件: $INPUT_DIR"
 
-encode_mode="无损流复制 (-c copy)"
-[[ "$REENCODE" -eq 1 ]] && encode_mode="重编码 (有损，更精确)"
+encode_mode="裁切无损流复制 (-c copy)，合并重编码"
+[[ "$REENCODE" -eq 1 ]] && encode_mode="裁切与合并均重编码 (更精确)"
 
 echo "视频目录: $INPUT_DIR"
 echo "输出目录: $OUTPUT_DIR"
@@ -334,6 +499,10 @@ for index in "${!video_files[@]}"; do
   fi
   echo "  保留区间: ${start_seconds}s -> ${end_seconds}s（约 ${keep_duration}s）"
   if [[ "$REENCODE" -eq 1 ]]; then
+    trim_video_reencode "$input_path" "$output_path" "$start_seconds" "$end_seconds"
+  elif ! has_audio_stream "$input_path"; then
+    echo "  提示: 无音轨，改用重编码并补静音"
+    output_path="${OUTPUT_DIR}/${file_name%.*}_trimmed.mp4"
     trim_video_reencode "$input_path" "$output_path" "$start_seconds" "$end_seconds"
   else
     trim_video_copy "$input_path" "$output_path" "$start_seconds" "$keep_duration"
