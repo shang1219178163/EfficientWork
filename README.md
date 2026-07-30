@@ -1369,6 +1369,8 @@ https://function12.io/
 
 https://juejin.cn/spost/7307501392788471844
 
+[JSON to Dart Model 网页版](https://shang1219178163.github.io/web_tool/#/file/json)
+
 ## 第二十六篇章：LocalSend
 将文件分享到附近的设备。免费、开源、跨平台。可通过此app实现 mac 到安卓手机的apk 安装传输，不用等待上传下载的时间，真好。
 
@@ -1416,8 +1418,11 @@ https://github.com/dhruvanbhalara/flutter_agent_lens)
 
 flutter_agent_lens depends on dart_mcp >=0.1.0 which requires SDK version >=3.7.0 <4.0.0
 
-## 第三十五篇章：分析项目架构，用 archify 生成架构图。
+## 第三十五篇章：分析项目架构
+![archify](https://github.com/tt-a1i/archify/raw/main/docs/assets/archify-readme-hero.png)
+[archify](https://github.com/tt-a1i/archify)
 
-https://tt-a1i.github.io/archify/
+![Understand-Anything](https://github.com/Egonex-AI/Understand-Anything/raw/main/assets/hero.png)
+[Understand-Anything](https://github.com/Egonex-AI/Understand-Anything)
 
 ## 第三十六篇章：待续。。。
