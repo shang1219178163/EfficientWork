@@ -1373,8 +1373,7 @@ https://juejin.cn/spost/7307501392788471844
 
 ## 第二十六篇章：LocalSend
 将文件分享到附近的设备。免费、开源、跨平台。可通过此app实现 mac 到安卓手机的apk 安装传输，不用等待上传下载的时间，真好。
-
-![localsend](https://localsend.org/_nuxt/logo-512.aU8Z13Dx.png)
+![localsend](https://web.localsend.org/apple-touch-icon.png)
 
 https://localsend.org/zh-CN/download
 
