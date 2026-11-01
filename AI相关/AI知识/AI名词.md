@@ -2,7 +2,7 @@
 
 Agent 就是能干活的全能AI员工。
 Openclaw 就是住在你电脑里面的AI管家。
-Skills 就是 Agent 的功能秘籍。
+Skills 就是 Agent 的功能秘籍，结构化提示词文档。
 MCP 就是 AI 连接工具的万能接口。
 抽卡 就是 AI 生成内容的随机盲盒体验。
 API 就是连接万物的万能插座。
