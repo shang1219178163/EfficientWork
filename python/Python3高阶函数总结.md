@@ -132,7 +132,6 @@
         
 ### 2.函数作为返回值（闭包）
 
-
     def make_multiplier(factor):
         """创建乘法函数"""
         def multiplier(x):

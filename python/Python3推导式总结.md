@@ -305,6 +305,17 @@ matrix = [[0 for _ in range(cols)] for _ in range(rows)]
 sum(n * n for n in range(1, 100001))
 ```
 
+# 14.数组过滤方法补充
+
+# 1. 获取第一个符合条件的元素
+item = next((x for x in items if x.id == 2), None)
+
+# 2. 获取第一个符合条件的索引
+index = next((i for i, x in enumerate(items) if x.id == 2), -1)
+
+# 3. 获取所有符合条件的元素
+items = [x for x in items if x.id == 2]
+
 ---
 
 **核心记忆：**
